@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Queri — KitStart Blueprint</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0F1923;
+    --ink-light: #3D4F5C;
+    --ink-muted: #7A8D99;
+    --page: #F8FAFB;
+    --card: #FFFFFF;
+    --border: #E2EAF0;
+
+    /* Queri brand */
+    --primary: #1A6BFF;       /* Signal Blue — smart, fast, trustworthy */
+    --primary-light: #E8F0FF;
+    --primary-mid: #5B93FF;
+    --accent: #00C896;        /* Verified Emerald — answer confirmed */
+    --accent-light: #E0FBF4;
+    --accent-mid: #00A87D;
+    --amber: #FF8C00;         /* Pending / in-progress */
+    --amber-light: #FFF3E0;
+    --coral: #FF4060;         /* Alert */
+    --coral-light: #FFE8EC;
+    --muted-bg: #F0F4F8;
+
+    --radius: 10px;
+    --radius-sm: 6px;
+    --radius-lg: 16px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--page);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    background: var(--ink);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(26,107,255,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,200,150,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover-top { position: relative; z-index: 1; }
+  .cover-series {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 60px;
+  }
+  .cover-logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 72px;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .cover-logo span { color: var(--primary-mid); }
+  .cover-tagline {
+    font-size: 20px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
+    max-width: 600px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+  }
+  .cover-hook {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    max-width: 680px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .cover-meta-item { font-size: 13px; color: rgba(255,255,255,0.5); }
+  .cover-meta-item strong { color: white; display: block; font-size: 14px; }
+  .cover-stats {
+    display: flex;
+    gap: 40px;
+    margin: 48px 0;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .cover-stat-val {
+    font-family: 'Outfit', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+  }
+  .cover-stat-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+  /* ── PIPELINE DIAGRAM ── */
+  .pipeline {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin: 32px 0;
+    position: relative;
+    z-index: 1;
+  }
+  .pipeline-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 20px;
+  }
+  .pipeline-steps {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .pipeline-step {
+    background: rgba(26,107,255,0.15);
+    border: 1px solid rgba(26,107,255,0.3);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    flex: 1;
+    min-width: 100px;
+  }
+  .pipeline-step .step-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--primary-mid);
+    margin-bottom: 4px;
+  }
+  .pipeline-arrow {
+    color: rgba(255,255,255,0.2);
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 60px;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 48px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 72px; }
+
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--primary);
+    letter-spacing: .06em;
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+  .section-sub {
+    font-size: 14px;
+    color: var(--ink-muted);
+    margin-bottom: 28px;
+  }
+
+  h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin-bottom: 14px; color: var(--ink-light); line-height: 1.75; }
+
+  /* ── TOC ── */
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .toc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--card);
+  }
+  .toc-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--primary);
+    font-weight: 500;
+    flex-shrink: 0;
+    width: 28px;
+  }
+  .toc-label { font-size: 13px; font-weight: 500; color: var(--ink); line-height: 1.3; }
+  .toc-desc { font-size: 11px; color: var(--ink-muted); margin-top: 2px; }
+
+  /* ── STAT CARDS ── */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin: 24px 0;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 12px;
+    text-align: center;
+  }
+  .stat-card .val {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-card .label {
+    font-size: 10px;
+    color: var(--ink-muted);
+    line-height: 1.3;
+  }
+
+  /* ── TABLES ── */
+  .table-wrap { overflow-x: auto; margin: 20px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th {
+    background: var(--muted-bg);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--ink-muted);
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--ink-light);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr.highlight { background: var(--primary-light); }
+  tr.highlight td { color: var(--ink); font-weight: 500; }
+  .pip { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; font-size: 11px; font-weight: 700; }
+  .pip-g { background: var(--accent-light); color: var(--accent-mid); }
+  .pip-r { background: var(--coral-light); color: var(--coral); }
+  .pip-y { background: var(--amber-light); color: var(--amber); }
+
+  /* ── TAGS / BADGES ── */
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin: 2px 3px 2px 0;
+  }
+  .tag-blue { background: var(--primary-light); color: var(--primary); }
+  .tag-green { background: var(--accent-light); color: var(--accent-mid); }
+  .tag-amber { background: var(--amber-light); color: var(--amber); }
+  .tag-coral { background: var(--coral-light); color: var(--coral); }
+
+  /* ── VERIFIED BADGE ── */
+  .verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-light);
+    border: 1px solid rgba(0,200,150,0.3);
+    border-radius: 20px;
+    padding: 4px 12px 4px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-mid);
+  }
+  .verified-badge .check {
+    width: 18px; height: 18px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── FEATURE TABLE ── */
+  .feature-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0; }
+  .feature-table th {
+    background: var(--ink);
+    color: white;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+  }
+  .feature-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .feature-table tr:last-child td { border-bottom: none; }
+  .pri-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .p0 { background: var(--coral-light); color: var(--coral); }
+  .p1 { background: var(--amber-light); color: var(--amber); }
+  .p2 { background: var(--muted-bg); color: var(--ink-muted); }
+
+  /* ── FLOW STEPS ── */
+  .flow-steps { margin: 20px 0; }
+  .flow-step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+  .flow-step-num {
+    width: 28px; height: 28px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .flow-step-content h4 { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+  .flow-step-content p { font-size: 13px; color: var(--ink-light); margin: 0; }
+
+  /* ── ARROW BULLETS ── */
+  .arrow-list { list-style: none; margin: 12px 0; }
+  .arrow-list li {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.6;
+  }
+  .arrow-list li::before {
+    content: '→';
+    color: var(--primary);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── PRICING TABLE ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .plan-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 16px;
+  }
+  .plan-card.featured {
+    border-color: var(--primary);
+    border-width: 2px;
+  }
+  .plan-name { font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .plan-price { font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 800; color: var(--primary); line-height: 1; }
+  .plan-price span { font-size: 13px; font-weight: 400; color: var(--ink-muted); }
+  .plan-feature { font-size: 12px; color: var(--ink-muted); margin-top: 4px; }
+
+  /* ── CODE BLOCK ── */
+  .code-block {
+    background: var(--ink);
+    color: #A8D8A8;
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    line-height: 1.8;
+    margin: 16px 0;
+    overflow-x: auto;
+  }
+  .code-block .comment { color: #5A7A6A; }
+  .code-block .key { color: #88BBFF; }
+  .code-block .string { color: #FFD580; }
+  .code-block .num { color: #FF8A80; }
+
+  /* ── COMPETITOR TABLE ── */
+  .comp-label { font-size: 12px; color: var(--ink-muted); }
+
+  /* ── MRR CHART (pure CSS bars) ── */
+  .mrr-chart { margin: 20px 0; }
+  .mrr-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .mrr-month { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-muted); width: 28px; flex-shrink: 0; }
+  .mrr-bar-track { flex: 1; height: 20px; background: var(--muted-bg); border-radius: 4px; overflow: hidden; }
+  .mrr-bar { height: 100%; background: linear-gradient(90deg, var(--primary) 0%, var(--primary-mid) 100%); border-radius: 4px; }
+  .mrr-val { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-light); width: 70px; text-align: right; flex-shrink: 0; }
+
+  /* ── PERSONA CARDS ── */
+  .persona-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 20px 0; }
+  .persona-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+  }
+  .persona-role { font-size: 12px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+  .persona-name { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+  .persona-detail { font-size: 12px; color: var(--ink-muted); line-height: 1.6; }
+
+  /* ── DESIGN SYSTEM ── */
+  .color-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin: 20px 0; }
+  .color-swatch { border-radius: var(--radius-sm); overflow: hidden; }
+  .swatch-block { height: 48px; }
+  .swatch-label { font-size: 10px; font-family: 'DM Mono', monospace; color: var(--ink-muted); margin-top: 6px; }
+  .swatch-hex { font-size: 9px; color: var(--ink-muted); }
+
+  .type-row { display: flex; align-items: baseline; gap: 20px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .type-name { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--ink-muted); width: 120px; flex-shrink: 0; }
+  .type-spec { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--ink-muted); width: 140px; flex-shrink: 0; }
+  .type-sample { flex: 1; }
+
+  /* ── LAUNCH CHECKLIST ── */
+  .checklist { list-style: none; margin: 12px 0; }
+  .checklist li {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink-light);
+    align-items: flex-start;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box {
+    width: 16px; height: 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── DIVIDER ── */
+  hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+  /* ── FUNNEL ── */
+  .funnel-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .funnel-step-label { font-size: 12px; color: var(--ink-light); width: 200px; flex-shrink: 0; }
+  .funnel-bar-track { flex: 1; height: 24px; background: var(--muted-bg); border-radius: 4px; overflow: hidden; display: flex; align-items: center; }
+  .funnel-bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 10px; }
+  .funnel-pct { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--ink-muted); width: 50px; text-align: right; }
+
+  /* ── EMAIL SEQUENCE ── */
+  .email-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+  .email-subject {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .email-day {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 2px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .email-body { font-size: 12px; color: var(--ink-muted); line-height: 1.7; }
+
+  /* ── AB TEST ── */
+  .ab-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 10px;
+  }
+  .ab-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+  .ab-row { display: grid; grid-template-columns: 80px 1fr 1fr 80px; gap: 8px; align-items: center; font-size: 12px; }
+  .ab-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink-muted); }
+  .ab-a { background: var(--muted-bg); border-radius: var(--radius-sm); padding: 8px 10px; color: var(--ink-light); }
+  .ab-b { background: var(--primary-light); border-radius: var(--radius-sm); padding: 8px 10px; color: var(--ink); font-weight: 500; }
+  .ab-lift { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent-mid); font-weight: 500; text-align: right; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 48px 60px;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 80px;
+  }
+  .footer strong { color: white; }
+
+  /* ── GRID HELPERS ── */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 3px solid var(--primary);
+    background: var(--primary-light);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  @media print {
+    .cover { min-height: 100vh; }
+    .section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══════════════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-top">
+    <p class="cover-series">KitStart Blueprint Series · Queri · Confidential</p>
+
+    <div class="cover-logo">QU<span>ER</span>I</div>
+    <p class="cover-tagline">Contextual AI Answer Engine for B2B SaaS Products</p>
+
+    <div class="cover-hook">
+      Connect your docs, your Stripe, and your app data. Queri understands who your user is,
+      what plan they're on, and what they're trying to do — then gives a precise, contextual answer
+      in under 2 seconds. No support ticket. No Ctrl+F. No wrong answer from a chatbot that
+      doesn't know their account.
+    </div>
+
+    <div class="cover-stats">
+      <div>
+        <div class="cover-stat-val">$299</div>
+        <div class="cover-stat-label">Kit Price</div>
+      </div>
+      <div>
+        <div class="cover-stat-val">AI / Search</div>
+        <div class="cover-stat-label">Category</div>
+      </div>
+      <div>
+        <div class="cover-stat-val">B2B SaaS</div>
+        <div class="cover-stat-label">Target · 10–200 Employees</div>
+      </div>
+    </div>
+
+    <div class="pipeline">
+      <div class="pipeline-title">Queri — Contextual Answer Generation Pipeline</div>
+      <div class="pipeline-steps">
+        <div class="pipeline-step">
+          <div class="step-num">01</div>
+          Connect Docs + Stripe + App Data
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-num">02</div>
+          Queri Reads User Context
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-num">03</div>
+          AI Generates Precise Answer
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-num">04</div>
+          Answered ✓ in &lt;2s
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-num">05</div>
+          Gap Report &amp; Analytics
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item"><strong>22 Sections</strong> Market-Researched</div>
+    <div class="cover-meta-item"><strong>Ready to Build</strong> Full Stack Prompts</div>
+    <div class="cover-meta-item"><strong>67% of support tickets</strong> are questions that Queri answers automatically</div>
+  </div>
+</div>
+
+<!-- ══ INTERIOR PAGES ══════════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="page-header">
+    <span>KitStart Blueprint Series · Queri · Confidential</span>
+    <span>queri.io</span>
+  </div>
+
+  <!-- ── TOC ── -->
+  <div class="section">
+    <div class="section-num">TABLE OF CONTENTS</div>
+    <div class="section-title">22 Sections</div>
+    <div class="toc-grid">
+      <div class="toc-item"><span class="toc-num">01</span><div><div class="toc-label">Opportunity Brief</div><div class="toc-desc">Market size, the answer gap, timing signals</div></div></div>
+      <div class="toc-item"><span class="toc-num">02</span><div><div class="toc-label">Product Spec</div><div class="toc-desc">Core features, context engine, output formats</div></div></div>
+      <div class="toc-item"><span class="toc-num">03</span><div><div class="toc-label">Target Markets & Segments</div><div class="toc-desc">Industries, geographies, buyer personas</div></div></div>
+      <div class="toc-item"><span class="toc-num">04</span><div><div class="toc-label">Tech Stack</div><div class="toc-desc">Architecture, RAG pipeline, live data integrations</div></div></div>
+      <div class="toc-item"><span class="toc-num">05</span><div><div class="toc-label">Competitor Map</div><div class="toc-desc">Full competitive analysis and positioning</div></div></div>
+      <div class="toc-item"><span class="toc-num">06</span><div><div class="toc-label">Revenue Model</div><div class="toc-desc">Pricing tiers, usage-based overage, 12-month MRR</div></div></div>
+      <div class="toc-item"><span class="toc-num">07</span><div><div class="toc-label">First 50 Customers</div><div class="toc-desc">ICP profiles, 30-60-90 day acquisition plan</div></div></div>
+      <div class="toc-item"><span class="toc-num">08</span><div><div class="toc-label">Conversion Funnels</div><div class="toc-desc">PLG, agency, and time-savings ROI chart</div></div></div>
+      <div class="toc-item"><span class="toc-num">09</span><div><div class="toc-label">Code Prompts</div><div class="toc-desc">8 AI build prompts for full stack</div></div></div>
+      <div class="toc-item"><span class="toc-num">10</span><div><div class="toc-label">Design System</div><div class="toc-desc">Brand colors, typography, component guide</div></div></div>
+      <div class="toc-item"><span class="toc-num">11</span><div><div class="toc-label">UI Kit</div><div class="toc-desc">React + Tailwind dashboard components</div></div></div>
+      <div class="toc-item"><span class="toc-num">12</span><div><div class="toc-label">Prompt Pack</div><div class="toc-desc">Answer generation prompts by use case</div></div></div>
+      <div class="toc-item"><span class="toc-num">13</span><div><div class="toc-label">API Schema</div><div class="toc-desc">REST endpoints for Queri platform</div></div></div>
+      <div class="toc-item"><span class="toc-num">14</span><div><div class="toc-label">Database Schema</div><div class="toc-desc">PostgreSQL + Supabase RLS</div></div></div>
+      <div class="toc-item"><span class="toc-num">15</span><div><div class="toc-label">Landing Page Copy</div><div class="toc-desc">Hero, pain, solution, pricing, CTA</div></div></div>
+      <div class="toc-item"><span class="toc-num">16</span><div><div class="toc-label">Waitlist Funnel</div><div class="toc-desc">5-email sequence targeting B2B SaaS founders</div></div></div>
+      <div class="toc-item"><span class="toc-num">17</span><div><div class="toc-label">Branding Kit</div><div class="toc-desc">Name rationale, logo spec, voice guide</div></div></div>
+      <div class="toc-item"><span class="toc-num">18</span><div><div class="toc-label">Launch Checklist</div><div class="toc-desc">Pre-launch and go-live steps</div></div></div>
+      <div class="toc-item"><span class="toc-num">19</span><div><div class="toc-label">Privacy & Data Agreement</div><div class="toc-desc">DPA, GDPR/CCPA compliant templates</div></div></div>
+      <div class="toc-item"><span class="toc-num">20</span><div><div class="toc-label">A/B Test Scenarios</div><div class="toc-desc">12 growth tests with PostHog Feature Flags</div></div></div>
+      <div class="toc-item"><span class="toc-num">21</span><div><div class="toc-label">Tech Stack Cost Model</div><div class="toc-desc">MVP → Growth → Scale infra costs</div></div></div>
+      <div class="toc-item"><span class="toc-num">22</span><div><div class="toc-label">SEO & Content Strategy</div><div class="toc-desc">Keyword map, programmatic SEO, 12-month calendar</div></div></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 01 OPPORTUNITY BRIEF ── -->
+  <div class="section">
+    <div class="section-num">01</div>
+    <div class="section-title">Opportunity Brief</div>
+    <div class="section-sub">Why Queri, Why Now?</div>
+
+    <p>Every B2B SaaS product has the same invisible problem: users are constantly asking questions that the product itself could answer — but doesn't. "What plan am I on?" "Why can't I see this table?" "How do I set up an integration?" "Have I hit my limit?" Instead of getting an instant, contextual answer, users open a support ticket, search a docs site that doesn't know who they are, or give up entirely. The result: unnecessary churn, overwhelmed support teams, and a user experience that feels abandoned.</p>
+
+    <p>Queri closes this gap by combining RAG over your documentation with live user context from Stripe, your database, and your CRM — generating answers that are not just accurate about your product, but accurate about <em>that specific user</em>. It's the difference between "here's how billing works" and "you're on the Growth plan, you've used 80% of your query limit, and your next renewal is in 11 days."</p>
+
+    <div class="stat-row">
+      <div class="stat-card"><div class="val">67%</div><div class="label">Support tickets are questions AI can answer</div></div>
+      <div class="stat-card"><div class="val">$1k+</div><div class="label">Cheapest competitor (Kapa.ai) per month</div></div>
+      <div class="stat-card"><div class="val">2s</div><div class="label">Queri average answer time vs 6hr ticket avg</div></div>
+      <div class="stat-card"><div class="val">0</div><div class="label">Competitors with live Stripe + app context</div></div>
+      <div class="stat-card"><div class="val">58%</div><div class="label">SaaS users try to self-serve before ticketing</div></div>
+      <div class="stat-card"><div class="val">$49</div><div class="label">Queri starts at — vs $0 for doing nothing</div></div>
+    </div>
+
+    <h3>The Context Gap No One Has Filled</h3>
+    <p>Algolia Ask AI, Kapa.ai, Inkeep, and Mendable all solve the same problem: searching static documentation. They index your docs, apply RAG, and return a sourced answer. This is genuinely useful — but it covers only half the question surface area in a B2B SaaS product.</p>
+
+    <p>The other half of questions are <strong>context-dependent</strong>: they require knowing who the user is, what they've done, what they're entitled to, and what their current state is. No existing product connects these two layers. Queri does.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Algolia Ask AI</th>
+            <th>Kapa.ai</th>
+            <th>Intercom Fin</th>
+            <th>Queri — The Gap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Static docs search with AI answer layer. No user context. $250+/mo.</td>
+            <td>Developer-tool docs only. Enterprise pricing $1k+. Not for non-technical SaaS.</td>
+            <td>Support-channel bot. Doesn't know app state. $100+/seat.</td>
+            <td>Docs RAG + live Stripe plan + app state + CRM context → contextual answer → Answered ✓. One product for non-technical B2B SaaS.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Market Signals & Validation</h3>
+    <ul class="arrow-list">
+      <li>Kapa.ai raised $12M Series A targeting developer-tool companies — proving demand at enterprise tier, but leaving SMB SaaS ($49–299/mo) completely unserved</li>
+      <li>Algolia's Ask AI feature requires a $250+/mo plan and only indexes static content — no live data, no user context, no Stripe</li>
+      <li>67% of support tickets across B2B SaaS are questions that could be answered automatically from existing product data (Intercom 2025 report)</li>
+      <li>AI Mode in Google, Perplexity-style answer UX, and ChatGPT plugins have normalized "ask a question, get a direct answer" — users now expect this inside the products they pay for</li>
+      <li>The $0–$299/mo contextual AI answer market is completely unserved — no product combines docs RAG + live Stripe context at SMB pricing</li>
+      <li>Inkeep and Mendable serve technical developer tools only — non-technical B2B SaaS (HR, finance, project management, CRM) has no solution</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- ── 02 PRODUCT SPEC ── -->
+  <div class="section">
+    <div class="section-num">02</div>
+    <div class="section-title">Product Spec</div>
+    <div class="section-sub">Queri: Product Definition</div>
+
+    <div class="callout">
+      <strong>One-Sentence Value Prop:</strong> "Embed Queri in your SaaS — it reads your docs, your Stripe data, and your user's current context, then gives them a precise answer in under 2 seconds. No ticket. No search. No wrong answer."
+    </div>
+
+    <div class="table-wrap">
+      <table class="feature-table">
+        <thead>
+          <tr>
+            <th width="40">Pri</th>
+            <th width="180">Feature</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="pri-badge p0">P0</span></td>
+            <td><strong>Docs Ingestion Engine</strong></td>
+            <td>URL crawler + sitemap parser indexes all product docs, help center, changelog, and blog. Chunks, embeds, and stores in pgvector. Re-indexes on schedule or webhook trigger. Supports Notion, GitBook, Intercom Articles, Zendesk.</td>
+          </tr>
+          <tr>
+            <td><span class="pri-badge p0">P0</span></td>
+            <td><strong>Live Context Layer</strong></td>
+            <td>Per-user context injected at query time: Stripe plan + usage limits + renewal date, app-specific data via REST hook (current usage, feature flags, permissions), HubSpot/Salesforce deal status. Makes every answer specific to that user.</td>
+          </tr>
+          <tr>
+            <td><span class="pri-badge p0">P0</span></td>
+            <td><strong>Contextual Answer Engine</strong></td>
+            <td>Claude API (Sonnet): docs RAG + user context → precise answer. Cites source. Knows the difference between "how does billing work" (docs answer) and "am I about to hit my limit" (context answer). Refuses to hallucinate — falls back gracefully.</td>
+          </tr>
+          <tr>
+            <td><span class="pri-badge p0">P0</span></td>
+            <td><strong>Embeddable Widget</strong></td>
+            <td>Single &lt;script&gt; tag. Renders a floating "Ask Queri" button or inline search bar. Passes authenticated user ID to context layer. Mobile-responsive, zero framework dependency, shadow DOM for style isolation.</td>
+          </tr>
+          <tr>
+            <td><span class="pri-badge p0">P0</span></td>
+            <td><strong>Answered ✓ Badge System</strong></td>
+            <td>Questions resolved without a human are marked Answered ✓ in the analytics dashboard. Deflection rate = primary success metric. Shown to SaaS owner as "67 tickets saved this month."</td>
+          </tr>
+          <tr>
+            <td><span class="pri-badge p1">P1</span></td>
+            <td><strong>Template Library</strong></td>
+            <td>Pre-built Queri configurations by SaaS category: billing assistant, onboarding guide, feature explainer, pricing comparison, integration helper. One-click deploy. Customisable via "mad-libs" UI (seen in the design mockup).</td>
+          </tr>
+          <tr>
+            <td><span class="pri-badge p1">P1</span></td>
+            <td><strong>Docs Gap Report</strong></td>
+            <td>Monthly automated report: questions Queri couldn't answer confidently. Ranked by frequency. "These 8 questions had no good answer in your docs — here are suggested articles to write." Sticky retention feature.</td>
+          </tr>
+          <tr>
+            <td><span class="pri-badge p1">P1</span></td>
+            <td><strong>Conversation Analytics</strong></td>
+            <td>Dashboard: total questions, deflection rate, top question categories, unanswered rate, user satisfaction signal (thumbs up/down). Filterable by date, user segment, plan tier.</td>
+          </tr>
+          <tr>
+            <td><span class="pri-badge p2">P2</span></td>
+            <td><strong>Upgrade Nudge Engine</strong></td>
+            <td>When context layer shows user hitting a plan limit, Queri's answer includes a contextual upgrade CTA. "You've used 90% of your 100 query limit. Growth plan is unlimited — upgrade here." Conversion event tracked.</td>
+          </tr>
+          <tr>
+            <td><span class="pri-badge p2">P2</span></td>
+            <td><strong>White-Label (Agency Mode)</strong></td>
+            <td>Agency manages multiple client SaaS products. Each client has own widget branding, docs index, context config, and analytics. Single billing, separate workspaces. Widget shows client's brand, not Queri's.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>End-to-End Answer Generation Flow</h3>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-step-num">1</div>
+        <div class="flow-step-content">
+          <h4>User Asks a Question</h4>
+          <p>User types in the Queri widget inside the SaaS product. Widget passes question + authenticated user ID to Queri API.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">2</div>
+        <div class="flow-step-content">
+          <h4>Context Assembled</h4>
+          <p>Queri fetches live user context: Stripe plan, usage limits, renewal date, feature flags. Assembled in &lt;100ms via cached context hook.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">3</div>
+        <div class="flow-step-content">
+          <h4>Docs Retrieved (RAG)</h4>
+          <p>Question embedded → pgvector similarity search → top 5 relevant chunks retrieved from indexed docs.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">4</div>
+        <div class="flow-step-content">
+          <h4>Claude Generates Contextual Answer</h4>
+          <p>Docs chunks + user context → Claude Sonnet → precise answer citing both docs and live account data. Hallucination guardrails active.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">5</div>
+        <div class="flow-step-content">
+          <h4>Answered ✓ — Analytics Logged</h4>
+          <p>Answer delivered in &lt;2s. Satisfaction signal captured. Question + answer logged for Gap Report. Deflection counter incremented.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 03 TARGET MARKETS ── -->
+  <div class="section">
+    <div class="section-num">03</div>
+    <div class="section-title">Target Markets & Segments</div>
+    <div class="section-sub">Who buys Queri and why</div>
+
+    <p>Queri's primary buyer is whoever feels the pain of support volume: the Head of Product, VP of Customer Success, or founder who is watching support tickets pile up and knows the answers to most of them already exist somewhere in their product data. The trigger moment for purchase is a Zendesk bill arriving, or a customer churning because they "couldn't figure out how to do X."</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Segment</th><th>Demand</th><th>Monthly Revenue</th><th>Key Geographies</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>B2B SaaS — Non-Technical (10–200 employees)</strong><br><span class="comp-label">HR, finance, project management, marketing tools</span></td>
+            <td><span class="tag tag-blue">Primary</span></td>
+            <td>$49–99/mo</td>
+            <td>USA, UK, Canada, Germany, Australia</td>
+          </tr>
+          <tr>
+            <td><strong>Developer Tools (10–200 employees)</strong><br><span class="comp-label">Kapa.ai exists but $1k+. Queri is the SMB alternative</span></td>
+            <td><span class="tag tag-green">High</span></td>
+            <td>$99–199/mo</td>
+            <td>USA, Netherlands, Israel, Germany</td>
+          </tr>
+          <tr>
+            <td><strong>Content & GTM Agencies</strong><br><span class="comp-label">Manage 5–20 SaaS clients, white-label value</span></td>
+            <td><span class="tag tag-green">High</span></td>
+            <td>$299/mo (Agency)</td>
+            <td>USA, UK, Australia, Canada</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Buyer Persona Profiles</h3>
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="persona-role">Primary Buyer</div>
+        <div class="persona-name">Head of Product / VP CS</div>
+        <div class="persona-detail">Age 30–42. Watching support ticket volume grow faster than team. Knows 60% of tickets are the same 20 questions. Budget: $50–200/mo easy. Decision: 1–2 weeks. Discovery: LinkedIn, Product Hunt, SaaS Slack groups. Key message: "Cut your support volume by 40% this month."</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-role">Founder / CEO</div>
+        <div class="persona-name">Smaller SaaS Founder</div>
+        <div class="persona-detail">Age 25–40. Personally answering support emails at 11pm. No support team. Every ticket is personal time. Budget: up to $99/mo without hesitation. Discovery: Indie Hackers, Twitter/X, YC communities. Key message: "Stop answering the same questions. Queri handles them."</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-role">Agency</div>
+        <div class="persona-name">GTM / SaaS Agency</div>
+        <div class="persona-detail">Manages 5–20 SaaS clients. Each client needs a smarter help experience. White-label: agency charges $500–2,000 setup. Queri delivers it in 15 minutes. Margin: extreme. Discovery: Agency Slack groups, MicroConf. Key message: "Deploy an AI answer engine for every client in one afternoon."</div>
+      </div>
+    </div>
+
+    <h3>Geographic Priority Matrix</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Region</th><th>SaaS Density</th><th>Stripe Adoption</th><th>Self-serve Culture</th><th>Decision Speed</th><th>Priority</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>USA</td><td>★★★★★</td><td>Very High</td><td>Very High</td><td>Fast</td><td>9.5/10</td></tr>
+          <tr><td>UK / Ireland</td><td>★★★★☆</td><td>High</td><td>High</td><td>Medium-Fast</td><td>8.8/10</td></tr>
+          <tr><td>Canada</td><td>★★★★☆</td><td>High</td><td>High</td><td>Fast</td><td>8.5/10</td></tr>
+          <tr><td>Germany</td><td>★★★★☆</td><td>Medium-High</td><td>Medium</td><td>Medium</td><td>7.5/10</td></tr>
+          <tr><td>Israel</td><td>★★★★☆</td><td>High</td><td>Very High</td><td>Very Fast</td><td>8.0/10</td></tr>
+          <tr><td>Australia / NZ</td><td>★★★☆☆</td><td>High</td><td>High</td><td>Fast</td><td>7.8/10</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 04 TECH STACK ── -->
+  <div class="section">
+    <div class="section-num">04</div>
+    <div class="section-title">Tech Stack</div>
+    <div class="section-sub">Technical Architecture</div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Layer</th><th>Recommended</th><th>Host</th><th>Alternative</th><th>Rationale</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Frontend</td><td>Next.js 14</td><td>Vercel</td><td>Remix</td><td>SSR, great auth, Vercel analytics. Widget compiled separately.</td></tr>
+          <tr><td>Vector Store</td><td>Supabase pgvector</td><td>Supabase Cloud</td><td>Pinecone</td><td>Single DB for both relational + vector. RLS isolates tenant data.</td></tr>
+          <tr><td>Embeddings</td><td>OpenAI text-embedding-3-small</td><td>OpenAI API</td><td>Cohere</td><td>Best cost/quality for semantic search at this scale.</td></tr>
+          <tr><td>Answer Generation</td><td>Claude API (Sonnet)</td><td>Anthropic</td><td>GPT-4o</td><td>Best at following constraints, not hallucinating, citing sources.</td></tr>
+          <tr><td>Docs Crawler</td><td>Crawlee (Node.js)</td><td>Inngest background</td><td>Firecrawl API</td><td>Handles JS-rendered docs sites (Notion, GitBook).</td></tr>
+          <tr><td>Live Context</td><td>Stripe API (direct) + REST hook</td><td>—</td><td>Unified.to</td><td>Per-user context fetched at query time, &lt;100ms cached.</td></tr>
+          <tr><td>Embeddable Widget</td><td>Vanilla JS + Shadow DOM</td><td>Vercel CDN</td><td>—</td><td>Zero framework dep. Works in any SaaS stack.</td></tr>
+          <tr><td>Backend / API</td><td>Next.js API + tRPC</td><td>Vercel</td><td>FastAPI</td><td>Type-safe, unified codebase.</td></tr>
+          <tr><td>Database</td><td>Supabase (PostgreSQL)</td><td>Supabase Cloud</td><td>PlanetScale</td><td>RLS per workspace, vector extension, real-time.</td></tr>
+          <tr><td>Job Queue</td><td>Inngest</td><td>Inngest Cloud</td><td>BullMQ</td><td>Re-index jobs, scheduled crawls, webhook processing.</td></tr>
+          <tr><td>Auth</td><td>Supabase Auth + Google SSO</td><td>Supabase</td><td>Clerk</td><td>Social login + magic link for quick trial start.</td></tr>
+          <tr><td>Payments</td><td>Stripe Billing</td><td>Stripe</td><td>Paddle</td><td>Monthly + usage-based overage for query counts.</td></tr>
+          <tr><td>Analytics</td><td>PostHog</td><td>PostHog Cloud</td><td>Mixpanel</td><td>Product usage + A/B testing for Queri itself.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>RAG + Context Architecture — 3 Layers</h3>
+
+    <p><strong>Layer 1 — Docs Ingestion (Async):</strong> Crawlee fetches all pages from connected docs sources. Each page chunked at 512 tokens with 64-token overlap. OpenAI embeddings generated per chunk. Stored in Supabase pgvector with metadata: source URL, page title, last indexed, tenant ID. Re-indexed on schedule (daily) or on webhook (doc updated).</p>
+
+    <p><strong>Layer 2 — Live Context Assembly (Per-Query, &lt;100ms):</strong> When a widget query arrives with a user ID, Queri fetches from cache (Redis, 5-min TTL): Stripe subscription plan + usage metrics + renewal date, app-specific context via the SaaS owner's configured REST hook (returns JSON: feature flags, current usage counts, permissions), HubSpot/Salesforce open deal or ticket status (optional). Assembled into a structured context block injected into the Claude prompt.</p>
+
+    <p><strong>Layer 3 — Answer Generation (Claude Sonnet):</strong> System prompt defines strict rules: only cite what exists in the retrieved chunks or confirmed context. If unsure, say so. Never invent plan details or feature availability. Format answer in 2–4 sentences max for widget display. Include source link. If context shows user near a limit, include upgrade path contextually.</p>
+
+    <h3>Build Timeline</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Timeline</th><th>Milestone</th></tr></thead>
+        <tbody>
+          <tr><td>Week 1–2</td><td>Docs crawler + Supabase pgvector schema + auth + basic RAG answer endpoint</td></tr>
+          <tr><td>Week 3</td><td>Stripe context layer + per-user context assembly + context-aware answer generation</td></tr>
+          <tr><td>Week 4</td><td>Embeddable widget (vanilla JS + shadow DOM) + widget customisation UI</td></tr>
+          <tr><td>Week 5</td><td>Template library (5 templates) + conversation analytics dashboard + Answered ✓ badge</td></tr>
+          <tr><td>Week 6</td><td>Stripe billing + agency workspace + Docs Gap Report + beta launch</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 05 COMPETITOR MAP ── -->
+  <div class="section">
+    <div class="section-num">05</div>
+    <div class="section-title">Competitor Map</div>
+    <div class="section-sub">Competitive Landscape</div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th><th>Price</th><th>Strength</th><th>Weakness</th>
+            <th>Live Data</th><th>User Context</th><th>SMB Fit</th><th>Non-Tech SaaS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Algolia Ask AI</td><td class="comp-label">$250+/mo</td>
+            <td>Fast search, great DX</td>
+            <td>Static docs only, no user context, no Stripe</td>
+            <td><span class="pip pip-r">✗</span></td><td><span class="pip pip-r">✗</span></td>
+            <td><span class="pip pip-y">~</span></td><td><span class="pip pip-r">✗</span></td>
+          </tr>
+          <tr>
+            <td>Kapa.ai</td><td class="comp-label">$1k+/mo</td>
+            <td>Deep dev-tool integration</td>
+            <td>Enterprise only, developer tools only, no context</td>
+            <td><span class="pip pip-r">✗</span></td><td><span class="pip pip-r">✗</span></td>
+            <td><span class="pip pip-r">✗</span></td><td><span class="pip pip-r">✗</span></td>
+          </tr>
+          <tr>
+            <td>Inkeep</td><td class="comp-label">Enterprise</td>
+            <td>Good RAG for docs</td>
+            <td>Enterprise pricing, technical products only</td>
+            <td><span class="pip pip-r">✗</span></td><td><span class="pip pip-r">✗</span></td>
+            <td><span class="pip pip-r">✗</span></td><td><span class="pip pip-r">✗</span></td>
+          </tr>
+          <tr>
+            <td>Mendable</td><td class="comp-label">$49+/mo</td>
+            <td>Self-serve, good UI</td>
+            <td>Static docs only, no live data, developer-focused</td>
+            <td><span class="pip pip-r">✗</span></td><td><span class="pip pip-r">✗</span></td>
+            <td><span class="pip pip-g">✓</span></td><td><span class="pip pip-r">✗</span></td>
+          </tr>
+          <tr>
+            <td>Intercom Fin</td><td class="comp-label">$100+/seat</td>
+            <td>Support channel native</td>
+            <td>No app state, per-seat pricing, expensive at scale</td>
+            <td><span class="pip pip-r">✗</span></td><td><span class="pip pip-y">~</span></td>
+            <td><span class="pip pip-y">~</span></td><td><span class="pip pip-g">✓</span></td>
+          </tr>
+          <tr>
+            <td>Zendesk AI</td><td class="comp-label">$55+/seat</td>
+            <td>Support workflow integration</td>
+            <td>Ticketing-first, not product-embedded, no live context</td>
+            <td><span class="pip pip-r">✗</span></td><td><span class="pip pip-r">✗</span></td>
+            <td><span class="pip pip-y">~</span></td><td><span class="pip pip-y">~</span></td>
+          </tr>
+          <tr class="highlight">
+            <td>QUERI ✦</td><td class="comp-label">$49–299/mo</td>
+            <td>Docs RAG + live Stripe + user context</td>
+            <td>Our product</td>
+            <td><span class="pip pip-g">✓</span></td><td><span class="pip pip-g">✓</span></td>
+            <td><span class="pip pip-g">✓</span></td><td><span class="pip pip-g">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      Queri's moat is the context layer. Every competitor indexes static content and stops there. Queri injects live user data — plan, limits, usage, permissions — at query time. The same question from two different users gets two different answers. No competitor has built this at SMB pricing because they're all targeting enterprise budgets.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 06 REVENUE MODEL ── -->
+  <div class="section">
+    <div class="section-num">06</div>
+    <div class="section-title">Revenue Model</div>
+    <div class="section-sub">Pricing Tiers & 12-Month MRR Projection</div>
+
+    <div class="pricing-grid">
+      <div class="plan-card">
+        <div class="plan-name">STARTER</div>
+        <div class="plan-price">$49<span>/mo</span></div>
+        <div class="plan-feature">1–3 seats · 500 queries/mo · Docs only · Basic widget · Email support</div>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-name">GROWTH</div>
+        <div class="plan-price">$99<span>/mo</span></div>
+        <div class="plan-feature">Up to 8 seats · 5,000 queries/mo · Stripe context · All templates · Priority</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">SCALE</div>
+        <div class="plan-price">$199<span>/mo</span></div>
+        <div class="plan-feature">Up to 20 seats · Unlimited queries · All integrations · Gap Report · CSM</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">AGENCY</div>
+        <div class="plan-price">$299<span>/mo</span></div>
+        <div class="plan-feature">Unlimited seats · Unlimited queries · Multi-workspace · White-label · Dedicated</div>
+      </div>
+    </div>
+
+    <h3>Additional Revenue Streams</h3>
+    <ul class="arrow-list">
+      <li>Query overage: $0.02/query over plan limit — scales naturally with customer growth</li>
+      <li>Context integration add-on: custom CRM or app context hook setup — $199 one-time</li>
+      <li>Done-for-you onboarding: $299 one-time — Queri team crawls docs + configures context + deploys widget</li>
+      <li>Agency extra workspaces: $25/workspace/mo over base plan</li>
+      <li>Upgrade Nudge Engine: optional add-on for in-answer upgrade CTAs — $49/mo on top of any plan</li>
+      <li>Enterprise: custom pricing for 200+ seat companies with SSO, audit logs, SOC2 compliance</li>
+    </ul>
+
+    <h3>12-Month MRR Projection</h3>
+    <div class="mrr-chart">
+      <div class="mrr-row"><span class="mrr-month">M1</span><div class="mrr-bar-track"><div class="mrr-bar" style="width:0.6%"></div></div><span class="mrr-val">$588</span></div>
+      <div class="mrr-row"><span class="mrr-month">M2</span><div class="mrr-bar-track"><div class="mrr-bar" style="width:2%"></div></div><span class="mrr-val">$1,960</span></div>
+      <div class="mrr-row"><span class="mrr-month">M3</span><div class="mrr-bar-track"><div class="mrr-bar" style="width:5%"></div></div><span class="mrr-val">$4,900</span></div>
+      <div class="mrr-row"><span class="mrr-month">M4</span><div class="mrr-bar-track"><div class="mrr-bar" style="width:10%"></div></div><span class="mrr-val">$9,800</span></div>
+      <div class="mrr-row"><span class="mrr-month">M5</span><div class="mrr-bar-track"><div class="mrr-bar" style="width:16%"></div></div><span class="mrr-val">$15,700</span></div>
+      <div class="mrr-row"><span class="mrr-month">M6</span><div class="mrr-bar-track"><div class="mrr-bar" style="width:24%"></div></div><span class="mrr-val">$23,500</span></div>
+      <div class="mrr-row"><span class="mrr-month">M7</span><div class="mrr-bar-track"><div class="mrr-bar" style="width:33%"></div></div><span class="mrr-val">$32,300</span></div>
+      <div class="mrr-row"><span class="mrr-month">M8</span><div class="mrr-bar-track"><div class="mrr-bar" style="width:43%"></div></div><span class="mrr-val">$42,100</span></div>
+      <div class="mrr-row"><span class="mrr-month">M9</span><div class="mrr-bar-track"><div class="mrr-bar" style="width:54%"></div></div><span class="mrr-val">$52,900</span></div>
+      <div class="mrr-row"><span class="mrr-month">M10</span><div class="mrr-bar-track"><div class="mrr-bar" style="width:65%"></div></div><span class="mrr-val">$63,700</span></div>
+      <div class="mrr-row"><span class="mrr-month">M11</span><div class="mrr-bar-track"><div class="mrr-bar" style="width:78%"></div></div><span class="mrr-val">$76,400</span></div>
+      <div class="mrr-row"><span class="mrr-month">M12</span><div class="mrr-bar-track"><div class="mrr-bar" style="width:100%"></div></div><span class="mrr-val">$98,000</span></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 07 FIRST 50 CUSTOMERS ── -->
+  <div class="section">
+    <div class="section-num">07</div>
+    <div class="section-title">First 50 Customers</div>
+    <div class="section-sub">ICP Profiles & 30-60-90 Day Acquisition Plan</div>
+
+    <h3>Day 1–30: Seed with Founder Outreach</h3>
+    <ul class="arrow-list">
+      <li>LinkedIn search: "Head of Customer Success B2B SaaS" OR "VP Product SaaS" + 10–200 employees — 5,000+ targets</li>
+      <li>Message hook: "Your users are typing questions into your product that you could answer in 2 seconds. Queri does it automatically, with their account context. Want to see?" — specific, outcome-first</li>
+      <li>Product Hunt upcoming page: pre-launch waitlist building</li>
+      <li>Indie Hackers post: "Show IH: Built an AI that answers product questions with live Stripe context" — extremely relevant audience</li>
+      <li>Twitter/X: target "@YCombinator founders who are personally answering support at midnight" — reply to relevant threads</li>
+      <li>Hacker News Ask HN: "How do you handle repetitive support questions in your SaaS?" — surface the pain, introduce product</li>
+      <li>Goal: 20 free beta accounts, 5 paying ($49/mo), $300+ MRR</li>
+    </ul>
+
+    <h3>Day 31–60: Product Hunt + Integration Marketplaces</h3>
+    <ul class="arrow-list">
+      <li>Product Hunt launch: "Queri — Your SaaS users' questions, answered with their account context"</li>
+      <li>Convert 8 of 20 beta to paid with 30-day money-back guarantee</li>
+      <li>Stripe App Marketplace listing — Stripe's 3M+ merchant discovery channel</li>
+      <li>Intercom App Store: "Deflect support with AI that knows your user's plan" — high-intent discovery</li>
+      <li>SEO content: "How to reduce SaaS support tickets", "AI chatbot for SaaS products", "contextual help widget"</li>
+      <li>Goal: 50 free, 20 paid, $2,500+ MRR</li>
+    </ul>
+
+    <h3>Day 61–90: Agency Channel + Partnerships</h3>
+    <ul class="arrow-list">
+      <li>Reach out to 10 B2B SaaS agencies for Agency plan trial — each agency = 5–15 client accounts</li>
+      <li>HubSpot App Marketplace: CRM context integration listing</li>
+      <li>Referral: $20/mo credit per referral that converts to paid</li>
+      <li>Target YC S25 and W26 cohort companies — fast decision, Stripe users, high support volume early</li>
+      <li>Case study: "Queri helped [SaaS] deflect 67% of support tickets in 30 days"</li>
+      <li>Goal: 200 free, 50 paid, $7,500+ MRR, 3 marketplace listings live</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- ── 08 CONVERSION FUNNELS ── -->
+  <div class="section">
+    <div class="section-num">08</div>
+    <div class="section-title">Conversion Funnels</div>
+    <div class="section-sub">Acquisition & Activation — Month 6 Targets</div>
+
+    <h3>Funnel 1: PLG / Inbound</h3>
+    <div class="funnel-row"><span class="funnel-step-label">Website Visitors</span><div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:100%;background:var(--primary);"><span style="font-size:11px;color:white;">8,000 (100%)</span></div></div></div>
+    <div class="funnel-row"><span class="funnel-step-label">Free Signups</span><div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:75%;background:var(--primary);"><span style="font-size:11px;color:white;">600 (7.5%)</span></div></div></div>
+    <div class="funnel-row"><span class="funnel-step-label">Docs Connected (Activated)</span><div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:52%;background:var(--primary);"><span style="font-size:11px;color:white;">420 (5.25%)</span></div></div></div>
+    <div class="funnel-row"><span class="funnel-step-label">Widget Embedded in Product</span><div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:32%;background:var(--primary-mid);"><span style="font-size:11px;color:white;">256 (3.2%)</span></div></div></div>
+    <div class="funnel-row"><span class="funnel-step-label">First Question Answered</span><div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:22%;background:var(--primary-mid);"><span style="font-size:11px;color:white;">176 (2.2%)</span></div></div></div>
+    <div class="funnel-row"><span class="funnel-step-label">Upgraded to Paid</span><div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:8%;background:var(--accent);"><span style="font-size:11px;color:white;">64 (0.8%)</span></div></div></div>
+
+    <h3 style="margin-top:28px;">Time Savings: Manual Support vs Queri</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Step</th><th>Manual Process</th><th>With Queri</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>User asks question</td><td>Opens Zendesk ticket → 6hr wait</td><td>Types in widget → 2 second answer</td></tr>
+          <tr><td>Context lookup</td><td>CS rep checks Stripe + app manually (8 min)</td><td>Queri fetches live context in &lt;100ms</td></tr>
+          <tr><td>Answer drafting</td><td>Rep writes reply (5 min)</td><td>Claude generates contextual answer</td></tr>
+          <tr><td>Cost per ticket</td><td>~$8–15 (CS team time)</td><td>~$0.02 (query cost)</td></tr>
+          <tr><td>Monthly (500 tickets)</td><td>$4,000–7,500/mo CS cost</td><td>$99/mo Queri Growth plan</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 09 CODE PROMPTS ── -->
+  <div class="section">
+    <div class="section-num">09</div>
+    <div class="section-title">Code Prompts</div>
+    <div class="section-sub">8 AI Build Prompts — Copy-Paste for Claude or GPT-4o</div>
+
+    <h3>Prompt 1 — Docs Crawler + Chunking Pipeline (Node.js)</h3>
+    <div class="code-block">
+<span class="comment">// Node.js ile docs crawler ve chunking pipeline yaz.</span>
+<span class="comment">// Input: { url: string, tenant_id: string, reindex: boolean }</span>
+
+<span class="comment">// Step 1: Crawlee ile tüm sayfaları çek</span>
+<span class="comment">// - Sitemap.xml'i parse et, tüm URL'leri listele</span>
+<span class="comment">// - Her sayfayı Crawlee PlaywrightCrawler ile render et (JS docs için)</span>
+<span class="comment">// - HTML → markdown dönüşümü (turndown lib)</span>
+
+<span class="comment">// Step 2: Chunking</span>
+<span class="comment">// - Her sayfa 512 token'lık chunk'lara bölün, 64 token overlap</span>
+<span class="comment">// - Her chunk'a metadata ekle: { source_url, page_title, chunk_index, tenant_id }</span>
+
+<span class="comment">// Step 3: Embedding</span>
+<span class="comment">// - OpenAI text-embedding-3-small ile her chunk embed et</span>
+<span class="comment">// - Supabase'e upsert: docs_chunks tablosuna { id, tenant_id, content, embedding, metadata }</span>
+
+<span class="comment">// Supabase schema:</span>
+<span class="key">CREATE TABLE</span> docs_chunks (
+  id uuid DEFAULT gen_random_uuid(),
+  tenant_id uuid REFERENCES accounts(id),
+  content text,
+  embedding vector(<span class="num">1536</span>),
+  metadata jsonb, <span class="comment">-- source_url, page_title, chunk_index</span>
+  indexed_at timestamptz DEFAULT now()
+);
+<span class="comment">// Inngest background job wrapper. TypeScript.</span>
+    </div>
+
+    <h3>Prompt 2 — Live Context Assembly (Node.js)</h3>
+    <div class="code-block">
+<span class="comment">// Per-user live context assembly servisi yaz.</span>
+<span class="comment">// Input: { user_id: string, tenant_id: string }</span>
+
+<span class="comment">// Context sources:</span>
+<span class="comment">// STRIPE: GET /v1/subscriptions?customer={stripe_customer_id}</span>
+<span class="comment">// → plan name, status, current_period_end, quantity</span>
+<span class="comment">// STRIPE USAGE: GET /v1/billing/meters (if usage-based)</span>
+
+<span class="comment">// APP HOOK: POST to tenant's configured context_hook_url</span>
+<span class="comment">// → { feature_flags, usage_counts, permissions, custom_fields }</span>
+<span class="comment">// Tenant configures this URL in Queri dashboard</span>
+
+<span class="comment">// Output: structured context block</span>
+{
+  <span class="key">plan</span>: <span class="string">"Growth"</span>,
+  <span class="key">query_limit</span>: <span class="num">5000</span>,
+  <span class="key">queries_used</span>: <span class="num">4234</span>,
+  <span class="key">renewal_date</span>: <span class="string">"2026-04-14"</span>,
+  <span class="key">features_enabled</span>: [<span class="string">"tables"</span>, <span class="string">"exports"</span>, <span class="string">"api_access"</span>],
+  <span class="key">custom</span>: { <span class="comment">/* tenant-defined fields */</span> }
+}
+<span class="comment">// Cache in Redis with 5-min TTL. TypeScript.</span>
+    </div>
+
+    <h3>Prompt 3 — Contextual Answer Generation (Claude API)</h3>
+    <div class="code-block">
+<span class="comment">// Queri answer generation servisi yaz.</span>
+<span class="comment">// Input: { question, docs_chunks[], user_context, tenant_config }</span>
+
+<span class="comment">// Claude Sonnet API call:</span>
+System: <span class="string">"You are Queri, an AI answer engine embedded in a SaaS product.
+Rules:
+1. Answer ONLY from the provided docs chunks and user context.
+2. If the answer requires knowing the user's plan or limits, use ONLY the user_context object.
+3. Never invent feature availability. If unsure, say 'I'm not certain — check your account settings.'
+4. Answers must be 2–4 sentences max. Be direct and specific.
+5. Always cite the source URL from the docs chunk used.
+6. If user_context shows they're near a limit, mention it once, naturally.
+7. Do not use 'leverage', 'robust', 'seamless', or 'utilize'."</span>
+
+User: <span class="string">"Question: {question}
+Docs context: {docs_chunks}
+User context: {user_context}"</span>
+
+<span class="comment">// Output: { answer_text, source_url, context_used: bool, confidence: 'high'|'medium'|'low' }</span>
+<span class="comment">// Log to conversations table. TypeScript.</span>
+    </div>
+
+    <h3>Prompt 4 — Embeddable Widget (Vanilla JS)</h3>
+    <div class="code-block">
+<span class="comment">// Vanilla JS embeddable widget yaz.</span>
+<span class="comment">// Usage: &lt;script src="cdn.queri.io/widget.js"</span>
+<span class="comment">//   data-account="abc123"</span>
+<span class="comment">//   data-user-id="{{current_user_id}}"</span>
+<span class="comment">//   data-theme="light"&gt;&lt;/script&gt;</span>
+
+<span class="comment">// Features:</span>
+<span class="comment">// - Shadow DOM for style isolation (no CSS conflicts)</span>
+<span class="comment">// - Floating "Ask Queri" button → expands to chat UI</span>
+<span class="comment">// - Inline mode: data-mode="inline" embeds in page</span>
+<span class="comment">// - Passes data-user-id to context layer per query</span>
+<span class="comment">// - Keyboard shortcut: Cmd/Ctrl+K to open</span>
+<span class="comment">// - Thumbs up/down satisfaction signal → logged</span>
+<span class="comment">// - "Answered ✓" indicator on successful resolution</span>
+<span class="comment">// - GDPR: no cookies, no tracking pixels</span>
+<span class="comment">// TypeScript, compiled to single ES5 bundle, &lt;15kb gzipped.</span>
+    </div>
+
+    <h3>Prompt 5 — Docs Gap Report Generator</h3>
+    <div class="code-block">
+<span class="comment">// Monthly Docs Gap Report generator yaz.</span>
+<span class="comment">// Trigger: Inngest cron job, monthly per tenant</span>
+
+<span class="comment">// Step 1: Query conversations table</span>
+<span class="comment">// WHERE tenant_id = X AND confidence = 'low' AND created_at > 30 days ago</span>
+<span class="comment">// GROUP BY semantic cluster (use embeddings to cluster similar questions)</span>
+
+<span class="comment">// Step 2: Claude API ile rapor yaz</span>
+<span class="comment">// Input: top 20 unanswered question clusters</span>
+<span class="comment">// Output: { gap_title, question_count, suggested_article_title, suggested_outline }</span>
+
+<span class="comment">// Step 3: Email raporu Resend ile gönder</span>
+<span class="comment">// "This month, 234 questions had no confident answer in your docs.</span>
+<span class="comment">// Top gap: 'How do I export data as CSV?' (47 times asked). Suggested article: [outline]"</span>
+
+<span class="comment">// TypeScript, Inngest, Resend SDK.</span>
+    </div>
+
+    <h3>Prompt 6 — Dashboard (Next.js + shadcn/ui)</h3>
+    <div class="code-block">
+<span class="comment">// Next.js 14 + shadcn/ui ile Queri dashboard yaz.</span>
+<span class="comment">// Pages:</span>
+<span class="comment">// /dashboard: KPI row (Total Questions, Deflection Rate, Unanswered Rate,</span>
+<span class="comment">//   Avg Response Time) + recent conversations + top questions chart</span>
+<span class="comment">// /sources: connected docs sources list + crawl status + re-index button</span>
+<span class="comment">// /context: Stripe connection status + app hook config + test context preview</span>
+<span class="comment">// /widget: embed code generator + theme customiser + live preview</span>
+<span class="comment">// /reports: Gap Report history + download PDF + suggested articles list</span>
+<span class="comment">// /settings: team, billing, API keys</span>
+
+<span class="comment">// Design: Signal Blue (#1A6BFF) primary, Answered ✓ emerald badge.</span>
+<span class="comment">// TypeScript, react-query, Tailwind.</span>
+    </div>
+
+    <h3>Prompt 7 — Stripe Billing</h3>
+    <div class="code-block">
+<span class="comment">// Queri billing yaz. Plans:</span>
+<span class="comment">// starter: $49/mo — 500 queries/mo</span>
+<span class="comment">// growth: $99/mo — 5,000 queries/mo + Stripe context</span>
+<span class="comment">// scale: $199/mo — unlimited + all integrations</span>
+<span class="comment">// agency: $299/mo — unlimited + multi-workspace</span>
+
+<span class="comment">// Usage-based overage: $0.02/query over plan limit</span>
+<span class="comment">// → Stripe Billing meters for query counting</span>
+
+<span class="comment">// /api/checkout → Stripe Checkout</span>
+<span class="comment">// /api/webhook → subscription.created/updated → update accounts.plan</span>
+<span class="comment">// /api/portal → Stripe Customer Portal</span>
+<span class="comment">// Query counter: increment on each answer, reset monthly via cron</span>
+<span class="comment">// On limit hit: show upgrade prompt, offer overage consent → $0.02/query</span>
+<span class="comment">// TypeScript.</span>
+    </div>
+
+    <h3>Prompt 8 — Supabase Database Schema</h3>
+    <div class="code-block">
+<span class="comment">-- Queri için Supabase PostgreSQL şeması</span>
+
+<span class="key">accounts</span>: id, name, plan, query_limit_per_month, queries_this_month,
+  stripe_ids jsonb, brand_settings jsonb (widget_color, logo_url, bot_name),
+  context_hook_url text, created_at
+
+<span class="key">docs_sources</span>: id, account_id, name, base_url, sitemap_url,
+  source_type (url|notion|gitbook|intercom_articles),
+  last_crawled, crawl_status (pending|crawling|done|error), chunk_count
+
+<span class="key">docs_chunks</span>: id, account_id, source_id, content text,
+  embedding vector(<span class="num">1536</span>), metadata jsonb (source_url, page_title, chunk_index),
+  indexed_at
+
+<span class="key">stripe_connections</span>: id, account_id, stripe_access_token encrypted,
+  stripe_account_id, connected_at, last_synced
+
+<span class="key">conversations</span>: id, account_id, user_external_id text,
+  question text, answer text, source_url text,
+  context_used bool, confidence (high|medium|low),
+  satisfaction (thumbs_up|thumbs_down|null),
+  answered bool, created_at
+
+<span class="key">gap_reports</span>: id, account_id, period_start, period_end,
+  unanswered_count int, top_gaps jsonb, generated_at, sent_at
+
+<span class="comment">-- RLS: accounts see only their own data</span>
+<span class="comment">-- Index: account_id, user_external_id, confidence, created_at</span>
+<span class="comment">-- pgvector index on docs_chunks.embedding (ivfflat)</span>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 10 DESIGN SYSTEM ── -->
+  <div class="section">
+    <div class="section-num">10</div>
+    <div class="section-title">Design System</div>
+    <div class="section-sub">Signal Blue — Smart, Fast, Trustworthy</div>
+
+    <h3>Color Palette</h3>
+    <div class="color-grid">
+      <div class="color-swatch"><div class="swatch-block" style="background:#F0F6FF;border:1px solid #E2EAF0;"></div><div class="swatch-label">Cool White</div><div class="swatch-hex">#F0F6FF</div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background:#FFFFFF;border:1px solid #E2EAF0;"></div><div class="swatch-label">Surface White</div><div class="swatch-hex">#FFFFFF</div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background:#E8F0FF;"></div><div class="swatch-label">Signal Light</div><div class="swatch-hex">#E8F0FF</div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background:#1A6BFF;"></div><div class="swatch-label">Signal Blue</div><div class="swatch-hex">#1A6BFF</div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background:#00C896;"></div><div class="swatch-label">Answered Emerald</div><div class="swatch-hex">#00C896</div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background:#FF8C00;"></div><div class="swatch-label">Pending Amber</div><div class="swatch-hex">#FF8C00</div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background:#0F1923;"></div><div class="swatch-label">Deep Ink</div><div class="swatch-hex">#0F1923</div></div>
+    </div>
+
+    <h3>Typography</h3>
+    <div class="type-row">
+      <span class="type-name">Display</span>
+      <span class="type-spec">Outfit ExtraBold · 38px</span>
+      <span class="type-sample" style="font-family:Outfit,sans-serif;font-size:28px;font-weight:800;">Queri</span>
+    </div>
+    <div class="type-row">
+      <span class="type-name">H1</span>
+      <span class="type-spec">Outfit Bold · 26px</span>
+      <span class="type-sample" style="font-family:Outfit,sans-serif;font-size:22px;font-weight:700;">Page titles</span>
+    </div>
+    <div class="type-row">
+      <span class="type-name">H2</span>
+      <span class="type-spec">Outfit SemiBold · 18px</span>
+      <span class="type-sample" style="font-family:Outfit,sans-serif;font-size:16px;font-weight:600;">Section headers</span>
+    </div>
+    <div class="type-row">
+      <span class="type-name">Body</span>
+      <span class="type-spec">DM Sans Regular · 14px</span>
+      <span class="type-sample">Content text, descriptions, answers</span>
+    </div>
+    <div class="type-row">
+      <span class="type-name">Code / Mono</span>
+      <span class="type-spec">DM Mono · 12px</span>
+      <span class="type-sample" style="font-family:'DM Mono',monospace;font-size:12px;">API keys, embed snippets, metadata</span>
+    </div>
+    <div class="type-row">
+      <span class="type-name">Badge</span>
+      <span class="type-spec">DM Sans Bold · 11px</span>
+      <span class="type-sample"><span class="verified-badge"><span class="check">✓</span>Answered by Queri</span></span>
+    </div>
+
+    <div class="callout" style="margin-top:24px;">
+      <strong>Figma / v0.dev Starter Prompt:</strong> "Light mode B2B SaaS. Product: Queri — contextual AI answer engine. Colors: bg #F0F6FF, cards white, primary Signal Blue #1A6BFF, answered emerald #00C896, pending amber #FF8C00. Layout: left sidebar (Dashboard, Sources, Context, Widget, Reports, Settings), main: KPI row (Total Questions, Deflection Rate, Unanswered, Avg Response Time), conversation feed with Answered ✓ emerald badges, top questions bar chart. Key component: Answered ✓ badge — emerald checkmark + 'Answered by Queri'. Floating widget preview: search bar with 'Ask Queri anything...' placeholder. Style: precise, fast, intelligent — like Linear + Stripe hybrid. Outfit font headers, DM Sans body. Card radius 10px."
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 11 UI KIT ── -->
+  <div class="section">
+    <div class="section-num">11</div>
+    <div class="section-title">UI Kit</div>
+    <div class="section-sub">Dashboard Components — React + Tailwind</div>
+
+    <h3>1. Conversation Row Component</h3>
+    <div class="code-block">
+<span class="comment">// ConversationRow.tsx</span>
+<span class="key">const</span> ConversationRow = ({ question, answer, confidence, answered,
+  sourceUrl, userPlan, createdAt }) => (
+  &lt;div className=<span class="string">"flex items-start gap-4 py-3 px-4 border-b border-gray-100 hover:bg-gray-50"</span>&gt;
+    &lt;div className=<span class="string">"flex-1"</span>&gt;
+      &lt;p className=<span class="string">"font-semibold text-gray-900 text-sm"</span>&gt;{question}&lt;/p&gt;
+      &lt;p className=<span class="string">"text-gray-500 text-xs mt-1 line-clamp-2"</span>&gt;{answer}&lt;/p&gt;
+      &lt;a href={sourceUrl} className=<span class="string">"text-blue-600 text-xs mt-1 inline-block"</span>&gt;
+        Source →
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div className=<span class="string">"flex flex-col items-end gap-2"</span>&gt;
+      {answered ? &lt;AnsweredBadge /&gt; : &lt;UnansweredBadge /&gt;}
+      &lt;span className=<span class="string">"text-gray-400 text-xs"</span>&gt;{createdAt}&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+);
+    </div>
+
+    <h3>2. Answered Badge Component</h3>
+    <div class="code-block">
+<span class="comment">// AnsweredBadge.tsx</span>
+<span class="key">const</span> AnsweredBadge = ({ size = <span class="string">'md'</span>, showLabel = <span class="key">true</span> }) =&gt; (
+  &lt;div className=<span class="string">"flex items-center gap-1.5"</span>
+    title=<span class="string">"Answered automatically by Queri — no human required"</span>&gt;
+    &lt;div className=<span class="string">"w-5 h-5 bg-emerald-500 rounded-full flex items-center justify-center"</span>&gt;
+      &lt;span className=<span class="string">"text-white text-xs font-bold"</span>&gt;✓&lt;/span&gt;
+    &lt;/div&gt;
+    {showLabel &amp;&amp; (
+      &lt;span className=<span class="string">"text-sm font-semibold text-emerald-700"</span>&gt;
+        Answered by Queri
+      &lt;/span&gt;
+    )}
+  &lt;/div&gt;
+);
+    </div>
+
+    <h3>3. KPI Card Component</h3>
+    <div class="code-block">
+<span class="comment">// KpiCard.tsx</span>
+<span class="key">const</span> KpiCard = ({ label, value, delta, deltaPositive }) =&gt; (
+  &lt;div className=<span class="string">"bg-white rounded-xl border border-gray-100 p-5"</span>&gt;
+    &lt;p className=<span class="string">"text-gray-500 text-xs font-medium uppercase tracking-wide mb-2"</span>&gt;
+      {label}
+    &lt;/p&gt;
+    &lt;p className=<span class="string">"text-3xl font-bold text-gray-900 font-outfit"</span>&gt;{value}&lt;/p&gt;
+    {delta &amp;&amp; (
+      &lt;p className={<span class="string">`text-xs mt-1 font-semibold ${deltaPositive ? 'text-emerald-600' : 'text-red-500'}`</span>}&gt;
+        {deltaPositive ? <span class="string">'↑'</span> : <span class="string">'↓'</span>} {delta} vs last month
+      &lt;/p&gt;
+    )}
+  &lt;/div&gt;
+);
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 12 PROMPT PACK ── -->
+  <div class="section">
+    <div class="section-num">12</div>
+    <div class="section-title">Prompt Pack</div>
+    <div class="section-sub">Answer Generation Prompts by Use Case</div>
+
+    <h3>Billing & Plan Questions</h3>
+    <ul class="arrow-list">
+      <li>"You're on the Growth plan ($99/mo). Your query limit is 5,000/mo and you've used 4,234. Renewal is in 11 days. Would you like to upgrade to Scale for unlimited queries?"</li>
+      <li>"Answer: does my plan include X feature? — use only user_context.features_enabled, not general docs"</li>
+      <li>"Generate a contextual upgrade nudge when user has used &gt;80% of their monthly limit"</li>
+    </ul>
+
+    <h3>How-To / Feature Questions</h3>
+    <ul class="arrow-list">
+      <li>"How do I create a table in [Product]? — answer from docs, cite source URL, 3 steps max"</li>
+      <li>"Generate a step-by-step answer for an integration setup question using only the retrieved docs chunks"</li>
+      <li>"User asks about a feature they don't have access to — answer honestly, explain how to get access"</li>
+    </ul>
+
+    <h3>Unanswered Question Detection</h3>
+    <ul class="arrow-list">
+      <li>"Given this question and these docs chunks, rate confidence: high (answer is clear), medium (partial), low (not in docs). Output JSON only."</li>
+      <li>"Cluster these 50 low-confidence questions by topic. Output: { topic, count, example_question }[]"</li>
+      <li>"Generate a docs article outline for this gap topic: [topic]. Target: 400 words, practical, step-by-step."</li>
+    </ul>
+
+    <h3>Sales / Upgrade Moments</h3>
+    <ul class="arrow-list">
+      <li>"User is at 90% of limit — generate a 1-sentence upgrade suggestion that feels helpful, not pushy"</li>
+      <li>"User asks about a feature only on Scale plan — answer what it does, then naturally mention the plan requirement"</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- ── 13 API SCHEMA ── -->
+  <div class="section">
+    <div class="section-num">13</div>
+    <div class="section-title">API Schema</div>
+    <div class="section-sub">Base URL: https://api.queri.io/v1 · Auth: Bearer (Supabase JWT)</div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Method</th><th>Endpoint</th><th>Description</th><th>Body / Params</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>POST</td><td>/sources/add</td><td>Add docs source (URL or integration)</td><td>{"url":"...","source_type":"url"}</td></tr>
+          <tr><td>POST</td><td>/sources/:id/crawl</td><td>Trigger re-index for source</td><td>—</td></tr>
+          <tr><td>GET</td><td>/sources</td><td>List all connected sources + crawl status</td><td>—</td></tr>
+          <tr><td>POST</td><td>/context/connect-stripe</td><td>Connect Stripe OAuth</td><td>{"code":"oauth_code"}</td></tr>
+          <tr><td>POST</td><td>/context/hook</td><td>Configure app context hook URL</td><td>{"hook_url":"...","test_user_id":"..."}</td></tr>
+          <tr><td>POST</td><td>/context/test</td><td>Preview context for a user ID</td><td>{"user_id":"..."}</td></tr>
+          <tr><td>POST</td><td>/ask</td><td>Answer a question (widget calls this)</td><td>{"question":"...","user_id":"...","session_id":"..."}</td></tr>
+          <tr><td>GET</td><td>/conversations</td><td>List conversations with filters</td><td>?answered=false&confidence=low</td></tr>
+          <tr><td>POST</td><td>/conversations/:id/feedback</td><td>Log satisfaction signal</td><td>{"signal":"thumbs_up"}</td></tr>
+          <tr><td>GET</td><td>/analytics/summary</td><td>KPI summary for dashboard</td><td>?period=30d</td></tr>
+          <tr><td>GET</td><td>/reports/gaps</td><td>List gap reports</td><td>—</td></tr>
+          <tr><td>GET</td><td>/widget/:account_id/config</td><td>Public widget config endpoint (no auth)</td><td>—</td></tr>
+          <tr><td>GET</td><td>/usage</td><td>Current query count vs plan limit</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 14 DATABASE SCHEMA ── -->
+  <div class="section">
+    <div class="section-num">14</div>
+    <div class="section-title">Database Schema</div>
+    <div class="section-sub">PostgreSQL + Supabase RLS</div>
+
+    <div class="grid2">
+      <div>
+        <h3>Table: accounts</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Column</th><th>Type</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>id</td><td>uuid</td><td>PK</td></tr>
+              <tr><td>name</td><td>text</td><td>Company name</td></tr>
+              <tr><td>plan</td><td>text</td><td>starter|growth|scale|agency</td></tr>
+              <tr><td>query_limit_per_month</td><td>int</td><td>500/5000/null/null</td></tr>
+              <tr><td>queries_this_month</td><td>int</td><td>Resets monthly via cron</td></tr>
+              <tr><td>brand_settings</td><td>jsonb</td><td>bot_name, widget_color, logo_url</td></tr>
+              <tr><td>context_hook_url</td><td>text</td><td>App context endpoint</td></tr>
+              <tr><td>stripe_ids</td><td>jsonb</td><td>customer_id, subscription_id</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Table: docs_sources</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Column</th><th>Type</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>id</td><td>uuid</td><td>PK</td></tr>
+              <tr><td>account_id</td><td>uuid</td><td>FK → accounts</td></tr>
+              <tr><td>name</td><td>text</td><td>Display name</td></tr>
+              <tr><td>base_url</td><td>text</td><td>Root URL to crawl</td></tr>
+              <tr><td>source_type</td><td>text</td><td>url|notion|gitbook|intercom</td></tr>
+              <tr><td>crawl_status</td><td>text</td><td>pending|crawling|done|error</td></tr>
+              <tr><td>chunk_count</td><td>int</td><td>Total indexed chunks</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <h3>Table: conversations</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Column</th><th>Type</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>id</td><td>uuid</td><td>PK</td></tr>
+              <tr><td>account_id</td><td>uuid</td><td>FK → accounts</td></tr>
+              <tr><td>user_external_id</td><td>text</td><td>SaaS user ID from widget</td></tr>
+              <tr><td>question</td><td>text</td><td></td></tr>
+              <tr><td>answer</td><td>text</td><td></td></tr>
+              <tr><td>source_url</td><td>text</td><td>Cited docs page</td></tr>
+              <tr><td>context_used</td><td>bool</td><td>Live context injected?</td></tr>
+              <tr><td>confidence</td><td>text</td><td>high|medium|low</td></tr>
+              <tr><td>answered</td><td>bool</td><td>Deflection counter</td></tr>
+              <tr><td>satisfaction</td><td>text</td><td>thumbs_up|down|null</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Table: gap_reports</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Column</th><th>Type</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>id</td><td>uuid</td><td>PK</td></tr>
+              <tr><td>account_id</td><td>uuid</td><td>FK → accounts</td></tr>
+              <tr><td>period_start</td><td>timestamptz</td><td></td></tr>
+              <tr><td>period_end</td><td>timestamptz</td><td></td></tr>
+              <tr><td>unanswered_count</td><td>int</td><td></td></tr>
+              <tr><td>top_gaps</td><td>jsonb</td><td>[{topic, count, suggested_article}]</td></tr>
+              <tr><td>sent_at</td><td>timestamptz</td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 15 LANDING PAGE COPY ── -->
+  <div class="section">
+    <div class="section-num">15</div>
+    <div class="section-title">Landing Page Copy</div>
+    <div class="section-sub">Hero → Pain → Solution → Proof → Pricing</div>
+
+    <h3>HERO</h3>
+    <div class="callout">
+      <strong>Headline:</strong> Your user just asked how to do something. They're about to open a support ticket. Queri already has the answer.<br><br>
+      <strong>Subheadline:</strong> Queri embeds an AI answer engine directly in your SaaS product. It reads your docs, checks their plan, looks at their current usage — and gives a precise, contextual answer in 2 seconds. No ticket. No search. No wrong answer from a bot that doesn't know their account.<br><br>
+      <strong>Primary CTA:</strong> Embed Queri in 15 Minutes — Free →<br>
+      <strong>Secondary CTA:</strong> See Queri answer a real question with live account context (watch 2min demo)
+    </div>
+
+    <h3>PAIN</h3>
+    <p><strong>Headline:</strong> Your help docs don't know who your user is. Your support team is answering the same 20 questions. Your users are churning because they "couldn't figure it out."</p>
+    <ul class="arrow-list">
+      <li>Pain 1: You have docs. Your users search them, find a generic answer, and still open a ticket — because the docs don't know they're on the Starter plan and that feature isn't available to them.</li>
+      <li>Pain 2: 67% of your support tickets are the same questions. Your CS team knows the answers by heart. But they still have to answer each one manually.</li>
+      <li>Pain 3: Your best users — the ones who want to learn your product — are hitting a wall. "Ask for help" means waiting 6 hours for an email reply. They leave instead.</li>
+    </ul>
+
+    <h3>SOLUTION</h3>
+    <p><strong>Headline:</strong> 15 minutes. Real context. Precise answer. No ticket opened.</p>
+    <ul class="arrow-list">
+      <li><strong>Connect:</strong> Link your docs URL and your Stripe account. Queri crawls your docs and indexes them in minutes. Then configures a context hook that reads each user's plan, limits, and permissions at query time.</li>
+      <li><strong>Embed:</strong> One script tag in your product. A floating "Ask Queri" button appears. Users ask questions in plain language — typed exactly how they think them.</li>
+      <li><strong>Answer:</strong> Queri matches the question to your docs, pulls the user's live context, and generates a precise answer: "You're on Growth. That feature is available. Here's how to set it up: [3 steps]. Source: [link]."</li>
+    </ul>
+
+    <h3>SOCIAL PROOF</h3>
+    <p><em>"We were answering 400 support tickets a month. After Queri, it's 140. The other 260 are being answered instantly, with the user's actual plan context. Our CS team now does real work instead of copy-pasting."</em> — Head of Product, B2B SaaS (Series A)</p>
+    <p><em>"The moment a user asked 'why can't I see the export button' and Queri answered 'Export is available on Growth plan — you're on Starter. Upgrade here' — I knew this was different from every other chatbot I'd tried."</em> — Founder, SaaS tool</p>
+
+    <h3>PRICING CTA</h3>
+    <p><strong>Headline:</strong> 500 questions answered free. No credit card.</p>
+    <p>Connect your docs. Embed the widget. If Queri doesn't deflect at least 30% of your support volume in 30 days, we'll refund your first paid month, no questions asked.</p>
+    <p><strong>CTA:</strong> Start Free → Paste Your Docs URL</p>
+  </div>
+
+  <hr>
+
+  <!-- ── 16 WAITLIST FUNNEL ── -->
+  <div class="section">
+    <div class="section-num">16</div>
+    <div class="section-title">Waitlist Email Sequence</div>
+    <div class="section-sub">5-Email Sequence — B2B SaaS Founders & Product Teams</div>
+
+    <div class="email-card">
+      <div class="email-subject"><span class="email-day">Day 0</span> You're on the Queri waitlist</div>
+      <div class="email-body">
+        Hi [First Name],<br><br>
+        You just joined 800+ SaaS founders and product leads who are done watching users open tickets for questions the product could answer itself.<br><br>
+        When we open your slot, you'll get: connect your docs in 2 minutes → embed the widget in 5 minutes → your first question answered with live user context in under 15 minutes total.<br><br>
+        Quick question: what's your biggest support ticket category right now? Reply and I'll tell you if Queri can deflect it automatically.<br><br>
+        — [Founder Name], Queri
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="email-subject"><span class="email-day">Day 3</span> The math behind your support queue</div>
+      <div class="email-body">
+        Let's say you have 500 support tickets this month. Industry average: 67% are how-to questions or account-status questions.<br><br>
+        = 335 tickets Queri handles automatically<br>
+        × $12 average cost per ticket (CS team time)<br>
+        = $4,020/mo in CS cost that disappears<br><br>
+        Queri Growth plan: $99/mo.<br><br>
+        The ROI math is hard to argue with. [See how Queri works in 2 minutes →]
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="email-subject"><span class="email-day">Day 7</span> Why "your plan doesn't include that" changes everything</div>
+      <div class="email-body">
+        Every other AI help tool answers from docs. Queri does too — but then it checks what the user is actually entitled to.<br><br>
+        Generic answer: "Export is available in Settings → Data → Export."<br>
+        Queri answer: "Export is on Growth plan. You're on Starter. Here's what you'd get on Growth — upgrade takes 30 seconds."<br><br>
+        One is a docs lookup. The other is contextual intelligence. [See a real Queri answer →]
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="email-subject"><span class="email-day">Day 11</span> One thing before we give you access</div>
+      <div class="email-body">
+        [First Name] — rolling out accounts this week. Quick question:<br><br>
+        What does your current "ask for help" look like in your product?<br>
+        a) Intercom or Zendesk chat widget<br>
+        b) "Email support" link<br>
+        c) Search box in help center<br>
+        d) Nothing — users just figure it out (or leave)<br><br>
+        Reply with a letter. I'll make sure Queri is configured for your exact setup when you log in.
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="email-subject"><span class="email-day">Day 14</span> Your Queri account is ready</div>
+      <div class="email-body">
+        [First Name] — you're in.<br><br>
+        [Connect Your Docs and Embed Queri in 15 Minutes →]<br><br>
+        Start here: paste your docs URL. Queri crawls it in under 3 minutes. Then copy the widget script tag into your product. Then watch your first user get an answer that knows their plan.<br><br>
+        When you see "Answered ✓" for the first time — that's a support ticket that didn't exist.<br><br>
+        Questions? Reply here — same day response.<br><br>
+        — [Founder Name], Queri
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 17 BRANDING KIT ── -->
+  <div class="section">
+    <div class="section-num">17</div>
+    <div class="section-title">Branding Kit</div>
+    <div class="section-sub">Brand Name: QUERI</div>
+
+    <p><strong>Quer</strong> — from "query." The fundamental act of asking a question, the precise technical term for what users are doing when they type into a search box or help widget. Immediately understood by technical and non-technical audiences. <strong>i</strong> — the suffix that transforms a noun into an identity. Clean, modern, globally pronounceable. The dot on the i is the widget — small, present, always ready.</p>
+    <p><strong>Together:</strong> the tool for answering queries. Precise, confident, product-native. Domain target: queri.io / queri.co. Tagline: <em>Stop making users search. Start giving answers.</em></p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Element</th><th>Specification</th></tr></thead>
+        <tbody>
+          <tr><td>Symbol</td><td>A speech bubble containing a checkmark — the question asked, the question answered. Signal Blue (#1A6BFF) on white, or white on Signal Blue. The ✓ inside the bubble reads instantly as "got it."</td></tr>
+          <tr><td>Wordmark</td><td>QUERI — Outfit ExtraBold, all caps. 'QUER' in Signal Blue (#1A6BFF), 'I' in Answered Emerald (#00C896). The I is the answered state — it's different because the question was resolved.</td></tr>
+          <tr><td>Badge standalone</td><td>The ✓ symbol alone in a Signal Blue circle — used as the Answered badge on resolved questions. Recognizable at 16px.</td></tr>
+          <tr><td>Dark variant</td><td>White wordmark on Deep Ink (#0F1923) for dark UI surfaces and email headers</td></tr>
+          <tr><td>Minimum size</td><td>Wordmark: 100px wide. Symbol: 20px.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Brand Voice</h3>
+    <p><strong>Precise:</strong> We give exact answers, not approximations. The brand speaks the same way — specific numbers, specific outcomes, no hedging.</p>
+    <p><strong>Fast:</strong> Answers in 2 seconds. Copy in 10 words or fewer when possible. No long intros.</p>
+    <p><strong>Context-aware:</strong> We know who we're talking to. Copy changes based on the reader — founders hear cost savings, CS leads hear ticket deflection, engineers hear the RAG architecture.</p>
+    <p><strong>Invisible when working:</strong> Queri's best state is when users don't notice it — they just got their answer and moved on. The brand never brags.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>DO SAY</th><th>DON'T SAY</th></tr></thead>
+        <tbody>
+          <tr><td>Answered in 2 seconds</td><td>Streamline your support workflow</td></tr>
+          <tr><td>67% of tickets deflected</td><td>Significantly reduce support volume</td></tr>
+          <tr><td>Knows their plan, not just your docs</td><td>Contextual AI-powered assistance</td></tr>
+          <tr><td>Embed in 15 minutes</td><td>Quick and easy onboarding experience</td></tr>
+          <tr><td>That ticket didn't happen</td><td>Prevent unnecessary support requests</td></tr>
+          <tr><td>No credit card. 500 answers free.</td><td>Start your free trial today</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 18 LAUNCH CHECKLIST ── -->
+  <div class="section">
+    <div class="section-num">18</div>
+    <div class="section-title">Launch Checklist</div>
+    <div class="section-sub">Pre-Launch & Go-Live</div>
+
+    <h3>Technical Readiness</h3>
+    <ul class="checklist">
+      <li><span class="check-box"></span>Docs crawler: URL crawl + Notion + GitBook sources tested with 5 real docs sites</li>
+      <li><span class="check-box"></span>pgvector similarity search: returns accurate chunks for 20 test questions</li>
+      <li><span class="check-box"></span>Stripe context layer: live plan + usage data fetched correctly per user</li>
+      <li><span class="check-box"></span>App context hook: test with sample JSON response, documented schema for customers</li>
+      <li><span class="check-box"></span>Claude API answer generation: tested for 50 question/context combinations — no hallucinations</li>
+      <li><span class="check-box"></span>Embeddable widget: renders correctly on Next.js, Webflow, WordPress, and React apps</li>
+      <li><span class="check-box"></span>Answered ✓ badge: appears correctly, satisfaction signal logged</li>
+      <li><span class="check-box"></span>Stripe billing: all four plans + query overage ($0.02/query) working correctly</li>
+      <li><span class="check-box"></span>Docs Gap Report: generates correctly with clustered unanswered questions</li>
+      <li><span class="check-box"></span>RLS tested: Account A cannot access Account B's conversations or docs chunks under any condition</li>
+    </ul>
+
+    <h3>Marketing & Launch</h3>
+    <ul class="checklist">
+      <li><span class="check-box"></span>Landing page live with all copy from Section 15</li>
+      <li><span class="check-box"></span>Waitlist email sequence live in Loops.so (5 emails from Section 16)</li>
+      <li><span class="check-box"></span>Product Hunt assets: tagline, description, 5 screenshots, 2-minute demo video</li>
+      <li><span class="check-box"></span>Stripe App Marketplace application submitted (review 2–4 weeks — submit early)</li>
+      <li><span class="check-box"></span>Intercom App Store listing submitted</li>
+      <li><span class="check-box"></span>10 beta conversations generated from real docs for demo and website</li>
+      <li><span class="check-box"></span>ROI calculator: "How much is your support queue costing?" landing page tool</li>
+    </ul>
+
+    <h3>Onboarding & Activation</h3>
+    <ul class="checklist">
+      <li><span class="check-box"></span>Day 1 activation email: triggers after first docs source connected (not just signup)</li>
+      <li><span class="check-box"></span>Onboarding checklist: 3 steps (Connect Docs → Configure Context → Embed Widget)</li>
+      <li><span class="check-box"></span>Empty state: new account shows "Paste your docs URL to get started — takes 2 minutes"</li>
+      <li><span class="check-box"></span>Day 5 no-activation email: "Your users have questions right now — here's how to answer them automatically"</li>
+      <li><span class="check-box"></span>First Answered ✓ celebration: in-app moment when first question is deflected</li>
+      <li><span class="check-box"></span>Gap Report scheduled: first report queued for Day 30 after activation</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- ── 20 A/B TESTS ── -->
+  <div class="section">
+    <div class="section-num">20</div>
+    <div class="section-title">A/B Test Scenarios</div>
+    <div class="section-sub">12 Growth Tests — PostHog Feature Flags</div>
+
+    <div class="ab-card">
+      <div class="ab-title">Test 01 — Landing Page Hero Headline</div>
+      <div class="ab-row">
+        <span class="ab-label">Hypothesis</span>
+        <span class="ab-a">Outcome-specific headline converts better than benefit headline</span>
+        <span class="ab-b"></span>
+        <span class="ab-lift"></span>
+      </div>
+      <div class="ab-row">
+        <span class="ab-label">Control A</span>
+        <span class="ab-a">Stop making users search. Start giving answers.</span>
+        <span class="ab-b">Your user just asked a question. Queri already has the answer.</span>
+        <span class="ab-lift">+20–35%</span>
+      </div>
+    </div>
+
+    <div class="ab-card">
+      <div class="ab-title">Test 02 — Onboarding: First Step Prompt</div>
+      <div class="ab-row">
+        <span class="ab-label">Control A</span>
+        <span class="ab-a">Dashboard → "Connect docs source" as next step</span>
+        <span class="ab-b">Signup → Immediate "Paste your docs URL" fullscreen</span>
+        <span class="ab-lift">+25–40%</span>
+      </div>
+    </div>
+
+    <div class="ab-card">
+      <div class="ab-title">Test 03 — Widget CTA Text</div>
+      <div class="ab-row">
+        <span class="ab-label">Control A</span>
+        <span class="ab-a">Ask a question</span>
+        <span class="ab-b">Ask Queri anything about your account</span>
+        <span class="ab-lift">+15–25%</span>
+      </div>
+    </div>
+
+    <div class="ab-card">
+      <div class="ab-title">Test 04 — Upgrade Prompt Timing</div>
+      <div class="ab-row">
+        <span class="ab-label">Control A</span>
+        <span class="ab-a">At 100% limit: "You've hit your query limit. Upgrade to continue."</span>
+        <span class="ab-b">At 80% limit: "You have 100 queries left. Upgrade now for unlimited."</span>
+        <span class="ab-lift">+20–35%</span>
+      </div>
+    </div>
+
+    <div class="ab-card">
+      <div class="ab-title">Test 05 — Gap Report Format</div>
+      <div class="ab-row">
+        <span class="ab-label">Control A</span>
+        <span class="ab-a">Plain list of unanswered questions</span>
+        <span class="ab-b">Ranked gaps with suggested article outlines pre-written</span>
+        <span class="ab-lift">+30–50% retention</span>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ── 22 SEO ── -->
+  <div class="section">
+    <div class="section-num">22</div>
+    <div class="section-title">SEO & Content Strategy</div>
+    <div class="section-sub">Organic Acquisition — Keyword Map & 12-Month Calendar</div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Keyword</th><th>Volume</th><th>Competition</th><th>Funnel</th><th>Content Type</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>AI chatbot for SaaS</td><td>2,800/mo</td><td>Medium</td><td>BOFU</td><td>Landing page targeting this exact query</td></tr>
+          <tr><td>reduce support tickets SaaS</td><td>1,900/mo</td><td>Low</td><td>MOFU</td><td>Long-form guide (2,500 words) + Queri CTA</td></tr>
+          <tr><td>help widget for SaaS product</td><td>1,400/mo</td><td>Low</td><td>BOFU</td><td>Comparison page vs Intercom / Zendesk</td></tr>
+          <tr><td>contextual help SaaS</td><td>900/mo</td><td>Low</td><td>BOFU</td><td>Category definition page — Queri owns this term</td></tr>
+          <tr><td>kapa.ai alternative</td><td>720/mo</td><td>Low</td><td>BOFU</td><td>Comparison page: Queri vs Kapa (SMB angle)</td></tr>
+          <tr><td>AI help center</td><td>680/mo</td><td>Medium</td><td>MOFU</td><td>Guide + Queri embed demo</td></tr>
+          <tr><td>mendable alternative</td><td>420/mo</td><td>Low</td><td>BOFU</td><td>Comparison: Queri adds live user context</td></tr>
+          <tr><td>stripe context chatbot</td><td>90/mo</td><td>None</td><td>BOFU</td><td>Programmatic: Stripe integration page</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>12-Month Content Calendar</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Period</th><th>Theme</th><th>Deliverables</th></tr></thead>
+        <tbody>
+          <tr><td>Month 1–2</td><td>Foundation</td><td>Pillar page: "The Complete Guide to Reducing SaaS Support Tickets with AI" + 3 cluster articles + programmatic SEO (10 integration pages)</td></tr>
+          <tr><td>Month 3–4</td><td>Authority</td><td>4 cluster articles + 3 competitor comparison pages (Kapa, Mendable, Intercom Fin) + ROI calculator launch</td></tr>
+          <tr><td>Month 5–6</td><td>Amplification</td><td>PR push: "The B2B SaaS Support Benchmark Report" (original data from Queri users) + Stripe App Store content optimized</td></tr>
+          <tr><td>Month 7–8</td><td>Integration pages</td><td>Intercom, HubSpot, Notion, GitBook, Zendesk integration landing pages — each targets zero-competition queries</td></tr>
+          <tr><td>Month 9–12</td><td>Scale</td><td>Programmatic expansion to 50 pages + user-generated Gap Report data → public benchmark content → compounding organic loop</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="footer">
+  <strong>QUERI</strong> · KitStart Blueprint Series · Confidential<br>
+  Stop making users search. Start giving answers.<br><br>
+  This blueprint contains 22 sections covering everything needed to build and launch Queri —<br>
+  from RAG architecture to first 50 customers, context engine to agency white-label.<br><br>
+  Questions? team@kitstart.io<br><br>
+  © 2025 KitStart. All rights reserved. Personal use only. Redistribution prohibited.
+</div>
+
+</body>
+</html>

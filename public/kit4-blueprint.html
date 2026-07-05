@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProveKit — KitStart Blueprint Database</title>
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('embed') === '1') {
+      document.documentElement.classList.add('embed-mode');
+    }
+  })();
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #28B483;
+    --teal-dark: #157f59;
+    --teal-light: #ecfbf4;
+    --indigo: #4366EE;
+    --emerald: #10B981;
+    --amber: #F59E0B;
+    --coral: #F43F5E;
+    --navy: #101828;
+    --bg: #FFFFFF;
+    --surface: #FFFFFF;
+    --surface2: #F8FAFC;
+    --muted: #667085;
+    --text: #171717;
+    --border: #E6EAF2;
+    --shadow: 0 10px 24px rgba(15,23,42,.04);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; }
+
+  /* SIDEBAR */
+  aside {
+    width: 224px; min-width: 224px; background: #fff; color: var(--text);
+    display: flex; flex-direction: column; position: fixed; top: 0; left: 0; bottom: 0;
+    overflow-y: auto; z-index: 100; border-right: 1px solid var(--border);
+  }
+  .logo { padding: 24px 16px 16px; border-bottom: 1px solid #eaecf0; }
+  .logo .wordmark { font-size: 16px; font-weight: 600; letter-spacing: -.4px; color: #101828; }
+  .logo .wordmark span:first-child { color: #101828; }
+  .logo .wordmark span:last-child { color: #101828; }
+  .logo .badge { font-size: 12px; color: #667085; letter-spacing: 0; text-transform: none; margin-top: 3px; }
+  nav { padding: 18px 0; flex: 1; }
+  .nav-group { padding: 8px 18px 6px; font-size: 12px; color: #98a2b3; letter-spacing: .06em; text-transform: uppercase; font-weight: 700; }
+  nav a {
+    display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+    color: #344054; text-decoration: none; font-size: 15px; font-weight: 500;
+    border-radius: 14px; margin: 1px 10px; transition: all .15s;
+  }
+  nav a:hover { background: #f8fafc; color: #344054; }
+  nav a.active { background: #f1f4fa; color: #344054; }
+  nav a .num { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #98a2b3; min-width: 20px; }
+
+  /* MAIN */
+  main { margin-left: 224px; flex: 1; min-height: 100vh; background: #fff; }
+  .topbar {
+    position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92);
+    backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+    padding: 12px 32px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .topbar-title { font-size: 14px; font-weight: 700; color: var(--teal); }
+  .verified-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--teal); color: white; font-size: 11px; font-weight: 700;
+    padding: 4px 10px; border-radius: 20px; letter-spacing: .3px;
+  }
+
+  /* SECTIONS */
+  .section { padding: 32px; border-bottom: 1px solid #f2f4f7; }
+  .section-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--teal);
+    background: var(--teal-light); padding: 4px 10px; border-radius: 6px; font-weight: 600;
+    white-space: nowrap; margin-top: 3px;
+  }
+  .section-title { font-size: 22px; font-weight: 800; color: var(--navy); line-height: 1.2; }
+  .section-desc { font-size: 13px; color: var(--muted); margin-top: 4px; line-height: 1.6; }
+
+  /* CARDS */
+  .card { background: var(--surface); border: 1px solid #ece6dd; border-radius: 18px; padding: 20px; box-shadow: var(--shadow); }
+  .card-title { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; margin-bottom: 12px; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; }
+
+  /* KPI */
+  .kpi { text-align: center; padding: 20px 16px; }
+  .kpi-value { font-size: 36px; font-weight: 800; color: var(--teal); line-height: 1; }
+  .kpi-label { font-size: 12px; color: var(--muted); margin-top: 6px; font-weight: 600; }
+
+  /* TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: #fbf9f5; color: var(--navy); font-weight: 700; padding: 10px 14px; text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fcfbf8; }
+  .table-wrap { border: 1px solid #ece6dd; border-radius: 18px; overflow: hidden; }
+
+  /* COLOR SWATCH */
+  .swatch { border-radius: 10px; height: 60px; display: flex; align-items: flex-end; padding: 8px; }
+  .swatch-info { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.9); font-family: 'JetBrains Mono', monospace; }
+  .swatch-dark .swatch-info { color: rgba(0,0,0,.5); }
+
+  /* COPY BOX */
+  .copy-box {
+    background: linear-gradient(180deg,#10233b 0%,#152f4f 100%); border-radius: 18px; padding: 16px 20px; position: relative;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #7dd3fc; line-height: 1.7;
+    overflow-x: auto;
+  }
+  .copy-btn {
+    position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15); color: #94a3b8; font-size: 11px;
+    padding: 4px 10px; border-radius: 6px; cursor: pointer; font-family: 'Outfit', sans-serif;
+    font-weight: 600; transition: all .15s;
+  }
+  .copy-btn:hover { background: var(--teal); color: white; }
+  .copy-btn.copied { background: var(--emerald); color: white; }
+
+  /* TEXT COPY BOX */
+  .text-copy {
+    background: var(--surface); border: 1px solid #ece6dd; border-radius: 18px;
+    padding: 16px 20px; position: relative; font-size: 13px; line-height: 1.7; color: var(--text);
+  }
+
+  /* FUNNEL */
+  .funnel-item {
+    display: flex; align-items: center; gap: 12px; padding: 10px 16px;
+    border-radius: 14px; margin-bottom: 6px; font-size: 13px; font-weight: 600;
+  }
+  .funnel-step { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); min-width: 24px; }
+  .funnel-bar { height: 8px; border-radius: 4px; background: var(--teal); transition: width .3s; }
+  .funnel-pct { font-size: 12px; color: var(--muted); font-family: 'JetBrains Mono', monospace; margin-left: auto; }
+
+  /* COMPETITOR SCORES */
+  .score-bar { display: flex; gap: 2px; }
+  .score-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+  /* PRICE CARD */
+  .price-card { border: 2px solid #ece6dd; border-radius: 20px; padding: 20px; position: relative; }
+  .price-card.featured { border-color: var(--teal); }
+  .price-card .plan-name { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  .price-card .price { font-size: 32px; font-weight: 800; color: var(--navy); margin: 8px 0 4px; }
+  .price-card .price span { font-size: 14px; font-weight: 500; color: var(--muted); }
+  .price-card ul { list-style: none; font-size: 13px; color: var(--muted); line-height: 2; }
+  .price-card ul li::before { content: '✓ '; color: var(--emerald); font-weight: 700; }
+
+  /* TAG */
+  .tag {
+    display: inline-flex; align-items: center; font-size: 11px; font-weight: 700;
+    padding: 3px 8px; border-radius: 6px; letter-spacing: .3px;
+  }
+  .tag-teal { background: var(--teal-light); color: var(--teal-dark); }
+  .tag-amber { background: #fef3c7; color: #92400e; }
+  .tag-coral { background: #ffe4e6; color: #be123c; }
+  .tag-emerald { background: #d1fae5; color: #065f46; }
+  .tag-indigo { background: #e0e7ff; color: #3730a3; }
+
+  /* TIMELINE */
+  .timeline-item { display: flex; gap: 16px; padding-bottom: 20px; position: relative; }
+  .timeline-item::before { content: ''; position: absolute; left: 19px; top: 36px; bottom: 0; width: 1px; background: var(--border); }
+  .timeline-item:last-child::before { display: none; }
+  .timeline-dot { width: 38px; height: 38px; min-width: 38px; border-radius: 50%; background: var(--teal-light); border: 2px solid var(--teal); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; color: var(--teal); }
+  .timeline-content { flex: 1; }
+  .timeline-title { font-size: 14px; font-weight: 700; color: var(--navy); }
+  .timeline-desc { font-size: 12px; color: var(--muted); line-height: 1.6; margin-top: 4px; }
+
+  /* ALERT */
+  .alert { padding: 12px 16px; border-radius: 8px; font-size: 13px; line-height: 1.6; display: flex; gap: 10px; margin-bottom: 12px; }
+  .alert-teal { background: var(--teal-light); color: var(--teal-dark); border-left: 3px solid var(--teal); }
+
+  /* MRR CHART BARS */
+  .bar-chart { display: flex; align-items: flex-end; gap: 6px; height: 120px; padding-top: 10px; }
+  .bar-col { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
+  .bar { width: 100%; background: var(--teal); border-radius: 4px 4px 0 0; min-height: 4px; transition: height .3s; }
+  .bar-label { font-size: 10px; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+
+  /* FLOW STEPS */
+  .flow { display: flex; align-items: center; gap: 0; flex-wrap: wrap; }
+  .flow-step {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 12px 16px; font-size: 12px; font-weight: 600; color: var(--navy);
+    text-align: center; min-width: 100px;
+  }
+  .flow-arrow { color: var(--teal); font-size: 18px; padding: 0 4px; }
+
+  /* EMBED MODE */
+  html.embed-mode aside,
+  html.embed-mode .topbar { display: none !important; }
+  html.embed-mode main { margin-left: 0 !important; }
+  html.embed-mode .section { display: none !important; }
+  html.embed-mode .section.active { display: block !important; }
+
+  /* COLORFUL CARDS */
+  .grid-2 > .card,
+  .grid-3 > .card,
+  .grid-4 > .card {
+    background: linear-gradient(180deg,#ffffff 0%,#fffdf8 100%);
+  }
+  .grid-3 > .card:nth-child(3n+1) { background: linear-gradient(180deg,#fff4ea 0%,#ffffff 100%); }
+  .grid-3 > .card:nth-child(3n+2) { background: linear-gradient(180deg,#eef8ff 0%,#ffffff 100%); }
+  .grid-3 > .card:nth-child(3n) { background: linear-gradient(180deg,#f5f0ff 0%,#ffffff 100%); }
+  .grid-4 > .card:nth-child(4n+1) { background: linear-gradient(180deg,#ecfbf4 0%,#ffffff 100%); }
+  .grid-4 > .card:nth-child(4n+2) { background: linear-gradient(180deg,#fff4ea 0%,#ffffff 100%); }
+  .grid-4 > .card:nth-child(4n+3) { background: linear-gradient(180deg,#eef8ff 0%,#ffffff 100%); }
+  .grid-4 > .card:nth-child(4n) { background: linear-gradient(180deg,#f5f0ff 0%,#ffffff 100%); }
+
+  /* FUNNEL */
+  .funnel-stack { display:flex; flex-direction:column; gap:10px; }
+  .funnel-layer {
+    position: relative; margin: 0 auto; border-radius: 14px;
+    padding: 12px 16px; color: #101828; font-size: 13px; font-weight: 600;
+    box-shadow: 0 8px 18px rgba(15,23,42,.05);
+  }
+  .funnel-layer small { display:block; margin-top:4px; color:#667085; font-size:11px; font-weight:500; }
+
+  /* PERSONA */
+  .persona { background: linear-gradient(135deg,#fff4ea 0%,#ffffff 100%); border: 1px solid #ece6dd; border-radius: 20px; padding: 20px; }
+  .persona-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(180deg,#5b7cff 0%,#4361ee 100%); display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 12px; color: #fff; }
+  .persona-name { font-size: 14px; font-weight: 800; color: var(--navy); }
+  .persona-role { font-size: 11px; color: var(--muted); margin-top: 2px; text-transform: uppercase; letter-spacing: .6px; }
+  .persona-detail { font-size: 12px; color: var(--muted); line-height: 1.6; margin-top: 10px; }
+
+  /* SCROLL TARGET */
+  [id] { scroll-margin-top: 70px; }
+
+  @media (max-width: 900px) {
+    aside { width: 200px; min-width: 200px; }
+    main { margin-left: 200px; }
+    .grid-4 { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<aside>
+  <div class="logo">
+    <div class="wordmark"><span>PROVE</span><span>KIT</span></div>
+    <div class="badge">KitStart Blueprint · Confidential</div>
+  </div>
+  <nav>
+    <div class="nav-group">Market</div>
+    <a href="#s01"><span class="num">01</span> Opportunity Brief</a>
+    <a href="#s03"><span class="num">03</span> Target Markets</a>
+    <a href="#s05"><span class="num">05</span> Competitor Map</a>
+
+    <div class="nav-group">Product</div>
+    <a href="#s02"><span class="num">02</span> Product Spec</a>
+    <a href="#s04"><span class="num">04</span> Tech Stack</a>
+    <a href="#s10"><span class="num">10</span> Design System</a>
+    <a href="#s11"><span class="num">11</span> UI Kit</a>
+    <a href="#s13"><span class="num">13</span> API Schema</a>
+    <a href="#s14"><span class="num">14</span> Database Schema</a>
+
+    <div class="nav-group">Revenue</div>
+    <a href="#s06"><span class="num">06</span> Revenue Model</a>
+    <a href="#s21"><span class="num">21</span> Tech Stack Cost</a>
+
+    <div class="nav-group">GTM</div>
+    <a href="#s07"><span class="num">07</span> First 50 Customers</a>
+    <a href="#s08"><span class="num">08</span> Conversion Funnels</a>
+    <a href="#s23"><span class="num">23</span> Onboarding Flow</a>
+    <a href="#s24"><span class="num">24</span> SEO Strategy</a>
+    <a href="#s25"><span class="num">25</span> Agency Playbook</a>
+    <a href="#s26"><span class="num">26</span> Objection Handling</a>
+
+    <div class="nav-group">AI / Build</div>
+    <a href="#s09"><span class="num">09</span> Code Prompts</a>
+    <a href="#s12"><span class="num">12</span> Prompt Pack</a>
+    <a href="#s20"><span class="num">20</span> A/B Tests</a>
+
+    <div class="nav-group">Copy / Brand</div>
+    <a href="#s15"><span class="num">15</span> Landing Page Copy</a>
+    <a href="#s16"><span class="num">16</span> Waitlist Emails</a>
+    <a href="#s17"><span class="num">17</span> Branding Kit</a>
+    <a href="#s22"><span class="num">22</span> Domain Research</a>
+
+    <div class="nav-group">Legal</div>
+    <a href="#s18"><span class="num">18</span> Launch Checklist</a>
+  </nav>
+</aside>
+
+<main>
+  <div class="topbar">
+    <span class="topbar-title">ProveKit · Blueprint Database</span>
+    <span class="verified-badge">✓ Verified · 26 Sections</span>
+  </div>
+
+  <!-- ==================== 01 OPPORTUNITY ==================== -->
+  <div class="section" id="s01">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <div>
+        <div class="section-title">Opportunity Brief</div>
+        <div class="section-desc">Market size, the evidence gap, timing signals</div>
+      </div>
+    </div>
+
+    <div class="grid-4" style="margin-bottom:20px">
+      <div class="card kpi"><div class="kpi-value">97%</div><div class="kpi-label">B2B Buyers trust customer evidence</div></div>
+      <div class="card kpi"><div class="kpi-value">+34%</div><div class="kpi-label">Conv rate lift from testimonials</div></div>
+      <div class="card kpi"><div class="kpi-value">+380%</div><div class="kpi-label">High-value product conv lift</div></div>
+      <div class="card kpi"><div class="kpi-value" style="font-size:24px">3 min</div><div class="kpi-label">ProveKit vs 3-4 wks manual</div></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Market Signals</div>
+        <table><tbody>
+          <tr><td>📊</td><td>97% of B2B buyers say customer evidence is most reliable content type</td></tr>
+          <tr><td>📈</td><td>Testimonials increase conv rates +34%; high-value products +380%</td></tr>
+          <tr><td>🤖</td><td>58% of buyers start research with AI tools — prioritizes verified proof points</td></tr>
+          <tr><td>🏢</td><td>UserEvidence raised Series A from CrossLink Capital — market validation</td></tr>
+          <tr><td>💰</td><td>$0–$299/mo customer evidence market completely unserved</td></tr>
+          <tr><td>🔒</td><td>Blind-but-verified testimonials (60% trust) vs named (64%) — near parity</td></tr>
+          <tr><td>📉</td><td>CRM closed-lost reasons incorrect 85% of time (Clozd 2025)</td></tr>
+        </tbody></table>
+      </div>
+      <div class="card">
+        <div class="card-title">The Production Gap</div>
+        <div style="margin-bottom:16px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span>Manual process</span><span style="color:var(--coral);font-weight:700">20–30 hrs · 3–4 weeks</span></div>
+          <div style="background:var(--coral);height:20px;border-radius:4px;width:100%;display:flex;align-items:center;padding:0 8px"><span style="color:white;font-size:11px;font-weight:700">$1,600–$2,400 per story</span></div>
+        </div>
+        <div style="margin-bottom:16px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span>ProveKit</span><span style="color:var(--emerald);font-weight:700">~20 minutes</span></div>
+          <div style="background:var(--emerald);height:20px;border-radius:4px;width:8%;display:flex;align-items:center;padding:0 8px"></div>
+        </div>
+        <div class="alert alert-teal">💡 B2B SaaS company with 200 customers might have 5 published case studies. The other 195 stories are locked in Slack messages and CS notes.</div>
+        <div style="margin-top:12px">
+          <div class="card-title">Manual Steps ProveKit Replaces</div>
+          <div style="font-size:12px;color:var(--muted);line-height:2">
+            ~~1. Customer success call~~ → Data Integration<br>
+            ~~2. Writer to draft~~ → Claude API Story Gen<br>
+            ~~3. Internal marketing review~~ → AI Metric Extraction<br>
+            ~~4. Customer approval (2-3 rounds)~~ → 2-Click Approval<br>
+            5. Designer format → PDF Auto-Gen ✓<br>
+            6. Website publish → One-click ✓
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 02 PRODUCT SPEC ==================== -->
+  <div class="section" id="s02">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <div>
+        <div class="section-title">Product Spec</div>
+        <div class="section-desc">Core features, verification flow, output formats</div>
+      </div>
+    </div>
+    <div class="alert alert-teal" style="margin-bottom:20px">
+      <strong>One-Sentence Value Prop:</strong> "Connect Stripe and your analytics — ProveKit reads the real metrics your customer experienced, gets their two-click approval, and publishes a Verified ✓ case study in 3 minutes."
+    </div>
+
+    <div class="table-wrap" style="margin-bottom:20px">
+      <table>
+        <thead><tr><th>Priority</th><th>Feature</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag tag-coral">P0</span></td><td><strong>Data Integration Hub</strong></td><td>Connect Stripe (revenue, MRR growth, churn), PostHog/Amplitude/Mixpanel, HubSpot/Salesforce. Per-customer data isolated.</td></tr>
+          <tr><td><span class="tag tag-coral">P0</span></td><td><strong>AI Metric Extraction</strong></td><td>For each customer: AI identifies most compelling metrics (revenue growth %, churn reduction, feature adoption) and frames as story-ready claims.</td></tr>
+          <tr><td><span class="tag tag-coral">P0</span></td><td><strong>Customer Approval Workflow</strong></td><td>Branded email: 'We'd love to feature your success story.' One-click approve or edit specific metrics. Customer approves only what they're comfortable sharing.</td></tr>
+          <tr><td><span class="tag tag-coral">P0</span></td><td><strong>AI Story Generation</strong></td><td>Claude API generates: full case study (Challenge-Solution-Results), 3-sentence testimonial, LinkedIn share text, key stat pull quotes. Grounded in approved metrics.</td></tr>
+          <tr><td><span class="tag tag-coral">P0</span></td><td><strong>Verified ✓ Badge System</strong></td><td>Published stories carry 'Verified by ProveKit ✓' badge with timestamp and data source. Embeddable and linkable.</td></tr>
+          <tr><td><span class="tag tag-amber">P1</span></td><td><strong>Multi-Format Output</strong></td><td>Case study (web/PDF/Notion), testimonial widget (embed), LinkedIn post, sales deck slide, stat card (PNG). All from one approval.</td></tr>
+          <tr><td><span class="tag tag-amber">P1</span></td><td><strong>Story Library</strong></td><td>Searchable library, filter by industry/company size/use case/metric type. Shareable per-story links.</td></tr>
+          <tr><td><span class="tag tag-amber">P1</span></td><td><strong>Embeddable Widgets</strong></td><td>JS snippet: rotating testimonials, story cards, stat blocks. Auto-updates when new stories approved.</td></tr>
+          <tr><td><span class="tag tag-teal">P2</span></td><td><strong>Sales-Ready Packages</strong></td><td>Per-deal: 'You're talking to a FinTech at Series B — here are 3 verified stories from similar customers.' Via Slack or HubSpot.</td></tr>
+          <tr><td><span class="tag tag-teal">P2</span></td><td><strong>White-Label (Agency)</strong></td><td>Agency manages multiple client accounts. Each client has own brand, contacts, story library. Single billing, separate workspaces.</td></tr>
+          <tr><td><span class="tag tag-teal">P2</span></td><td><strong>NPS → Story Pipeline</strong></td><td>When customer gives NPS 9–10, automatic ProveKit approval request triggers. Peak satisfaction moment — highest approval rate.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">End-to-End Story Generation Flow</div>
+      <div style="display:flex;gap:0;align-items:stretch;flex-wrap:wrap;gap:8px;margin-top:8px">
+        <div class="flow-step" style="background:var(--teal-light);border-color:var(--teal)"><div style="font-size:18px">🔗</div><strong>1 Connect</strong><br><span style="font-size:11px;color:var(--muted)">Stripe + Analytics</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div style="font-size:18px">🎯</div><strong>2 Select</strong><br><span style="font-size:11px;color:var(--muted)">Choose Customer</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div style="font-size:18px">📧</div><strong>3 Send</strong><br><span style="font-size:11px;color:var(--muted)">Approval Email</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div style="font-size:18px">✅</div><strong>4 Approve</strong><br><span style="font-size:11px;color:var(--muted)">2 Clicks · &lt;60s</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div style="font-size:18px">🤖</div><strong>5 Generate</strong><br><span style="font-size:11px;color:var(--muted)">Claude API</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="background:var(--teal);border-color:var(--teal);color:white"><div style="font-size:18px">🏆</div><strong>6 Publish ✓</strong><br><span style="font-size:11px;opacity:.8">Verified Badge</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 03 TARGET MARKETS ==================== -->
+  <div class="section" id="s03">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <div><div class="section-title">Target Markets & Segments</div></div>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:20px">
+      <div class="card"><div class="card-title">B2B SaaS (10–200 emp)</div><div style="font-size:22px;font-weight:800;color:var(--teal);margin:8px 0">$49–99/mo</div><div style="font-size:12px;color:var(--muted);line-height:1.8">10–50 people content team<br>50–2,000 customer accounts<br>0–5 published case studies<br>Decision maker: VP Marketing / Founder<br>Cycle: 1–2 weeks</div></div>
+      <div class="card"><div class="card-title">Mid-Market SaaS (200–2K)</div><div style="font-size:22px;font-weight:800;color:var(--teal);margin:8px 0">$99–299/mo</div><div style="font-size:12px;color:var(--muted);line-height:1.8">2–5 person PMM team<br>Currently using agency at $500–2K/story<br>Needs segment-specific stories<br>Budget: Marketing ops<br>Cycle: 2–4 weeks</div></div>
+      <div class="card"><div class="card-title">Content / GTM Agencies</div><div style="font-size:22px;font-weight:800;color:var(--teal);margin:8px 0">$299/mo</div><div style="font-size:12px;color:var(--muted);line-height:1.8">5–20 B2B SaaS clients<br>Bills $800–2,500 per case study<br>ProveKit: ~$10/story equivalent<br>Extreme margin<br>USA, UK, AU, NL, CA</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title">Geographic Priority Matrix</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Region</th><th>SaaS Density</th><th>Stripe Adoption</th><th>Case Study Culture</th><th>Decision Speed</th><th>Priority</th></tr></thead>
+          <tbody>
+            <tr><td><strong>USA</strong></td><td>★★★★★</td><td>Very High</td><td>Very High</td><td>Fast</td><td><span class="tag tag-teal">9.5/10</span></td></tr>
+            <tr><td><strong>UK / Ireland</strong></td><td>★★★★</td><td>High</td><td>High</td><td>Medium-Fast</td><td><span class="tag tag-teal">8.8/10</span></td></tr>
+            <tr><td><strong>Canada</strong></td><td>★★★★</td><td>High</td><td>High</td><td>Fast</td><td><span class="tag tag-teal">8.5/10</span></td></tr>
+            <tr><td><strong>Israel</strong></td><td>★★★★</td><td>High</td><td>Very High</td><td>Very Fast</td><td><span class="tag tag-teal">8.0/10</span></td></tr>
+            <tr><td><strong>Germany / Austria</strong></td><td>★★★★</td><td>Medium-High</td><td>Medium</td><td>Medium</td><td><span class="tag tag-amber">7.5/10</span></td></tr>
+            <tr><td><strong>Netherlands</strong></td><td>★★★</td><td>High</td><td>High</td><td>Fast</td><td><span class="tag tag-amber">7.5/10</span></td></tr>
+            <tr><td><strong>Australia / NZ</strong></td><td>★★★</td><td>High</td><td>High</td><td>Fast</td><td><span class="tag tag-amber">7.8/10</span></td></tr>
+            <tr><td><strong>Singapore / SEA</strong></td><td>★★★</td><td>Medium</td><td>Medium</td><td>Medium</td><td><span class="tag" style="background:#f1f5f9;color:#64748b">6.5/10</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="persona">
+        <div class="persona-avatar">🎯</div>
+        <div class="persona-name">Head of Marketing / VP Marketing</div>
+        <div class="persona-role">Primary Buyer · Age 30–42</div>
+        <div class="persona-detail">Team: 1–5 people. Pain: sales team repeatedly asking for case studies. Decision: expense card or direct approval. Budget: $50–300/mo easy. Cycle: 1–2 weeks. Discovery: LinkedIn, Product Hunt, SaaS Slack.</div>
+        <div style="margin-top:8px"><span class="tag tag-teal">Key message: "10 verified case studies this quarter instead of 2."</span></div>
+      </div>
+      <div class="persona">
+        <div class="persona-avatar">🚀</div>
+        <div class="persona-name">Founder / CEO (Smaller SaaS)</div>
+        <div class="persona-role">Age 25–40</div>
+        <div class="persona-detail">No dedicated content team. Has great customers but no stories. Sales deck has 0 case studies. Pain: time. Decision: immediate, credit card. Budget: up to $99/mo. Discovery: Indie Hackers, Twitter/X, HN, YC.</div>
+        <div style="margin-top:8px"><span class="tag tag-teal">Key message: "Your best customer became a case study while you slept."</span></div>
+      </div>
+      <div class="persona">
+        <div class="persona-avatar">📊</div>
+        <div class="persona-name">Product Marketing Manager</div>
+        <div class="persona-role">Age 27–38</div>
+        <div class="persona-detail">Needs 15–20 case studies/quarter. Currently produces 2–3. Bottleneck between CS and publishing. Requires VP approval but champions internally. Cycle: 2–4 weeks. Discovery: PMM Alliance, LinkedIn.</div>
+        <div style="margin-top:8px"><span class="tag tag-teal">Key message: "Scale case study production without scaling headcount."</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 04 TECH STACK ==================== -->
+  <div class="section" id="s04">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <div><div class="section-title">Tech Stack</div></div>
+    </div>
+    <div class="table-wrap" style="margin-bottom:20px">
+      <table>
+        <thead><tr><th>Layer</th><th>Recommended</th><th>Alternative</th><th>Rationale</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Frontend</strong></td><td><span class="tag tag-teal">Next.js 14</span></td><td>Retool</td><td>SSR, great auth, Vercel analytics</td></tr>
+          <tr><td><strong>Data Integration</strong></td><td><span class="tag tag-teal">Unified.to API</span></td><td>Merge.dev</td><td>50+ CRM/analytics connectors, one SDK</td></tr>
+          <tr><td><strong>Stripe</strong></td><td><span class="tag tag-teal">Stripe API (direct)</span></td><td>—</td><td>Per-customer MRR, growth, churn direct from Stripe</td></tr>
+          <tr><td><strong>Analytics</strong></td><td><span class="tag tag-teal">PostHog + Mixpanel + Amplitude</span></td><td>Segment</td><td>Usage events, retention, feature adoption per customer</td></tr>
+          <tr><td><strong>AI / Story Gen</strong></td><td><span class="tag tag-teal">Claude API (Sonnet)</span></td><td>GPT-4o</td><td>Best long-form B2B writing + metric citation accuracy</td></tr>
+          <tr><td><strong>Approval Workflow</strong></td><td><span class="tag tag-teal">Resend + Supabase</span></td><td>Postmark</td><td>Branded email + custom approval form page</td></tr>
+          <tr><td><strong>Widget</strong></td><td><span class="tag tag-teal">Vanilla JS</span></td><td>—</td><td>script-snippet, no framework dependency</td></tr>
+          <tr><td><strong>PDF Generation</strong></td><td><span class="tag tag-teal">Puppeteer / React-PDF</span></td><td>wkhtmltopdf</td><td>Branded PDF from HTML templates</td></tr>
+          <tr><td><strong>Backend / API</strong></td><td><span class="tag tag-teal">Next.js API + tRPC</span></td><td>FastAPI</td><td>Type-safe, unified codebase</td></tr>
+          <tr><td><strong>Database</strong></td><td><span class="tag tag-teal">Supabase (PostgreSQL)</span></td><td>PlanetScale</td><td>RLS per workspace, data isolation critical</td></tr>
+          <tr><td><strong>Job Queue</strong></td><td><span class="tag tag-teal">Inngest</span></td><td>BullMQ</td><td>Data sync jobs, approval reminders, webhooks</td></tr>
+          <tr><td><strong>Auth</strong></td><td><span class="tag tag-teal">Supabase Auth + Google SSO</span></td><td>Clerk</td><td>Social login + magic link for quick trial</td></tr>
+          <tr><td><strong>Payments</strong></td><td><span class="tag tag-teal">Stripe Billing</span></td><td>Paddle</td><td>Monthly + annual, seat-based for agency</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Build Timeline — 6 Weeks to Beta</div>
+      <div style="padding:8px 0">
+        <div class="timeline-item"><div class="timeline-dot">1–2</div><div class="timeline-content"><div class="timeline-title">Stripe integration + Supabase schema + auth</div><div class="timeline-desc">Per-customer metric extraction from Stripe</div></div></div>
+        <div class="timeline-item"><div class="timeline-dot">3</div><div class="timeline-content"><div class="timeline-title">Approval email flow (Resend) + approval form (Supabase)</div><div class="timeline-desc">Customer signature capture with timestamp + IP</div></div></div>
+        <div class="timeline-item"><div class="timeline-dot">4</div><div class="timeline-content"><div class="timeline-title">Claude API story generation</div><div class="timeline-desc">Case study + testimonial + LinkedIn post formats</div></div></div>
+        <div class="timeline-item"><div class="timeline-dot">5</div><div class="timeline-content"><div class="timeline-title">Story library UI + embeddable widget + PDF + Verified badge</div><div class="timeline-desc">Full publish pipeline</div></div></div>
+        <div class="timeline-item"><div class="timeline-dot">6</div><div class="timeline-content"><div class="timeline-title">PostHog/Amplitude analytics + Stripe billing + agency workspace</div><div class="timeline-desc">Beta launch ready</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 05 COMPETITOR MAP ==================== -->
+  <div class="section" id="s05">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <div><div class="section-title">Competitor Map</div></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Product</th><th>Price</th><th>Strength</th><th>Weakness</th><th>Live Data</th><th>Verified</th><th>Quality</th><th>SMB Fit</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Testimonial.to</strong></td><td>$50–400/mo</td><td>Video testimonials</td><td>No data, no AI, no verification</td><td><span class="tag tag-coral">1/10</span></td><td><span class="tag tag-coral">1/10</span></td><td><span class="tag tag-amber">5/10</span></td><td><span class="tag tag-emerald">8/10</span></td></tr>
+          <tr><td><strong>UserEvidence</strong></td><td>$1,000+/mo</td><td>Verified stats via survey</td><td>Survey-based, no Stripe, enterprise-only</td><td><span class="tag tag-amber">7/10</span></td><td><span class="tag tag-amber">4/10</span></td><td><span class="tag tag-amber">7/10</span></td><td><span class="tag tag-coral">2/10</span></td></tr>
+          <tr><td><strong>Jasper / Copy.ai</strong></td><td>$39–125/mo</td><td>AI copy generation</td><td>No data, nothing verified</td><td><span class="tag tag-coral">2/10</span></td><td><span class="tag tag-coral">1/10</span></td><td><span class="tag tag-emerald">8/10</span></td><td><span class="tag tag-amber">6/10</span></td></tr>
+          <tr><td><strong>Manual / Agency</strong></td><td>$500–2,500/story</td><td>Full custom case studies</td><td>3–4 weeks, expensive, unscalable</td><td><span class="tag tag-amber">6/10</span></td><td><span class="tag tag-coral">3/10</span></td><td><span class="tag tag-emerald">9/10</span></td><td><span class="tag tag-coral">1/10</span></td></tr>
+          <tr><td><strong>ReferenceEdge</strong></td><td>$20k+/yr</td><td>Reference management</td><td>Enterprise only, no AI, no data</td><td><span class="tag tag-amber">4/10</span></td><td><span class="tag tag-amber">5/10</span></td><td><span class="tag tag-amber">6/10</span></td><td><span class="tag tag-coral">1/10</span></td></tr>
+          <tr style="background:var(--teal-light)"><td><strong style="color:var(--teal-dark)">PROVEKIT ✓</strong></td><td style="font-weight:700">$49–299/mo</td><td>Verified story engine: data→story</td><td>—</td><td><span class="tag" style="background:var(--teal);color:white">9/10</span></td><td><span class="tag" style="background:var(--teal);color:white">9/10</span></td><td><span class="tag" style="background:var(--teal);color:white">9/10</span></td><td><span class="tag" style="background:var(--teal);color:white">9/10</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert alert-teal" style="margin-top:16px">
+      💡 <strong>ProveKit's moat:</strong> Live data verification. Every other tool asks customers what they experienced (surveys) or takes their word for it (unverified). ProveKit reads actual data from the same Stripe account the claims would reference.
+    </div>
+  </div>
+
+  <!-- ==================== 06 REVENUE MODEL ==================== -->
+  <div class="section" id="s06">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <div><div class="section-title">Revenue Model</div></div>
+    </div>
+
+    <div class="grid-4" style="margin-bottom:24px">
+      <div class="price-card">
+        <div class="plan-name">Starter</div>
+        <div class="price">$49<span>/mo</span></div>
+        <ul><li>1–3 seats</li><li>5 stories/mo</li><li>Stripe only</li><li>3 formats</li><li>Basic embed</li><li>Email support</li></ul>
+      </div>
+      <div class="price-card featured">
+        <div style="position:absolute;top:-10px;right:12px"><span class="tag" style="background:var(--teal);color:white">Most Popular</span></div>
+        <div class="plan-name" style="color:var(--teal)">Growth</div>
+        <div class="price">$99<span>/mo</span></div>
+        <ul><li>Up to 8 seats</li><li>Unlimited stories</li><li>All integrations</li><li>All formats</li><li>Full widget</li><li>Priority support</li></ul>
+      </div>
+      <div class="price-card">
+        <div class="plan-name">Scale</div>
+        <div class="price">$199<span>/mo</span></div>
+        <ul><li>Up to 20 seats</li><li>Unlimited stories</li><li>All + CRM</li><li>Custom CSS</li><li>White-label embed</li><li>CSM</li></ul>
+      </div>
+      <div class="price-card">
+        <div class="plan-name">Agency</div>
+        <div class="price">$299<span>/mo</span></div>
+        <ul><li>Unlimited seats</li><li>Unlimited stories</li><li>All integrations</li><li>All formats</li><li>White-label full</li><li>Dedicated</li></ul>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">12-Month MRR Projection</div>
+        <div class="bar-chart" id="mrrChart">
+          <!-- bars rendered by JS -->
+        </div>
+        <div style="display:flex;gap:4px;margin-top:8px" id="mrrLabels"></div>
+        <div class="table-wrap" style="margin-top:16px">
+          <table>
+            <thead><tr><th>Month</th><th>Starter</th><th>Growth</th><th>Scale</th><th>Agency</th><th>Total MRR</th><th>MoM</th></tr></thead>
+            <tbody>
+              <tr><td>M1</td><td>12</td><td>2</td><td>0</td><td>0</td><td><strong>$588</strong></td><td>—</td></tr>
+              <tr><td>M2</td><td>25</td><td>6</td><td>2</td><td>1</td><td><strong>$1,915</strong></td><td><span class="tag tag-emerald">+226%</span></td></tr>
+              <tr><td>M3</td><td>50</td><td>18</td><td>5</td><td>3</td><td><strong>$5,147</strong></td><td><span class="tag tag-emerald">+169%</span></td></tr>
+              <tr><td>M6</td><td>120</td><td>50</td><td>18</td><td>12</td><td><strong>$22,982</strong></td><td><span class="tag tag-emerald">+75%</span></td></tr>
+              <tr><td>M9</td><td>220</td><td>90</td><td>35</td><td>25</td><td><strong>$52,230</strong></td><td><span class="tag tag-emerald">+44%</span></td></tr>
+              <tr><td>M12</td><td>350</td><td>140</td><td>60</td><td>45</td><td><strong style="color:var(--teal);font-size:15px">$95,650</strong></td><td><span class="tag tag-amber">+27%</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Additional Revenue Streams</div>
+        <table><tbody>
+          <tr><td>📦</td><td><strong>Story overage</strong></td><td>$8/story over plan limit</td></tr>
+          <tr><td>🎨</td><td><strong>PDF branding add-on</strong></td><td>Custom PDF templates — $19/mo</td></tr>
+          <tr><td>🛠️</td><td><strong>Done-for-you onboarding</strong></td><td>$299 one-time — first 5 stories</td></tr>
+          <tr><td>🏢</td><td><strong>Agency white-label seats</strong></td><td>$25/workspace/mo over base plan</td></tr>
+          <tr><td>🔌</td><td><strong>Integration marketplace</strong></td><td>Custom CRMs — revenue share</td></tr>
+          <tr><td>🏛️</td><td><strong>Enterprise</strong></td><td>Custom pricing, SSO, SOC2</td></tr>
+        </tbody></table>
+        <div style="margin-top:16px" class="alert alert-teal">
+          <strong>Agency expansion math:</strong><br>
+          10 clients = $299 + ($25×10) = <strong>$549/mo</strong><br>
+          20 clients = $299 + ($25×20) = <strong>$799/mo</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 07 FIRST 50 CUSTOMERS ==================== -->
+  <div class="section" id="s07">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <div><div class="section-title">First 50 Customers Playbook</div></div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-title" style="color:var(--coral)">Day 1–30 · Seed</div>
+        <div style="font-size:12px;color:var(--muted);line-height:2">
+          → LinkedIn: 'Head of Marketing B2B SaaS' + 10–200 emp<br>
+          → Hook: 'Your sales team is asking for case studies...'<br>
+          → Product Hunt upcoming page<br>
+          → Indie Hackers 'Show IH' post<br>
+          → Twitter/X targeting @YCombinator founders<br>
+          → Hacker News 'Ask HN' pain surfacing<br>
+        </div>
+        <div class="tag tag-teal" style="margin-top:12px">Goal: 20 free beta · 5 paying · $300+ MRR</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--amber)">Day 31–60 · Product Hunt</div>
+        <div style="font-size:12px;color:var(--muted);line-height:2">
+          → Product Hunt launch: 'Case studies from Stripe data in 3 minutes, Verified ✓'<br>
+          → Convert 8/20 beta to paid (30-day MBG)<br>
+          → SEO content: 'how to write a B2B case study'<br>
+          → LinkedIn content series<br>
+          → AppSumo lifetime deal<br>
+          → 10 B2B agencies for Agency plan trial<br>
+        </div>
+        <div class="tag tag-teal" style="margin-top:12px">Goal: 50 free · 20 paid · $2,500+ MRR</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--teal)">Day 61–90 · Integrations</div>
+        <div style="font-size:12px;color:var(--muted);line-height:2">
+          → Stripe App Marketplace listing<br>
+          → PostHog/Amplitude marketplace<br>
+          → HubSpot App Marketplace<br>
+          → 'Case study of case study' content<br>
+          → Referral: $20/mo credit per conversion<br>
+          → Target YC S25 + W26 cohort<br>
+        </div>
+        <div class="tag tag-teal" style="margin-top:12px">Goal: 200 free · 50 paid · $7,500+ MRR</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 08 CONVERSION FUNNELS ==================== -->
+  <div class="section" id="s08">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <div><div class="section-title">Conversion Funnels</div></div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:20px">
+      <div class="card">
+        <div class="card-title">Funnel 1: PLG / Inbound (Month 6)</div>
+        <div id="funnel1"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Funnel 2: Agency Channel</div>
+        <div id="funnel2"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Free-to-Paid Activation Journey</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Step</th><th>Event</th><th>Users</th><th>Rate</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Signs Up (Free)</td><td>1,000</td><td>100%</td></tr>
+            <tr><td>2</td><td>Connects Stripe</td><td>720</td><td><span class="tag tag-emerald">72%</span></td></tr>
+            <tr><td>3</td><td>Selects First Customer</td><td>580</td><td><span class="tag tag-emerald">58%</span></td></tr>
+            <tr><td>4</td><td>Reviews AI Metric Extract</td><td>480</td><td><span class="tag tag-amber">48%</span></td></tr>
+            <tr><td>5</td><td>Sends Approval Email</td><td>360</td><td><span class="tag tag-amber">36%</span></td></tr>
+            <tr><td>6</td><td>Customer Approves (2-click)</td><td>290</td><td><span class="tag tag-amber">29%</span></td></tr>
+            <tr><td>7</td><td>First Story Published ⭐ AHA</td><td>270</td><td><span class="tag tag-amber">27%</span></td></tr>
+            <tr><td>8</td><td>Shares Story with Sales Team</td><td>190</td><td><span class="tag tag-coral">19%</span></td></tr>
+            <tr><td>9</td><td>Generates 2nd Story</td><td>160</td><td><span class="tag tag-coral">16%</span></td></tr>
+            <tr><td>10</td><td>Hits 5-Story Free Limit</td><td>120</td><td><span class="tag tag-coral">12%</span></td></tr>
+            <tr><td>11</td><td><strong>Upgrades to Paid ✓</strong></td><td><strong>84</strong></td><td><span class="tag" style="background:var(--teal);color:white">8.4%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div class="card-title">Time Savings: Manual vs ProveKit</div>
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Step</th><th>Manual</th><th>ProveKit</th><th>Saving</th></tr></thead>
+          <tbody>
+            <tr><td>Customer Interview</td><td>2h</td><td>0</td><td><span class="tag tag-emerald">-2h</span></td></tr>
+            <tr><td>Writing Draft</td><td>5h</td><td>3m</td><td><span class="tag tag-emerald">-4h 57m</span></td></tr>
+            <tr><td>Internal Review</td><td>3h</td><td>5m</td><td><span class="tag tag-emerald">-2h 55m</span></td></tr>
+            <tr><td>Customer Approval</td><td>24h</td><td>10m</td><td><span class="tag tag-emerald">-23h 50m</span></td></tr>
+            <tr><td>Design & Publish</td><td>4h</td><td>2m</td><td><span class="tag tag-emerald">-3h 58m</span></td></tr>
+            <tr><td><strong>TOTAL</strong></td><td><strong style="color:var(--coral)">~38 hours / 3–4 weeks</strong></td><td><strong style="color:var(--emerald)">~20 minutes</strong></td><td><strong style="color:var(--teal)">$3,040 saved/story @$80/hr</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 09 CODE PROMPTS ==================== -->
+  <div class="section" id="s09">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <div><div class="section-title">AI Build Prompts</div><div class="section-desc">8 copy-paste prompts for Claude or GPT-4o</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div>
+        <div class="card-title" style="margin-bottom:8px">Prompt 1 — Stripe Per-Customer Metric Extraction (Node.js)</div>
+        <div class="copy-box"><button class="copy-btn" onclick="copyBox(this)">Copy</button>Node.js ile Stripe API'den per-customer metric extraction yaz.
+Input: {stripe_customer_id, account_id, lookback_months: 12}
+
+Metrics to extract:
+1. MRR at signup vs current MRR (Stripe Subscriptions API)
+2. MRR growth % (((current - initial) / initial) * 100)
+3. Plan upgrades: count of subscription plan upgrades since signup
+4. Payment success rate: successful payments / total payment attempts
+5. Lifetime value so far: sum of all successful payments
+6. Active since: months since first payment
+
+Stripe API calls:
+- /v1/customers/:id → customer metadata
+- /v1/subscriptions?customer=:id → subscription history
+- /v1/invoices?customer=:id → payment history
+
+Save to Supabase 'customer_metrics' table:
+{account_id, stripe_customer_id, mrr_initial, mrr_current, mrr_growth_pct,
+upgrades_count, ltv, active_months, extracted_at}
+
+TypeScript, Inngest background job wrapper.</div>
+      </div>
+
+      <div>
+        <div class="card-title" style="margin-bottom:8px">Prompt 2 — PostHog/Amplitude Usage Metrics (Node.js)</div>
+        <div class="copy-box"><button class="copy-btn" onclick="copyBox(this)">Copy</button>Node.js ile analytics platform per-customer usage metrics cek.
+Support three providers with unified output:
+
+POSTHOG:
+GET /api/projects/{id}/persons → filter by email
+GET /api/projects/{id}/persons/{id}/activity → usage events
+Calculate: DAU/WAU ratio, top features used, sessions last 30 days
+
+AMPLITUDE:
+GET /2/users/search?user={email}
+GET /2/events/segmentation → event counts per user
+Calculate: active days, core event frequency, retention score
+
+MIXPANEL:
+GET /api/2.0/engage → get user profile by email
+GET /api/2.0/events → get events for user
+Calculate: last active date, event counts, feature adoption
+
+Unified output per customer:
+{email, monthly_active_days, top_features: string[],
+sessions_per_week, retention_score, last_active_date}
+
+TypeScript, handles missing/null data gracefully.</div>
+      </div>
+
+      <div>
+        <div class="card-title" style="margin-bottom:8px">Prompt 3 — Customer Approval Flow (Resend + Next.js)</div>
+        <div class="copy-box"><button class="copy-btn" onclick="copyBox(this)">Copy</button>Node.js ile customer approval workflow yaz.
+Trigger: POST /api/approvals/send with {customer_id, metrics_snapshot}
+
+Step 1: Generate unique approval token (UUID, stored in Supabase with 7-day TTL)
+approval_requests: {id, customer_id, token, metrics_snapshot jsonb,
+status: pending|approved|edited|expired, expires_at}
+
+Step 2: Send branded approval email via Resend:
+Subject: "[Your Company] wants to share your success story"
+Body: personalized with customer name + metric previews
+CTA: "Review and Approve Your Story" → link to /approve/{token}
+
+Step 3: Approval page (Next.js /approve/[token]):
+Show each metric with edit button
+Checkbox: "I approve these metrics being published"
+Optional: "Add your own quote" textarea
+Submit → PATCH /api/approvals/{token}/complete
+
+Step 4: On approval:
+Update approval_requests.status = 'approved'
+Store approved_metrics + customer_quote
+Trigger Inngest job: generate_story
+
+TypeScript, Resend SDK, Supabase.</div>
+      </div>
+
+      <div>
+        <div class="card-title" style="margin-bottom:8px">Prompt 4 — AI Story Generator (Claude API)</div>
+        <div class="copy-box"><button class="copy-btn" onclick="copyBox(this)">Copy</button>Node.js ile Claude API story generation service yaz.
+Input: {approval_id} → fetch approved_metrics + customer_quote + company_info
+
+Claude Sonnet API call:
+System: "You are a B2B case study writer. Rules:
+1. ONLY use metrics that are in the approved_metrics object. Never invent claims.
+2. Write in Challenge-Solution-Results structure
+3. Results section leads with the most impressive verified metric
+4. Tone: professional but human. Not corporate-speak.
+5. Do not use 'leverage', 'synergy', 'seamless', 'robust'
+6. The [VERIFIED] tag after each metric will be replaced with the badge in the UI"
+
+User: "Write a B2B case study for a company using {product_name}.
+Approved metrics: {approved_metrics}
+Customer quote (if provided): {customer_quote}
+Industry: {industry}, Company size: {size}
+Target length: 650-850 words."
+
+Outputs:
+1. case_study_html: full article in HTML
+2. testimonial_quote: 2-3 sentence first-person quote
+3. linkedin_post: 80-word post with metrics highlighted
+4. stat_cards: array of {metric, value, context}
+
+Save all to 'stories' table. TypeScript.</div>
+      </div>
+
+      <div>
+        <div class="card-title" style="margin-bottom:8px">Prompt 5 — Embeddable Widget (Vanilla JS)</div>
+        <div class="copy-box"><button class="copy-btn" onclick="copyBox(this)">Copy</button>Vanilla JavaScript embeddable widget yaz.
+Usage: &lt;script src="https://cdn.provekit.io/widget.js"
+data-account="abc123" data-theme="light"&gt;&lt;/script&gt;
+
+Widget types (data-type attribute):
+1. 'rotating-testimonials': carousel of approved quotes
+2. 'story-cards': grid of case study preview cards
+3. 'stat-bar': horizontal row of key metrics
+
+Features:
+- Lazy loads via IntersectionObserver (performance)
+- No framework dependency — pure DOM manipulation
+- Fetches from ProveKit CDN (cached, 15-min TTL)
+- Responds to data-primary-color for brand colors
+- Includes "Verified by ProveKit ✓" badge with tooltip
+- GDPR: no cookies, no tracking pixels
+
+Shadow DOM for style isolation.
+TypeScript, compiled to single ES5 bundle.</div>
+      </div>
+
+      <div>
+        <div class="card-title" style="margin-bottom:8px">Prompt 6 — Story Library Dashboard (Next.js + shadcn/ui)</div>
+        <div class="copy-box"><button class="copy-btn" onclick="copyBox(this)">Copy</button>Next.js 14 + shadcn/ui ile ProveKit story library dashboard yaz.
+
+Pages:
+1. /dashboard: KPI row (Total Stories, Pending Approvals, Stories This Month, Avg MRR Growth)
+   + recent stories table + approval queue
+2. /customers: list with metric snapshots + story status + "Generate Story" button
+3. /stories: published library — filterable by industry, company size, metric type
+   + story preview card with edit/share/download
+4. /stories/[id]: full story editor — edit AI output, preview all formats, publish
+5. /approvals: pending/approved/expired approval requests table
+6. /embed: widget configuration + embed code generator + preview
+
+Light mode: bg-gray-50, teal (#0D9488) primary accent.
+Verified badge component: green check + 'Verified by ProveKit ✓'
+TypeScript, react-query, Tailwind.</div>
+      </div>
+
+      <div>
+        <div class="card-title" style="margin-bottom:8px">Prompt 7 — Stripe Billing</div>
+        <div class="copy-box"><button class="copy-btn" onclick="copyBox(this)">Copy</button>Next.js + Stripe ile ProveKit billing yaz.
+
+Plans:
+- starter: $49/mo, 5 stories/mo limit
+- growth: $99/mo, unlimited
+- scale: $199/mo, unlimited + CRM
+- agency: $299/mo, unlimited + multi-workspace
+
+/api/checkout: plan select → Stripe Checkout
+/api/webhook: subscription.created/updated → update accounts.plan + story_limit
+subscription.deleted → downgrade (retain stories, disable new generation)
+/api/portal: Stripe Customer Portal for self-service
+
+Story overage (Starter plan):
+- Track stories_generated_this_month per account
+- On 5th story: show upgrade prompt before generation
+- If agrees: charge $8 via Stripe payment_intent or move to Growth
+
+Feature gates: check accounts.plan on POST /api/stories/generate
+Agency workspace creation: only allowed on agency plan. TypeScript.</div>
+      </div>
+
+      <div>
+        <div class="card-title" style="margin-bottom:8px">Prompt 8 — Supabase Database Schema</div>
+        <div class="copy-box"><button class="copy-btn" onclick="copyBox(this)">Copy</button>ProveKit için Supabase PostgreSQL şeması yaz:
+
+accounts: id, name, plan, story_limit_per_month, stories_this_month,
+  stripe_ids jsonb, brand_settings jsonb (logo, colors, sender_name), created_at
+
+stripe_connections: id, account_id, stripe_access_token encrypted,
+  stripe_account_id, connected_at, last_synced
+
+analytics_connections: id, account_id, provider (posthog|amplitude|mixpanel),
+  api_key encrypted, project_id, last_synced
+
+customers: id, account_id, stripe_customer_id, email, company_name,
+  industry, company_size, contact_name, contact_email
+
+customer_metrics: id, customer_id, account_id,
+  stripe_metrics jsonb (mrr_initial, mrr_current, mrr_growth_pct, ltv),
+  analytics_metrics jsonb (active_days, top_features, retention_score),
+  extracted_at, valid_until
+
+approval_requests: id, account_id, customer_id, token text UNIQUE,
+  metrics_snapshot jsonb, status (pending|approved|edited|expired),
+  customer_quote text, approved_at, expires_at
+
+stories: id, account_id, customer_id, approval_id,
+  title text, case_study_html text, testimonial_quote text,
+  linkedin_post text, stat_cards jsonb,
+  status (draft|published|archived),
+  is_public bool, slug text UNIQUE,
+  verified_at timestamptz, published_at, created_at
+
+RLS: accounts see only their own data.
+Index: account_id, customer_id, slug, status.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 10 DESIGN SYSTEM ==================== -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <div><div class="section-title">Design System — Trust Teal</div></div>
+    </div>
+
+    <div class="grid-4" style="margin-bottom:20px">
+      <div><div class="swatch" style="background:#F7FAFA;border:1px solid #e2eaea"><div class="swatch-info swatch-dark">#F7FAFA</div></div><div style="font-size:12px;margin-top:4px;font-weight:600">Cool Off-White</div><div style="font-size:11px;color:var(--muted)">App background</div></div>
+      <div><div class="swatch" style="background:#0D9488"><div class="swatch-info">#0D9488</div></div><div style="font-size:12px;margin-top:4px;font-weight:600">Trust Teal</div><div style="font-size:11px;color:var(--muted)">Primary · CTAs · Verified badge</div></div>
+      <div><div class="swatch" style="background:#6366F1"><div class="swatch-info">#6366F1</div></div><div style="font-size:12px;margin-top:4px;font-weight:600">Electric Indigo</div><div style="font-size:11px;color:var(--muted)">Secondary · AI labels</div></div>
+      <div><div class="swatch" style="background:#10B981"><div class="swatch-info">#10B981</div></div><div style="font-size:12px;margin-top:4px;font-weight:600">Verified Emerald</div><div style="font-size:11px;color:var(--muted)">Success · Published · Approved</div></div>
+      <div><div class="swatch" style="background:#F59E0B"><div class="swatch-info">#F59E0B</div></div><div style="font-size:12px;margin-top:4px;font-weight:600">Amber</div><div style="font-size:11px;color:var(--muted)">Pending · In-progress</div></div>
+      <div><div class="swatch" style="background:#F43F5E"><div class="swatch-info">#F43F5E</div></div><div style="font-size:12px;margin-top:4px;font-weight:600">Coral</div><div style="font-size:11px;color:var(--muted)">Alerts · Expired · Urgent</div></div>
+      <div><div class="swatch" style="background:#0F2430"><div class="swatch-info">#0F2430</div></div><div style="font-size:12px;margin-top:4px;font-weight:600">Dark Navy</div><div style="font-size:11px;color:var(--muted)">'KIT' wordmark · Dark bg</div></div>
+      <div><div class="swatch" style="background:#64748B"><div class="swatch-info">#64748B</div></div><div style="font-size:12px;margin-top:4px;font-weight:600">Slate 500</div><div style="font-size:11px;color:var(--muted)">Muted text · Metadata</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-title">Typography</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Style</th><th>Font</th><th>Size</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><span style="font-family:'Outfit';font-weight:800;font-size:22px">Display</span></td><td>Outfit ExtraBold</td><td>38px / 44px</td><td>Hero, product name</td></tr>
+            <tr><td><span style="font-family:'Outfit';font-weight:700;font-size:18px">H1</span></td><td>Outfit Bold</td><td>26px / 32px</td><td>Page titles</td></tr>
+            <tr><td><span style="font-family:'Outfit';font-weight:600;font-size:16px">H2</span></td><td>Outfit SemiBold</td><td>18px / 24px</td><td>Section headers</td></tr>
+            <tr><td><span style="font-size:14px;font-weight:600">H3</span></td><td>Inter SemiBold</td><td>14px / 19px</td><td>Card titles, labels</td></tr>
+            <tr><td><span style="font-size:13px">Body</span></td><td>Inter Regular</td><td>14px / 22px</td><td>Content text</td></tr>
+            <tr><td><span style="font-size:11px;color:var(--muted)">Caption</span></td><td>Inter Regular</td><td>12px / 16px</td><td>Metadata, timestamps</td></tr>
+            <tr><td><span style="font-style:italic;font-size:13px">Quote</span></td><td>Inter Italic</td><td>16px / 24px</td><td>Customer testimonial quotes</td></tr>
+            <tr><td><span class="verified-badge" style="font-size:10px;padding:2px 8px">✓ Badge</span></td><td>Inter Bold</td><td>11px</td><td>Verified badge, plan labels</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Figma / v0.dev Starter Prompt</div>
+      <div class="copy-box"><button class="copy-btn" onclick="copyBox(this)">Copy</button>"Light mode B2B SaaS. Product: ProveKit — verified customer story engine. Colors: bg #F7FAFA, cards white, primary teal #0D9488, AI indigo #6366F1, verified emerald #10B981, pending amber #F59E0B. Layout: left sidebar (Dashboard, Customers, Stories, Approvals, Embed, Settings), main area: KPI row (Total Stories, Pending Approvals, Published This Month, Avg MRR Growth), customer list with story status per customer, recent approvals queue. Key component: Verified ✓ badge — teal checkmark circle + 'Verified by ProveKit' text. Story card: company logo, headline metric (e.g. '+127% MRR'), excerpt, Verified badge, format download buttons. Style: trustworthy and clean. Like Stripe + Notion hybrid. Outfit font for headers, Inter for body. Card radius 10px."</div>
+    </div>
+  </div>
+
+  <!-- ==================== 11 UI KIT ==================== -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <div><div class="section-title">UI Kit — Dashboard Components</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div>
+        <div class="card-title" style="margin-bottom:8px">1. StoryCard.tsx</div>
+        <div class="copy-box"><button class="copy-btn" onclick="copyBox(this)">Copy</button>const StoryCard = ({ companyName, headline, excerpt, industry,
+  mrrGrowth, publishedAt, onView, onShare }) => (
+  &lt;div className="bg-white rounded-xl border border-gray-100
+    shadow-sm hover:shadow-md transition-shadow p-5"&gt;
+    &lt;div className="flex items-start justify-between mb-3"&gt;
+      &lt;div&gt;
+        &lt;p className="font-bold text-gray-900"&gt;{companyName}&lt;/p&gt;
+        &lt;p className="text-gray-400 text-xs mt-0.5"&gt;{industry} · {publishedAt}&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;VerifiedBadge /&gt;
+    &lt;/div&gt;
+    &lt;p className="text-teal-700 font-bold text-xl mb-2"&gt;{headline}&lt;/p&gt;
+    &lt;p className="text-gray-600 text-sm line-clamp-2 mb-4"&gt;{excerpt}&lt;/p&gt;
+    &lt;div className="flex items-center justify-between"&gt;
+      &lt;div className="flex items-center gap-1.5 bg-emerald-50
+        border border-emerald-200 px-2.5 py-1 rounded-full"&gt;
+        &lt;span className="text-emerald-700 font-bold text-sm"&gt;{mrrGrowth}&lt;/span&gt;
+        &lt;span className="text-emerald-600 text-xs"&gt;MRR Growth&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div className="flex gap-2"&gt;
+        &lt;button onClick={onView}
+          className="text-xs text-teal-600 hover:text-teal-800 font-semibold"&gt;View →&lt;/button&gt;
+        &lt;button onClick={onShare}
+          className="text-xs bg-teal-600 hover:bg-teal-700
+          text-white px-3 py-1.5 rounded-lg font-semibold"&gt;Share&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+);</div>
+      </div>
+
+      <div>
+        <div class="card-title" style="margin-bottom:8px">2. VerifiedBadge.tsx</div>
+        <div class="copy-box"><button class="copy-btn" onclick="copyBox(this)">Copy</button>const VerifiedBadge = ({ size = 'md', showLabel = true }) => {
+  const sizes = {
+    sm: { circle: 'w-4 h-4', text: 'text-xs' },
+    md: { circle: 'w-5 h-5', text: 'text-sm' },
+    lg: { circle: 'w-6 h-6', text: 'text-base' },
+  };
+  const s = sizes[size];
+  return (
+    &lt;div className="flex items-center gap-1.5 group cursor-help"
+      title="Data verified directly from Stripe and analytics integrations"&gt;
+      &lt;div className={`${s.circle} bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0`}&gt;
+        &lt;span className="text-white font-bold leading-none text-xs"&gt;✓&lt;/span&gt;
+      &lt;/div&gt;
+      {showLabel && (
+        &lt;span className={`${s.text} font-semibold text-teal-700`}&gt;
+          Verified by ProveKit
+        &lt;/span&gt;
+      )}
+    &lt;/div&gt;
+  );
+};</div>
+      </div>
+
+      <div>
+        <div class="card-title" style="margin-bottom:8px">3. ApprovalRow.tsx</div>
+        <div class="copy-box"><button class="copy-btn" onclick="copyBox(this)">Copy</button>const statusConfig = {
+  pending: { label: "Awaiting Approval", cls: "text-amber-700 bg-amber-50 border-amber-200" },
+  approved: { label: "Approved",          cls: "text-emerald-700 bg-emerald-50 border-emerald-200" },
+  edited:   { label: "Edited by Customer",cls: "text-indigo-700 bg-indigo-50 border-indigo-200" },
+  expired:  { label: "Expired",           cls: "text-gray-500 bg-gray-50 border-gray-200" },
+};
+const ApprovalRow = ({ companyName, contactEmail, sentAt, status, mrrGrowth, onRemind, onGenerate }) => {
+  const cfg = statusConfig[status];
+  return (
+    &lt;div className="flex items-center gap-4 py-3 px-4 border-b border-gray-100 hover:bg-gray-50"&gt;
+      &lt;div className="flex-1"&gt;
+        &lt;p className="font-semibold text-gray-900 text-sm"&gt;{companyName}&lt;/p&gt;
+        &lt;p className="text-gray-400 text-xs"&gt;{contactEmail} · sent {sentAt}&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;span className={`px-2 py-0.5 rounded-full text-xs font-semibold border ${cfg.cls}`}&gt;{cfg.label}&lt;/span&gt;
+      {status === 'pending' && &lt;button onClick={onRemind} className="text-xs font-semibold"&gt;Remind&lt;/button&gt;}
+      {(status === 'approved' || status === 'edited') && (
+        &lt;button onClick={onGenerate} className="text-xs bg-teal-600 text-white px-3 py-1.5 rounded-lg font-semibold"&gt;
+          Generate Story →
+        &lt;/button&gt;
+      )}
+    &lt;/div&gt;
+  );
+};</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 12 PROMPT PACK ==================== -->
+  <div class="section" id="s12">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <div><div class="section-title">Story Generation Prompt Pack</div></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Case Study Generation</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
+          <div class="text-copy"><button class="copy-btn" onclick="copyBox(this)" style="position:static;margin-bottom:6px;display:block">Copy</button>"Generate a case study for [Company], a 50-person FinTech SaaS that grew MRR 127% in 8 months using our product"</div>
+          <div class="text-copy"><button class="copy-btn" onclick="copyBox(this)" style="position:static;margin-bottom:6px;display:block">Copy</button>"Write a case study focused on churn reduction: [Company] reduced churn from 4.2% to 1.1% monthly"</div>
+          <div class="text-copy"><button class="copy-btn" onclick="copyBox(this)" style="position:static;margin-bottom:6px;display:block">Copy</button>"Generate a case study for an e-commerce company where the focus is on ROI and payback period"</div>
+          <div class="text-copy"><button class="copy-btn" onclick="copyBox(this)" style="position:static;margin-bottom:6px;display:block">Copy</button>"Write a case study that leads with team efficiency: [Company] reduced reporting time by 80%"</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Testimonial Quotes</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
+          <div class="text-copy"><button class="copy-btn" onclick="copyBox(this)" style="position:static;margin-bottom:6px;display:block">Copy</button>"Generate 3 testimonial quote options for [Customer] that reference their +89% activation rate improvement"</div>
+          <div class="text-copy"><button class="copy-btn" onclick="copyBox(this)" style="position:static;margin-bottom:6px;display:block">Copy</button>"Write a first-person testimonial from a CFO perspective about cost savings and ROI"</div>
+          <div class="text-copy"><button class="copy-btn" onclick="copyBox(this)" style="position:static;margin-bottom:6px;display:block">Copy</button>"Generate a CTO testimonial focused on technical quality and implementation speed"</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">LinkedIn & Social</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
+          <div class="text-copy"><button class="copy-btn" onclick="copyBox(this)" style="position:static;margin-bottom:6px;display:block">Copy</button>"Write a LinkedIn post for [Company]'s Head of Marketing to share about their success story"</div>
+          <div class="text-copy"><button class="copy-btn" onclick="copyBox(this)" style="position:static;margin-bottom:6px;display:block">Copy</button>"Generate a Twitter thread: 3 tweets telling [Customer]'s story with metrics"</div>
+          <div class="text-copy"><button class="copy-btn" onclick="copyBox(this)" style="position:static;margin-bottom:6px;display:block">Copy</button>"Generate an emoji-free, professional LinkedIn story post that leads with the biggest metric"</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Sales Enablement</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
+          <div class="text-copy"><button class="copy-btn" onclick="copyBox(this)" style="position:static;margin-bottom:6px;display:block">Copy</button>"Generate a sales one-pager for [Customer] story to use in prospect conversations"</div>
+          <div class="text-copy"><button class="copy-btn" onclick="copyBox(this)" style="position:static;margin-bottom:6px;display:block">Copy</button>"Create a 'similar customer' reference: 'You're a [Industry] company at [Stage] — here's what [Customer] achieved'"</div>
+          <div class="text-copy"><button class="copy-btn" onclick="copyBox(this)" style="position:static;margin-bottom:6px;display:block">Copy</button>"Generate a deal-specific proof point: '[Prospect] is concerned about implementation time — here's what [Customer] experienced'"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 13 API SCHEMA ==================== -->
+  <div class="section" id="s13">
+    <div class="section-header">
+      <span class="section-num">13</span>
+      <div><div class="section-title">REST API Schema</div><div class="section-desc">Base URL: https://api.provekit.io/v1 · Auth: Bearer (Supabase JWT)</div></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th><th>Body / Params</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag tag-emerald">POST</span></td><td><code>/connections/stripe</code></td><td>Connect Stripe (OAuth)</td><td><code>{"code":"oauth_code"}</code></td></tr>
+          <tr><td><span class="tag tag-emerald">POST</span></td><td><code>/connections/analytics</code></td><td>Connect analytics platform</td><td><code>{"provider":"posthog","api_key":"..."}</code></td></tr>
+          <tr><td><span class="tag tag-teal">GET</span></td><td><code>/connections</code></td><td>List all integrations</td><td>—</td></tr>
+          <tr><td><span class="tag tag-teal">GET</span></td><td><code>/customers</code></td><td>List customers with metric status</td><td>—</td></tr>
+          <tr><td><span class="tag tag-emerald">POST</span></td><td><code>/customers/:id/extract</code></td><td>Trigger metric extraction</td><td>—</td></tr>
+          <tr><td><span class="tag tag-teal">GET</span></td><td><code>/customers/:id/metrics</code></td><td>Get latest extracted metrics</td><td>—</td></tr>
+          <tr><td><span class="tag tag-emerald">POST</span></td><td><code>/approvals/send</code></td><td>Send approval email</td><td><code>{"customer_id":"uuid"}</code></td></tr>
+          <tr><td><span class="tag tag-teal">GET</span></td><td><code>/approvals</code></td><td>List approval requests</td><td><code>?status=pending</code></td></tr>
+          <tr><td><span class="tag tag-amber">PATCH</span></td><td><code>/approvals/:token</code></td><td>Customer submits approval (public)</td><td><code>{"approved_metrics":{},"signature":true}</code></td></tr>
+          <tr><td><span class="tag tag-emerald">POST</span></td><td><code>/stories/generate</code></td><td>Generate story from approved request</td><td><code>{"approval_id":"uuid"}</code></td></tr>
+          <tr><td><span class="tag tag-teal">GET</span></td><td><code>/stories</code></td><td>List all stories</td><td><code>?status=published&industry=fintech</code></td></tr>
+          <tr><td><span class="tag tag-teal">GET</span></td><td><code>/stories/:id</code></td><td>Get full story with all formats</td><td>—</td></tr>
+          <tr><td><span class="tag tag-amber">PATCH</span></td><td><code>/stories/:id</code></td><td>Edit story content</td><td><code>{"case_study_html":"..."}</code></td></tr>
+          <tr><td><span class="tag tag-emerald">POST</span></td><td><code>/stories/:id/publish</code></td><td>Publish story (apply verified badge)</td><td><code>{"is_public":true}</code></td></tr>
+          <tr><td><span class="tag tag-teal">GET</span></td><td><code>/embed/:account_id/stories</code></td><td>Public embed endpoint (no auth)</td><td>—</td></tr>
+          <tr><td><span class="tag tag-teal">GET</span></td><td><code>/usage</code></td><td>Current story count vs plan limit</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== 14 DB SCHEMA ==================== -->
+  <div class="section" id="s14">
+    <div class="section-header">
+      <span class="section-num">14</span>
+      <div><div class="section-title">Database Schema — PostgreSQL + Supabase RLS</div></div>
+    </div>
+    <div class="copy-box" style="margin-bottom:16px"><button class="copy-btn" onclick="copyBox(this)">Copy Full Schema</button>-- accounts
+CREATE TABLE accounts (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  name text NOT NULL,
+  plan text CHECK (plan IN ('starter','growth','scale','agency')),
+  story_limit_per_month int, -- 5 for starter, null others
+  stories_this_month int DEFAULT 0,
+  brand_settings jsonb, -- logo_url, primary_color, sender_name, sender_email
+  stripe_ids jsonb,    -- customer_id, subscription_id
+  created_at timestamptz DEFAULT now()
+);
+
+-- stripe_connections
+CREATE TABLE stripe_connections (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  account_id uuid REFERENCES accounts UNIQUE,
+  stripe_access_token text, -- Encrypted at rest
+  stripe_account_id text,
+  last_synced timestamptz
+);
+
+-- customers
+CREATE TABLE customers (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  account_id uuid REFERENCES accounts,
+  stripe_customer_id text,
+  email text,
+  company_name text,
+  contact_name text,
+  contact_email text,
+  industry text,
+  company_size text CHECK (company_size IN ('1-10','11-50','51-200','201-500','500+'))
+);
+
+-- customer_metrics
+CREATE TABLE customer_metrics (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  customer_id uuid REFERENCES customers,
+  account_id uuid REFERENCES accounts,
+  stripe_metrics jsonb,    -- mrr_initial, mrr_current, growth_pct, ltv, upgrades
+  analytics_metrics jsonb, -- active_days, features, retention_score
+  extracted_at timestamptz DEFAULT now(),
+  valid_until timestamptz DEFAULT now() + INTERVAL '7 days'
+);
+
+-- approval_requests
+CREATE TABLE approval_requests (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  account_id uuid REFERENCES accounts,
+  customer_id uuid REFERENCES customers,
+  token text UNIQUE,
+  metrics_snapshot jsonb,
+  approved_metrics jsonb,
+  customer_quote text,
+  status text CHECK (status IN ('pending','approved','edited','expired')),
+  approved_at timestamptz,
+  expires_at timestamptz DEFAULT now() + INTERVAL '7 days'
+);
+
+-- stories
+CREATE TABLE stories (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  account_id uuid REFERENCES accounts,
+  customer_id uuid REFERENCES customers,
+  approval_id uuid REFERENCES approval_requests,
+  title text,
+  case_study_html text,
+  testimonial_quote text,
+  linkedin_post text,
+  stat_cards jsonb,
+  status text CHECK (status IN ('draft','published','archived')),
+  is_public bool DEFAULT false,
+  slug text UNIQUE,
+  verified_at timestamptz,
+  published_at timestamptz,
+  created_at timestamptz DEFAULT now()
+);
+
+-- RLS Policies
+ALTER TABLE accounts ENABLE ROW LEVEL SECURITY;
+ALTER TABLE customers ENABLE ROW LEVEL SECURITY;
+ALTER TABLE stories ENABLE ROW LEVEL SECURITY;
+-- ... (accounts see only their own data)
+
+-- Indexes
+CREATE INDEX idx_stories_account ON stories(account_id);
+CREATE INDEX idx_stories_status ON stories(status);
+CREATE INDEX idx_stories_slug ON stories(slug);
+CREATE INDEX idx_customers_account ON customers(account_id);</div>
+  </div>
+
+  <!-- ==================== 15 LANDING PAGE COPY ==================== -->
+  <div class="section" id="s15">
+    <div class="section-header">
+      <span class="section-num">15</span>
+      <div><div class="section-title">Landing Page Copy</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="card">
+        <div class="card-title">HERO</div>
+        <div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>
+          <div style="font-size:20px;font-weight:800;margin-bottom:8px">Your customer grew 127% with your product. They just don't know they're a case study yet.</div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:12px">ProveKit connects to Stripe and your analytics, reads the real metrics your customers experienced, sends them a 2-click approval form, and publishes a Verified ✓ case study in 3 minutes. No writer. No call. No 4-week cycle.</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <span class="tag" style="background:var(--teal);color:white;padding:8px 16px;font-size:13px">Generate Your First Case Study Free →</span>
+            <span class="tag tag-teal" style="padding:8px 16px;font-size:13px">See ProveKit generate a real case study in 3 minutes (watch live)</span>
+          </div>
+          <div style="font-size:11px;color:var(--muted);margin-top:8px">Trusted by marketing teams at 400+ B2B SaaS companies</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">PAIN</div>
+        <div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>
+          <div style="font-weight:800;margin-bottom:10px">Your sales team asked for case studies last quarter. They're still waiting.</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.8">
+            <strong>Pain 1:</strong> The manual case study process: customer interview → writer → internal review → customer approval → design → publish. 3–4 weeks. 20+ hours. Maybe 2–3 stories per quarter.<br><br>
+            <strong>Pain 2:</strong> Your existing testimonials say things like 'We love working with [Company]!' Buyers don't trust that. They want numbers. Specific numbers, from a specific time period, from a real data source.<br><br>
+            <strong>Pain 3:</strong> You have 200 happy customers and 3 published case studies. The other 197 success stories are sitting in Slack messages and CS notes.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">SOLUTION</div>
+        <div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>
+          <div style="font-weight:800;margin-bottom:12px">3 minutes. Real data. Verified badge. No writer needed.</div>
+          <div style="font-size:13px;line-height:1.8">
+            <strong>Connect —</strong> Link your Stripe account. ProveKit reads each customer's actual revenue impact: MRR growth, plan upgrades, lifetime value. No manual data entry.<br><br>
+            <strong>Approve —</strong> A branded email goes to your customer: 'We'd love to share your story. Here are the metrics we'd feature. Approve in 2 clicks.' Most customers respond within 24 hours.<br><br>
+            <strong>Publish —</strong> AI generates the case study, testimonial quote, and LinkedIn post from approved metrics. Published with Verified ✓ badge. Embed on your website in 5 minutes.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">VERIFIED BADGE SECTION</div>
+        <div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>
+          <div style="font-weight:800;margin-bottom:8px">'Verified by ProveKit' — the trust signal your buyers actually believe.</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.8">Unverified testimonials say 'Revenue increased significantly.' ProveKit-verified stories say 'MRR grew 127% in 8 months — verified from Stripe data on [date].' Buyers know the difference. 97% of B2B buyers say customer evidence is the most reliable content type. Verification makes it more credible than anything else.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">SOCIAL PROOF QUOTES</div>
+        <div class="grid-2">
+          <div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button><em>"We had 4 case studies before ProveKit. In the first month, we published 23. Our sales team calls it our most important tool."</em><br><strong>— Sarah K., VP Marketing @ Series B SaaS</strong></div>
+          <div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button><em>"I was skeptical that customers would approve. 18 of our first 20 approved within 48 hours. Turns out happy customers love being featured."</em><br><strong>— Marcus T., Founder @ B2B SaaS</strong></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">PRICING CTA</div>
+        <div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>
+          <div style="font-weight:800;font-size:18px;margin-bottom:6px">5 case studies free. No credit card.</div>
+          <div style="font-size:13px;color:var(--muted)">Connect Stripe. Generate your first case study. If your customers don't approve it within a week, we'll refund your first paid month, no questions.</div>
+          <div style="margin-top:10px"><span class="tag" style="background:var(--teal);color:white;padding:8px 16px;font-size:13px">Start Free → Connect Stripe</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 16 WAITLIST EMAILS ==================== -->
+  <div class="section" id="s16">
+    <div class="section-header">
+      <span class="section-num">16</span>
+      <div><div class="section-title">Waitlist Email Sequence</div><div class="section-desc">5-email sequence targeting B2B SaaS founders & marketers</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><div class="card-title">Email 1 — Day 0</div><span class="tag tag-teal">Subject: You're on the ProveKit waitlist</span></div>
+        <div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>Hi [First Name],
+
+You just joined the ProveKit waitlist — and you're one of 600+ B2B SaaS founders and marketers who are done with the 3-week case study process.
+
+Here's what you'll get when we open your slot:
+→ Connect Stripe in 2 minutes — ProveKit reads your customer metrics immediately
+→ Customer approval in 2 clicks — most customers respond in under 24 hours
+→ Verified ✓ case study, testimonial, LinkedIn post — all generated automatically
+→ Embeddable widget for your website — ship it today
+
+Quick question: How many case studies does your company have published?
+Reply and I'll tell you how many you could have with ProveKit this month.
+
+— [Founder Name], ProveKit</div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><div class="card-title">Email 2 — Day 3</div><span class="tag tag-teal">Subject: The math behind your missing case studies</span></div>
+        <div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>Your customers are already giving you the data.
+
+Let's say you have 200 customers.
+Average MRR growth for healthy B2B SaaS customers: ~30% in first year.
+20% of your customers had exceptional results (+80% growth, -60% churn, etc.)
+= ~40 customers with incredible stories
+= 40 potential case studies
+→ You've published: maybe 3.
+
+Each case study (manually): 20–30 hours × $80/hr = $1,600–$2,400 to produce.
+40 case studies manually: $64,000–$96,000 in team time.
+ProveKit: $99/month.
+
+[Watch how it works in 3 minutes →]</div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><div class="card-title">Email 3 — Day 7</div><span class="tag tag-teal">Subject: Why 'verified' changes everything with buyers</span></div>
+        <div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>There's a difference between:
+'Revenue increased significantly' (unverified testimonial)
+and
+'MRR grew 127% in 8 months — verified from Stripe data on Jan 14, 2025' (ProveKit)
+
+97% of B2B buyers say customer evidence is the most reliable content type.
+But they also know when evidence is vague and unverified.
+
+With the ProveKit Verified ✓ badge:
+→ Buyers can trust the exact numbers
+→ You differentiate from competitors using generic testimonials
+→ Your case studies hold up in competitive deal conversations
+
+[See a real ProveKit-verified story →]</div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><div class="card-title">Email 4 — Day 11</div><span class="tag tag-amber">Subject: One thing before we give you access</span></div>
+        <div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>[First Name], we're rolling out accounts this week. One quick question:
+
+What's your current case study production process?
+a) We have a dedicated writer or agency
+b) Marketing does it manually — takes weeks
+c) We barely have any case studies — it never gets prioritized
+d) We use a tool (Jasper, etc.) but the output isn't verified
+
+Reply with a letter. I'll make sure ProveKit is configured for your exact situation when you log in.</div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><div class="card-title">Email 5 — Day 14</div><span class="tag tag-emerald">Subject: Your ProveKit account is ready</span></div>
+        <div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>[First Name] — you're in.
+
+[Connect Stripe and Generate Your First Case Study →]
+
+Start here: connect your Stripe account. Takes 2 minutes.
+Then pick your happiest customer — one with strong MRR growth or clear product adoption.
+
+ProveKit will show you their metrics and suggest the most compelling story angles.
+Send the approval email. Most customers respond within 24 hours.
+When they do, your first verified case study is waiting.
+
+Questions? Reply here — I respond same day.
+— [Founder Name], ProveKit</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 17 BRANDING ==================== -->
+  <div class="section" id="s17">
+    <div class="section-header">
+      <span class="section-num">17</span>
+      <div><div class="section-title">Branding Kit</div></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Brand Name Rationale</div>
+        <div style="font-size:40px;font-weight:800;margin-bottom:12px"><span style="color:var(--teal)">PROVE</span><span style="color:var(--navy)">KIT</span></div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.8"><strong>Prove</strong> — The central action. B2B marketing is about proving value. Direct, strong, outcome-oriented.<br><strong>Kit</strong> — A complete system for a job. Not just one feature.<br><strong>Together</strong> — The toolkit for proving your product's value.</div>
+        <div style="margin-top:12px"><strong>Domain:</strong> provekit.io<br><strong>Tagline:</strong> Your customers' results. Verified. Published. Closing deals.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Brand Voice Principles</div>
+        <table><tbody>
+          <tr><td>🎯</td><td><strong>Evidence-First</strong></td><td>Never make claims we can't back up. Every statement references real data.</td></tr>
+          <tr><td>⚡</td><td><strong>Direct</strong></td><td>Get to the outcome in the first sentence.</td></tr>
+          <tr><td>✅</td><td><strong>Credible</strong></td><td>No superlatives without data. No hype.</td></tr>
+          <tr><td>💙</td><td><strong>Empathetic</strong></td><td>We understand the case study process is painful. We're solving it.</td></tr>
+          <tr><td>🔢</td><td><strong>Specific</strong></td><td>'23 case studies in one afternoon' beats 'dramatically accelerate your evidence program'</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div class="card-title">Language Guide — Do / Don't</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="color:var(--emerald)">✓ DO SAY</th><th style="color:var(--coral)">✗ DON'T SAY</th></tr></thead>
+          <tbody>
+            <tr><td>Verified from Stripe data</td><td>Data-driven insights</td></tr>
+            <tr><td>3 minutes to publish</td><td>Streamline your evidence workflow</td></tr>
+            <tr><td>Your customer grew 127% MRR</td><td>Significant revenue impact</td></tr>
+            <tr><td>2-click customer approval</td><td>Frictionless approval process</td></tr>
+            <tr><td>5 case studies free, no credit card</td><td>Start your free trial today</td></tr>
+            <tr><td>Your sales team needs this today</td><td>Accelerate your GTM motion</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 18 LAUNCH CHECKLIST ==================== -->
+  <div class="section" id="s18">
+    <div class="section-header">
+      <span class="section-num">18</span>
+      <div><div class="section-title">Launch Checklist</div></div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-title">🛠 Technical Readiness</div>
+        <div style="font-size:12px;line-height:2.2;color:var(--muted)">
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Stripe OAuth integration tested with 5 real customers</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> PostHog integration: per-customer metrics normalized</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Approval email (Resend): branded, token-based link works</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Approval form: approve, edit metrics, digital signature</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Claude API story generation: tested 10 metric combinations</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Embeddable widget: renders on WP, Webflow, React</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> PDF generation: branded with company logo</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Stripe billing: all plans + story limit enforcement</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Story library: accessible, filterable, shareable</label>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">⚖️ Legal & Trust</div>
+        <div style="font-size:12px;line-height:2.2;color:var(--muted)">
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Customer approval terms: legal language in approval form</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Privacy policy updated: Stripe/analytics data access explained</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Data encryption: tokens/API keys encrypted (Supabase Vault)</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> GDPR compliance: customer can request deletion</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Verified badge terms: clear explanation of data source/date</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> RLS tested: Account A cannot access Account B data</label>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">📣 Marketing & Launch</div>
+        <div style="font-size:12px;line-height:2.2;color:var(--muted)">
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Landing page live (Section 15 copy)</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Waitlist email sequence live in Loops.so</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Product Hunt assets: tagline, screenshots, 3-min demo</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Stripe App Marketplace submitted (2–4 week review)</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Indie Hackers launch post drafted</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> 10 beta case studies generated for demos</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> ROI calculator: manual case study cost tool</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Day 1 email: auto after Stripe connection (not just signup)</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Onboarding 3-step checklist in dashboard</label>
+          <label style="display:block;cursor:pointer"><input type="checkbox" style="margin-right:8px;accent-color:var(--teal)"> Approval reminder: 48h auto-reminder if no response</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 20 A/B TESTS ==================== -->
+  <div class="section" id="s20">
+    <div class="section-header">
+      <span class="section-num">20</span>
+      <div><div class="section-title">A/B Test Scenarios</div><div class="section-desc">PostHog Feature Flags ile implement edilir</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-title">Test Takvimi — İlk 90 Gün</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Hafta</th><th>Test</th><th>Öncelik Nedeni</th></tr></thead>
+          <tbody>
+            <tr><td>1–2</td><td>Test 04 — Onboarding: Stripe trigger timing</td><td>Signup-to-activation kritik metrik</td></tr>
+            <tr><td>3–4</td><td>Test 02 — Landing: Hero headline</td><td>En yüksek traffic, en hızlı sonuç</td></tr>
+            <tr><td>5–6</td><td>Test 01 — Landing: CTA copy</td><td>Headline winner üstüne optimize</td></tr>
+            <tr><td>7–8</td><td>Test 06 — Email: Approval subject line</td><td>Approval rate geliri direkt etkiler</td></tr>
+            <tr><td>9–10</td><td>Test 10 — In-app: Upgrade prompt timing</td><td>İlk konversiyon dalgası için kritik</td></tr>
+            <tr><td>11–12</td><td>Test 08 — Pricing: Plan anchor order</td><td>Growth plan seçim oranını artır</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card"><div class="card-title">Test 02 — Hero Headline</div><div style="font-size:12px;line-height:1.8"><strong>Hypothesis:</strong> Concrete number headline converts better.<br><span class="tag tag-amber">Control A</span> "Your customers' results. Verified. Published. Closing deals."<br><span class="tag tag-emerald">Test B</span> "Your customer grew 127% with your product. They don't know they're a case study yet."<br><strong>Metric:</strong> Time on page + CTA click rate<br><span class="tag tag-teal">Est. Impact: +20–35%</span></div></div>
+      <div class="card"><div class="card-title">Test 06 — Approval Email Subject</div><div style="font-size:12px;line-height:1.8"><strong>Hypothesis:</strong> Metric-specific subject → higher open rate.<br><span class="tag tag-amber">Control A</span> "[Company] would love to feature your success story"<br><span class="tag tag-emerald">Test B</span> "Your +127% MRR growth story — 2-click approval needed"<br><strong>Metric:</strong> Open rate + approval rate<br><span class="tag tag-teal">Est. Impact: +25–40%</span></div></div>
+      <div class="card"><div class="card-title">Test 10 — Upgrade Prompt Timing</div><div style="font-size:12px;line-height:1.8"><strong>Hypothesis:</strong> 4th story prompt > 5th story prompt.<br><span class="tag tag-amber">Control A</span> "You've reached your free limit. Upgrade to continue." (5th story)<br><span class="tag tag-emerald">Test B</span> "You have 1 story left. Upgrade now for unlimited." (4th story)<br><strong>Metric:</strong> Free → paid conversion rate<br><span class="tag tag-teal">Est. Impact: +20–35%</span></div></div>
+      <div class="card"><div class="card-title">Test 12 — Widget Display Format</div><div style="font-size:12px;line-height:1.8"><strong>Hypothesis:</strong> Verified badge + metric card > text-only quotes.<br><span class="tag tag-amber">Control A</span> Rotating customer quotes (text only)<br><span class="tag tag-emerald">Test B</span> Verified ✓ card + headline metric (+127% MRR) + company name<br><strong>Metric:</strong> Widget click-through rate<br><span class="tag tag-teal">Est. Impact: +40–60%</span></div></div>
+    </div>
+  </div>
+
+  <!-- ==================== 21 COST MODEL ==================== -->
+  <div class="section" id="s21">
+    <div class="section-header">
+      <span class="section-num">21</span>
+      <div><div class="section-title">Tech Stack Cost Model</div></div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card" style="border-top:3px solid var(--emerald)">
+        <div class="card-title">Stage 1: MVP (0→10 customers)</div>
+        <div style="font-size:24px;font-weight:800;color:var(--emerald);margin:8px 0">$0–75/mo</div>
+        <table><thead><tr><th>Service</th><th>Cost</th></tr></thead><tbody>
+          <tr><td>Vercel Hobby</td><td>$0</td></tr>
+          <tr><td>Supabase Free</td><td>$0</td></tr>
+          <tr><td>Resend Free tier</td><td>$0</td></tr>
+          <tr><td>Claude API</td><td>~$10–30/mo</td></tr>
+          <tr><td>Inngest Free</td><td>$0</td></tr>
+          <tr><td>PostHog Free</td><td>$0</td></tr>
+          <tr><td>Unified.to Free</td><td>$0</td></tr>
+          <tr><td>Domain (.io)</td><td>~$40/yr</td></tr>
+        </tbody></table>
+        <div class="alert alert-teal" style="margin-top:12px;font-size:11px">⚠️ Supabase inactivity pause risk — upgrade to Pro ($25/mo) before first customer</div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--amber)">
+        <div class="card-title">Stage 2: Growth (100–500 customers)</div>
+        <div style="font-size:24px;font-weight:800;color:var(--amber);margin:8px 0">$260–380/mo</div>
+        <table><thead><tr><th>Service</th><th>Cost</th></tr></thead><tbody>
+          <tr><td>Vercel Pro</td><td>$20/mo</td></tr>
+          <tr><td>Supabase Pro</td><td>$25/mo</td></tr>
+          <tr><td>Resend Pro</td><td>$20/mo</td></tr>
+          <tr><td>Claude API</td><td>~$50–150/mo</td></tr>
+          <tr><td>Inngest Pro</td><td>$25/mo</td></tr>
+          <tr><td>PostHog</td><td>~$20/mo</td></tr>
+          <tr><td>Unified.to Startup</td><td>$99/mo</td></tr>
+          <tr><td>Cloudflare</td><td>$0–20/mo</td></tr>
+        </tbody></table>
+        <div style="font-size:11px;color:var(--muted);margin-top:8px">500 customers × $99 = $49,500 MRR → infra ratio: <strong>0.7%</strong></div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--coral)">
+        <div class="card-title">Stage 3: Scale (500–2K customers)</div>
+        <div style="font-size:24px;font-weight:800;color:var(--coral);margin:8px 0">$1,700–2,200/mo</div>
+        <table><thead><tr><th>Service</th><th>Cost</th></tr></thead><tbody>
+          <tr><td>Vercel Pro/Ent</td><td>$20–400/mo</td></tr>
+          <tr><td>Supabase Pro+</td><td>$25–200/mo</td></tr>
+          <tr><td>Resend Scale</td><td>$80/mo</td></tr>
+          <tr><td>Claude API Batch</td><td>$200–500/mo</td></tr>
+          <tr><td>Inngest Ent.</td><td>$150/mo</td></tr>
+          <tr><td>Unified.to Growth</td><td>$299/mo</td></tr>
+          <tr><td>Cloudflare Business</td><td>$200/mo</td></tr>
+        </tbody></table>
+        <div style="font-size:11px;color:var(--muted);margin-top:8px">1,000 customers × $99 = $99K MRR → infra ratio: <strong>~2%</strong><br>⚠️ Stripe fee ($2,900/mo) becomes biggest fixed cost</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 22 DOMAIN RESEARCH ==================== -->
+  <div class="section" id="s22">
+    <div class="section-header">
+      <span class="section-num">22</span>
+      <div><div class="section-title">Domain Research & Alternative Brand Names</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-title">Primary Domains (ProveKit brand)</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Domain</th><th>Recommendation</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td><strong>provekit.io</strong></td><td><span class="tag tag-teal">⭐ Önerilen</span></td><td>B2B SaaS için .io premium, tam marka uyumu</td></tr>
+            <tr><td><strong>provekit.com</strong></td><td><span class="tag tag-emerald">★★ İdeal</span></td><td>.com güven sinyali, enterprise buyer tercih eder</td></tr>
+            <tr><td><strong>provekit.co</strong></td><td><span class="tag tag-amber">Yedek</span></td><td>.co modern, startup kitlesi tanıdık</td></tr>
+            <tr><td><strong>getprovekit.com</strong></td><td><span class="tag tag-amber">Alternatif</span></td><td>provekit.com alınmışsa klasik 'get' prefix</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Alternative Brand Names</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Brand Name</th><th>Domains</th><th>Rationale</th><th>Güç</th></tr></thead>
+          <tbody>
+            <tr><td><strong>StoryProof</strong></td><td>storyproof.io / .com</td><td>Case study + verification birleşimi. Akılda kalıcı.</td><td>★★★★★</td></tr>
+            <tr><td><strong>ProofKit</strong></td><td>proofkit.io / .com</td><td>Kısa, güçlü, kategoriye direkt işaret.</td><td>★★★★</td></tr>
+            <tr><td><strong>VerifyKit</strong></td><td>verifykit.io / .com</td><td>Verification'ı öne çıkarır. 'Verify' B2B'de güçlü kelime.</td><td>★★★★</td></tr>
+            <tr><td><strong>CaseProof</strong></td><td>caseproof.io / .com</td><td>Case study + verified proof. Kısa ve çarpıcı.</td><td>★★★★</td></tr>
+            <tr><td><strong>Storymark</strong></td><td>storymark.io / .co</td><td>Verified ✓ badge'i çağrıştırır. Clean, premium.</td><td>★★★★</td></tr>
+            <tr><td><strong>EvidenceKit</strong></td><td>evidencekit.io / .com</td><td>UserEvidence rakibi olarak konumlanmak istersen.</td><td>★★★</td></tr>
+            <tr><td><strong>TrustStory</strong></td><td>truststory.io / .co</td><td>Buyer perspective'den bakıyor. Trust sinyali öne çıkar.</td><td>★★★</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 24 SEO ==================== -->
+  <div class="section" id="s24">
+    <div class="section-header">
+      <span class="section-num">24</span>
+      <div><div class="section-title">SEO & Content Strategy</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-title">Target Keywords</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Keyword</th><th>Volume</th><th>Competition</th><th>Funnel</th><th>Content Type</th></tr></thead>
+          <tbody>
+            <tr><td>b2b case study template</td><td>2,400/mo</td><td>Low</td><td><span class="tag tag-coral">BOFU</span></td><td>Template download page</td></tr>
+            <tr><td>how to write a b2b case study</td><td>1,900/mo</td><td>Low</td><td><span class="tag tag-amber">MOFU</span></td><td>Long-form guide (2,500 words)</td></tr>
+            <tr><td>customer success story template</td><td>1,600/mo</td><td>Low</td><td><span class="tag tag-coral">BOFU</span></td><td>Free template + ProveKit CTA</td></tr>
+            <tr><td>case study software</td><td>1,200/mo</td><td>Medium</td><td><span class="tag tag-coral">BOFU</span></td><td>Comparison page</td></tr>
+            <tr><td>testimonial automation</td><td>900/mo</td><td>Low</td><td><span class="tag tag-coral">BOFU</span></td><td>Landing page</td></tr>
+            <tr><td>b2b testimonial examples</td><td>880/mo</td><td>Low</td><td><span class="tag tag-amber">MOFU</span></td><td>Examples page with Verified badge demo</td></tr>
+            <tr><td>case study examples saas</td><td>720/mo</td><td>Low</td><td><span class="tag tag-amber">MOFU</span></td><td>Gallery of ProveKit-generated stories</td></tr>
+            <tr><td>stripe case study integration</td><td>90/mo</td><td>None</td><td><span class="tag tag-coral">BOFU</span></td><td>Programmatic: Stripe integration page</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 25 AGENCY PLAYBOOK ==================== -->
+  <div class="section" id="s25">
+    <div class="section-header">
+      <span class="section-num">25</span>
+      <div><div class="section-title">Agency Sales Playbook</div></div>
+    </div>
+
+    <div class="grid-4" style="margin-bottom:20px">
+      <div class="card kpi"><div class="kpi-value">$299</div><div class="kpi-label">Agency plan/mo</div></div>
+      <div class="card kpi"><div class="kpi-value">~$10</div><div class="kpi-label">Cost per story</div></div>
+      <div class="card kpi"><div class="kpi-value">$800–2,500</div><div class="kpi-label">Agency charges client/story</div></div>
+      <div class="card kpi"><div class="kpi-value">&lt;1 day</div><div class="kpi-label">Payback period</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-title">Outreach Sequence</div>
+      <div class="timeline-item"><div class="timeline-dot" style="font-size:11px">D0</div><div class="timeline-content"><div class="timeline-title">LinkedIn Connection + Note</div><div class="timeline-desc">'Hey [Name] — I work with content agencies serving B2B SaaS. Built something that might be relevant to your case study workflow. Happy to share if timing is right.' No pitch. No link. Human.</div></div></div>
+      <div class="timeline-item"><div class="timeline-dot" style="font-size:11px">D2</div><div class="timeline-content"><div class="timeline-title">LinkedIn DM after connect</div><div class="timeline-desc">'Quick context — we built ProveKit, which connects to Stripe and generates verified case studies in 3 minutes. Agencies are using it to produce stories for clients without the 3-week cycle. Worth a 15-min call?'</div></div></div>
+      <div class="timeline-item"><div class="timeline-dot" style="font-size:11px">D5</div><div class="timeline-content"><div class="timeline-title">Email (if no LinkedIn response)</div><div class="timeline-desc">Subject: 'Case study production for [Agency Name] clients' — direct pain point, 3-sentence pitch, offer demo on test account.</div></div></div>
+      <div class="timeline-item"><div class="timeline-dot" style="font-size:11px">D9</div><div class="timeline-content"><div class="timeline-title">Follow-up with proof</div><div class="timeline-desc">Share a live ProveKit-generated story. 'Here is what the output looks like — this took 3 minutes from Stripe connect to publish.'</div></div></div>
+      <div class="timeline-item"><div class="timeline-dot" style="font-size:11px">D14</div><div class="timeline-content"><div class="timeline-title">Final outreach</div><div class="timeline-desc">Subject: 'Last note on case studies' — offer free trial for 1 client workspace, lowest friction possible.</div></div></div>
+    </div>
+  </div>
+
+  <!-- ==================== 26 OBJECTION HANDLING ==================== -->
+  <div class="section" id="s26">
+    <div class="section-header">
+      <span class="section-num">26</span>
+      <div><div class="section-title">Objection Handling Guide</div><div class="section-desc">15 most common objections + exact responses</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="card"><div style="display:flex;gap:12px;align-items:flex-start"><div style="min-width:36px;height:36px;border-radius:8px;background:var(--coral);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">01</div><div><div class="card-title" style="margin-bottom:4px">"Our customers won't share their data."</div><div style="font-size:12px;color:var(--muted);margin-bottom:6px"><em>Subtext: Fear (not fact). They haven't asked their customers yet.</em></div><div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>The customer only approves what they're comfortable sharing. They see every metric before it goes live and can hide any number they want. In our beta, 18 of the first 20 customers approved within 48 hours. Happy customers love being featured — they just need a frictionless way to say yes.</div></div></div></div>
+
+      <div class="card"><div style="display:flex;gap:12px;align-items:flex-start"><div style="min-width:36px;height:36px;border-radius:8px;background:var(--amber);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">02</div><div><div class="card-title" style="margin-bottom:4px">"We already have a writer / agency."</div><div style="font-size:12px;color:var(--muted);margin-bottom:6px"><em>Subtext: Status quo bias. Haven't calculated the true cost.</em></div><div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>Great — that means you understand the value of case studies. Our users with writers still use ProveKit because it produces 10x more stories than a writer can handle. Your writer focuses on the stories that need a custom touch. ProveKit handles the volume. Most teams end up using both.</div></div></div></div>
+
+      <div class="card"><div style="display:flex;gap:12px;align-items:flex-start"><div style="min-width:36px;height:36px;border-radius:8px;background:var(--indigo);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">03</div><div><div class="card-title" style="margin-bottom:4px">"We use Jasper / Copy.ai already."</div><div style="font-size:12px;color:var(--muted);margin-bottom:6px"><em>Subtext: Confusing ProveKit with AI writing tools.</em></div><div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>Jasper writes from prompts — there's no real data behind it. Buyers have learned to recognize AI-generated content with no verification. ProveKit reads actual Stripe data, gets the customer to approve the specific numbers, and attaches a Verified badge that links to the data source. The output is fundamentally different — it's evidence, not copy.</div></div></div></div>
+
+      <div class="card"><div style="display:flex;gap:12px;align-items:flex-start"><div style="min-width:36px;height:36px;border-radius:8px;background:var(--teal);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">04</div><div><div class="card-title" style="margin-bottom:4px">"UserEvidence does this."</div><div style="font-size:12px;color:var(--muted);margin-bottom:6px"><em>Subtext: Incomplete competitive knowledge.</em></div><div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>UserEvidence uses surveys — they ask customers what they experienced. ProveKit reads what actually happened from Stripe and your analytics. There's no survey, no data entry, nothing to fill out. And UserEvidence starts at around $1,000/month, enterprise-only. If you're under 200 employees, you're not their customer.</div></div></div></div>
+
+      <div class="card"><div style="display:flex;gap:12px;align-items:flex-start"><div style="min-width:36px;height:36px;border-radius:8px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">08</div><div><div class="card-title" style="margin-bottom:4px">"This seems expensive for what it does."</div><div style="font-size:12px;color:var(--muted);margin-bottom:6px"><em>Subtext: Value hasn't landed. Comparing to writing tool pricing.</em></div><div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>Let's run the numbers. One manual case study costs your team roughly 20–30 hours at $80/hr — that's $1,600 to $2,400 for a single story. The Growth plan is $99/month for unlimited stories. If you produce two stories this month, it has already paid for itself. Most of our users produce 8–15 stories per month.</div></div></div></div>
+
+      <div class="card"><div style="display:flex;gap:12px;align-items:flex-start"><div style="min-width:36px;height:36px;border-radius:8px;background:var(--emerald);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">11</div><div><div class="card-title" style="margin-bottom:4px">"Can we try it for free first?"</div><div style="font-size:12px;color:var(--muted);margin-bottom:6px"><em>Subtext: Risk reduction — positive signal. They're interested.</em></div><div class="text-copy" style="position:relative"><button class="copy-btn" onclick="copyBox(this)">Copy</button>Yes. The free plan gives you 5 fully verified stories — no credit card required. Connect Stripe right now and you can have your first story live before end of day. If after 5 stories you don't see the value, you've lost nothing.</div></div></div></div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// MRR Bar Chart
+const mrrData = [588, 1915, 5147, 0, 0, 22982, 0, 0, 52230, 0, 0, 95650];
+const mrrLabels = ['M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12'];
+const maxMrr = Math.max(...mrrData.filter(v => v > 0));
+const chart = document.getElementById('mrrChart');
+const labels = document.getElementById('mrrLabels');
+if (chart) {
+  mrrData.forEach((v, i) => {
+    const col = document.createElement('div');
+    col.className = 'bar-col';
+    const pct = v > 0 ? Math.max((v / maxMrr) * 100, 2) : 2;
+    col.innerHTML = `<div class="bar" style="height:${pct}%;background:${v > 0 ? 'var(--teal)' : 'var(--border)'}"></div><div class="bar-label">${mrrLabels[i]}</div>`;
+    chart.appendChild(col);
+  });
+}
+
+// Funnels
+const f1 = [
+  ['Website Visitors', 8000, 100],
+  ['Free Signups', 640, 72],
+  ['Connected Stripe', 384, 58],
+  ['Generated First Story', 256, 42],
+  ['Sent Customer Approval', 180, 28],
+  ['Upgraded to Paid', 62, 16],
+];
+const f2 = [
+  ['Agency Outreach / Demo', 60, 100],
+  ['Demo Attended', 45, 82],
+  ['Trial Started', 32, 64],
+  ['First Story Generated', 26, 48],
+  ['Paid (Agency Plan)', 18, 32],
+  ['Added 3+ Workspaces', 12, 20],
+];
+function renderFunnel(id, data) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const colors = ['#fff4ea','#ffe2c5','#f5f0ff','#e9e2ff','#eef8ff','#ecfbf4'];
+  el.className = 'funnel-stack';
+  data.forEach(([label, count, pct], i) => {
+    const width = 100 - i * 11;
+    el.innerHTML += `<div class="funnel-layer" style="width:${width}%;background:${colors[i % colors.length]}">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+        <span>${label}</span>
+        <span style="font-family:'JetBrains Mono', monospace;color:#667085">${count.toLocaleString()}</span>
+      </div>
+      <small>${pct}% of previous stage</small>
+    </div>`;
+  });
+}
+renderFunnel('funnel1', f1);
+renderFunnel('funnel2', f2);
+
+// Single section mode
+const params = new URLSearchParams(window.location.search);
+const sectionParam = params.get('section');
+const embedMode = params.get('embed') === '1';
+if (embedMode) {
+  document.body.classList.add('embed');
+}
+if (sectionParam) {
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.toggle('active', section.id === sectionParam);
+  });
+}
+
+// Active nav
+const sections = document.querySelectorAll('[id]');
+const navLinks = document.querySelectorAll('nav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + e.target.id) a.classList.add('active');
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+
+// Copy buttons
+function copyBox(btn) {
+  const box = btn.closest('.copy-box, .text-copy');
+  const text = box.innerText.replace(/^Copy\n?/, '').replace(/^Copied!\n?/, '').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
