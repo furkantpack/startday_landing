@@ -812,7 +812,7 @@ function PricingSection() {
           <div className="flex flex-col gap-4 border-b border-[#e3d8b7] pb-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <div className="flex items-end gap-2 text-[#1d1d19]">
-                <span className="text-[3.75rem] font-black leading-none tracking-[-0.025em]">$15</span>
+                <span className="text-[3.75rem] font-black leading-none tracking-[-0.025em]">€15</span>
                 <span className="pb-2 text-[1rem] font-black tracking-[-0.025em] text-[#9a8d73]">/ per seat</span>
               </div>
               <p className="mt-3 max-w-[360px] text-[1.2rem] font-black leading-[1.12] tracking-[-0.025em] text-[#1d1d19]">

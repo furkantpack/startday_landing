@@ -28,7 +28,8 @@ export function middleware(request: NextRequest) {
     pathname === '/favicon.ico' ||
     pathname === '/robots.txt' ||
     pathname === '/sitemap.xml' ||
-    /\.(png|jpg|jpeg|gif|webp|avif|svg|ico)$/i.test(pathname)
+    pathname === '/site.webmanifest' ||
+    /\.(png|jpg|jpeg|gif|webp|avif|svg|ico|webmanifest)$/i.test(pathname)
   ) {
     return NextResponse.next();
   }
