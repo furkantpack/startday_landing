@@ -43,7 +43,7 @@ export function Kit7TaxLegalSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[1040px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Finlandiya Vergi Sistemi, Founder Maaşı ve Temel Uyum Gereksinimleri
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -65,7 +65,7 @@ export function Kit7TaxLegalSection() {
           </div>
 
           <div className="space-y-5">
-            <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Temel Vergi Oranları (2025)</div>
+            <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Temel Vergi Oranları (2025)</div>
             <div className="overflow-x-auto rounded-[28px] border border-[#e6eaf2] bg-white shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
               <table className="min-w-[760px] w-full border-collapse">
                 <thead>
@@ -89,7 +89,7 @@ export function Kit7TaxLegalSection() {
           </div>
 
           <div className="space-y-5">
-            <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">
+            <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">
               Founder Maaşı vs Temettü — Temel Strateji
             </div>
             <div className="grid gap-4 xl:grid-cols-2">
@@ -98,7 +98,7 @@ export function Kit7TaxLegalSection() {
                   key={item.title}
                   className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${item.tone}`}
                 >
-                  <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                  <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
                   <p className="mt-3 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
                 </div>
               ))}
@@ -106,7 +106,7 @@ export function Kit7TaxLegalSection() {
           </div>
 
           <div className="rounded-[28px] border border-[#dbe7ff] bg-[linear-gradient(180deg,#f8fbff_0%,#f3f7ff_100%)] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-            <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">
+            <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">
               Çifte Vergilendirme — Türkiye Anlaşması
             </div>
             <p className="mt-4 text-[15px] leading-8 text-[#475467]">
@@ -117,7 +117,7 @@ export function Kit7TaxLegalSection() {
           </div>
 
           <div className="space-y-5">
-            <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Uyum Takvimine Genel Bakış</div>
+            <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Uyum Takvimine Genel Bakış</div>
             <div className="overflow-x-auto rounded-[28px] border border-[#e6eaf2] bg-white shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
               <table className="min-w-[760px] w-full border-collapse">
                 <thead>
@@ -148,7 +148,7 @@ export function Kit7TaxLegalSection() {
                 Ek servis
               </div>
 
-              <div className="mt-6 text-[44px] font-semibold leading-[0.98] tracking-[-0.06em] text-white">
+              <div className="mt-6 text-[44px] font-semibold leading-[0.98] tracking-[-0.025em] text-white">
                 Muhasebe danışmanlığı al
               </div>
 
@@ -177,7 +177,7 @@ export function Kit7TaxLegalSection() {
               <div className="mt-6 flex items-center justify-between gap-4">
                 <div>
                   <div className="text-[14px] font-medium text-white/88">Email tercih edersen</div>
-                  <div className="mt-1 text-[20px] font-semibold tracking-[-0.04em] text-white">info@hangivize</div>
+                  <div className="mt-1 text-[20px] font-semibold tracking-[-0.025em] text-white">info@hangivize</div>
                 </div>
                 <div className="flex size-12 items-center justify-center rounded-full bg-white text-[#101828] shadow-[0_10px_20px_rgba(15,23,42,0.12)]">
                   →

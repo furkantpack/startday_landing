@@ -88,7 +88,7 @@ export function Kit7BlueprintShell({
                 </div>
               </div>
               <div>
-                <div className="text-[16px] font-medium tracking-[-0.04em] text-[#101828]">Finland Startup Visa</div>
+                <div className="text-[16px] font-medium tracking-[-0.025em] text-[#101828]">Finland Startup Visa</div>
                   <div className="mt-0.5 text-[12px] text-[#667085]">by Hangi Vize</div>
               </div>
             </div>
@@ -126,7 +126,7 @@ export function Kit7BlueprintShell({
           <div className="border-b border-[#efebe5] bg-white px-5 py-5 lg:px-10">
             <div>
               <div className="text-[14px] font-medium text-[#28b483]">Section {current.number}</div>
-              <div className="mt-1 text-[34px] font-semibold tracking-[-0.05em] text-[#171717]">{current.title}</div>
+              <div className="mt-1 text-[34px] font-semibold tracking-[-0.025em] text-[#171717]">{current.title}</div>
             </div>
           </div>
 

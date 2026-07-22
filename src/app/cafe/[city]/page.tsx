@@ -6,7 +6,7 @@ const cityPages = {
   helsinki: {
     city: 'Helsinki',
     scheduleVariant: 'helsinki2026',
-    heroImage: '/kit-main-provekit-5-helsinki-hero.png',
+    heroImage: '/kit-main-provekit-5-helsinki-hero.avif',
   },
   tallinn: {
     city: 'Tallinn',
@@ -16,32 +16,32 @@ const cityPages = {
   copenhagen: {
     city: 'Copenhagen',
     scheduleVariant: 'copenhagen2026',
-    heroImage: '/kit-main-provekit-5-copenhagen-hero.png',
+    heroImage: '/kit-main-provekit-5-copenhagen-hero.avif',
   },
   stockholm: {
     city: 'Stockholm',
     scheduleVariant: 'stockholm2026',
-    heroImage: '/kit-main-provekit-5-stockholm-hero.png',
+    heroImage: '/kit-main-provekit-5-stockholm-hero.avif',
   },
   berlin: {
     city: 'Berlin',
     scheduleVariant: 'berlin2026',
-    heroImage: '/kit-main-provekit-5-berlin-hero.png',
+    heroImage: '/kit-main-provekit-5-berlin-hero.avif',
   },
   paris: {
     city: 'Paris',
     scheduleVariant: 'paris2026',
-    heroImage: '/kit-main-provekit-5-paris-hero.png',
+    heroImage: '/kit-main-provekit-5-paris-hero.avif',
   },
   vienna: {
     city: 'Vienna',
     scheduleVariant: 'vienna2026',
-    heroImage: '/kit-main-provekit-5-vienna-hero.png',
+    heroImage: '/kit-main-provekit-5-vienna-hero.avif',
   },
   istanbul: {
     city: 'Istanbul',
     scheduleVariant: 'istanbul2026',
-    heroImage: '/kit-main-provekit-5-istanbul-hero.png',
+    heroImage: '/kit-main-provekit-5-istanbul-hero.avif',
   },
 } as const;
 

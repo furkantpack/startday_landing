@@ -138,7 +138,7 @@ function MiniCourseCard({
         </div>
       </div>
       <div className="mt-4">
-        <div className="text-[17px] font-semibold tracking-[-0.03em] text-[#171717]">{title}</div>
+        <div className="text-[17px] font-semibold tracking-[-0.025em] text-[#171717]">{title}</div>
         <div className="mt-1 text-[15px] text-[#7f786f]">{subtitle}</div>
       </div>
     </div>
@@ -192,7 +192,7 @@ function FeaturedCard({
       />
       <div className="absolute inset-y-0 left-0 flex w-full max-w-[52%] items-center px-10">
         <div>
-          <div className={cn('max-w-[12ch] text-[3.2rem] font-semibold leading-[0.95] tracking-[-0.06em]', dark ? 'text-white' : 'text-white')}>
+          <div className={cn('max-w-[12ch] text-[3.2rem] font-semibold leading-[0.95] tracking-[-0.025em]', dark ? 'text-white' : 'text-white')}>
             {title}
           </div>
           <div className="mt-8 flex gap-4">
@@ -274,7 +274,7 @@ export function DashboardPageV2() {
 
           <div className="mt-7">
             <section className="rounded-[34px] bg-[#ffe5d8] px-8 py-7">
-              <div className="text-[3.15rem] font-semibold leading-[0.94] tracking-[-0.06em] text-[#171717]">
+              <div className="text-[3.15rem] font-semibold leading-[0.94] tracking-[-0.025em] text-[#171717]">
                 Good morning, Mark
               </div>
               <div className="mt-2 flex items-center gap-3 text-[18px] text-[#5d5650]">
@@ -309,7 +309,7 @@ export function DashboardPageV2() {
             </section>
 
             <section className="mt-10">
-              <div className="mb-5 text-[2rem] font-semibold tracking-[-0.05em] text-[#171717]">Continue browsing</div>
+              <div className="mb-5 text-[2rem] font-semibold tracking-[-0.025em] text-[#171717]">Continue browsing</div>
               <div className="overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                 <div className="flex gap-5">
                   {recents.map((card) => (

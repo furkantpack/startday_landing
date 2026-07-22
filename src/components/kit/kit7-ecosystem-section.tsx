@@ -55,7 +55,7 @@ export function Kit7EcosystemSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[1040px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Slush'tan Maria 01'e: Kime Bağlanacaksın, Ne Alacaksın
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -65,7 +65,7 @@ export function Kit7EcosystemSection() {
       </div>
 
       <div className="space-y-5">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Temel Ekosistem Aktörleri</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Temel Ekosistem Aktörleri</div>
         <div className="grid gap-4 xl:grid-cols-2">
           {ecosystemActors.map((item) => (
             <div
@@ -73,7 +73,7 @@ export function Kit7EcosystemSection() {
               className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${item.tone}`}
             >
               <div className="flex items-start justify-between gap-4">
-                <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
                 <div className="rounded-full bg-white/85 px-3 py-1 text-[12px] font-medium text-[#4361ee]">{item.url}</div>
               </div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
@@ -83,7 +83,7 @@ export function Kit7EcosystemSection() {
       </div>
 
       <div className="space-y-5">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Fon Kaynakları</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Fon Kaynakları</div>
         <div className="overflow-x-auto rounded-[28px] border border-[#e6eaf2] bg-white shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
           <table className="min-w-[760px] w-full border-collapse">
             <thead>

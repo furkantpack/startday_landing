@@ -167,7 +167,7 @@ function HighlightCard({
       )}
     >
       <div className="text-[13px] font-medium text-[#7a7268]">{title}</div>
-      <div className="mt-4 text-[2rem] font-semibold tracking-[-0.05em] text-[#171717]">{value}</div>
+      <div className="mt-4 text-[2rem] font-semibold tracking-[-0.025em] text-[#171717]">{value}</div>
       <div className="mt-2 max-w-[18ch] text-[14px] leading-6 text-[#625c54]">{detail}</div>
     </article>
   );
@@ -265,7 +265,7 @@ export function KitReaderPage() {
                   <div className="absolute left-16 top-10 text-[16px] font-medium text-[#b7d62f]">
                     Future-Proof Selling
                   </div>
-                  <div className="relative max-w-[10ch] text-center font-serif text-[4.4rem] leading-[0.9] tracking-[-0.06em] text-white md:text-[5.6rem]">
+                  <div className="relative max-w-[10ch] text-center font-serif text-[4.4rem] leading-[0.9] tracking-[-0.025em] text-white md:text-[5.6rem]">
                     Sales mastery in the AI age
                   </div>
                   <button className="absolute left-1/2 top-1/2 flex size-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-white backdrop-blur-sm">
@@ -294,7 +294,7 @@ export function KitReaderPage() {
             <section className="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_340px]">
               <div className="space-y-6">
                 <div className="rounded-[28px] border border-[#ece6dd] bg-white px-6 py-7 shadow-[0_12px_28px_rgba(15,23,42,0.04)]">
-                  <div className="max-w-[16ch] text-[3rem] font-semibold leading-[0.92] tracking-[-0.06em] text-[#171717] md:text-[3.6rem]">
+                  <div className="max-w-[16ch] text-[3rem] font-semibold leading-[0.92] tracking-[-0.025em] text-[#171717] md:text-[3.6rem]">
                     Build a sales system founders can actually ship.
                   </div>
                   <p className="mt-5 max-w-[70ch] text-[17px] leading-8 text-[#5f5a52]">
@@ -318,7 +318,7 @@ export function KitReaderPage() {
                         <RiTableLine className="size-5" />
                       </span>
                       <div>
-                        <div className="text-[20px] font-semibold tracking-[-0.03em] text-[#171717]">
+                        <div className="text-[20px] font-semibold tracking-[-0.025em] text-[#171717]">
                           Launch assumptions table
                         </div>
                         <div className="text-[14px] text-[#8e857b]">One-screen summary of the core business case</div>
@@ -349,7 +349,7 @@ export function KitReaderPage() {
                       <span className="flex size-10 items-center justify-center rounded-2xl bg-[#f7f4ef] text-[#171717]">
                         <RiDonutChartLine className="size-5" />
                       </span>
-                      <div className="text-[20px] font-semibold tracking-[-0.03em] text-[#171717]">
+                      <div className="text-[20px] font-semibold tracking-[-0.025em] text-[#171717]">
                         Kit scores
                       </div>
                     </div>
@@ -376,7 +376,7 @@ export function KitReaderPage() {
                         <RiSparkling2Line className="size-4" />
                         Interactive exercise
                       </div>
-                      <div className="mt-3 max-w-[22ch] text-[2rem] font-semibold leading-[1.02] tracking-[-0.05em]">
+                      <div className="mt-3 max-w-[22ch] text-[2rem] font-semibold leading-[1.02] tracking-[-0.025em]">
                         See how tone changes meaning in the opening message.
                       </div>
                       <div className="mt-3 max-w-[48ch] text-[15px] leading-7 text-white/80">
@@ -401,7 +401,7 @@ export function KitReaderPage() {
                         <span className={cn('mb-6 flex size-11 items-center justify-center rounded-full text-white', card.accent)}>
                           <RiBarChartBoxLine className="size-5" />
                         </span>
-                        <div className="text-[20px] font-semibold leading-[1.15] tracking-[-0.04em] text-[#171717]">
+                        <div className="text-[20px] font-semibold leading-[1.15] tracking-[-0.025em] text-[#171717]">
                           {card.title}
                         </div>
                         <div className="mt-3 text-[14px] text-[#7a7268]">{card.subtitle}</div>
@@ -416,7 +416,7 @@ export function KitReaderPage() {
                   <div className="text-[13px] font-semibold uppercase tracking-[0.14em] text-[#a1998f]">
                     Section overview
                   </div>
-                  <div className="mt-4 text-[26px] font-semibold tracking-[-0.05em] text-[#171717]">
+                  <div className="mt-4 text-[26px] font-semibold tracking-[-0.025em] text-[#171717]">
                     Introduction
                   </div>
                   <p className="mt-3 text-[15px] leading-7 text-[#625c54]">

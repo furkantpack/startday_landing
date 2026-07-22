@@ -185,7 +185,7 @@ function KitCard({ idea }: { idea: (typeof kitRows)[number][number] }) {
           ))}
         </div>
 
-        <h4 className="mt-4 text-[1.4rem] font-semibold tracking-[-0.04em] text-[var(--text-strong-950)]">
+        <h4 className="mt-4 text-[1.4rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
           {idea.name}
         </h4>
         <p className="mt-2 text-[0.94rem] leading-6 text-[var(--text-sub-600)] sm:text-[0.98rem]">
@@ -201,7 +201,7 @@ function KitCard({ idea }: { idea: (typeof kitRows)[number][number] }) {
         <div className="mt-5 flex flex-col gap-4 rounded-[1.2rem] border border-[#efe6d9] bg-[#fcfaf6] px-4 py-3 sm:flex-row sm:items-end sm:justify-between">
           <div className="min-w-0">
             <div className="text-[1.02rem] text-[#a79f93] line-through">{idea.oldPrice}</div>
-            <div className="text-[2rem] font-semibold leading-none tracking-[-0.06em] text-[var(--text-strong-950)] sm:text-[2.2rem]">
+            <div className="text-[2rem] font-semibold leading-none tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[2.2rem]">
               {idea.price}
               <span className="ml-1 text-[1rem] font-medium tracking-normal text-[var(--text-sub-600)]">
                 one-time
@@ -236,7 +236,7 @@ export function HeroEx4() {
             >
               Apps & Integrations
             </Badge.Root>
-            <h3 className="mb-4 max-w-[780px] text-[2.15rem] font-semibold leading-[1.02] tracking-[-0.06em] text-[var(--text-strong-950)] sm:text-[2.4rem] lg:text-center xl:text-[3.4rem]">
+            <h3 className="mb-4 max-w-[780px] text-[2.15rem] font-semibold leading-[1.02] tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[2.4rem] lg:text-center xl:text-[3.4rem]">
               Startup kits with clearer fit
             </h3>
             <p className="mb-4 max-w-[720px] text-[0.98rem] leading-7 text-[var(--text-sub-600)] lg:text-center">

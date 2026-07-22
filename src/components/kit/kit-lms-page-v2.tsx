@@ -189,7 +189,7 @@ function TopicSidebar() {
             </div>
           </div>
           <div>
-            <div className="text-[16px] font-medium tracking-[-0.04em] text-[#101828]">Branding Kit</div>
+            <div className="text-[16px] font-medium tracking-[-0.025em] text-[#101828]">Branding Kit</div>
             <div className="mt-0.5 text-[12px] text-[#667085]">Section 07 · Competitor map</div>
           </div>
         </div>
@@ -332,7 +332,7 @@ function ContentCard({
         </div>
       </div>
       <div className="mt-4">
-        <h3 className="text-[18px] font-semibold tracking-[-0.03em] text-[#171717]">{title}</h3>
+        <h3 className="text-[18px] font-semibold tracking-[-0.025em] text-[#171717]">{title}</h3>
         <p className="mt-2 max-w-[34ch] text-[15px] leading-7 text-[#6d665d]">{text}</p>
       </div>
     </article>
@@ -386,7 +386,7 @@ export function KitLmsPageV2() {
                   </div>
                 </div>
                 <div>
-                  <div className="text-[16px] font-medium tracking-[-0.04em] text-[#101828]">Competitor Map</div>
+                  <div className="text-[16px] font-medium tracking-[-0.025em] text-[#101828]">Competitor Map</div>
                   <div className="mt-0.5 text-[12px] text-[#667085]">Branding Kit · Section 07</div>
                 </div>
               </div>
@@ -399,7 +399,7 @@ export function KitLmsPageV2() {
                 <div className="text-[15px] font-medium text-[#28b483]">Getting Started</div>
                 <h1
                   id="introduction"
-                  className="mt-2 scroll-mt-24 text-[48px] font-semibold leading-[0.98] tracking-[-0.06em] text-[#171717]"
+                  className="mt-2 scroll-mt-24 text-[48px] font-semibold leading-[0.98] tracking-[-0.025em] text-[#171717]"
                 >
                   Quickstart Guide
                 </h1>
@@ -415,7 +415,7 @@ export function KitLmsPageV2() {
                 </div>
 
                 <section className="mt-14 rounded-[28px] border border-[#ece6dd] bg-white p-6 shadow-[0_12px_28px_rgba(15,23,42,0.04)]">
-                  <div className="mb-5 text-[2rem] font-semibold tracking-[-0.05em] text-[#171717]">
+                  <div className="mb-5 text-[2rem] font-semibold tracking-[-0.025em] text-[#171717]">
                     Recent <span className="text-[#a1998f]">14</span>
                   </div>
                   <div className="overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
@@ -432,7 +432,7 @@ export function KitLmsPageV2() {
                               Live
                             </div>
                           </div>
-                          <div className="mt-4 text-[18px] font-semibold leading-[1.18] tracking-[-0.04em] text-[#171717]">
+                          <div className="mt-4 text-[18px] font-semibold leading-[1.18] tracking-[-0.025em] text-[#171717]">
                             {slide.title}
                           </div>
                           <div className="mt-2 text-[15px] text-[#8c857b]">{slide.caption}</div>
@@ -455,7 +455,7 @@ export function KitLmsPageV2() {
                         )}
                       >
                         <div className="text-[14px] font-medium opacity-75">Interactive module</div>
-                        <div className="mt-3 text-[26px] font-semibold leading-[1.02] tracking-[-0.05em]">
+                        <div className="mt-3 text-[26px] font-semibold leading-[1.02] tracking-[-0.025em]">
                           {block.title}
                         </div>
                         <div className="mt-3 text-[15px] leading-7 opacity-80">{block.text}</div>
@@ -471,7 +471,7 @@ export function KitLmsPageV2() {
                   <div className="flex items-start justify-between gap-5">
                     <div>
                       <div className="text-[15px] font-medium text-[#8f867b]">Competitor map</div>
-                      <div className="mt-1 text-[28px] font-semibold tracking-[-0.05em] text-[#171717]">
+                      <div className="mt-1 text-[28px] font-semibold tracking-[-0.025em] text-[#171717]">
                         Where this kit wins
                       </div>
                     </div>
@@ -532,7 +532,7 @@ export function KitLmsPageV2() {
                             <RiLayoutGridLine className="size-5 text-[#f97316]" />
                           )}
                         </div>
-                        <div className="mt-5 text-[18px] font-semibold tracking-[-0.03em] text-[#171717]">
+                        <div className="mt-5 text-[18px] font-semibold tracking-[-0.025em] text-[#171717]">
                           {card.title}
                         </div>
                         <div className="mt-2 text-[14px] text-[#7d756b]">{card.meta}</div>

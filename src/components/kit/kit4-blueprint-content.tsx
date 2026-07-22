@@ -1880,7 +1880,7 @@ function SectionHeading({
     <div className="max-w-[920px]">
       {eyebrow ? <div className="text-[18px] font-medium text-[#28b483]">{eyebrow}</div> : null}
       {description ? <p className="mt-3 text-[18px] leading-8 text-[#475467]">{description}</p> : null}
-      <h2 className={`${description || eyebrow ? 'mt-6' : ''} text-[34px] font-semibold tracking-[-0.05em] text-[#101828]`}>
+      <h2 className={`${description || eyebrow ? 'mt-6' : ''} text-[34px] font-semibold tracking-[-0.025em] text-[#101828]`}>
         {title}
       </h2>
     </div>
@@ -1934,7 +1934,7 @@ function FunnelVisual({
 }) {
   return (
     <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-      <div className="text-[20px] font-semibold tracking-[-0.04em] text-[#101828]">{title}</div>
+      <div className="text-[20px] font-semibold tracking-[-0.025em] text-[#101828]">{title}</div>
       <div className="mt-5 flex flex-col gap-3">
         {steps.map((step, index) => (
           <div
@@ -1963,7 +1963,7 @@ function OpportunityBriefSection() {
             key={stat.label}
             className={`rounded-[28px] border border-[#e6eaf2] p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${stat.className}`}
           >
-            <div className="text-[48px] font-semibold tracking-[-0.06em] text-[#101828]">{stat.value}</div>
+            <div className="text-[48px] font-semibold tracking-[-0.025em] text-[#101828]">{stat.value}</div>
             <div className="mt-3 text-[17px] font-medium text-[#101828]">{stat.label}</div>
             <div className="mt-2 text-[14px] leading-7 text-[#475467]">{stat.note}</div>
           </div>
@@ -1972,7 +1972,7 @@ function OpportunityBriefSection() {
 
       <div className="grid gap-4">
           <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-            <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Market Signals</div>
+            <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Market Signals</div>
             <p className="mt-4 text-[15px] leading-8 text-[#475467]">
               The Case Study Production Crisis. The gap between having happy customers and having their stories published
               is enormous. A B2B SaaS company with 200 customers might have 5 published case studies. The other 195
@@ -1998,7 +1998,7 @@ function OpportunityBriefSection() {
         </div>
 
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">The Production Gap</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">The Production Gap</div>
           <div className="mt-6 grid gap-4 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
             <div className="space-y-5">
               <div className="rounded-[22px] bg-[#fff4ea] p-5">
@@ -2024,7 +2024,7 @@ function OpportunityBriefSection() {
             </div>
 
             <div className="rounded-[24px] bg-[#f8fafc] p-6">
-              <div className="text-[18px] font-semibold tracking-[-0.04em] text-[#101828]">Manual Steps ProveKit Replaces</div>
+              <div className="text-[18px] font-semibold tracking-[-0.025em] text-[#101828]">Manual Steps ProveKit Replaces</div>
               <div className="mt-4 space-y-3">
                 {[
                   ['Customer success call', 'Data integration'],
@@ -2068,14 +2068,14 @@ function ProductSpecSection() {
       />
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">End-to-End Story Generation Flow</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">End-to-End Story Generation Flow</div>
         <div className="mt-6 grid gap-4 xl:grid-cols-3">
           {storyFlow.map((item) => (
             <div key={item.step} className="rounded-[24px] border border-[#e6eaf2] bg-[#fcfdff] p-5">
               <div className={`inline-flex rounded-[10px] px-3 py-1 text-[12px] font-semibold text-[#101828] ${item.tone}`}>
                 Step {item.step}
               </div>
-              <div className="mt-4 text-[24px] font-semibold tracking-[-0.05em] text-[#101828]">{item.title}</div>
+              <div className="mt-4 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <div className="mt-1 text-[15px] font-medium text-[#4361ee]">{item.subtitle}</div>
               <div className="mt-4 text-[15px] leading-7 text-[#667085]">{item.detail}</div>
             </div>
@@ -2095,8 +2095,8 @@ function TargetMarketsSection() {
             key={card.title}
             className={`rounded-[28px] border border-[#e6eaf2] p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${card.tone}`}
           >
-            <div className="text-[24px] font-semibold tracking-[-0.05em] text-[#101828]">{card.title}</div>
-            <div className="mt-3 text-[32px] font-semibold tracking-[-0.06em] text-[#101828]">{card.price}</div>
+            <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{card.title}</div>
+            <div className="mt-3 text-[32px] font-semibold tracking-[-0.025em] text-[#101828]">{card.price}</div>
             <p className="mt-3 text-[15px] leading-7 text-[#475467]">{card.desc}</p>
             <ul className="mt-5 space-y-3 border-t border-white/60 pt-5 text-[14px] leading-7 text-[#344054]">
               {card.bullets.map((bullet) => (
@@ -2111,7 +2111,7 @@ function TargetMarketsSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Geographic priority matrix</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Geographic priority matrix</div>
         <NativeTable
           columns={[
             { key: 'region', label: 'Region', className: 'w-[22%]' },
@@ -2127,7 +2127,7 @@ function TargetMarketsSection() {
 
         <section className="space-y-6">
           <div>
-            <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Buyer Persona Profiles</div>
+            <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Buyer Persona Profiles</div>
             <p className="mt-2 max-w-[760px] text-[15px] leading-7 text-[#667085]">
               The core buyers sit closest to the proof bottleneck: marketing leaders, PMMs, and founders who feel the
               pain when sales asks for more usable customer evidence.
@@ -2153,7 +2153,7 @@ function TargetMarketsSection() {
               >
                 {persona.icon}
               </div>
-              <div className="mt-5 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{persona.name}</div>
+              <div className="mt-5 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{persona.name}</div>
               <div className="mt-2 text-[14px] font-medium text-[#4361ee]">{persona.role}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#667085]">{persona.detail}</p>
               <div
@@ -2181,7 +2181,7 @@ function TechStackSection() {
       <NativeTable columns={techStackColumns} rows={techStackRows} />
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Build Timeline - 6 Weeks to Beta</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Build Timeline - 6 Weeks to Beta</div>
         <div className="mt-6 grid gap-5 xl:grid-cols-3">
           {buildTimeline.map((item) => (
             <div
@@ -2192,7 +2192,7 @@ function TechStackSection() {
                 <div className="inline-flex rounded-[9px] bg-[#f6f8fb] px-2.5 py-1.5 text-[12px] font-medium text-[#667085]">
                   {item.week}
                 </div>
-                <div className="mt-5 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                <div className="mt-5 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
                 <p className="mt-3 text-[15px] leading-7 text-[#667085]">{item.summary}</p>
               </div>
               <div className="border-t border-[#e6eaf2] pt-5 text-[14px] leading-7 text-[#475467]">{item.detail}</div>
@@ -2232,7 +2232,7 @@ function CompetitorMapSection() {
             <div className="inline-flex rounded-full bg-[#f5f7fb] px-3 py-1 text-[12px] font-medium text-[#667085]">
               Vibe Code Teknik Prompt
             </div>
-            <h3 className="mt-3 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">
+            <h3 className="mt-3 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">
               Automation vs trust strategy matrix
             </h3>
             <p className="mt-2 max-w-[760px] text-[15px] leading-7 text-[#475467]">
@@ -2341,7 +2341,7 @@ function RoiCalculationSection() {
             <span className="size-2 rounded-full bg-[#667085]" />
             ROI calculation
           </div>
-          <h3 className="mt-6 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">How fast the model pays back</h3>
+          <h3 className="mt-6 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">How fast the model pays back</h3>
           <p className="mt-2 text-[15px] leading-7 text-[#667085]">
             One manual case study usually costs $1,600-$2,400 in team time. Growth pays back the moment a team ships even
             one or two verified stories a month.
@@ -2384,7 +2384,7 @@ function RoiCalculationSection() {
             </p>
           </div>
           <div className="flex items-center gap-2.5 text-[#101828]">
-            <span className="text-[44px] font-semibold tracking-[-0.05em]">$99</span>
+            <span className="text-[44px] font-semibold tracking-[-0.025em]">$99</span>
             <span className="text-[15px] text-[#667085]">/mo</span>
           </div>
           <ul className="border-t border-[#e6eaf2] pt-6 text-[15px] text-[#475467]">
@@ -2420,7 +2420,7 @@ function RevenueModelSection() {
         <div className="inline-flex items-center rounded-[9px] bg-[#f6f8fb] px-2.5 py-1.5 text-[13px] text-[#667085]">
           Flexible plans for every stage
         </div>
-        <h3 className="mt-3 text-[30px] font-semibold tracking-[-0.05em] text-[#101828]">Smart pricing for verified story production</h3>
+        <h3 className="mt-3 text-[30px] font-semibold tracking-[-0.025em] text-[#101828]">Smart pricing for verified story production</h3>
         <p className="mt-2 max-w-[700px] text-[16px] leading-7 text-[#667085]">
           Same blueprint pricing, rebuilt in the cleaner pricing card system we use across the product.
         </p>
@@ -2439,7 +2439,7 @@ function RevenueModelSection() {
                 <p className="text-[14px] leading-7 text-[#667085]">{tier.desc}</p>
               </div>
               <div className="mt-6 flex items-end gap-2.5 text-[#101828]">
-                <span className="text-[38px] font-semibold tracking-[-0.05em]">{tier.price}</span>
+                <span className="text-[38px] font-semibold tracking-[-0.025em]">{tier.price}</span>
                 <span className="text-[15px] text-[#667085]">{tier.suffix}</span>
               </div>
               <ul className="mt-6 flex flex-col gap-4 border-t border-[#e6eaf2] pt-5 text-[15px] text-[#475467]">
@@ -2466,11 +2466,11 @@ function RevenueModelSection() {
 
       <section className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
         <div className="space-y-6">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">12-Month MRR Projection</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">12-Month MRR Projection</div>
           <NativeTable columns={projectionColumns} rows={projectionRows} />
         </div>
         <div className="space-y-6">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Additional Revenue Streams</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Additional Revenue Streams</div>
           <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
             <div className="space-y-4">
               {expansionRows.map((item) => (
@@ -2503,7 +2503,7 @@ function LaunchChecklistSection() {
             <div className={`inline-flex rounded-[10px] px-3 py-1 text-[12px] font-semibold text-[#101828] ${group.tone}`}>
               {String(groupIndex + 1).padStart(2, '0')}
             </div>
-            <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{group.title}</div>
+            <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{group.title}</div>
           </div>
           <div className="mt-5 space-y-3">
             {group.items.map((item, index) => (
@@ -2599,7 +2599,7 @@ function LandingCopyAlternativesSection() {
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <div className="text-[13px] font-medium uppercase tracking-[0.08em] text-[#98a2b3]">{group.theme}</div>
-              <div className="mt-2 text-[28px] font-semibold tracking-[-0.05em] text-[#101828]">{group.section}</div>
+              <div className="mt-2 text-[28px] font-semibold tracking-[-0.025em] text-[#101828]">{group.section}</div>
             </div>
             <div className="rounded-full bg-[#f6f8fb] px-4 py-2 text-[13px] font-medium text-[#667085]">
               3 alternatives
@@ -2624,14 +2624,14 @@ function LandingCopyAlternativesSection() {
                   <div className="inline-flex rounded-[10px] bg-white/70 px-3 py-1 text-[12px] font-semibold text-[#101828]">
                     Option {String.fromCharCode(65 + optionIndex)}
                   </div>
-                  <div className="mt-4 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{option.title}</div>
+                  <div className="mt-4 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{option.title}</div>
                   <div className="mt-2 text-[14px] leading-7 text-[#475467]">{option.audience}</div>
                 </div>
 
                 <div className="p-6">
                   <div className="rounded-[20px] bg-[#fcfdff] p-5">
                     <div className="text-[12px] uppercase tracking-[0.08em] text-[#98a2b3]">Landing section preview</div>
-                    <div className="mt-3 text-[32px] font-semibold leading-[1.05] tracking-[-0.06em] text-[#101828]">
+                    <div className="mt-3 text-[32px] font-semibold leading-[1.05] tracking-[-0.025em] text-[#101828]">
                       {groupIndex === 0
                         ? 'Verified customer proof, generated in minutes'
                         : groupIndex === 1
@@ -2683,14 +2683,14 @@ function DatabaseSchemaSection() {
             }`}
           >
             <div className="text-[13px] uppercase tracking-[0.08em] text-[#667085]">{item.label}</div>
-            <div className="mt-3 text-[30px] font-semibold tracking-[-0.05em] text-[#101828]">{item.value}</div>
+            <div className="mt-3 text-[30px] font-semibold tracking-[-0.025em] text-[#101828]">{item.value}</div>
             <div className="mt-3 text-[14px] leading-7 text-[#475467]">{item.note}</div>
           </div>
         ))}
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Database architecture overview</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Database architecture overview</div>
         <p className="mt-3 max-w-[920px] text-[16px] leading-8 text-[#667085]">
           ProveKit needs multi-tenancy, secure API integrations, and a reliable approval workflow. The database model uses
           account_id as the security root, while flexible JSONB fields absorb evolving metrics and branding needs.
@@ -2713,7 +2713,7 @@ function DatabaseSchemaSection() {
                 table
               </div>
               <div>
-                <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{table.table}</div>
+                <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{table.table}</div>
                 <div className="text-[14px] text-[#667085]">{table.subtitle}</div>
               </div>
             </div>
@@ -2730,7 +2730,7 @@ function DatabaseSchemaSection() {
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
         <div className="space-y-6">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Key technical relationships</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Key technical relationships</div>
           <NativeTable
             columns={[
               { key: 'type', label: 'Relationship', className: 'w-[24%]' },
@@ -2742,7 +2742,7 @@ function DatabaseSchemaSection() {
         </div>
 
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">How they connect</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">How they connect</div>
           <div className="mt-5 space-y-4">
             {[
               'Account is the root. Every production record is filtered by account_id via RLS.',
@@ -2762,7 +2762,7 @@ function DatabaseSchemaSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Data flow</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Data flow</div>
         <div className="mt-6 grid gap-4 xl:grid-cols-3">
           {dataFlowSteps.map((step, index) => (
             <div key={step} className="rounded-[24px] border border-[#e6eaf2] bg-[#fcfdff] p-5">
@@ -2782,7 +2782,7 @@ function AbTestingSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">A/B test scenarios</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">A/B test scenarios</div>
         <p className="mt-3 max-w-[980px] text-[16px] leading-8 text-[#667085]">
           Priority growth test scenarios for ProveKit. Each test includes a hypothesis, Variant A (control), Variant B (test),
           success metric, and estimated impact. Tests are implemented via PostHog Feature Flags, already available in the stack
@@ -2791,7 +2791,7 @@ function AbTestingSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Test execution framework</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Test execution framework</div>
         <NativeTable
           columns={[
             { key: 'rule', label: 'Rule', className: 'w-[28%]' },
@@ -2802,7 +2802,7 @@ function AbTestingSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Test schedule — first 90 days</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Test schedule — first 90 days</div>
         <div className="grid gap-4 xl:grid-cols-3">
           {abSchedule.map((item, index) => (
             <div
@@ -2816,7 +2816,7 @@ function AbTestingSection() {
               >
                 {item.timeline}
               </div>
-              <div className="mt-4 text-[21px] font-semibold tracking-[-0.04em] text-[#101828]">{item.test}</div>
+              <div className="mt-4 text-[21px] font-semibold tracking-[-0.025em] text-[#101828]">{item.test}</div>
               <p className="mt-3 text-[15px] leading-7 text-[#667085]">{item.reason}</p>
             </div>
           ))}
@@ -2824,7 +2824,7 @@ function AbTestingSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Test scenarios</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Test scenarios</div>
         <div className="grid gap-5 xl:grid-cols-2">
           {abScenarioCards.map((item, index) => (
             <div
@@ -2850,7 +2850,7 @@ function AbTestingSection() {
                 </div>
               </div>
 
-              <div className="mt-4 text-[24px] font-semibold tracking-[-0.05em] text-[#101828]">{item.title}</div>
+              <div className="mt-4 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-3 text-[15px] leading-7 text-[#667085]">{item.hypothesis}</p>
 
               <div className="mt-5 grid gap-4">
@@ -2878,7 +2878,7 @@ function AbTestingSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">PostHog feature flag — example implementation</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">PostHog feature flag — example implementation</div>
         <div className="mt-5 overflow-x-auto rounded-[20px] bg-[#0f172a] p-5">
           <pre className="min-w-[680px] whitespace-pre-wrap text-[13px] leading-7 text-[#e2e8f0]">{`// pages/index.tsx
 const { isFeatureEnabled } = useFeatureFlagEnabled('hero-headline-v2')
@@ -2911,7 +2911,7 @@ function ObjectionHandlingSection() {
             <div className="text-[12px] font-medium uppercase tracking-[0.08em] text-[#98a2b3]">Sales handling card</div>
           </div>
 
-          <div className="mt-5 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+          <div className="mt-5 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
           <div className="mt-3 rounded-[18px] border border-[#edf1f7] bg-[#fcfdff] px-4 py-4 text-[14px] leading-7 text-[#667085]">
             <span className="font-medium text-[#101828]">Subtext:</span> {item.subtext}
           </div>
@@ -2935,7 +2935,7 @@ function AgencySalesPlaybookSection() {
             key={stat.label}
             className={`rounded-[28px] border border-[#e6eaf2] p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${stat.className}`}
           >
-            <div className="text-[48px] font-semibold tracking-[-0.06em] text-[#101828]">{stat.value}</div>
+            <div className="text-[48px] font-semibold tracking-[-0.025em] text-[#101828]">{stat.value}</div>
             <div className="mt-3 text-[17px] font-medium text-[#101828]">{stat.label}</div>
           </div>
         ))}
@@ -2956,7 +2956,7 @@ function AgencySalesPlaybookSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Why agencies are the ideal early customer</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Why agencies are the ideal early customer</div>
         <NativeTable
           columns={[
             { key: 'metric', label: 'Metric', className: 'w-[38%]' },
@@ -2967,7 +2967,7 @@ function AgencySalesPlaybookSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Ideal agency profile (ICP)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Ideal agency profile (ICP)</div>
         <NativeTable
           columns={[
             { key: 'attribute', label: 'Attribute', className: 'w-[24%]' },
@@ -2978,7 +2978,7 @@ function AgencySalesPlaybookSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Outreach sequence</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Outreach sequence</div>
         <div className="grid gap-5 xl:grid-cols-2">
           {agencyOutreachTouches.map((item) => (
             <div
@@ -2988,7 +2988,7 @@ function AgencySalesPlaybookSection() {
               <div className="inline-flex rounded-[10px] bg-[#f6f8fb] px-3 py-1 text-[12px] font-semibold text-[#667085]">
                 {item.day}
               </div>
-              <div className="mt-5 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+              <div className="mt-5 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.copy}</p>
             </div>
           ))}
@@ -2996,7 +2996,7 @@ function AgencySalesPlaybookSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Demo script (15-minute call)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Demo script (15-minute call)</div>
         <NativeTable
           columns={[
             { key: 'time', label: 'Time', className: 'w-[16%]' },
@@ -3010,7 +3010,7 @@ function AgencySalesPlaybookSection() {
 
       <section className="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
         <div className="space-y-6">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">White-label pitch (Agency plan feature)</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">White-label pitch (Agency plan feature)</div>
           <NativeTable
             columns={[
               { key: 'feature', label: 'Feature', className: 'w-[40%]' },
@@ -3021,16 +3021,16 @@ function AgencySalesPlaybookSection() {
         </div>
 
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Agency expansion revenue</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Agency expansion revenue</div>
           <div className="mt-5 space-y-4">
             <div className="rounded-[18px] border border-[#edf1f7] bg-[#fcfdff] px-4 py-4">
               <div className="text-[13px] uppercase tracking-[0.08em] text-[#98a2b3]">10 clients</div>
-              <div className="mt-2 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">$299 + (10 x $25) = $549/mo</div>
+              <div className="mt-2 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">$299 + (10 x $25) = $549/mo</div>
               <div className="mt-2 text-[15px] leading-7 text-[#667085]">Base agency plan plus 10 client workspaces.</div>
             </div>
             <div className="rounded-[18px] border border-[#edf1f7] bg-[#fcfdff] px-4 py-4">
               <div className="text-[13px] uppercase tracking-[0.08em] text-[#98a2b3]">20 clients</div>
-              <div className="mt-2 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">$299 + (20 x $25) = $799/mo</div>
+              <div className="mt-2 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">$299 + (20 x $25) = $799/mo</div>
               <div className="mt-2 text-[15px] leading-7 text-[#667085]">Natural seat expansion with near-zero churn once embedded.</div>
             </div>
           </div>
@@ -3064,7 +3064,7 @@ function First50CustomersSection() {
               <div className="text-[12px] font-medium uppercase tracking-[0.08em] text-[#98a2b3]">Acquisition phase</div>
             </div>
 
-            <div className="mt-5 text-[26px] font-semibold tracking-[-0.05em] text-[#101828]">{card.title}</div>
+            <div className="mt-5 text-[26px] font-semibold tracking-[-0.025em] text-[#101828]">{card.title}</div>
             <div className="mt-5 space-y-3">
               {card.items.map((item) => (
                 <div
@@ -3121,7 +3121,7 @@ function AiBuildPromptsSection() {
                   {prompt.category}
                 </div>
               </div>
-              <div className="mt-4 text-[26px] font-semibold tracking-[-0.05em] text-[#101828]">{prompt.title}</div>
+              <div className="mt-4 text-[26px] font-semibold tracking-[-0.025em] text-[#101828]">{prompt.title}</div>
             </div>
 
             <div className="p-6">
@@ -3149,8 +3149,8 @@ function BrandingKitSection() {
     <section className="mt-10 space-y-8">
       <div className="grid gap-6 xl:grid-cols-2">
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Brand Name Rationale</div>
-          <div className="mt-6 text-[48px] font-semibold tracking-[-0.07em]">
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Brand Name Rationale</div>
+          <div className="mt-6 text-[48px] font-semibold tracking-[-0.025em]">
             <span className="text-[#28b483]">PROVE</span>
             <span className="text-[#101828]">KIT</span>
           </div>
@@ -3183,7 +3183,7 @@ function BrandingKitSection() {
         </div>
 
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Brand Voice Principles</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Brand Voice Principles</div>
           <div className="mt-6 grid gap-4">
             {brandVoicePrinciples.map((item) => (
               <div key={item.title} className="rounded-[20px] border border-[#edf1f7] bg-[#fcfdff] p-4">
@@ -3191,7 +3191,7 @@ function BrandingKitSection() {
                   <div className={`flex size-10 items-center justify-center rounded-[12px] text-[18px] ${item.tone}`}>
                     {item.icon}
                   </div>
-                  <div className="text-[18px] font-semibold tracking-[-0.03em] text-[#101828]">{item.title}</div>
+                  <div className="text-[18px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
                 </div>
                 <p className="mt-3 text-[15px] leading-7 text-[#667085]">{item.detail}</p>
               </div>
@@ -3201,7 +3201,7 @@ function BrandingKitSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Language Guide - Do / Don&apos;t</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Language Guide - Do / Don&apos;t</div>
         <div className="overflow-x-auto rounded-[28px] border border-[#e6eaf2] bg-white shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
           <table className="min-w-[760px] w-full border-collapse">
             <thead>
@@ -3229,7 +3229,7 @@ function PrivacyDataAgreementSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Privacy &amp; Data Agreement</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Privacy &amp; Data Agreement</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           This section contains two essential agreements: the Customer Data Processing Agreement between ProveKit and its
           clients, and the Story Publication Consent Form that the client sends to its own customers. Both are structured
@@ -3244,14 +3244,14 @@ function PrivacyDataAgreementSection() {
             className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${card.tone}`}
           >
             <div className="text-[14px] font-medium uppercase tracking-[0.08em] text-[#667085]">{card.title}</div>
-            <div className="mt-3 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{card.subtitle}</div>
+            <div className="mt-3 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{card.subtitle}</div>
             <p className="mt-4 text-[15px] leading-8 text-[#475467]">{card.detail}</p>
           </div>
         ))}
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Agreement 1: Customer Data Processing Agreement (DPA)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Agreement 1: Customer Data Processing Agreement (DPA)</div>
         <div className="grid gap-5 xl:grid-cols-2">
           {dpaSectionCards.map((item, index) => (
             <div
@@ -3266,7 +3266,7 @@ function PrivacyDataAgreementSection() {
                 >
                   {item.number}
                 </div>
-                <div className="text-[20px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                <div className="text-[20px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               </div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.body}</p>
             </div>
@@ -3275,7 +3275,7 @@ function PrivacyDataAgreementSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">DPA signature block</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">DPA signature block</div>
         <NativeTable
           columns={[
             { key: 'party', label: 'Party', className: 'w-[26%]' },
@@ -3288,7 +3288,7 @@ function PrivacyDataAgreementSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Agreement 2: Story Publication Consent Form</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Agreement 2: Story Publication Consent Form</div>
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
           <p className="text-[15px] leading-8 text-[#475467]">
             This form is sent inline within the approval email. When the customer clicks the approval button, consent is
@@ -3312,7 +3312,7 @@ function SeoContentStrategySection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">SEO &amp; Content Strategy</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">SEO &amp; Content Strategy</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Organic search is ProveKit&apos;s highest-ROI long-term acquisition channel. The target keywords are low
           competition, high intent, and tightly aligned with the pain ProveKit solves. A founder searching for
@@ -3321,7 +3321,7 @@ function SeoContentStrategySection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Keyword Strategy Overview</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Keyword Strategy Overview</div>
         <p className="mt-3 text-[15px] leading-8 text-[#667085]">
           Three keyword tiers guide the content engine: bottom-of-funnel solution searches, middle-of-funnel problem
           research, and programmatic integration pages that scale without bespoke writing.
@@ -3341,7 +3341,7 @@ function SeoContentStrategySection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Content Architecture</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Content Architecture</div>
         <div className="grid gap-4 xl:grid-cols-2">
           {seoArchitectureCards.map((card) => (
             <div
@@ -3349,7 +3349,7 @@ function SeoContentStrategySection() {
               className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${card.tone}`}
             >
               <div className="text-[14px] font-medium uppercase tracking-[0.08em] text-[#667085]">{card.title}</div>
-              <div className="mt-3 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{card.subtitle}</div>
+              <div className="mt-3 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{card.subtitle}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{card.description}</p>
             </div>
           ))}
@@ -3357,7 +3357,7 @@ function SeoContentStrategySection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">12-Month Content Calendar</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">12-Month Content Calendar</div>
         <NativeTable
           columns={[
             { key: 'period', label: 'Period', className: 'w-[18%]' },
@@ -3369,14 +3369,14 @@ function SeoContentStrategySection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Distribution &amp; Link Building</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Distribution &amp; Link Building</div>
         <div className="grid gap-5 xl:grid-cols-2">
           {seoDistributionCards.map((item) => (
             <div
               key={item.channel}
               className={`relative rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)] before:absolute before:left-0 before:top-8 before:h-16 before:w-1 before:rounded-full ${item.accent}`}
             >
-              <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.channel}</div>
+              <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.channel}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.strategy}</p>
             </div>
           ))}
@@ -3390,7 +3390,7 @@ function TechStackCostSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Tech Stack Cost Model</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Tech Stack Cost Model</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Realistic cost brackets from MVP to growth stage. All figures below are monthly USD estimates and are designed to
           help map infrastructure cost against the revenue curve of ProveKit.
@@ -3402,7 +3402,7 @@ function TechStackCostSection() {
           <div className="inline-flex rounded-[10px] bg-[#ecfbf4] px-3 py-1 text-[12px] font-semibold text-[#067647]">
             Stage 1
           </div>
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">MVP (0 - First 10 Customers)</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">MVP (0 - First 10 Customers)</div>
         </div>
         <NativeTable
           columns={[
@@ -3428,7 +3428,7 @@ function TechStackCostSection() {
           <div className="inline-flex rounded-[10px] bg-[#fff4cc] px-3 py-1 text-[12px] font-semibold text-[#b54708]">
             Stage 2
           </div>
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Growth (100 - 500 Customers)</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Growth (100 - 500 Customers)</div>
         </div>
         <NativeTable
           columns={[
@@ -3455,7 +3455,7 @@ function TechStackCostSection() {
           <div className="inline-flex rounded-[10px] bg-[#ffe4e8] px-3 py-1 text-[12px] font-semibold text-[#d92d20]">
             Stage 3
           </div>
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Scale (500 - 2,000 Customers)</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Scale (500 - 2,000 Customers)</div>
         </div>
         <NativeTable
           columns={[
@@ -3477,7 +3477,7 @@ function TechStackCostSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Cost / Revenue Ratio Summary</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Cost / Revenue Ratio Summary</div>
         <NativeTable
           columns={[
             { key: 'stage', label: 'Stage', className: 'w-[28%]' },
@@ -3490,14 +3490,14 @@ function TechStackCostSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Critical Decision Points</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Critical Decision Points</div>
         <div className="grid gap-5 xl:grid-cols-3">
           {criticalDecisionCards.map((item) => (
             <div
               key={item.title}
               className={`relative rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)] before:absolute before:left-0 before:top-8 before:h-16 before:w-1 before:rounded-full ${item.accent}`}
             >
-              <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+              <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
             </div>
           ))}
@@ -3511,7 +3511,7 @@ function OnboardingActivationSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Onboarding &amp; Activation Flow</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Onboarding &amp; Activation Flow</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           In PLG products, onboarding decides the outcome early. Most users make a continue-or-drop decision within 48
           hours, so every touchpoint from signup to first live verified story must compress time to value.
@@ -3519,7 +3519,7 @@ function OnboardingActivationSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">The Activation Milestone Framework</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">The Activation Milestone Framework</div>
         <p className="text-[15px] leading-8 text-[#667085]">
           ProveKit has one primary milestone: the first verified story published. Everything else in onboarding exists to
           move the user toward that moment and then reinforce repeat usage after it happens.
@@ -3536,7 +3536,7 @@ function OnboardingActivationSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Day-by-Day Onboarding Sequence</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Day-by-Day Onboarding Sequence</div>
         <div className="grid gap-5 xl:grid-cols-2">
           {onboardingDayCards.map((card) => (
             <div
@@ -3546,7 +3546,7 @@ function OnboardingActivationSection() {
               <div className="inline-flex rounded-[10px] bg-[#f6f8fb] px-3 py-1 text-[12px] font-semibold text-[#667085]">
                 {card.day}
               </div>
-              <div className="mt-5 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{card.title}</div>
+              <div className="mt-5 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{card.title}</div>
               <div className="mt-5 space-y-3">
                 {card.steps.map((step) => (
                   <div
@@ -3564,14 +3564,14 @@ function OnboardingActivationSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Aha Moment Design Principles</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Aha Moment Design Principles</div>
         <div className="grid gap-4 xl:grid-cols-2">
           {ahaPrinciples.map((item) => (
             <div
               key={item.title}
               className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${item.tone}`}
             >
-              <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+              <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
             </div>
           ))}
@@ -3594,7 +3594,7 @@ function GenericRawSection({ sectionMarkup }: { sectionMarkup: string | null }) 
   if (!sectionMarkup) {
     return (
       <section className="mt-10 rounded-[28px] border border-[#e6eaf2] bg-white p-8 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <h3 className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Section content unavailable</h3>
+        <h3 className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Section content unavailable</h3>
         <p className="mt-4 text-[16px] leading-8 text-[#667085]">This section could not be extracted from the HTML source.</p>
       </section>
     );

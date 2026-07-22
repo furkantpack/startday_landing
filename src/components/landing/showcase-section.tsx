@@ -95,7 +95,7 @@ export function ShowcaseSection() {
           <div className="inline-flex items-center rounded-full border border-white/70 bg-white/80 px-4 py-2 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--primary-base)] shadow-[0_8px_24px_rgba(67,97,238,0.08)]">
             Trusted by teams shipping faster with AI
           </div>
-          <h2 className="mt-7 text-4xl font-semibold leading-[0.98] tracking-[-0.06em] text-[#111633] md:text-6xl lg:text-[5.4rem]">
+          <h2 className="mt-7 text-4xl font-semibold leading-[0.98] tracking-[-0.025em] text-[#111633] md:text-6xl lg:text-[5.4rem]">
             Discover launch stories with
             <span className="bg-[linear-gradient(90deg,#8aa0ff_0%,#4361ee_72%)] bg-clip-text text-transparent">
               {' '}
@@ -135,7 +135,7 @@ export function ShowcaseSection() {
                   <span className="rounded-full bg-[#eef2ff] px-4 py-2 text-sm font-semibold uppercase tracking-[0.05em] text-[#18285f]">
                     {card.tag}
                   </span>
-                  <span className="text-[2rem] font-semibold tracking-[-0.06em] text-white/90">
+                  <span className="text-[2rem] font-semibold tracking-[-0.025em] text-white/90">
                     {card.brand}
                   </span>
                 </div>
@@ -149,7 +149,7 @@ export function ShowcaseSection() {
                       Play story
                     </button>
                   </div>
-                  <h3 className="max-w-[15ch] text-[2.3rem] font-semibold leading-[1.02] tracking-[-0.05em] text-white">
+                  <h3 className="max-w-[15ch] text-[2.3rem] font-semibold leading-[1.02] tracking-[-0.025em] text-white">
                     {card.title}
                   </h3>
                   <div className="mt-5 flex items-center gap-3">
@@ -184,7 +184,7 @@ export function ShowcaseSection() {
                       </span>
                     </div>
                   </div>
-                  <h3 className="mt-16 text-[2rem] font-semibold tracking-[-0.05em]">
+                  <h3 className="mt-16 text-[2rem] font-semibold tracking-[-0.025em]">
                     {card.title}
                   </h3>
                   <p className="mt-1 max-w-[30ch] text-sm text-white/80">{card.subtitle}</p>
@@ -223,7 +223,7 @@ export function ShowcaseSection() {
 
                   <div className="mt-6 flex items-center justify-between gap-4">
                     <div>
-                      <span className="text-[2rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+                      <span className="text-[2rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                         {card.price}
                       </span>
                       <span className="ml-1 text-sm text-[var(--text-sub-600)]">one-time</span>
@@ -252,7 +252,7 @@ export function ShowcaseSection() {
                   <span className="rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-semibold tracking-[0.03em]">
                     Two-Sided Platform
                   </span>
-                  <h3 className="mt-4 text-[2.4rem] font-semibold tracking-[-0.05em]">Bundle</h3>
+                  <h3 className="mt-4 text-[2.4rem] font-semibold tracking-[-0.025em]">Bundle</h3>
                   <p className="text-sm text-white/85">Startbase Core + Signal Mobile</p>
                 </div>
                 <button className="inline-flex size-10 items-center justify-center rounded-xl border border-[#2a1e1a]/20 bg-white/18 text-[#2a1e1a]">
@@ -333,7 +333,7 @@ export function ShowcaseSection() {
             <div className="flex items-end justify-between gap-4 border-t border-[var(--stroke-soft-200)] px-6 py-5">
               <div>
                 <div className="text-sm text-[var(--text-soft-400)] line-through">$448</div>
-                <div className="text-[2.2rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+                <div className="text-[2.2rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                   $349
                   <span className="ml-1 text-sm font-normal tracking-normal text-[var(--text-sub-600)]">
                     one-time

@@ -82,7 +82,7 @@ export function Kit7RejectionReasonsSection() {
         >
           Need help?
         </Badge.Root>
-        <div className="mb-4 text-[34px] font-semibold tracking-[-0.05em] text-[#101828] lg:text-center">
+        <div className="mb-4 text-[34px] font-semibold tracking-[-0.025em] text-[#101828] lg:text-center">
           Red Gerekçeleri &amp; Çözümleri
         </div>
         <div className="mb-8 text-[16px] leading-8 text-[#667085] lg:mb-16 lg:text-center">

@@ -409,7 +409,7 @@ export function KitContinuePageV2() {
         <section className="grid gap-6 px-6 py-6 lg:px-8 lg:py-7 xl:grid-cols-[minmax(0,1.15fr)_360px]">
           <div>
             <div className="mb-4 flex items-center justify-between">
-              <div className="text-[28px] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+              <div className="text-[28px] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                 18 sections
               </div>
               <div className="text-[18px] text-[var(--text-soft-400)]">
@@ -421,7 +421,7 @@ export function KitContinuePageV2() {
 
           <div>
             <div className="mb-4 flex items-center justify-between">
-              <div className="text-[28px] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+              <div className="text-[28px] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                 Downloads &amp; assets
               </div>
               <LinkButton.Root

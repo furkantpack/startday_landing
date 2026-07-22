@@ -157,7 +157,7 @@ function IntroSidebar() {
             </div>
           </div>
           <div>
-            <div className="text-[16px] font-medium tracking-[-0.04em] text-[#101828]">ProveKit</div>
+            <div className="text-[16px] font-medium tracking-[-0.025em] text-[#101828]">ProveKit</div>
             <div className="mt-0.5 text-[12px] text-[#667085]">KitStart Blueprint · Page 1</div>
           </div>
         </div>
@@ -228,7 +228,7 @@ function HighlightCard({
   return (
     <article className={cn('rounded-[24px] p-6 shadow-[0_10px_24px_rgba(15,23,42,0.04)]', tone)}>
       <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#8f867b]">{eyebrow}</div>
-      <h3 className="mt-3 text-[22px] font-semibold tracking-[-0.04em] text-[#171717]">{title}</h3>
+      <h3 className="mt-3 text-[22px] font-semibold tracking-[-0.025em] text-[#171717]">{title}</h3>
       <p className="mt-3 text-[15px] leading-7 text-[#5f594f]">{body}</p>
     </article>
   );
@@ -280,7 +280,7 @@ export function Kit4IntroPage() {
                   </div>
                 </div>
                 <div>
-                  <div className="text-[16px] font-medium tracking-[-0.04em] text-[#101828]">KitStart Blueprint Series</div>
+                  <div className="text-[16px] font-medium tracking-[-0.025em] text-[#101828]">KitStart Blueprint Series</div>
                   <div className="mt-0.5 text-[12px] text-[#667085]">ProveKit · Confidential · Page 1</div>
                 </div>
               </div>
@@ -291,10 +291,10 @@ export function Kit4IntroPage() {
             <div className="max-w-[980px]">
               <section id="overview" className="scroll-mt-24">
                 <div className="text-[15px] font-medium text-[#28b483]">KitStart</div>
-                <h1 className="mt-2 text-[50px] font-semibold leading-[0.96] tracking-[-0.06em] text-[#171717]">
+                <h1 className="mt-2 text-[50px] font-semibold leading-[0.96] tracking-[-0.025em] text-[#171717]">
                   PROVEKIT
                 </h1>
-                <p className="mt-3 text-[22px] font-medium tracking-[-0.03em] text-[#159685]">
+                <p className="mt-3 text-[22px] font-medium tracking-[-0.025em] text-[#159685]">
                   Verified Customer Story Engine for B2B SaaS
                 </p>
                 <p className="mt-6 max-w-[780px] text-[18px] leading-8 text-[#625c54]">
@@ -354,7 +354,7 @@ export function Kit4IntroPage() {
                 <div className="flex items-end justify-between gap-4">
                   <div>
                     <div className="text-[15px] font-medium text-[#8f867b]">ProveKit · Verified Story Generation Pipeline</div>
-                    <h2 className="mt-2 text-[32px] font-semibold tracking-[-0.05em] text-[#171717]">
+                    <h2 className="mt-2 text-[32px] font-semibold tracking-[-0.025em] text-[#171717]">
                       Story generation flow
                     </h2>
                   </div>
@@ -372,7 +372,7 @@ export function Kit4IntroPage() {
                       <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#8f867b]">
                         Step {index + 1}
                       </div>
-                      <div className="mt-3 text-[22px] font-semibold tracking-[-0.04em] text-[#171717]">
+                      <div className="mt-3 text-[22px] font-semibold tracking-[-0.025em] text-[#171717]">
                         {step.title}
                       </div>
                       <div className="mt-2 text-[16px] text-[#625c54]">{step.detail}</div>
@@ -384,7 +384,7 @@ export function Kit4IntroPage() {
               <section id="trust-signal" className="mt-14 scroll-mt-24">
                 <div className="rounded-[28px] border border-[#ece6dd] bg-white p-6 shadow-[0_12px_28px_rgba(15,23,42,0.04)]">
                   <div className="text-[15px] font-medium text-[#8f867b]">Trust signal</div>
-                  <h2 className="mt-2 text-[30px] font-semibold tracking-[-0.05em] text-[#171717]">
+                  <h2 className="mt-2 text-[30px] font-semibold tracking-[-0.025em] text-[#171717]">
                     Why this intro page matters
                   </h2>
                   <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -396,7 +396,7 @@ export function Kit4IntroPage() {
                           index === 0 ? 'bg-[#ecfbf4]' : index === 1 ? 'bg-[#fff4ea]' : 'bg-[#f4f5ff]',
                         )}
                       >
-                        <div className="text-[32px] font-semibold tracking-[-0.06em] text-[#171717]">
+                        <div className="text-[32px] font-semibold tracking-[-0.025em] text-[#171717]">
                           {index === 0 ? '97%' : index === 1 ? '0' : '3 min'}
                         </div>
                         <p className="mt-3 text-[15px] leading-7 text-[#625c54]">{item}</p>
@@ -408,7 +408,7 @@ export function Kit4IntroPage() {
 
               <section id="gap" className="mt-14 scroll-mt-24 rounded-[28px] border border-[#ece6dd] bg-white p-6 shadow-[0_12px_28px_rgba(15,23,42,0.04)]">
                 <div className="text-[15px] font-medium text-[#8f867b]">The Gap No One Has Filled</div>
-                <h2 className="mt-2 text-[30px] font-semibold tracking-[-0.05em] text-[#171717]">
+                <h2 className="mt-2 text-[30px] font-semibold tracking-[-0.025em] text-[#171717]">
                   Where ProveKit is different
                 </h2>
 
@@ -439,7 +439,7 @@ export function Kit4IntroPage() {
               <section id="why-it-matters" className="mt-14 scroll-mt-24 pb-10">
                 <div className="rounded-[28px] bg-[linear-gradient(135deg,#fffbf2_0%,#fff7ed_100%)] p-6">
                   <div className="text-[15px] font-medium text-[#8f867b]">Why it matters</div>
-                  <h2 className="mt-2 text-[30px] font-semibold tracking-[-0.05em] text-[#171717]">
+                  <h2 className="mt-2 text-[30px] font-semibold tracking-[-0.025em] text-[#171717]">
                     First-page takeaway
                   </h2>
                   <p className="mt-4 max-w-[760px] text-[17px] leading-8 text-[#625c54]">

@@ -134,7 +134,7 @@ export function StartupFitForm() {
               <RiSparkling2Line className="size-4 text-[var(--primary-base)]" />
               Startup Fit Quiz
             </div>
-            <h1 className="mt-5 text-[2.8rem] font-semibold leading-[1] tracking-[-0.06em] text-[var(--text-strong-950)] lg:text-[4rem]">
+            <h1 className="mt-5 text-[2.8rem] font-semibold leading-[1] tracking-[-0.025em] text-[var(--text-strong-950)] lg:text-[4rem]">
               En uygun startup kitini bul
             </h1>
             <p className="mx-auto mt-4 max-w-[700px] text-[1rem] leading-7 text-[var(--text-sub-600)] lg:text-[1.05rem]">
@@ -194,7 +194,7 @@ export function StartupFitForm() {
                 {!isComplete ? (
                   <div className="mx-auto max-w-[620px]">
                     <div className="mb-8">
-                      <div className="text-[2rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+                      <div className="text-[2rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                         {currentQuestion.title}
                       </div>
                       <p className="mt-3 text-[1rem] leading-7 text-[var(--text-sub-600)]">
@@ -266,7 +266,7 @@ export function StartupFitForm() {
                       <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--text-soft-400)]">
                         Startup Readiness Score
                       </div>
-                      <div className="mt-3 text-[3.4rem] font-semibold leading-none tracking-[-0.07em] text-[var(--text-strong-950)]">
+                      <div className="mt-3 text-[3.4rem] font-semibold leading-none tracking-[-0.025em] text-[var(--text-strong-950)]">
                         {result.readiness}/100
                       </div>
                       <p className="mt-3 text-[1rem] leading-7 text-[var(--text-sub-600)]">

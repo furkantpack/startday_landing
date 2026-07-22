@@ -77,10 +77,10 @@ function DesignjoyCard() {
           </div>
 
           <div className="pt-24 sm:pt-36">
-            <h2 className="max-w-[10ch] text-[3.45rem] font-semibold leading-[0.93] tracking-[-0.07em] text-white sm:text-[4.65rem]">
+            <h2 className="max-w-[10ch] text-[3.45rem] font-semibold leading-[0.93] tracking-[-0.025em] text-white sm:text-[4.65rem]">
               Join Designjoy
             </h2>
-            <p className="mt-5 max-w-[18ch] text-[1.55rem] leading-[1.24] tracking-[-0.03em] text-white/92 sm:text-[1.95rem]">
+            <p className="mt-5 max-w-[18ch] text-[1.55rem] leading-[1.24] tracking-[-0.025em] text-white/92 sm:text-[1.95rem]">
               One subscription to rule them all.
             </p>
           </div>
@@ -144,7 +144,7 @@ export function FinanceHeroEx2() {
                 </span>
               </div>
 
-              <h1 className="mt-5 max-w-[620px] text-[3.15rem] font-semibold leading-[1.05] tracking-[-0.07em] text-[#1d1f24] sm:text-[3.45rem] md:text-[4.15rem] lg:text-[4.7rem]">
+              <h1 className="mt-5 max-w-[620px] text-[3.15rem] font-semibold leading-[1.05] tracking-[-0.025em] text-[#1d1f24] sm:text-[3.45rem] md:text-[4.15rem] lg:text-[4.7rem]">
                 Track your finances with live analytics in one place
               </h1>
 
@@ -236,7 +236,7 @@ export function FinanceHeroEx2() {
                     <span className="rounded-[1px] bg-current opacity-65" />
                     <span className="rounded-[1px] bg-current opacity-85" />
                   </span>
-                  <span className="text-[1.05rem] font-medium tracking-[-0.02em]">
+                  <span className="text-[1.05rem] font-medium tracking-[-0.025em]">
                     {brand}
                     <span className="text-[0.75rem] align-top">TM</span>
                   </span>

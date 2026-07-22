@@ -99,7 +99,7 @@ export function Kit7StartupScoringSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[1040px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Business Finland Gözünden Kendi Fikrini Değerlendirme</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Business Finland Gözünden Kendi Fikrini Değerlendirme</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Bu rehberi kullanarak başvurmadan önce kendi fikrini değerlendir. Her kriterde kendinle dürüst ol. Zayıf
           bulduğun noktalarda başvuruyu güçlendirme stratejisi geliştir veya fikri o alanlara göre yeniden çerçevele.
@@ -156,13 +156,13 @@ export function Kit7StartupScoringSection() {
         <div className="space-y-5">
           <div className={`rounded-[28px] border p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${verdict.tone}`}>
             <div className="text-[13px] font-semibold uppercase tracking-[0.14em]">Toplam Skor</div>
-            <div className="mt-3 text-[46px] font-semibold tracking-[-0.06em]">{total}/18</div>
-            <div className="mt-3 text-[24px] font-semibold tracking-[-0.04em]">{verdict.title}</div>
+            <div className="mt-3 text-[46px] font-semibold tracking-[-0.025em]">{total}/18</div>
+            <div className="mt-3 text-[24px] font-semibold tracking-[-0.025em]">{verdict.title}</div>
             <p className="mt-3 text-[15px] leading-8">{verdict.detail}</p>
           </div>
 
           <div className="rounded-[28px] border border-[#dce7ff] bg-[linear-gradient(180deg,#f8fbff_0%,#f4f8ff_100%)] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-            <div className="text-[18px] font-semibold tracking-[-0.03em] text-[#101828]">Skor yorumu</div>
+            <div className="text-[18px] font-semibold tracking-[-0.025em] text-[#101828]">Skor yorumu</div>
             <div className="mt-4 space-y-3 text-[15px] leading-7 text-[#475467]">
               <div>15–18 puan → Güçlü başvuru, devam et</div>
               <div>10–14 puan → Zayıf alanları güçlendir, sonra başvur</div>
@@ -171,7 +171,7 @@ export function Kit7StartupScoringSection() {
           </div>
 
           <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-            <div className="text-[18px] font-semibold tracking-[-0.03em] text-[#101828]">Zayıf alan varsa ne yapmalı?</div>
+            <div className="text-[18px] font-semibold tracking-[-0.025em] text-[#101828]">Zayıf alan varsa ne yapmalı?</div>
             <div className="mt-4 space-y-3">
               {[
                 'Tek kurucuysan destekleyici kurucu veya net uzman partner ekle.',
@@ -190,7 +190,7 @@ export function Kit7StartupScoringSection() {
 
       <div className="grid gap-6 xl:grid-cols-2">
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">En Çok Onaylanan İş Modelleri</div>
+          <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">En Çok Onaylanan İş Modelleri</div>
           <div className="mt-5 space-y-3">
             {approvedModels.map((item, index) => (
               <div key={item} className="flex items-start gap-3 rounded-[18px] border border-[#edf1f7] bg-[#fcfdff] px-4 py-4">
@@ -204,7 +204,7 @@ export function Kit7StartupScoringSection() {
         </div>
 
         <div className="rounded-[28px] border border-[#f2d6c7] bg-[linear-gradient(180deg,#fffaf6_0%,#fff5ee_100%)] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">Onaylanma ihtimali düşük modeller</div>
+          <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">Onaylanma ihtimali düşük modeller</div>
           <div className="mt-5 space-y-3">
             {weakModels.map((item, index) => (
               <div key={item} className="flex items-start gap-3 rounded-[18px] border border-[#f4d8c5] bg-white/85 px-4 py-4">

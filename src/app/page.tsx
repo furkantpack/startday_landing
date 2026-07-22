@@ -9,6 +9,8 @@ import {
   RiArrowRightUpLongLine,
 } from '@remixicon/react';
 
+import { redirectToCheckout, stripeCheckoutUrl } from '@/lib/checkout';
+
 const navItems = [
   { label: 'Welcome', count: '01', href: '/' },
   { label: 'How it Works', count: '02', href: '#how-it-works' },
@@ -24,7 +26,7 @@ const carouselTeamData = [
     country: 'Sweden',
     name: 'Stockholm',
     role: '10-12 July',
-    image: '/bold-moves-carousel-stockholm.png',
+    image: '/bold-moves-carousel-stockholm.avif',
     href: '/cafe/stockholm',
     tone: '#ffe779',
   },
@@ -33,7 +35,7 @@ const carouselTeamData = [
     country: 'Finland',
     name: 'Helsinki',
     role: '10-12 July',
-    image: '/bold-moves-carousel-helsinki.png',
+    image: '/bold-moves-carousel-helsinki.avif',
     href: '/cafe/helsinki',
     tone: '#b9f28c',
   },
@@ -42,7 +44,7 @@ const carouselTeamData = [
     country: 'Estonia',
     name: 'Tallinn',
     role: '10-12 July',
-    image: '/bold-moves-carousel-tallinn.png',
+    image: '/bold-moves-carousel-tallinn.avif',
     href: '/cafe/tallinn',
     tone: '#88d8ff',
   },
@@ -51,7 +53,7 @@ const carouselTeamData = [
     country: 'Denmark',
     name: 'Copenhagen',
     role: '10-12 July',
-    image: '/bold-moves-carousel-copenhagen.png',
+    image: '/bold-moves-carousel-copenhagen.avif',
     href: '/cafe/copenhagen',
     tone: '#f45a2f',
   },
@@ -60,7 +62,7 @@ const carouselTeamData = [
     country: 'Germany',
     name: 'Berlin',
     role: '10-12 July',
-    image: '/bold-moves-carousel-berlin.png',
+    image: '/bold-moves-carousel-berlin.avif',
     href: '/cafe/berlin',
     tone: '#ffd7ea',
   },
@@ -69,7 +71,7 @@ const carouselTeamData = [
     country: 'Turkey',
     name: 'Istanbul',
     role: '10-12 July',
-    image: '/bold-moves-carousel-istanbul.png',
+    image: '/bold-moves-carousel-istanbul.avif',
     href: '/cafe/istanbul',
     tone: '#fff0c6',
   },
@@ -78,7 +80,7 @@ const carouselTeamData = [
     country: 'France',
     name: 'Paris',
     role: '10-12 July',
-    image: '/bold-moves-carousel-paris.png',
+    image: '/bold-moves-carousel-paris.avif',
     href: '/cafe/paris',
     tone: '#dff6d2',
   },
@@ -87,7 +89,7 @@ const carouselTeamData = [
     country: 'Austria',
     name: 'Vienna',
     role: '10-12 July',
-    image: '/bold-moves-carousel-vienna.png',
+    image: '/bold-moves-carousel-vienna.avif',
     href: '/cafe/vienna',
     tone: '#ffe0c7',
   },
@@ -136,37 +138,6 @@ const services = [
     title: 'community lounge',
     tags: ['coffee & casual talk', 'low-pressure networking', 'StartDay merch drops'],
     colors: ['#f7f0de', '#d7d7d7', '#ff9e8a'],
-  },
-];
-
-const cafeExampleCards = [
-  {
-    title: 'Full-weekend build session',
-    description:
-      'A full 2-day sprint turned into a StartDay group, with roles, skills, and real progress happening at once.',
-    image: '/pin-space-cafe-room.png',
-    tone: '#ffe779',
-  },
-  {
-    title: 'Founder match session',
-    description:
-      'A focused setup for people looking for a team - not a noisy networking floor, just the right group.',
-    image: '/pin-space-founder-cafe.png',
-    tone: '#c8dfa9',
-  },
-  {
-    title: 'Skill format showcase',
-    description:
-      'Product, design, code, growth, and ops seats arranged so everyone knows exactly where they sit.',
-    image: '/pin-space-table-formats.png',
-    tone: '#a9d6e7',
-  },
-  {
-    title: 'Corporate escape session',
-    description:
-      'For people in corporate roles testing the founder path - a lower-pressure format with real conversations and real stakes.',
-    image: '/pin-space-brand-room.png',
-    tone: '#e7b9c2',
   },
 ];
 
@@ -301,7 +272,7 @@ export function Sidebar() {
     <>
       <Link
         href="/startday-find-cafes"
-        className="group fixed right-4 top-8 z-50 inline-flex h-10 origin-top animate-[pin-nudge_2.8s_ease-in-out_infinite] items-center justify-center rounded-full border border-[#1d1d19]/10 bg-[#ffe779] px-4 text-[0.86rem] font-black tracking-[-0.035em] text-[#1d1d19] shadow-[0_10px_24px_rgba(29,29,25,0.16)] transition-transform duration-300 active:scale-95 motion-reduce:animate-none lg:hidden"
+        className="group fixed right-4 top-8 z-50 inline-flex h-10 origin-top animate-[pin-nudge_2.8s_ease-in-out_infinite] items-center justify-center rounded-full border border-[#1d1d19]/10 bg-[#ffe779] px-4 text-[0.86rem] font-black tracking-[-0.025em] text-[#1d1d19] shadow-[0_10px_24px_rgba(29,29,25,0.16)] transition-transform duration-300 active:scale-95 motion-reduce:animate-none lg:hidden"
       >
         Locations
       </Link>
@@ -320,7 +291,7 @@ export function Sidebar() {
           className="relative h-10 w-[142px] shrink-0 overflow-hidden"
         >
           <Image
-            src="/startday-logo-cropped.png"
+            src="/startday-logo-cropped.avif"
             alt="StartDay"
             width={188}
             height={62}
@@ -358,11 +329,11 @@ export function Sidebar() {
             key={item.label}
             href={item.href}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="group flex h-9 items-center justify-between rounded-[4px] bg-[#ffe779] px-3 text-[1.06rem] font-black tracking-[-0.04em] transition-transform duration-300 hover:-translate-y-0.5 lg:h-[50px] lg:rounded-[7px] lg:px-4 lg:text-[1.18rem]"
+            className="group flex h-9 items-center justify-between rounded-[4px] bg-[#ffe779] px-3 text-[1.06rem] font-black tracking-[-0.025em] transition-transform duration-300 hover:-translate-y-0.5 lg:h-[50px] lg:rounded-[7px] lg:px-4 lg:text-[1.18rem]"
           >
             <span>{item.label}</span>
             <span className="flex items-center gap-2">
-              <span className="flex size-6 items-center justify-center rounded-full bg-white text-[0.68rem] font-black tracking-[-0.03em] lg:size-9 lg:text-sm">
+              <span className="flex size-6 items-center justify-center rounded-full bg-white text-[0.68rem] font-black tracking-[-0.025em] lg:size-9 lg:text-sm">
                 {item.count}
               </span>
             </span>
@@ -376,17 +347,17 @@ export function Sidebar() {
           isMobileMenuOpen ? 'block' : 'hidden',
         ].join(' ')}
       >
-        <h2 className="max-w-[360px] text-[1.58rem] font-black leading-[1.02] tracking-[-0.055em] text-white lg:max-w-[260px] lg:text-[2rem]">
+        <h2 className="max-w-[360px] text-[1.58rem] font-black leading-[1.02] tracking-[-0.025em] text-white lg:max-w-[260px] lg:text-[2rem]">
           ready to find your startup team
         </h2>
         <Link
           href="/find-your-team"
-          className="mt-3 flex h-11 max-w-[194px] items-center justify-center rounded-[7px] border border-[#1d1d19] bg-[#ffe779] text-[1rem] font-extrabold tracking-[-0.03em] text-[#1d1d19] shadow-[0_12px_24px_rgba(29,29,25,0.10)] transition-transform duration-300 hover:-translate-y-0.5 lg:mt-6 lg:h-14 lg:max-w-[260px] lg:text-[1.05rem]"
+          className="mt-3 flex h-11 max-w-[194px] items-center justify-center rounded-[7px] border border-[#1d1d19] bg-[#ffe779] text-[1rem] font-extrabold tracking-[-0.025em] text-[#1d1d19] shadow-[0_12px_24px_rgba(29,29,25,0.10)] transition-transform duration-300 hover:-translate-y-0.5 lg:mt-6 lg:h-14 lg:max-w-[260px] lg:text-[1.05rem]"
         >
           find your team
         </Link>
 
-        <div className="mt-6 flex max-w-full flex-wrap items-center justify-end gap-3 rounded-[7px] border border-dashed border-[#f8edd0] bg-[#fff8df] px-3 py-3 text-[0.94rem] font-semibold tracking-[-0.035em] lg:max-w-[260px] lg:px-4 lg:py-4">
+        <div className="mt-6 flex max-w-full flex-wrap items-center justify-end gap-3 rounded-[7px] border border-dashed border-[#f8edd0] bg-[#fff8df] px-3 py-3 text-[0.94rem] font-semibold tracking-[-0.025em] lg:max-w-[260px] lg:px-4 lg:py-4">
           {['ig', 'in'].map((icon) => (
             <span
               key={icon}
@@ -406,7 +377,7 @@ function TopBar() {
   return null;
   return (
     <header className="flex items-center justify-between gap-4 text-[#1d1d19]">
-      <div className="flex items-center gap-2 text-[1.1rem] font-medium tracking-[-0.035em] sm:text-[1.25rem]">
+      <div className="flex items-center gap-2 text-[1.1rem] font-medium tracking-[-0.025em] sm:text-[1.25rem]">
         <span className="flex size-9 items-center justify-center rounded-full bg-[#edf7dc]">
           <span className="size-3 rounded-full bg-[#65bd34]" />
         </span>
@@ -451,11 +422,11 @@ function HeroContent() {
     <section className="relative flex flex-col overflow-hidden rounded-[8px] bg-[#fffbe8] px-5 pb-14 pt-12 sm:px-9 sm:pb-16 sm:pt-16 lg:px-10 lg:pb-20 lg:pt-20">
       <header className="flex justify-center">
         <div className="mx-auto flex w-full max-w-[920px] flex-col items-center text-center">
-          <h1 className="max-w-[930px] text-[2rem] font-black leading-[1.04] tracking-[-0.055em] text-[#1d1d19]">
+          <h1 className="max-w-[930px] text-[2rem] font-black leading-[1.04] tracking-[-0.025em] text-[#1d1d19]">
             The weekend that turns strangers into founders
           </h1>
 
-          <p className="mt-6 max-w-[560px] text-[1.05rem] font-semibold leading-[1.34] tracking-[-0.035em] text-[#6f6251]">
+          <p className="mt-6 max-w-[560px] text-[1.05rem] font-semibold leading-[1.34] tracking-[-0.025em] text-[#6f6251]">
             No bios. No swiping. No planning. We&apos;ll match you with your team and handle the details. All you need to do is show up.
           </p>
         </div>
@@ -499,16 +470,16 @@ function TeamCarouselSection() {
       <div className="rounded-[10px] border border-[#eadc9d] bg-[#fff5c8] px-4 py-10 shadow-[0_22px_70px_rgba(29,29,25,0.06)] sm:px-8 lg:px-10">
         <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
           <div>
-            <div className="inline-flex rounded-full border border-[#1d1d19] bg-[#ffe779] px-5 py-2 text-[0.9rem] font-black tracking-[-0.035em] text-[#1d1d19]">
+            <div className="inline-flex rounded-full border border-[#1d1d19] bg-[#ffe779] px-5 py-2 text-[0.9rem] font-black tracking-[-0.025em] text-[#1d1d19]">
               city drops connected
             </div>
-            <h2 className="mt-5 max-w-[520px] text-[2rem] font-black leading-[1.02] tracking-[-0.065em] text-[#1d1d19]">
+            <h2 className="mt-5 max-w-[520px] text-[2rem] font-black leading-[1.02] tracking-[-0.025em] text-[#1d1d19]">
               Your next founding weekend is already forming.
             </h2>
           </div>
 
           <div className="flex flex-col gap-5 lg:items-end">
-            <p className="max-w-[450px] text-[1.12rem] font-medium leading-[1.16] tracking-[-0.035em] text-[#1d1d19] lg:text-right">
+            <p className="max-w-[450px] text-[1.12rem] font-medium leading-[1.16] tracking-[-0.025em] text-[#1d1d19] lg:text-right">
               Browse live city drops, pick the session that fits your goals, and turn a weekend into your next startup team.
             </p>
             <div className="flex w-full items-center gap-2 sm:w-auto">
@@ -597,18 +568,18 @@ function TeamCarouselSection() {
           </div>
 
           <div className="mx-auto mt-7 flex max-w-[520px] flex-col items-center text-center">
-            <div className="rounded-full bg-[#fffbe8] px-5 py-2 text-[1rem] font-black tracking-[-0.04em] text-[#f45a2f]">
+            <div className="rounded-full bg-[#fffbe8] px-5 py-2 text-[1rem] font-black tracking-[-0.025em] text-[#f45a2f]">
               {activeMember.country}
             </div>
-            <h3 className="mt-3 text-[2rem] font-black leading-none tracking-[-0.065em] text-[#1d1d19]">
+            <h3 className="mt-3 text-[2rem] font-black leading-none tracking-[-0.025em] text-[#1d1d19]">
               {activeMember.name}
             </h3>
-            <p className="mt-2 text-[1.05rem] font-semibold tracking-[-0.035em] text-[#1d1d19]/70">
+            <p className="mt-2 text-[1.05rem] font-semibold tracking-[-0.025em] text-[#1d1d19]/70">
               {activeMember.role}
             </p>
             <Link
               href={activeMember.href}
-              className="mt-5 inline-flex h-12 items-center justify-center gap-2 rounded-full border border-[#1d1d19] bg-[#ffe779] px-6 text-[1rem] font-black tracking-[-0.035em] text-[#1d1d19] shadow-[0_12px_24px_rgba(29,29,25,0.10)] transition-transform duration-300 hover:-translate-y-0.5"
+              className="mt-5 inline-flex h-12 items-center justify-center gap-2 rounded-full border border-[#1d1d19] bg-[#ffe779] px-6 text-[1rem] font-black tracking-[-0.025em] text-[#1d1d19] shadow-[0_12px_24px_rgba(29,29,25,0.10)] transition-transform duration-300 hover:-translate-y-0.5"
             >
               explore
               <RiArrowRightUpLongLine className="size-4 text-[#f45a2f]" />
@@ -643,72 +614,11 @@ function ServicePreview({ colors }: { colors: string[] }) {
   );
 }
 
-function CafeExamplesSection() {
-  return (
-    <section className="bg-[#fffbe8] py-10 lg:py-16">
-      <div className="mx-auto mb-8 flex w-full max-w-[808px] flex-col gap-5 px-4 lg:mb-12 lg:flex-row lg:items-end lg:gap-8 lg:px-0">
-        <div className="flex flex-1 flex-col gap-3">
-          <div className="w-fit rounded-[9px] bg-[#fff0c6] px-3 py-1.5 text-[0.9rem] font-black tracking-[-0.035em] text-[#6f6251]">
-            TABLE EXAMPLES
-          </div>
-          <h2 className="text-[2rem] font-black leading-[1.04] tracking-[-0.065em] text-[#1d1d19]">
-            See how a weekend becomes your group
-          </h2>
-        </div>
-        <div className="flex flex-1 flex-col gap-4 lg:max-w-[310px]">
-          <p className="text-[1rem] font-medium leading-[1.35] tracking-[-0.035em] text-[#6f6251]">
-            StartDay designs each session around real founder goals: team formation, skill-matching,
-            idea validation, and build sprints that feel natural, not forced.
-          </p>
-          <Link
-            href="/startday-find-cafes"
-            className="group inline-flex w-fit items-center gap-1 text-[1rem] font-black tracking-[-0.035em] text-[#1d1d19] transition-colors hover:text-[#f45a2f]"
-          >
-            Explore sessions
-            <RiArrowRightUpLongLine className="size-5 text-[#9a8d73] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#f45a2f]" />
-          </Link>
-        </div>
-      </div>
-
-      <div className="grid gap-4 px-4 sm:grid-cols-2 lg:grid-cols-4 lg:px-7">
-        {cafeExampleCards.map((card) => (
-          <article
-            key={card.title}
-            className="group flex min-h-[420px] flex-col overflow-hidden rounded-[7px] border border-dashed border-[#b9ae84] bg-[#fffdf0]"
-          >
-            <div className="relative aspect-[1.12/1] overflow-hidden bg-[#1d1d19]">
-              <Image
-                src={card.image}
-                alt={card.title}
-                fill
-                sizes="(min-width: 1024px) 24vw, (min-width: 640px) 50vw, 100vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
-              />
-              <div
-                className="absolute left-3 top-3 h-2.5 w-12 rounded-full"
-                style={{ backgroundColor: card.tone }}
-              />
-            </div>
-            <div className="flex flex-1 flex-col p-5">
-              <h3 className="text-[1.35rem] font-black leading-[1.02] tracking-[-0.055em] text-[#1d1d19]">
-                {card.title}
-              </h3>
-              <p className="mt-3 text-[0.95rem] font-medium leading-[1.35] tracking-[-0.025em] text-[#5f5041]">
-                {card.description}
-              </p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function ServicesSection() {
   return (
     <section id="services" className="bg-[#fffbe8] py-8 lg:py-12">
       <div className="mb-10 text-center">
-        <h2 className="text-[2rem] font-black leading-none tracking-[-0.065em] text-[#1d1d19]">
+        <h2 className="text-[2rem] font-black leading-none tracking-[-0.025em] text-[#1d1d19]">
           services
         </h2>
       </div>
@@ -720,14 +630,14 @@ function ServicesSection() {
             className="flex min-h-[300px] flex-col rounded-[7px] border border-dashed border-[#b9ae84] bg-[#fffbe8] p-6 transition-transform duration-300 hover:-translate-y-1"
           >
             <ServicePreview colors={service.colors} />
-            <h3 className="mt-5 text-[2rem] font-black leading-none tracking-[-0.055em] text-[#1d1d19]">
+            <h3 className="mt-5 text-[2rem] font-black leading-none tracking-[-0.025em] text-[#1d1d19]">
               {service.title}
             </h3>
             <div className="mt-auto flex flex-wrap gap-2 pt-10">
               {service.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-[3px] bg-[#fff0c6] px-2 py-1 text-[1rem] font-medium leading-none tracking-[-0.035em] text-[#1d1d19]"
+                  className="rounded-[3px] bg-[#fff0c6] px-2 py-1 text-[1rem] font-medium leading-none tracking-[-0.025em] text-[#1d1d19]"
                 >
                   {tag}
                 </span>
@@ -742,12 +652,12 @@ function ServicesSection() {
             <PetalLogo tone="yellow" />
             <PetalLogo tone="blue" />
           </div>
-          <h3 className="mt-6 max-w-[280px] text-[2rem] font-black leading-[0.98] tracking-[-0.06em]">
+          <h3 className="mt-6 max-w-[280px] text-[2rem] font-black leading-[0.98] tracking-[-0.025em]">
             ready to find your team
           </h3>
           <Link
             href="#"
-            className="mt-auto flex h-[60px] w-full max-w-[170px] items-center justify-center rounded-[7px] bg-[#ffe779] text-[1.12rem] font-medium tracking-[-0.035em] text-[#1d1d19] transition-transform duration-300 hover:-translate-y-1"
+            className="mt-auto flex h-[60px] w-full max-w-[170px] items-center justify-center rounded-[7px] bg-[#ffe779] text-[1.12rem] font-medium tracking-[-0.025em] text-[#1d1d19] transition-transform duration-300 hover:-translate-y-1"
           >
             let&apos;s talk
           </Link>
@@ -761,16 +671,16 @@ function ClientVoicesSection() {
   return (
     <section className="bg-[#fffbe8] px-2 py-10 lg:py-16">
       <div className="mx-auto flex max-w-[880px] flex-col items-center text-center">
-        <h2 className="max-w-[560px] text-[2rem] font-black leading-[1.02] tracking-[-0.065em] text-[#1d1d19]">
+        <h2 className="max-w-[560px] text-[2rem] font-black leading-[1.02] tracking-[-0.025em] text-[#1d1d19]">
           hear from our satisfied clients
         </h2>
 
         <div className="mt-12 flex w-full flex-col items-center gap-6 rounded-[7px] border border-dashed border-[#b9ae84] bg-[#fffdf0] px-6 py-7 text-left sm:flex-row sm:justify-between lg:px-8">
           <div className="flex items-end gap-2">
-            <span className="text-[3.25rem] font-black leading-none tracking-[-0.07em] text-[#1d1d19]">
+            <span className="text-[3.25rem] font-black leading-none tracking-[-0.025em] text-[#1d1d19]">
               4.5
             </span>
-            <span className="pb-1 text-[1.35rem] font-black tracking-[-0.05em] text-[#1d1d19]">
+            <span className="pb-1 text-[1.35rem] font-black tracking-[-0.025em] text-[#1d1d19]">
               /5
             </span>
           </div>
@@ -779,7 +689,7 @@ function ClientVoicesSection() {
             <div className="text-[1.55rem] font-black leading-none tracking-[0.04em] text-[#f45a2f]">
               ★★★★★
             </div>
-            <p className="text-[1.05rem] font-semibold leading-none tracking-[-0.035em] text-[#6f6251]">
+            <p className="text-[1.05rem] font-semibold leading-none tracking-[-0.025em] text-[#6f6251]">
               trusted by builders
             </p>
           </div>
@@ -798,7 +708,7 @@ function ClientVoicesSection() {
             <span className="absolute inset-y-0 left-[44px] w-6 bg-[#37cf6a]/80 mix-blend-multiply" />
           </div>
 
-          <p className="max-w-[230px] text-center text-[1.08rem] font-bold leading-[1.06] tracking-[-0.04em] text-[#1d1d19] sm:text-left">
+          <p className="max-w-[230px] text-center text-[1.08rem] font-bold leading-[1.06] tracking-[-0.025em] text-[#1d1d19] sm:text-left">
             56+ times we&apos;ve helped founders find their team.
           </p>
         </div>
@@ -812,21 +722,21 @@ function HowItWorksSection() {
     <section id="how-it-works" className="bg-[#fffbe8] py-10 lg:py-16">
       <div className="mx-auto mb-8 flex w-full max-w-[808px] flex-col gap-5 px-4 lg:mb-12 lg:flex-row lg:items-end lg:gap-8 lg:px-0">
         <div className="flex flex-1 flex-col gap-3">
-          <div className="w-fit rounded-[9px] bg-[#fff0c6] px-3 py-1.5 text-[0.9rem] font-black tracking-[-0.035em] text-[#6f6251]">
+          <div className="w-fit rounded-[9px] bg-[#fff0c6] px-3 py-1.5 text-[0.9rem] font-black tracking-[-0.025em] text-[#6f6251]">
             HOW IT WORKS
           </div>
-          <h2 className="text-[2rem] font-black leading-[1.04] tracking-[-0.065em] text-[#1d1d19]">
+          <h2 className="text-[2rem] font-black leading-[1.04] tracking-[-0.025em] text-[#1d1d19]">
             Bold, simple and matched.
           </h2>
         </div>
 
         <div className="flex flex-1 flex-col gap-4 lg:max-w-[310px]">
-          <p className="text-[1rem] font-medium leading-[1.35] tracking-[-0.035em] text-[#6f6251]">
+          <p className="text-[1rem] font-medium leading-[1.35] tracking-[-0.025em] text-[#6f6251]">
             Find your team in just 3 steps. We handle the matching, the space, and the weekend - you just show up ready to build.
           </p>
           <Link
             href="#"
-            className="group inline-flex w-fit items-center gap-1 text-[1rem] font-black tracking-[-0.035em] text-[#1d1d19] transition-colors hover:text-[#f45a2f]"
+            className="group inline-flex w-fit items-center gap-1 text-[1rem] font-black tracking-[-0.025em] text-[#1d1d19] transition-colors hover:text-[#f45a2f]"
           >
             Get started free
             <RiArrowRightUpLongLine className="size-5 text-[#9a8d73] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#f45a2f]" />
@@ -848,16 +758,16 @@ function HowItWorksSection() {
             )}
 
             <div
-              className="flex h-auto border-r border-[#e3c891] pr-5 text-[1.25rem] font-black leading-none tracking-[-0.05em] xl:pr-7"
+              className="flex h-auto border-r border-[#e3c891] pr-5 text-[1.25rem] font-black leading-none tracking-[-0.025em] xl:pr-7"
               style={{ color: step.color }}
             >
               {step.number}
             </div>
             <div className="flex flex-col gap-3 pl-5 xl:pl-7">
-              <div className="text-[0.95rem] font-black tracking-[-0.035em] text-[#9a8d73]">
+              <div className="text-[0.95rem] font-black tracking-[-0.025em] text-[#9a8d73]">
                 {step.subtitle}
               </div>
-              <div className="text-[1.15rem] font-black leading-[1.15] tracking-[-0.045em] text-[#1d1d19]">
+              <div className="text-[1.15rem] font-black leading-[1.15] tracking-[-0.025em] text-[#1d1d19]">
                 {step.description}
               </div>
             </div>
@@ -865,7 +775,7 @@ function HowItWorksSection() {
         ))}
       </div>
 
-      <div className="px-4 text-center text-[0.95rem] font-semibold tracking-[-0.035em] text-[#9a8d73] lg:px-0">
+      <div className="px-4 text-center text-[0.95rem] font-semibold tracking-[-0.025em] text-[#9a8d73] lg:px-0">
         We handle the matching, the space, and the weekend - you just show up.
       </div>
     </section>
@@ -886,14 +796,14 @@ function PricingSection() {
       <div className="mx-auto grid max-w-[980px] overflow-hidden rounded-[7px] border border-[#1d1d19]/10 bg-[#fffdf0] shadow-[0_18px_50px_rgba(29,29,25,0.06)] lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
         <div className="flex flex-col justify-between bg-[#f45a2f] p-6 text-[#fffbe8] lg:p-8">
           <div>
-            <div className="w-fit rounded-[9px] bg-[#ffe779] px-3 py-1.5 text-[0.9rem] font-black tracking-[-0.035em] text-[#1d1d19]">
+            <div className="w-fit rounded-[9px] bg-[#ffe779] px-3 py-1.5 text-[0.9rem] font-black tracking-[-0.025em] text-[#1d1d19]">
               PRICING
             </div>
-            <h2 className="mt-5 max-w-[360px] text-[2.15rem] font-black leading-[0.98] tracking-[-0.07em] lg:text-[2.65rem]">
+            <h2 className="mt-5 max-w-[360px] text-[2.15rem] font-black leading-[0.98] tracking-[-0.025em] lg:text-[2.65rem]">
               One seat. One weekend. One real shot.
             </h2>
           </div>
-          <p className="mt-8 max-w-[330px] text-[1rem] font-semibold leading-6 tracking-[-0.035em] text-[#fffbe8]/85">
+          <p className="mt-8 max-w-[330px] text-[1rem] font-semibold leading-6 tracking-[-0.025em] text-[#fffbe8]/85">
             StartDay keeps pricing simple so the focus stays on the table, the team, and the work.
           </p>
         </div>
@@ -902,16 +812,16 @@ function PricingSection() {
           <div className="flex flex-col gap-4 border-b border-[#e3d8b7] pb-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <div className="flex items-end gap-2 text-[#1d1d19]">
-                <span className="text-[3.75rem] font-black leading-none tracking-[-0.08em]">$15</span>
-                <span className="pb-2 text-[1rem] font-black tracking-[-0.035em] text-[#9a8d73]">/ per seat</span>
+                <span className="text-[3.75rem] font-black leading-none tracking-[-0.025em]">$15</span>
+                <span className="pb-2 text-[1rem] font-black tracking-[-0.025em] text-[#9a8d73]">/ per seat</span>
               </div>
-              <p className="mt-3 max-w-[360px] text-[1.2rem] font-black leading-[1.12] tracking-[-0.045em] text-[#1d1d19]">
+              <p className="mt-3 max-w-[360px] text-[1.2rem] font-black leading-[1.12] tracking-[-0.025em] text-[#1d1d19]">
                 One weekend. One team. Real momentum.
               </p>
             </div>
             <Link
-              href="/find-your-team"
-              className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-[7px] border border-[#1d1d19] bg-[#ffe779] px-6 text-[1rem] font-black tracking-[-0.035em] text-[#1d1d19] shadow-[0_14px_28px_rgba(255,231,121,0.22)] transition-transform duration-300 hover:-translate-y-0.5 sm:w-auto"
+              href={stripeCheckoutUrl}
+              className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-[7px] border border-[#1d1d19] bg-[#ffe779] px-6 text-[1rem] font-black tracking-[-0.025em] text-[#1d1d19] shadow-[0_14px_28px_rgba(255,231,121,0.22)] transition-transform duration-300 hover:-translate-y-0.5 sm:w-auto"
             >
               Get your seat
               <RiArrowRightUpLongLine className="size-4 text-[#f45a2f] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -922,7 +832,7 @@ function PricingSection() {
             {pricingItems.map((item) => (
               <div
                 key={item}
-                className="flex items-start gap-3 border-b border-[#eadc9d] py-4 text-[0.98rem] font-semibold leading-6 tracking-[-0.035em] text-[#1d1d19] last:border-b-0"
+                className="flex items-start gap-3 border-b border-[#eadc9d] py-4 text-[0.98rem] font-semibold leading-6 tracking-[-0.025em] text-[#1d1d19] last:border-b-0"
               >
                 <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-[#37cf6a]/20 text-[0.78rem] font-black text-[#268847]">
                   ✓
@@ -969,12 +879,12 @@ export function FooterSection() {
     <footer className="relative overflow-hidden bg-[#fffbe8] px-4 py-12 lg:px-8 lg:py-16">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-5 border-b border-[#e3d8b7] pb-9 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-[2rem] font-black leading-none tracking-[-0.065em] text-[#1d1d19]">
+          <h2 className="text-[2rem] font-black leading-none tracking-[-0.025em] text-[#1d1d19]">
             Ready to find your team?
           </h2>
           <Link
             href="/find-your-team"
-            className="group inline-flex w-fit items-center gap-1 border-b border-[#1d1d19] text-[1rem] font-black tracking-[-0.035em] text-[#1d1d19] transition-colors hover:text-[#f45a2f]"
+            className="group inline-flex w-fit items-center gap-1 border-b border-[#1d1d19] text-[1rem] font-black tracking-[-0.025em] text-[#1d1d19] transition-colors hover:text-[#f45a2f]"
           >
             Let&apos;s talk
             <RiArrowRightUpLongLine className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -993,7 +903,7 @@ export function FooterSection() {
                     <Link
                       key={item.label}
                       href={item.href}
-                      className="w-fit text-[0.95rem] font-semibold tracking-[-0.035em] text-[#1d1d19] transition-colors hover:text-[#f45a2f]"
+                      className="w-fit text-[0.95rem] font-semibold tracking-[-0.025em] text-[#1d1d19] transition-colors hover:text-[#f45a2f]"
                     >
                       {item.label}
                     </Link>
@@ -1020,7 +930,7 @@ export function FooterSection() {
               aria-hidden="true"
             >
               <Image
-                src="/startday-logo-cropped.png"
+                src="/startday-logo-cropped.avif"
                 alt=""
                 fill
                 sizes="(min-width: 1024px) 560px, 76vw"
@@ -1053,6 +963,10 @@ function CafeMatchFormSection() {
 
   const goNext = () => {
     if (!selected) return;
+    if (isLastStep) {
+      redirectToCheckout();
+      return;
+    }
     setStep((current) => Math.min(current + 1, matchQuestions.length - 1));
   };
 
@@ -1070,7 +984,7 @@ function CafeMatchFormSection() {
                 {question.icon}
               </div>
               <div className="h-px flex-1 bg-[#e3c891]" />
-              <span className="hidden rounded-full border border-[#1d1d19] bg-[#ffe779] px-4 py-2 text-[0.82rem] font-black tracking-[-0.035em] text-[#1d1d19] sm:inline-flex">
+              <span className="hidden rounded-full border border-[#1d1d19] bg-[#ffe779] px-4 py-2 text-[0.82rem] font-black tracking-[-0.025em] text-[#1d1d19] sm:inline-flex">
                 find cafes
               </span>
             </div>
@@ -1079,10 +993,10 @@ function CafeMatchFormSection() {
               <div className="text-[0.82rem] font-black uppercase tracking-[0.14em] text-[#f45a2f]">
                 {question.eyebrow}
               </div>
-              <h2 className="mt-3 max-w-[760px] text-[2rem] font-black leading-[1.02] tracking-[-0.065em] text-[#1d1d19]">
+              <h2 className="mt-3 max-w-[760px] text-[2rem] font-black leading-[1.02] tracking-[-0.025em] text-[#1d1d19]">
                 {question.title}
               </h2>
-              <p className="mt-4 max-w-[580px] text-[1.15rem] font-medium leading-[1.35] tracking-[-0.035em] text-[#6b3a1f]">
+              <p className="mt-4 max-w-[580px] text-[1.15rem] font-medium leading-[1.35] tracking-[-0.025em] text-[#6b3a1f]">
                 {question.helper}
               </p>
             </div>
@@ -1109,10 +1023,10 @@ function CafeMatchFormSection() {
                   >
                     <span className="flex items-start justify-between gap-3">
                       <span>
-                        <span className="block text-[1.18rem] font-black leading-none tracking-[-0.045em] text-[#1d1d19]">
+                        <span className="block text-[1.18rem] font-black leading-none tracking-[-0.025em] text-[#1d1d19]">
                           {option}
                         </span>
-                        <span className="mt-2 block text-[0.95rem] font-semibold tracking-[-0.035em] text-[#6b3a1f]">
+                        <span className="mt-2 block text-[0.95rem] font-semibold tracking-[-0.025em] text-[#6b3a1f]">
                           {meta?.country ?? 'Cafe sprint'}
                         </span>
                       </span>
@@ -1137,7 +1051,7 @@ function CafeMatchFormSection() {
                 type="button"
                 onClick={goBack}
                 disabled={step === 0}
-                className="flex h-14 items-center justify-center rounded-[7px] border border-[#1d1d19]/20 bg-[#fffbe8] px-7 text-[1.05rem] font-black tracking-[-0.04em] text-[#1d1d19] transition-all duration-300 enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-35"
+                className="flex h-14 items-center justify-center rounded-[7px] border border-[#1d1d19]/20 bg-[#fffbe8] px-7 text-[1.05rem] font-black tracking-[-0.025em] text-[#1d1d19] transition-all duration-300 enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-35"
               >
                 ← Back
               </button>
@@ -1145,7 +1059,7 @@ function CafeMatchFormSection() {
                 type="button"
                 onClick={goNext}
                 disabled={!selected}
-                className="flex h-14 flex-1 items-center justify-center rounded-[7px] bg-[#f45a2f] px-7 text-[1.08rem] font-black tracking-[-0.04em] text-white shadow-[0_18px_34px_rgba(244,90,47,0.22)] transition-all duration-300 enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-45"
+                className="flex h-14 flex-1 items-center justify-center rounded-[7px] bg-[#f45a2f] px-7 text-[1.08rem] font-black tracking-[-0.025em] text-white shadow-[0_18px_34px_rgba(244,90,47,0.22)] transition-all duration-300 enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-45"
               >
                 {isLastStep ? 'Match profile ready' : 'Continue'} →
               </button>
@@ -1159,10 +1073,10 @@ function CafeMatchFormSection() {
                 <PetalLogo tone="yellow" />
                 <PetalLogo tone="blue" />
               </div>
-              <h3 className="mt-8 max-w-[320px] text-[2rem] font-black leading-[1.02] tracking-[-0.065em] text-white">
+              <h3 className="mt-8 max-w-[320px] text-[2rem] font-black leading-[1.02] tracking-[-0.025em] text-white">
                 cafe rooms for bold moves
               </h3>
-              <p className="mt-5 text-[1.08rem] font-semibold leading-[1.22] tracking-[-0.035em] text-white/88">
+              <p className="mt-5 text-[1.08rem] font-semibold leading-[1.22] tracking-[-0.025em] text-white/88">
                 Choose a city, role, and weekend. We turn it into a sharper table: four people, one cafe, one product.
               </p>
 
@@ -1183,7 +1097,7 @@ function CafeMatchFormSection() {
                     <div
                       key={item.id}
                       className={[
-                        'flex items-center justify-between rounded-[10px] px-3 py-2 text-[0.94rem] font-black tracking-[-0.035em]',
+                        'flex items-center justify-between rounded-[10px] px-3 py-2 text-[0.94rem] font-black tracking-[-0.025em]',
                         index === step ? 'bg-[#ffe779] text-[#1d1d19]' : 'bg-white/8 text-white/72',
                       ].join(' ')}
                     >
@@ -1216,6 +1130,10 @@ export function CafeMatchFormSimple() {
 
   const goNext = () => {
     if (!selected) return;
+    if (isLastStep) {
+      redirectToCheckout();
+      return;
+    }
     setStep((current) => Math.min(current + 1, matchQuestions.length - 1));
   };
 
@@ -1248,7 +1166,7 @@ export function CafeMatchFormSimple() {
             <div className="text-[0.78rem] font-black uppercase tracking-[0.16em] text-[#f45a2f]">
               {question.eyebrow}
             </div>
-            <h2 className="mt-3 max-w-[740px] text-[2rem] font-black leading-[1.04] tracking-[-0.065em] text-[#1d1d19]">
+            <h2 className="mt-3 max-w-[740px] text-[2rem] font-black leading-[1.04] tracking-[-0.025em] text-[#1d1d19]">
               {question.title}
             </h2>
             <p className="mt-4 max-w-[560px] text-[1.02rem] font-medium leading-[1.45] tracking-[-0.025em] text-[#7b654d]">
@@ -1278,7 +1196,7 @@ export function CafeMatchFormSimple() {
                 >
                   <span className="flex items-center justify-between gap-3">
                     <span>
-                      <span className="block text-[1.02rem] font-black leading-none tracking-[-0.035em] text-[#1d1d19]">
+                      <span className="block text-[1.02rem] font-black leading-none tracking-[-0.025em] text-[#1d1d19]">
                         {option}
                       </span>
                       <span className="mt-2 block text-[0.9rem] font-medium tracking-[-0.025em] text-[#8a634d]">
@@ -1306,7 +1224,7 @@ export function CafeMatchFormSimple() {
               type="button"
               onClick={goBack}
               disabled={step === 0}
-              className="flex h-[52px] items-center justify-center rounded-[7px] border border-[#1d1d19]/15 bg-white px-7 text-[0.98rem] font-black tracking-[-0.035em] text-[#6f6251] transition-all duration-300 enabled:hover:-translate-y-0.5 enabled:hover:text-[#1d1d19] disabled:cursor-not-allowed disabled:opacity-35"
+              className="flex h-[52px] items-center justify-center rounded-[7px] border border-[#1d1d19]/15 bg-white px-7 text-[0.98rem] font-black tracking-[-0.025em] text-[#6f6251] transition-all duration-300 enabled:hover:-translate-y-0.5 enabled:hover:text-[#1d1d19] disabled:cursor-not-allowed disabled:opacity-35"
             >
               ← Back
             </button>
@@ -1314,7 +1232,7 @@ export function CafeMatchFormSimple() {
               type="button"
               onClick={goNext}
               disabled={!selected}
-              className="flex h-[52px] flex-1 items-center justify-center rounded-[7px] bg-[#1d1d19] px-7 text-[1rem] font-black tracking-[-0.035em] text-[#fffbe8] shadow-[0_14px_28px_rgba(29,29,25,0.14)] transition-all duration-300 enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-35"
+              className="flex h-[52px] flex-1 items-center justify-center rounded-[7px] bg-[#1d1d19] px-7 text-[1rem] font-black tracking-[-0.025em] text-[#fffbe8] shadow-[0_14px_28px_rgba(29,29,25,0.14)] transition-all duration-300 enabled:hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-35"
             >
               {isLastStep ? 'Match profile ready' : 'Continue'} →
             </button>
@@ -1336,7 +1254,6 @@ export default function BoldMovesPage() {
           <ClientVoicesSection />
           <HowItWorksSection />
           <PricingSection />
-          <CafeExamplesSection />
           <ServicesSection />
           <FooterSection />
         </main>

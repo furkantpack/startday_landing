@@ -11,15 +11,21 @@ import {
   RiArrowRightDoubleLine,
   RiArrowDownDoubleLine,
   RiBillFill,
+  RiCodeBoxLine,
   RiCheckboxCircleFill,
   RiCloseLine,
+  RiLightbulbFlashLine,
+  RiLoopRightLine,
+  RiRocket2Line,
   RiStairsFill,
   RiStarSmileFill,
+  RiTeamFill,
 } from '@remixicon/react';
 
 import { FooterSection } from '@/app/page';
 import { Ex3Header } from '@/components/landing/hero-ex3';
 import * as Button from '@/components/ui/button';
+import { stripeCheckoutUrl } from '@/lib/checkout';
 import { cn } from '@/lib/utils';
 
 const kitTabs: { id: string; label: string; icon: RemixiconComponentType }[] = [
@@ -40,14 +46,14 @@ const sprintInsideItems = [
 ];
 
 const dropInsideItems = [
-  'Cofounder Match Table',
-  'Skill-Swap Table',
-  'Idea Validation',
-  'Weekend Build Sprint',
-  'Community Lounge',
-  'StartDay Merch',
-  'City Founder Network',
-  'Founding Builder Status',
+  'Team Matching',
+  'Curated Cafe',
+  'Idea Pool',
+  '48h Sprint',
+  'AI Project Score',
+  'Investor Match',
+  'Idea Kit Discount',
+  'Founding Cohort',
 ];
 
 const sections = [
@@ -93,26 +99,31 @@ const dropCafeExamples = [
     phase: 'Before the event',
     title: 'Matching and directives',
     description: 'We match the right people in your city, share the weekend brief, and make sure every table arrives with a clear starting point.',
+    icon: RiTeamFill,
   },
   {
     phase: '0-12 hour',
     title: 'Idea discovery and development direction',
     description: 'The table finds a problem worth building around, sharpens the idea, and turns early energy into a practical development path.',
+    icon: RiLightbulbFlashLine,
   },
   {
     phase: '12-24 hour',
     title: 'Product development and MVP scope',
     description: 'The group defines the MVP, splits responsibilities, and starts building the first working version with clear checkpoints.',
+    icon: RiCodeBoxLine,
   },
   {
     phase: '24-36 hour',
     title: 'Testing, feedback, and iteration',
     description: 'Teams test the idea, collect fast feedback, improve the product, and decide what needs to change before the final stretch.',
+    icon: RiLoopRightLine,
   },
   {
     phase: '36-48 hour',
     title: 'Demo, next steps, and team decision',
     description: 'The table prepares a simple demo, names the next milestones, and decides whether the team should keep building together.',
+    icon: RiRocket2Line,
   },
 ];
 
@@ -615,44 +626,44 @@ const dropScheduleDates: Partial<
   Record<DropScheduleVariant, { value: string; dateRange: string; leadDate: string }[]>
 > = {
   tallinn2026: [
-    { value: '10-12 July', dateRange: '10-12 July', leadDate: '10-12 July' },
-    { value: '17 - 19 July', dateRange: '17 - 19 July', leadDate: '17 - 19 July' },
-    { value: '24 - 26 July', dateRange: '24 - 26 July', leadDate: '24 - 26 July' },
+    { value: '24-26 July', dateRange: '24-26 July', leadDate: '24-26 July' },
+    { value: '31 July - 2 August', dateRange: '31 July - 2 August', leadDate: '31 July - 2 August' },
+    { value: '7 - 9 August', dateRange: '7 - 9 August', leadDate: '7 - 9 August' },
   ],
   helsinki2026: [
-    { value: '10-12 July', dateRange: '10-12 July', leadDate: '10-12 July' },
-    { value: '17 - 19 July', dateRange: '17 - 19 July', leadDate: '17 - 19 July' },
-    { value: '24 - 26 July', dateRange: '24 - 26 July', leadDate: '24 - 26 July' },
+    { value: '24-26 July', dateRange: '24-26 July', leadDate: '24-26 July' },
+    { value: '31 July - 2 August', dateRange: '31 July - 2 August', leadDate: '31 July - 2 August' },
+    { value: '7 - 9 August', dateRange: '7 - 9 August', leadDate: '7 - 9 August' },
   ],
   copenhagen2026: [
-    { value: '10-12 July', dateRange: '10-12 July', leadDate: '10-12 July' },
-    { value: '17 - 19 July', dateRange: '17 - 19 July', leadDate: '17 - 19 July' },
-    { value: '24 - 26 July', dateRange: '24 - 26 July', leadDate: '24 - 26 July' },
+    { value: '24-26 July', dateRange: '24-26 July', leadDate: '24-26 July' },
+    { value: '31 July - 2 August', dateRange: '31 July - 2 August', leadDate: '31 July - 2 August' },
+    { value: '7 - 9 August', dateRange: '7 - 9 August', leadDate: '7 - 9 August' },
   ],
   stockholm2026: [
-    { value: '10-12 July', dateRange: '10-12 July', leadDate: '10-12 July' },
-    { value: '17 - 19 July', dateRange: '17 - 19 July', leadDate: '17 - 19 July' },
-    { value: '24 - 26 July', dateRange: '24 - 26 July', leadDate: '24 - 26 July' },
+    { value: '24-26 July', dateRange: '24-26 July', leadDate: '24-26 July' },
+    { value: '31 July - 2 August', dateRange: '31 July - 2 August', leadDate: '31 July - 2 August' },
+    { value: '7 - 9 August', dateRange: '7 - 9 August', leadDate: '7 - 9 August' },
   ],
   berlin2026: [
-    { value: '10-12 July', dateRange: '10-12 July', leadDate: '10-12 July' },
-    { value: '17 - 19 July', dateRange: '17 - 19 July', leadDate: '17 - 19 July' },
-    { value: '24 - 26 July', dateRange: '24 - 26 July', leadDate: '24 - 26 July' },
+    { value: '24-26 July', dateRange: '24-26 July', leadDate: '24-26 July' },
+    { value: '31 July - 2 August', dateRange: '31 July - 2 August', leadDate: '31 July - 2 August' },
+    { value: '7 - 9 August', dateRange: '7 - 9 August', leadDate: '7 - 9 August' },
   ],
   paris2026: [
-    { value: '10-12 July', dateRange: '10-12 July', leadDate: '10-12 July' },
-    { value: '17 - 19 July', dateRange: '17 - 19 July', leadDate: '17 - 19 July' },
-    { value: '24 - 26 July', dateRange: '24 - 26 July', leadDate: '24 - 26 July' },
+    { value: '24-26 July', dateRange: '24-26 July', leadDate: '24-26 July' },
+    { value: '31 July - 2 August', dateRange: '31 July - 2 August', leadDate: '31 July - 2 August' },
+    { value: '7 - 9 August', dateRange: '7 - 9 August', leadDate: '7 - 9 August' },
   ],
   vienna2026: [
-    { value: '10-12 July', dateRange: '10-12 July', leadDate: '10-12 July' },
-    { value: '17 - 19 July', dateRange: '17 - 19 July', leadDate: '17 - 19 July' },
-    { value: '24 - 26 July', dateRange: '24 - 26 July', leadDate: '24 - 26 July' },
+    { value: '24-26 July', dateRange: '24-26 July', leadDate: '24-26 July' },
+    { value: '31 July - 2 August', dateRange: '31 July - 2 August', leadDate: '31 July - 2 August' },
+    { value: '7 - 9 August', dateRange: '7 - 9 August', leadDate: '7 - 9 August' },
   ],
   istanbul2026: [
-    { value: '10-12 July', dateRange: '10-12 July', leadDate: '10-12 July' },
-    { value: '17 - 19 July', dateRange: '17 - 19 July', leadDate: '17 - 19 July' },
-    { value: '24 - 26 July', dateRange: '24 - 26 July', leadDate: '24 - 26 July' },
+    { value: '24-26 July', dateRange: '24-26 July', leadDate: '24-26 July' },
+    { value: '31 July - 2 August', dateRange: '31 July - 2 August', leadDate: '31 July - 2 August' },
+    { value: '7 - 9 August', dateRange: '7 - 9 August', leadDate: '7 - 9 August' },
   ],
 };
 
@@ -663,10 +674,10 @@ function DropClaimModal({
   drop: DropSelection;
   onClose: () => void;
 }) {
-  const [companyName, setCompanyName] = useState('');
-  const [workEmail, setWorkEmail] = useState('');
-  const [contactName, setContactName] = useState('');
-  const [notes, setNotes] = useState('');
+  const [selectedDate, setSelectedDate] = useState(drop.dateRange);
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [role, setRole] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
@@ -677,12 +688,10 @@ function DropClaimModal({
 
     const answers = [
       { question: 'City', answer: drop.city },
-      { question: 'Selected table', answer: `${drop.dateRange} - ${drop.sector} - ${drop.expertise}` },
-      { question: 'Availability', answer: drop.spots },
-      { question: 'Company name', answer: companyName },
-      { question: 'Work email', answer: workEmail },
-      { question: 'Contact name', answer: contactName },
-      { question: 'Notes', answer: notes },
+      { question: 'Selected date', answer: selectedDate },
+      { question: 'Full name', answer: fullName },
+      { question: 'Email', answer: email },
+      { question: 'Role', answer: role },
     ];
 
     try {
@@ -692,11 +701,11 @@ function DropClaimModal({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email: workEmail,
+          email,
           formType: 'Founder table booking',
           city: drop.city,
           selectedTable: {
-            dateRange: drop.dateRange,
+            dateRange: selectedDate,
             spots: drop.spots,
             sector: drop.sector,
             expertise: drop.expertise,
@@ -709,7 +718,7 @@ function DropClaimModal({
         throw new Error('Unable to submit booking');
       }
 
-      onClose();
+      window.location.href = stripeCheckoutUrl;
     } catch (error) {
       console.error('drop claim submit error', error);
       setSubmitError('Could not send the request. Please try again.');
@@ -726,11 +735,11 @@ function DropClaimModal({
             <div className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[var(--primary-base)]">
               1 seat added
             </div>
-            <h3 className="mt-2 text-[1.7rem] font-semibold leading-none tracking-[-0.055em] text-[#111827]">
+            <h3 className="mt-2 text-[1.7rem] font-semibold leading-none tracking-[-0.025em] text-[#111827]">
               {drop.city}
             </h3>
             <p className="mt-2 text-[0.95rem] leading-6 text-[#667085]">
-              {drop.dateRange} · {drop.sector} · {drop.expertise}
+              Choose your date, add your details, and we will review your fit for this city table.
             </p>
           </div>
           <button
@@ -748,44 +757,56 @@ function DropClaimModal({
           onSubmit={submitClaim}
         >
           <label className="block">
-            <span className="mb-2 block text-[0.9rem] font-semibold text-[#111827]">Company name</span>
+            <span className="mb-2 block text-[0.9rem] font-semibold text-[#111827]">City</span>
+            <input
+              readOnly
+              type="text"
+              value={drop.city}
+              className="h-[54px] w-full rounded-[16px] border border-[#e7e3db] bg-[#fffaf5] px-4 text-[1rem] font-semibold text-[#111827] outline-none"
+            />
+          </label>
+          <label className="block">
+            <span className="mb-2 block text-[0.9rem] font-semibold text-[#111827]">Date</span>
             <input
               required
               type="text"
-              value={companyName}
-              onChange={(event) => setCompanyName(event.target.value)}
-              placeholder="e.g. StartDay table notes"
+              value={selectedDate}
+              onChange={(event) => setSelectedDate(event.target.value)}
+              placeholder="e.g. 24-26 July"
               className="h-[54px] w-full rounded-[16px] border border-[#e7e3db] bg-white px-4 text-[1rem] text-[#111827] outline-none placeholder:text-[#b6a99f] focus:border-[#ffb180]"
             />
           </label>
           <label className="block">
-            <span className="mb-2 block text-[0.9rem] font-semibold text-[#111827]">Work email</span>
+            <span className="mb-2 block text-[0.9rem] font-semibold text-[#111827]">Full name</span>
             <input
               required
-              type="email"
-              value={workEmail}
-              onChange={(event) => setWorkEmail(event.target.value)}
-              placeholder="you@company.com"
-              className="h-[54px] w-full rounded-[16px] border border-[#e7e3db] bg-white px-4 text-[1rem] text-[#111827] outline-none placeholder:text-[#b6a99f] focus:border-[#ffb180]"
-            />
-          </label>
-          <label className="block">
-            <span className="mb-2 block text-[0.9rem] font-semibold text-[#111827]">Contact name</span>
-            <input
               type="text"
-              value={contactName}
-              onChange={(event) => setContactName(event.target.value)}
+              value={fullName}
+              onChange={(event) => setFullName(event.target.value)}
               placeholder="Your name"
               className="h-[54px] w-full rounded-[16px] border border-[#e7e3db] bg-white px-4 text-[1rem] text-[#111827] outline-none placeholder:text-[#b6a99f] focus:border-[#ffb180]"
             />
           </label>
           <label className="block">
-            <span className="mb-2 block text-[0.9rem] font-semibold text-[#111827]">Notes</span>
-            <textarea
-              value={notes}
-              onChange={(event) => setNotes(event.target.value)}
-              placeholder="Audience, preferred timing, table needs..."
-              className="min-h-[96px] w-full resize-none rounded-[16px] border border-[#e7e3db] bg-white px-4 py-3 text-[1rem] text-[#111827] outline-none placeholder:text-[#b6a99f] focus:border-[#ffb180]"
+            <span className="mb-2 block text-[0.9rem] font-semibold text-[#111827]">Email</span>
+            <input
+              required
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              placeholder="you@example.com"
+              className="h-[54px] w-full rounded-[16px] border border-[#e7e3db] bg-white px-4 text-[1rem] text-[#111827] outline-none placeholder:text-[#b6a99f] focus:border-[#ffb180]"
+            />
+          </label>
+          <label className="block">
+            <span className="mb-2 block text-[0.9rem] font-semibold text-[#111827]">Role</span>
+            <input
+              required
+              type="text"
+              value={role}
+              onChange={(event) => setRole(event.target.value)}
+              placeholder="e.g. Developer, designer, growth, product"
+              className="h-[54px] w-full rounded-[16px] border border-[#e7e3db] bg-white px-4 text-[1rem] text-[#111827] outline-none placeholder:text-[#b6a99f] focus:border-[#ffb180]"
             />
           </label>
           {submitError ? (
@@ -827,7 +848,7 @@ function StickyBuyCard({
       <div className="w-full lg:w-[340px]">
         <div className="overflow-hidden rounded-[28px] bg-[radial-gradient(circle_at_94%_52%,rgba(178,28,185,0.86),transparent_33%),radial-gradient(circle_at_12%_10%,rgba(255,207,0,0.98),transparent_42%),linear-gradient(145deg,#ffb703_0%,#ff5b35_46%,#ff8a00_100%)] shadow-[0_24px_54px_rgba(255,91,53,0.20)]">
           <div className="px-6 pb-4 pt-6 text-left">
-            <div className="text-[2.65rem] font-semibold leading-none tracking-[-0.055em] text-white">
+            <div className="text-[2.65rem] font-semibold leading-none tracking-[-0.025em] text-white">
               {sprintCity}
             </div>
             <div className="mt-2 text-[0.78rem] font-bold uppercase tracking-[0.08em] text-white/75">
@@ -857,7 +878,7 @@ function StickyBuyCard({
 
             {!isDrop ? (
               <div className="flex items-end gap-2">
-              <span className="text-[2.85rem] font-semibold leading-none tracking-[-0.065em] text-white">
+              <span className="text-[2.85rem] font-semibold leading-none tracking-[-0.025em] text-white">
                 {isDrop ? '€2,400' : '€20'}
               </span>
               <span className="pb-1 text-[1rem] text-white/80">{isDrop ? '/table' : '/seat'}</span>
@@ -901,7 +922,7 @@ function StickyBuyCard({
           <div className="mx-auto flex size-14 items-center justify-center rounded-[18px] bg-[linear-gradient(145deg,#262145_0%,#121022_100%)] text-[1.7rem]">
             🤖
           </div>
-          <div className="mt-3 text-[2rem] font-semibold tracking-[-0.05em] text-white">Kleo</div>
+          <div className="mt-3 text-[2rem] font-semibold tracking-[-0.025em] text-white">Kleo</div>
           <div className="text-[0.9rem] font-medium uppercase tracking-[0.08em] text-[#9b8fe4]">
             AI Agent · Kit #09
           </div>
@@ -917,7 +938,7 @@ function StickyBuyCard({
           </div>
 
           <div className="relative flex items-end gap-2 before:absolute before:-left-6 before:top-1/2 before:h-full before:w-0.5 before:-translate-y-1/2 before:bg-[var(--primary-base)]">
-            <span className="text-[3rem] font-semibold leading-none tracking-[-0.06em] text-[var(--text-strong-950)]">
+            <span className="text-[3rem] font-semibold leading-none tracking-[-0.025em] text-[var(--text-strong-950)]">
               $980
             </span>
             <span className="pb-1 text-[1rem] text-[var(--text-sub-600)]">/mo</span>
@@ -968,7 +989,7 @@ function MobileDropBookingCard({
             <div className="text-[0.78rem] font-bold uppercase tracking-[0.08em] text-white/82">
               Next table - {leadDate}
             </div>
-            <div className="mt-1 text-[1.35rem] font-semibold leading-tight tracking-[-0.045em]">
+            <div className="mt-1 text-[1.35rem] font-semibold leading-tight tracking-[-0.025em]">
               Claim your seat
             </div>
           </div>
@@ -1046,7 +1067,7 @@ function OverviewContent({
     <div className="space-y-4">
       <section className="py-2 sm:py-3">
         <div className="mb-4 sm:mb-5">
-          <div className="text-[1.45rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)] sm:text-[1.75rem]">
+          <div className="text-[1.45rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[1.75rem]">
             {isDrop ? "What's inside the table" : "What's inside the kit"}
           </div>
           <p className="mt-1 text-[0.98rem] leading-7 text-[var(--text-sub-600)]">
@@ -1071,7 +1092,7 @@ function OverviewContent({
                     !isRightColumn && 'border-r border-[#e8e0d4]',
                   )}
                 >
-                  <span className="text-center text-[1.05rem] font-semibold tracking-[-0.035em] text-[var(--text-sub-600)] sm:text-[1.35rem]">
+                  <span className="text-center text-[1.05rem] font-semibold tracking-[-0.025em] text-[var(--text-sub-600)] sm:text-[1.35rem]">
                     {item}
                   </span>
                 </div>
@@ -1092,7 +1113,7 @@ function OverviewContent({
             <span className="size-1.5 rounded-full bg-[var(--primary-base)]" />
             {isDrop || isShipday ? 'Stats & Metrics' : 'Stats & Metric'}
           </div>
-          <div className="mt-4 text-[1.45rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)] sm:text-[1.75rem]">
+          <div className="mt-4 text-[1.45rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[1.75rem]">
             {isDrop
               ? 'Trusted by builders across Europe'
               : isShipday
@@ -1126,7 +1147,7 @@ function OverviewContent({
               ]
           ).map(([value, label]) => (
             <div key={label} className="rounded-[18px] border border-[#ece4d9] bg-[#fcfaf6] p-4">
-              <div className="text-[1.35rem] font-semibold tracking-[-0.04em] text-[var(--text-strong-950)]">
+              <div className="text-[1.35rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                 {value}
               </div>
               <div className="mt-1 text-[0.92rem] text-[var(--text-sub-600)]">{label}</div>
@@ -1137,7 +1158,7 @@ function OverviewContent({
         {isDrop ? (
           <div className="mt-5">
             <div className="rounded-[18px] border border-[#ece4d9] bg-white px-5 py-5">
-              <div className="text-[1.05rem] font-semibold tracking-[-0.035em] text-[var(--text-strong-950)]">
+              <div className="text-[1.05rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                 This is not a hackathon.
               </div>
               <p className="mt-2 max-w-[720px] text-[0.92rem] leading-6 text-[var(--text-sub-600)]">
@@ -1146,17 +1167,22 @@ function OverviewContent({
             </div>
 
             <div className="mt-3 grid gap-3 sm:grid-cols-2">
-              {dropCafeExamples.map((item) => (
+              {dropCafeExamples.map((item) => {
+                const Icon = item.icon;
+
+                return (
                 <article
                   key={item.phase}
                   className="relative overflow-hidden rounded-[18px] border border-[#ece4d9] bg-white p-5"
                 >
-                  <div className="absolute right-4 top-4 size-12 rounded-full bg-[#ffe779]/70" />
+                  <div className="absolute right-4 top-4 flex size-12 items-center justify-center rounded-full border border-[#f3d24f] bg-[#ffe779] text-[#1d1d19] shadow-[0_10px_22px_rgba(255,197,34,0.22)]">
+                    <Icon className="size-5" />
+                  </div>
                   <div className="relative">
-                    <div className="w-fit rounded-full bg-[#f5f0e8] px-3 py-1 text-[0.78rem] font-semibold tracking-[-0.02em] text-[#8a634d]">
+                    <div className="w-fit rounded-full bg-[#f5f0e8] px-3 py-1 text-[0.78rem] font-semibold tracking-[-0.025em] text-[#8a634d]">
                       {item.phase}
                     </div>
-                    <div className="mt-5 text-[1rem] font-semibold tracking-[-0.03em] text-[var(--text-strong-950)]">
+                    <div className="mt-5 text-[1rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                       {item.title}
                     </div>
                     <p className="mt-2 text-[0.88rem] leading-6 text-[var(--text-soft-400)]">
@@ -1164,7 +1190,8 @@ function OverviewContent({
                     </p>
                   </div>
                 </article>
-              ))}
+                );
+              })}
             </div>
           </div>
         ) : (
@@ -1188,7 +1215,7 @@ function OverviewContent({
               <div className="text-label-sm text-text-sub-600 bg-bg-weak-50 flex h-7 w-fit items-center rounded-[9px] px-2.5 normal-case">
                 {isDrop || isShipday ? 'Steps' : 'Secure, simple and smart tools'}
               </div>
-              <h3 className="text-[2rem] font-semibold leading-[1.12] tracking-[-0.055em] text-[#020617] lg:text-[2.45rem]">
+              <h3 className="text-[2rem] font-semibold leading-[1.12] tracking-[-0.025em] text-[#020617] lg:text-[2.45rem]">
                 {isDrop
                   ? 'From matching to founder momentum, all in one table.'
                   : isShipday
@@ -1232,7 +1259,7 @@ function OverviewContent({
                   <div className="text-[0.86rem] font-medium text-[#9ca3af]">
                     {step.subtitle}
                   </div>
-                  <div className="max-w-[22ch] text-[1rem] font-medium leading-6 tracking-[-0.02em] text-[#020617] lg:text-[1.08rem]">
+                  <div className="max-w-[22ch] text-[1rem] font-medium leading-6 tracking-[-0.025em] text-[#020617] lg:text-[1.08rem]">
                     {step.description}
                   </div>
                 </div>
@@ -1255,7 +1282,7 @@ function OverviewContent({
             <RiStairsFill className="size-4 text-[var(--primary-base)]" />
             {isDrop ? 'Founder Table Calendar' : 'Sprint calendar'}
           </div>
-          <div className="text-[2rem] font-semibold leading-tight tracking-[-0.055em] text-[var(--text-strong-950)] lg:text-center lg:text-[2.65rem]">
+          <div className="text-[2rem] font-semibold leading-tight tracking-[-0.025em] text-[var(--text-strong-950)] lg:text-center lg:text-[2.65rem]">
             {isDrop ? 'Pick your next founder table.' : isShipday ? 'Pick your next founder weekend.' : 'Pick your next founder weekend'}
           </div>
           <p className="max-w-[560px] text-[1rem] leading-7 text-[var(--text-sub-600)] lg:text-center">
@@ -1287,7 +1314,7 @@ function OverviewContent({
             >
               <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:gap-7">
                 <div className="flex min-w-[128px] flex-row items-center gap-3 lg:flex-col lg:items-start lg:gap-1">
-                  <div className="text-[1.85rem] font-semibold leading-none tracking-[-0.055em] text-[var(--text-strong-950)]">
+                  <div className="text-[1.85rem] font-semibold leading-none tracking-[-0.025em] text-[var(--text-strong-950)]">
                     {event.value}
                   </div>
                   <div
@@ -1304,7 +1331,7 @@ function OverviewContent({
 
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
-                    <h3 className="text-[1.25rem] font-semibold tracking-[-0.035em] text-[var(--text-strong-950)] lg:text-[1.45rem]">
+                    <h3 className="text-[1.25rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)] lg:text-[1.45rem]">
                       {isDrop ? `${sprintCity} Founder Table` : event.city}
                     </h3>
                     <span className="rounded-full border border-[#e8e0d4] bg-white px-2.5 py-1 text-[0.78rem] font-medium text-[var(--text-sub-600)]">
@@ -1354,7 +1381,7 @@ function OverviewContent({
               <div className="bg-bg-weak-50 text-label-sm text-text-sub-600 flex h-7 w-fit items-center rounded-[9px] px-2.5 normal-case">
                 {isDrop ? 'Table FAQ' : 'Sprint FAQ'}
               </div>
-              <h2 className="text-[1.45rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)] sm:text-[1.75rem]">
+              <h2 className="text-[1.45rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[1.75rem]">
                 {isDrop ? 'Questions before the table?' : 'Questions before the cafe?'}
               </h2>
             </div>
@@ -1376,7 +1403,7 @@ function OverviewContent({
                     <div className="text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[var(--primary-base)]">
                       {section.eyebrow}
                     </div>
-                    <div className="mt-1 text-[1.45rem] font-semibold tracking-[-0.045em] text-[var(--text-strong-950)]">
+                    <div className="mt-1 text-[1.45rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                       {section.title}
                     </div>
                   </div>
@@ -1438,7 +1465,7 @@ function OverviewContent({
             <path d="M13.8667 32L22.9333 26.6667V16L13.8667 10.6667L4.79999 16V26.6667L13.8667 32Z" className="fill-current" />
           </svg>
           <div className="flex flex-1 flex-col gap-2">
-            <div className="text-[1.45rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)] sm:text-[1.75rem]">
+            <div className="text-[1.45rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[1.75rem]">
               {isDrop ? 'Ready to find your founder table?' : 'Ready to move your sprint forward?'}
             </div>
             <div className="max-w-[560px] text-[0.98rem] leading-7 text-[var(--text-sub-600)]">
@@ -1500,7 +1527,7 @@ function OverviewContent({
 function SectionsContent() {
   return (
     <section className="rounded-[24px] border border-[#e8e0d4] bg-white p-5 shadow-[0_12px_26px_rgba(15,23,42,0.04)]">
-      <div className="text-[1.75rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+      <div className="text-[1.75rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
         18 kit sections
       </div>
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
@@ -1528,7 +1555,7 @@ function BundleContent() {
           <div className="mb-4 inline-flex h-6 w-fit items-center rounded-[8px] bg-[#f5f1ea] px-2.5 text-[0.74rem] font-medium text-[var(--text-sub-600)]">
             Bundle pricing
           </div>
-          <h3 className="text-[1.4rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)] lg:text-[1.75rem]">
+          <h3 className="text-[1.4rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)] lg:text-[1.75rem]">
             Two kits. One clearer launch path.
           </h3>
           <p className="mt-2 text-[0.98rem] leading-7 text-[var(--text-sub-600)]">
@@ -1564,19 +1591,19 @@ function BundleContent() {
             <div className="mt-5 grid gap-3 sm:grid-cols-3">
               <div className="rounded-[16px] border border-[#ece4d9] bg-white px-4 py-3">
                 <div className="text-[0.8rem] uppercase tracking-[0.08em] text-[var(--text-soft-400)]">Total value</div>
-                <div className="mt-2 text-[1.75rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+                <div className="mt-2 text-[1.75rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                   $598
                 </div>
               </div>
               <div className="rounded-[16px] border border-[#ece4d9] bg-white px-4 py-3">
                 <div className="text-[0.8rem] uppercase tracking-[0.08em] text-[var(--text-soft-400)]">Bundle price</div>
-                <div className="mt-2 text-[1.75rem] font-semibold tracking-[-0.05em] text-[var(--primary-base)]">
+                <div className="mt-2 text-[1.75rem] font-semibold tracking-[-0.025em] text-[var(--primary-base)]">
                   $349
                 </div>
               </div>
               <div className="rounded-[16px] border border-[#ece4d9] bg-white px-4 py-3">
                 <div className="text-[0.8rem] uppercase tracking-[0.08em] text-[var(--text-soft-400)]">You save</div>
-                <div className="mt-2 text-[1.75rem] font-semibold tracking-[-0.05em] text-[#10b981]">
+                <div className="mt-2 text-[1.75rem] font-semibold tracking-[-0.025em] text-[#10b981]">
                   $249
                 </div>
               </div>
@@ -1646,7 +1673,7 @@ export function KitMainPage({
   sprintCity = 'Tallinn',
   heroLayout = 'default',
   scheduleVariant = 'default',
-  heroImage = '/kit-main-provekit-2-hero-v2.png',
+  heroImage = '/kit-main-provekit-2-hero-v2.avif',
 }: {
   cardVariant?: 'default' | 'sprint';
   contentVariant?: 'default' | 'shipday' | 'tallinnDrop';
@@ -1712,7 +1739,7 @@ export function KitMainPage({
         <div className="bg-[#fffbe8] px-4 py-4 lg:px-8">
           <Link
             href="/"
-            className="inline-flex h-11 items-center gap-2 rounded-full border border-[#1d1d19] bg-[#fffbe8] px-5 text-[0.95rem] font-black tracking-[-0.035em] text-[#1d1d19] transition-transform duration-300 hover:-translate-y-0.5"
+            className="inline-flex h-11 items-center gap-2 rounded-full border border-[#1d1d19] bg-[#fffbe8] px-5 text-[0.95rem] font-black tracking-[-0.025em] text-[#1d1d19] transition-transform duration-300 hover:-translate-y-0.5"
           >
             <RiArrowLeftSLine className="size-5" />
             Back
@@ -1774,7 +1801,7 @@ export function KitMainPage({
 
                   {useOverlayHero ? (
                     <div className="absolute bottom-5 left-4 z-10 w-[calc(100%-32px)] max-w-[430px] rounded-[28px] border border-white/50 bg-white/62 p-5 shadow-[0_22px_50px_rgba(15,23,42,0.18)] backdrop-blur-xl sm:bottom-7 sm:left-8 sm:p-6 lg:bottom-10 lg:left-[13%]">
-                      <div className="text-[2rem] font-semibold leading-none tracking-[-0.065em] text-[#101828] sm:text-[2.45rem]">
+                      <div className="text-[2rem] font-semibold leading-none tracking-[-0.025em] text-[#101828] sm:text-[2.45rem]">
                         {sprintCity} {isDrop ? 'Founder Table' : 'Sprint'}
                       </div>
                       <div className="mt-3 text-[0.98rem] text-[#475467]">
@@ -1786,7 +1813,7 @@ export function KitMainPage({
 
                   <div className={cn("relative z-10 ml-auto flex h-full max-w-[540px] items-center", cardVariant === 'sprint' && 'hidden')}>
                     <div>
-                      <div className="text-[1.65rem] font-semibold leading-[0.9] tracking-[-0.07em] text-[#101828] sm:text-[2.2rem] lg:text-[3.1rem]">
+                      <div className="text-[1.65rem] font-semibold leading-[0.9] tracking-[-0.025em] text-[#101828] sm:text-[2.2rem] lg:text-[3.1rem]">
                         <span className="text-[var(--primary-base)]">AI</span> that makes startup validation effortless
                       </div>
                       <p className="mt-3 max-w-[28ch] text-[0.92rem] leading-7 text-[#475467] sm:text-[0.98rem]">
@@ -1816,7 +1843,7 @@ export function KitMainPage({
                           <div className="text-[0.55rem] font-semibold uppercase tracking-[0.14em] text-[#98a2b3]">
                             Spring 2026
                           </div>
-                          <div className="mt-1 text-[1rem] font-semibold tracking-[-0.04em] text-[#101828]">
+                          <div className="mt-1 text-[1rem] font-semibold tracking-[-0.025em] text-[#101828]">
                             Leader
                           </div>
                         </div>
@@ -1824,7 +1851,7 @@ export function KitMainPage({
                     ) : null}
 
                     <div className="pb-1">
-                      <div className="text-[2.5rem] font-semibold leading-none tracking-[-0.06em] text-[var(--text-strong-950)] sm:text-[3rem]">
+                      <div className="text-[2.5rem] font-semibold leading-none tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[3rem]">
                         {cardVariant === 'sprint' ? `${sprintCity} ${isDrop ? 'Founder Table' : 'Sprint'}` : 'Kleo'}
                       </div>
                       <div className="mt-3 text-[1.02rem] text-[var(--text-sub-600)]">
@@ -1836,7 +1863,7 @@ export function KitMainPage({
 
                   {cardVariant !== 'sprint' ? (
                     <div className="pb-2 text-left sm:text-right">
-                      <div className="text-[3rem] font-semibold leading-none tracking-[-0.06em] text-[var(--text-strong-950)] sm:text-[3.4rem]">
+                      <div className="text-[3rem] font-semibold leading-none tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[3.4rem]">
                         $299
                       </div>
                       <div className="mt-1 text-[1rem] text-[var(--text-sub-600)]">one-time</div>

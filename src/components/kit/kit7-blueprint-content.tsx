@@ -578,7 +578,7 @@ function Kit7OpportunityBriefSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Neden Finlandiya, Neden Şimdi?</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Neden Finlandiya, Neden Şimdi?</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Finlandiya, Avrupa&apos;nın en erişilebilir startup vize programlarından birini sunuyor. 2018&apos;de
           başlatılan Startup Permit, AB dışından gelen girişimcilerin hızlı büyüyen uluslararası şirketler kurmak için
@@ -600,7 +600,7 @@ function Kit7OpportunityBriefSection() {
             key={stat.label}
             className={`rounded-[28px] border border-[#e6eaf2] p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${stat.className}`}
           >
-            <div className="text-[42px] font-semibold tracking-[-0.06em] text-[#101828]">{stat.value}</div>
+            <div className="text-[42px] font-semibold tracking-[-0.025em] text-[#101828]">{stat.value}</div>
             <div className="mt-3 text-[17px] font-medium text-[#101828]">{stat.label}</div>
             <div className="mt-2 text-[14px] leading-7 text-[#475467]">{stat.note}</div>
           </div>
@@ -609,7 +609,7 @@ function Kit7OpportunityBriefSection() {
 
       <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Neden Finlandiya, Diğer Ülkeler Değil?</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Neden Finlandiya, Diğer Ülkeler Değil?</div>
           <div className="mt-5 space-y-4 text-[15px] leading-8 text-[#475467]">
             <p>
               Çoğu girişimci önce Estonya e-Residency veya Berlin vizeleriyle karşılaşıyor. Finlandiya&apos;nın farkı
@@ -633,7 +633,7 @@ function Kit7OpportunityBriefSection() {
               Legal note
             </div>
             <div className="mt-4 flex items-start justify-between gap-4">
-              <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Kritik Gerçek</div>
+              <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Kritik Gerçek</div>
               <div
                 className="rotate-[-4deg] rounded-[14px] bg-[#fff7ed] px-3 py-2 text-[14px] text-[#b45309] shadow-[0_10px_18px_rgba(245,158,11,0.12)]"
                 style={{ fontFamily: '"Bradley Hand", "Segoe Print", "Comic Sans MS", cursive' }}
@@ -687,7 +687,7 @@ function Kit7OpportunityBriefSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Piyasa Sinyalleri</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Piyasa Sinyalleri</div>
         <div className="mt-5 grid gap-3">
           {finlandSignals.map((item, index) => (
             <div key={item} className="flex items-start gap-3 rounded-[18px] border border-[#edf1f7] bg-[#fcfdff] px-4 py-4">
@@ -707,7 +707,7 @@ function Kit7ProductSpecSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Temel Tanımlar ve Hak Kazanma Koşulları</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Temel Tanımlar ve Hak Kazanma Koşulları</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Finlandiya Startup İzni, resmi adıyla “Residence permit for a start-up entrepreneur”, AB dışından gelen
           girişimcilerin Finlandiya’da hızlı büyümeye odaklanan bir startup kurması veya büyütmesi için tasarlanmış bir
@@ -727,7 +727,7 @@ function Kit7ProductSpecSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Temel Hak Kazanma Koşulları</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Temel Hak Kazanma Koşulları</div>
         <div className="grid gap-4 xl:grid-cols-2">
           {eligibilityCards.map((item) => (
             <div
@@ -739,7 +739,7 @@ function Kit7ProductSpecSection() {
                   {item.step}
                 </div>
                 <div>
-                  <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                  <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
                   <p className="mt-3 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
                   <div className="mt-4 rounded-[18px] border border-white/70 bg-white/75 px-4 py-3 text-[14px] text-[#344054]">
                     {item.note}
@@ -752,7 +752,7 @@ function Kit7ProductSpecSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">İki Aşamalı Süreç</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">İki Aşamalı Süreç</div>
         <NativeTable
           columns={[
             { key: 'stage', label: 'Aşama', className: 'w-[23%]' },
@@ -778,7 +778,7 @@ function Kit7TargetProfilesSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Hangi Profil Nasıl Görünmeli?</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Hangi Profil Nasıl Görünmeli?</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Business Finland değerlendirmesi kişiden kişiye değişir. Aynı iş fikri, farklı ekip kompozisyonlarıyla çok
           farklı sonuçlar verebilir. Kendi profilini iyi tanımlaman, başvurunu nasıl çerçeveleyeceğini belirler.
@@ -794,14 +794,14 @@ function Kit7TargetProfilesSection() {
             <div className={`inline-flex rounded-full px-3 py-1 text-[12px] font-semibold ${profile.badgeClass}`}>
               {profile.status}
             </div>
-            <div className="mt-4 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{profile.title}</div>
+            <div className="mt-4 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{profile.title}</div>
             <p className="mt-4 text-[15px] leading-8 text-[#475467]">{profile.detail}</p>
           </div>
         ))}
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">İdeal Başvurucu Özellikleri</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">İdeal Başvurucu Özellikleri</div>
         <NativeTable
           columns={[
             { key: 'criteria', label: 'Kriter', className: 'w-[18%]' },
@@ -885,7 +885,7 @@ function Kit7ApplicationStepsSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Business Finland → Enter Finland → Migri Tam Akışı
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -905,7 +905,7 @@ function Kit7ApplicationStepsSection() {
                 <div className="flex size-12 items-center justify-center rounded-[16px] bg-white text-[18px] font-semibold text-[#101828] shadow-[0_8px_18px_rgba(15,23,42,0.06)]">
                   {item.step}
                 </div>
-                <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               </div>
 
               <div className="flex-1">
@@ -927,7 +927,7 @@ function Kit7ApplicationStepsSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#dbe7ff] bg-[linear-gradient(180deg,#f8fbff_0%,#f3f7ff_100%)] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">Süreç özeti takvimi</div>
+        <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">Süreç özeti takvimi</div>
         <p className="mt-3 text-[15px] leading-8 text-[#475467]">
           Eligibility Statement başvurusu → yaklaşık 1 ay bekleme → oturma izni başvurusu → 14 gün fast-track →
           büyükelçilik randevusu → D vizesi → taşınma. En hızlı senaryoda 2–3 ayda tamamlanabilir; randevu
@@ -942,7 +942,7 @@ function Kit7CompetitorCountriesSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Estonya, Almanya, Hollanda ve Fransa ile Kıyaslama
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -963,7 +963,7 @@ function Kit7CompetitorCountriesSection() {
                 {country.status}
               </div>
             </div>
-            <div className="mt-4 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{country.name}</div>
+            <div className="mt-4 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{country.name}</div>
             <div className="mt-5 space-y-3">
               {country.points.map((point) => (
                 <div key={point} className="rounded-[18px] border border-white/70 bg-white/75 px-4 py-3 text-[14px] text-[#475467]">
@@ -976,7 +976,7 @@ function Kit7CompetitorCountriesSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Karşılaştırma Tablosu</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Karşılaştırma Tablosu</div>
         <NativeTable
           columns={[
             { key: 'criteria', label: 'Kriter', className: 'w-[18%]' },
@@ -997,7 +997,7 @@ function Kit7BusinessFinlandEvaluationSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Nasıl Değerlendirilirsin, Kriterler ve Puanlama Mantığı
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -1008,7 +1008,7 @@ function Kit7BusinessFinlandEvaluationSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Değerlendirilen 5 Ana Kriter</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Değerlendirilen 5 Ana Kriter</div>
         <div className="grid gap-4 xl:grid-cols-2">
           {evaluationCriteria.map((item) => (
             <div
@@ -1020,7 +1020,7 @@ function Kit7BusinessFinlandEvaluationSection() {
                   {item.step}
                 </div>
                 <div>
-                  <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                  <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
                   <p className="mt-3 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     <div className="rounded-full bg-white/80 px-3 py-1 text-[12px] font-semibold text-[#101828]">
@@ -1037,7 +1037,7 @@ function Kit7BusinessFinlandEvaluationSection() {
 
       <div className="grid gap-6 xl:grid-cols-[1fr_0.95fr]">
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Değerlendirmede Sık Sorulan Sorular</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Değerlendirmede Sık Sorulan Sorular</div>
           <div className="mt-5 grid gap-3">
             {evaluationQuestions.map((item, index) => (
               <div key={item} className="flex items-start gap-3 rounded-[18px] border border-[#edf1f7] bg-[#fcfdff] px-4 py-4">
@@ -1054,7 +1054,7 @@ function Kit7BusinessFinlandEvaluationSection() {
           <div className="inline-flex rounded-full border border-[#cfe0ff] bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#4361ee]">
             Practical tip
           </div>
-          <div className="mt-4 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Pitch deck eklemek zorunlu değil, ama faydalı</div>
+          <div className="mt-4 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Pitch deck eklemek zorunlu değil, ama faydalı</div>
           <div className="mt-5 rounded-[24px] border border-[#d8e4ff] bg-white px-5 py-5 text-[15px] leading-8 text-[#475467] shadow-[0_10px_22px_rgba(67,97,238,0.08)]">
             Business Finland, 5–10 slaytlık sade bir pitch deck eklenmesini öneriyor. Tasarıma değil içeriğe odaklan:
             ekip, pazar, çözüm, büyüme planı ve neden Finlandiya bölümü net olmalı.
@@ -1080,7 +1080,7 @@ function Kit7VisaStateAnalysisSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Finlandiya Startup Vizesi: 2025-2026 Durum Analizi
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -1091,7 +1091,7 @@ function Kit7VisaStateAnalysisSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Genel İstatistikler ve Onay Oranları</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Genel İstatistikler ve Onay Oranları</div>
         <div className="grid gap-5 xl:grid-cols-2">
           {[
             {
@@ -1112,7 +1112,7 @@ function Kit7VisaStateAnalysisSection() {
             },
           ].map((funnel) => (
             <div key={funnel.title} className="rounded-[32px] border border-[#e6eaf2] bg-white p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-              <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{funnel.title}</div>
+              <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{funnel.title}</div>
               <div className="mt-6 space-y-4">
                 {funnel.steps.map((step, index) => (
                   <div
@@ -1144,7 +1144,7 @@ function Kit7VisaStateAnalysisSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">En Sık Elenme Nedenleri</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">En Sık Elenme Nedenleri</div>
         <div className="grid gap-4 xl:grid-cols-2">
           {rejectionFlags.map((item) => (
             <div
@@ -1156,7 +1156,7 @@ function Kit7VisaStateAnalysisSection() {
                   {item.step}
                 </div>
                 <div>
-                  <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                  <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
                   <p className="mt-3 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
                 </div>
               </div>
@@ -1169,7 +1169,7 @@ function Kit7VisaStateAnalysisSection() {
         <div className="inline-flex rounded-full border border-[#e4e7ec] bg-[#f8fafc] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#667085]">
           Neden danışmanlık?
         </div>
-        <div className="mt-4 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">
+        <div className="mt-4 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">
           “Piyasadaki genel onay oranı %23&apos;lere gerilemişken, projeyi yeni nesil beklentilere göre hazırlıyoruz.”
         </div>
         <div className="mt-5 grid gap-4 xl:grid-cols-3">
@@ -1191,7 +1191,7 @@ function Kit7VisaStateAnalysisSection() {
             },
           ].map((item) => (
             <div key={item.title} className="rounded-[24px] border border-[#e6eaf2] bg-[#fcfdff] p-5 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-              <div className="text-[18px] font-semibold tracking-[-0.03em] text-[#101828]">{item.title}</div>
+              <div className="text-[18px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-3 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
             </div>
           ))}
@@ -1205,7 +1205,7 @@ function Kit7FounderProfileSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[1040px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           CV Hazırlama, LinkedIn Optimizasyonu ve Co-Founder Stratejisi
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -1221,7 +1221,7 @@ function Kit7FounderProfileSection() {
             key={card.title}
             className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${card.tone}`}
           >
-            <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{card.title}</div>
+            <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{card.title}</div>
             <div className="mt-5 space-y-3">
               {card.items.map((item) => (
                 <div key={item} className="rounded-[18px] border border-white/70 bg-white/75 px-4 py-3 text-[14px] leading-7 text-[#475467]">
@@ -1234,7 +1234,7 @@ function Kit7FounderProfileSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">LinkedIn Profili Optimizasyonu</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">LinkedIn Profili Optimizasyonu</div>
         <NativeTable
           columns={[
             { key: 'section', label: 'LinkedIn Bölümü', className: 'w-[28%]' },
@@ -1246,7 +1246,7 @@ function Kit7FounderProfileSection() {
 
       <div className="grid gap-6 xl:grid-cols-[1fr_0.9fr]">
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Co-Founder bulmak için kanallar</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Co-Founder bulmak için kanallar</div>
           <div className="mt-5 grid gap-3">
             {[
               'Startup Sauna / Kiuas: Finlandiya bazlı hızlandırıcı ağları',
@@ -1268,7 +1268,7 @@ function Kit7FounderProfileSection() {
           <div className="inline-flex rounded-full border border-[#f5d7b2] bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#b54708]">
             Asla yapma
           </div>
-          <div className="mt-4 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">
+          <div className="mt-4 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">
             Para karşılığında co-founder rolü satın alma
           </div>
           <p className="mt-4 text-[15px] leading-8 text-[#8a4b21]">
@@ -1296,7 +1296,7 @@ function Kit7ChecklistSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[1040px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Her Belge: Zorunlu mu, Nereden Alınır, Format Gereksinimleri
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -1311,7 +1311,7 @@ function Kit7ChecklistSection() {
             key={group.title}
             className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${group.tone}`}
           >
-            <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{group.title}</div>
+            <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{group.title}</div>
             <div className="mt-5 space-y-3">
               {group.items.map((item, index) => (
                 <div key={item.name} className="flex items-start gap-3 rounded-[18px] border border-white/70 bg-white/80 px-4 py-4">
@@ -1331,7 +1331,7 @@ function Kit7ChecklistSection() {
 
       <div className="grid gap-6 xl:grid-cols-[1fr_0.9fr]">
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Ayrıca ihtiyaç duyabileceğin belgeler</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Ayrıca ihtiyaç duyabileceğin belgeler</div>
           <div className="mt-5 grid gap-3">
             {optionalDocs.map((item) => (
               <div key={item.title} className="rounded-[20px] border border-[#edf1f7] bg-[#fcfdff] p-4">
@@ -1346,7 +1346,7 @@ function Kit7ChecklistSection() {
           <div className="inline-flex rounded-full border border-[#f5d7b2] bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#b54708]">
             Çeviri notu
           </div>
-          <div className="mt-4 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Tercümeyi son ana bırakma</div>
+          <div className="mt-4 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Tercümeyi son ana bırakma</div>
           <p className="mt-4 text-[15px] leading-8 text-[#8a4b21]">
             Türkçe belgeler Türkiye’den yeminli tercüman tarafından İngilizceye veya Finceye çevrilmeli ve noter onaylı
             olmalı. Özellikle banka ekstreleri ve aile belgelerinde bu süreç zaman alabilir.

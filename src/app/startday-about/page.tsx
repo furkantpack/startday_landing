@@ -14,10 +14,10 @@ export default function BoldMovesAboutPage() {
           <section className="bg-[#fffbe8] px-2 py-8 lg:px-0 lg:py-12">
             <div className="mx-auto max-w-[980px]">
               <div className="mb-8 text-center">
-                <div className="mx-auto mb-4 w-fit rounded-full border border-[#1d1d19] bg-[#ffe779] px-5 py-2 text-[0.9rem] font-black tracking-[-0.035em] text-[#1d1d19]">
+                <div className="mx-auto mb-4 w-fit rounded-full border border-[#1d1d19] bg-[#ffe779] px-5 py-2 text-[0.9rem] font-black tracking-[-0.025em] text-[#1d1d19]">
                   about
                 </div>
-                <h1 className="mx-auto max-w-[700px] text-[2.25rem] font-black leading-[1.02] tracking-[-0.065em] text-[#1d1d19] sm:text-[3rem]">
+                <h1 className="mx-auto max-w-[700px] text-[2.25rem] font-black leading-[1.02] tracking-[-0.025em] text-[#1d1d19] sm:text-[3rem]">
                   We believe co-founders are found by building together.
                 </h1>
               </div>
@@ -52,14 +52,14 @@ export default function BoldMovesAboutPage() {
                 <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
                   <Link
                     href="/startday-find-cafes"
-                    className="inline-flex h-[54px] items-center justify-center gap-2 rounded-[7px] border border-[#1d1d19] bg-[#ffe779] px-7 text-[1.05rem] font-black tracking-[-0.035em] text-[#1d1d19] shadow-[0_12px_24px_rgba(29,29,25,0.10)] transition-transform duration-300 hover:-translate-y-1"
+                    className="inline-flex h-[54px] items-center justify-center gap-2 rounded-[7px] border border-[#1d1d19] bg-[#ffe779] px-7 text-[1.05rem] font-black tracking-[-0.025em] text-[#1d1d19] shadow-[0_12px_24px_rgba(29,29,25,0.10)] transition-transform duration-300 hover:-translate-y-1"
                   >
                     browse city drops
                     <RiArrowRightUpLongLine className="size-5 text-[#f45a2f]" />
                   </Link>
                   <Link
                     href="/find-your-team"
-                    className="inline-flex h-[54px] items-center justify-center gap-2 rounded-[7px] border border-[#1d1d19] bg-[#fffbe8] px-7 text-[1.05rem] font-black tracking-[-0.035em] text-[#1d1d19] transition-transform duration-300 hover:-translate-y-1"
+                    className="inline-flex h-[54px] items-center justify-center gap-2 rounded-[7px] border border-[#1d1d19] bg-[#fffbe8] px-7 text-[1.05rem] font-black tracking-[-0.025em] text-[#1d1d19] transition-transform duration-300 hover:-translate-y-1"
                   >
                     find your team
                     <RiArrowRightUpLongLine className="size-5 text-[#f45a2f]" />

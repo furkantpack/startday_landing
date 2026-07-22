@@ -103,10 +103,10 @@ function DesignjoyCardDesktop() {
           </div>
 
           <div className="pt-22">
-            <h2 className="max-w-[8ch] text-[3.15rem] font-semibold leading-[0.93] tracking-[-0.07em] text-white">
+            <h2 className="max-w-[8ch] text-[3.15rem] font-semibold leading-[0.93] tracking-[-0.025em] text-white">
               Join Designjoy
             </h2>
-            <p className="mt-3 max-w-[17ch] text-[1.2rem] leading-[1.22] tracking-[-0.03em] text-white/92">
+            <p className="mt-3 max-w-[17ch] text-[1.2rem] leading-[1.22] tracking-[-0.025em] text-white/92">
               One subscription to rule them all.
             </p>
           </div>
@@ -373,7 +373,7 @@ export function PricingSection() {
             >
               Designed for growing finance teams
             </Badge.Root>
-            <h3 className="mb-4 text-[2.5rem] font-semibold leading-[1.02] tracking-[-0.06em] text-[var(--text-strong-950)] lg:text-center xl:text-[3.4rem]">
+            <h3 className="mb-4 text-[2.5rem] font-semibold leading-[1.02] tracking-[-0.025em] text-[var(--text-strong-950)] lg:text-center xl:text-[3.4rem]">
               Scale with clarity, not complexity
             </h3>
             <p className="max-w-[760px] text-[1rem] leading-7 text-[var(--text-sub-600)] lg:text-center">
@@ -442,7 +442,7 @@ export function PricingSection() {
 
                   <div className="mt-8">
                     <div className="flex items-center gap-4">
-                      <p className="text-[2.6rem] font-semibold tracking-[-0.06em] text-[var(--text-strong-950)]">
+                      <p className="text-[2.6rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                         ${activePlan === 'yearly' ? '15' : '12'}
                       </p>
                       <div>
@@ -491,7 +491,7 @@ export function PricingSection() {
 
                   <div className="mt-8">
                     <div className="flex items-center gap-4">
-                      <p className="text-[2.6rem] font-semibold tracking-[-0.06em] text-[var(--text-strong-950)]">
+                      <p className="text-[2.6rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                         ${activePlan === 'yearly' ? '49' : '39'}
                       </p>
                       <div>
@@ -586,7 +586,7 @@ export function BrandingKitSection() {
               >
                 Designed for brand-first launches
               </Badge.Root>
-              <h3 className="mb-4 text-[2.5rem] font-semibold leading-[1.02] tracking-[-0.06em] text-[var(--text-strong-950)] lg:text-center xl:text-[3.4rem]">
+              <h3 className="mb-4 text-[2.5rem] font-semibold leading-[1.02] tracking-[-0.025em] text-[var(--text-strong-950)] lg:text-center xl:text-[3.4rem]">
                 Build a brand that ships with confidence
               </h3>
               <p className="max-w-[760px] text-[1rem] leading-7 text-[var(--text-sub-600)] lg:text-center">
@@ -613,7 +613,7 @@ export function BrandingKitSection() {
                     )}
                   >
                       <div className="flex flex-col items-center text-center">
-                        <h4 className="max-w-[12ch] text-[2rem] font-semibold leading-[0.98] tracking-[-0.05em] text-white lg:text-[2.35rem]">
+                        <h4 className="max-w-[12ch] text-[2rem] font-semibold leading-[0.98] tracking-[-0.025em] text-white lg:text-[2.35rem]">
                           {kit.title}
                         </h4>
                         <p className="mt-4 max-w-[22ch] text-[1.02rem] leading-7 text-white/88">
@@ -692,7 +692,7 @@ export function FaqSection() {
         <Badge.Root className="mb-3 h-7 w-fit rounded-[9px] bg-[var(--bg-weak-50)] px-2.5 py-1 text-sm normal-case text-[var(--text-sub-600)] lg:mx-auto">
           Need help?
         </Badge.Root>
-        <h3 className="mb-4 text-[2.3rem] font-semibold leading-[1.02] tracking-[-0.06em] text-[var(--text-strong-950)] lg:text-center xl:text-[3.2rem]">
+        <h3 className="mb-4 text-[2.3rem] font-semibold leading-[1.02] tracking-[-0.025em] text-[var(--text-strong-950)] lg:text-center xl:text-[3.2rem]">
           Frequently asked questions
         </h3>
         <p className="mb-8 text-[1rem] leading-7 text-[var(--text-sub-600)] lg:mb-14 lg:text-center">
@@ -804,9 +804,9 @@ export function FooterSection() {
           <div className="max-w-[560px]">
             <div className="flex items-center gap-3">
               <Logo />
-              <span className="text-lg font-semibold tracking-[-0.03em]">Apex Finance</span>
+              <span className="text-lg font-semibold tracking-[-0.025em]">Apex Finance</span>
             </div>
-            <h3 className="mt-5 text-[2.4rem] font-semibold leading-[1] tracking-[-0.06em] text-[var(--text-strong-950)]">
+            <h3 className="mt-5 text-[2.4rem] font-semibold leading-[1] tracking-[-0.025em] text-[var(--text-strong-950)]">
               Finance infrastructure that feels as sharp as your product.
             </h3>
             <p className="mt-4 max-w-[46ch] text-[1rem] leading-7 text-[var(--text-sub-600)]">
@@ -1013,7 +1013,7 @@ export function HeroEx3({ beforeFooter }: { beforeFooter?: React.ReactNode }) {
                   </span>
                 </div>
 
-                <h1 className="mb-4 text-[2.5rem] font-semibold leading-[1.02] tracking-[-0.07em] text-[var(--text-strong-950)] sm:text-[3rem] lg:text-[3.7rem] xl:text-[4.15rem]">
+                <h1 className="mb-4 text-[2.5rem] font-semibold leading-[1.02] tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[3rem] lg:text-[3.7rem] xl:text-[4.15rem]">
                   Earn on time, save with ease, track every dollar.
                 </h1>
                 <p className="max-w-[42ch] text-[1rem] leading-7 text-[var(--text-sub-600)]">
@@ -1077,7 +1077,7 @@ export function HeroEx3({ beforeFooter }: { beforeFooter?: React.ReactNode }) {
               <div className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[var(--text-soft-400)]">
                 Product Showcase
               </div>
-              <h2 className="mt-4 text-[2.45rem] font-semibold leading-[0.96] tracking-[-0.07em] text-[var(--text-strong-950)] sm:text-[3rem] lg:text-[4.1rem]">
+              <h2 className="mt-4 text-[2.45rem] font-semibold leading-[0.96] tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[3rem] lg:text-[4.1rem]">
                 Three standout cards, ready to slide
             </h2>
             <p className="mx-auto mt-4 max-w-[760px] text-[1rem] leading-7 text-[var(--text-sub-600)] lg:text-[1.05rem]">
@@ -1147,7 +1147,7 @@ export function HeroEx3({ beforeFooter }: { beforeFooter?: React.ReactNode }) {
                       ))}
                     </div>
 
-                    <h3 className="mt-4 text-[1.35rem] font-semibold tracking-[-0.04em] text-[var(--text-strong-950)]">
+                    <h3 className="mt-4 text-[1.35rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                       {card.title}
                     </h3>
                     <p className="mt-2 min-h-[72px] text-[0.98rem] leading-6 text-[var(--text-sub-600)]">
@@ -1159,7 +1159,7 @@ export function HeroEx3({ beforeFooter }: { beforeFooter?: React.ReactNode }) {
                         <div className="text-[13px] uppercase tracking-[0.14em] text-[var(--text-soft-400)]">
                           Score
                         </div>
-                        <div className="text-[1.5rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+                        <div className="text-[1.5rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                           {card.score}
                           <span className="ml-1 text-[0.95rem] font-medium text-[var(--text-sub-600)]">
                             /10

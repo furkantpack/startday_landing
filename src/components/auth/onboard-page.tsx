@@ -69,7 +69,7 @@ function TestimonialPanel({ activeIndex }: { activeIndex: number }) {
           <div className="flex size-full items-center justify-center rounded-full bg-[url('https://alignui.com/images/avatar/illustration/sophia.png')] bg-cover bg-center" />
         </div>
 
-        <p className="max-w-[13ch] text-[30px] font-semibold leading-[1.12] tracking-[-0.05em] text-white xl:text-[34px]">
+        <p className="max-w-[13ch] text-[30px] font-semibold leading-[1.12] tracking-[-0.025em] text-white xl:text-[34px]">
           One clear answer at a time makes the whole visa path easier to map.
         </p>
 
@@ -114,7 +114,7 @@ export default function OnboardPage() {
             </div>
 
             <div className="text-center">
-              <h1 className="text-[34px] font-semibold tracking-[-0.05em] text-[#111827]">{question.label}</h1>
+              <h1 className="text-[34px] font-semibold tracking-[-0.025em] text-[#111827]">{question.label}</h1>
               <p className="mt-2 text-[16px] text-[#667085]">We&apos;ll use this to shape your visa roadmap and service match.</p>
             </div>
 

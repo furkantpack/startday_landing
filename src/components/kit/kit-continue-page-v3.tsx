@@ -189,7 +189,7 @@ function FinanceSidebar() {
             </div>
           </div>
           <div>
-            <div className="text-[16px] font-medium tracking-[-0.04em] text-[#101828]">
+            <div className="text-[16px] font-medium tracking-[-0.025em] text-[#101828]">
               Apex
             </div>
             <div className="mt-0.5 text-[12px] text-[#667085]">
@@ -505,7 +505,7 @@ export function KitContinuePageV3() {
           <section className="grid gap-5 px-5 py-5 lg:px-6 lg:py-6 xl:grid-cols-[minmax(0,1.28fr)_320px]">
             <div>
               <div className="mb-3 flex items-center justify-between">
-                <div className="text-[28px] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+                <div className="text-[28px] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                   18 sections
                 </div>
                 <div className="text-[16px] text-[var(--text-soft-400)]">
@@ -517,7 +517,7 @@ export function KitContinuePageV3() {
 
             <div>
               <div className="mb-3 flex items-center justify-between">
-                <div className="text-[28px] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+                <div className="text-[28px] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                   Downloads &amp; assets
                 </div>
                 <LinkButton.Root

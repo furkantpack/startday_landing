@@ -202,7 +202,7 @@ function StatCard({
   return (
     <div className="rounded-none border border-[var(--stroke-soft-200)] bg-white px-4 py-4 shadow-[0_8px_18px_rgba(15,23,42,0.03)]">
       <div className={cn('mb-3 h-6 w-fit rounded-[8px] px-2 py-1 text-[12px] font-medium', tone)}>{badge}</div>
-      <div className="text-[2rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">{value}</div>
+      <div className="text-[2rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">{value}</div>
       <div className="mt-1 text-[14px] font-medium text-[var(--text-sub-600)]">{label}</div>
       <div className="mt-2 max-w-[11ch] text-[13px] leading-6 text-[var(--text-soft-400)]">{description}</div>
     </div>
@@ -222,7 +222,7 @@ export function KitContinuePage() {
             <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
               <div>
                 <div className="text-[15px] font-medium text-[var(--text-soft-400)]">Welcome back, James</div>
-                <div className="mt-1 text-[3rem] font-semibold leading-[0.95] tracking-[-0.06em] text-[var(--text-strong-950)]">
+                <div className="mt-1 text-[3rem] font-semibold leading-[0.95] tracking-[-0.025em] text-[var(--text-strong-950)]">
                   Kleo
                 </div>
                 <div className="mt-2 text-[20px] text-[var(--primary-base)]">AI Agent · Kit #09 · By KitChef</div>
@@ -285,7 +285,7 @@ export function KitContinuePage() {
         <section className="grid gap-6 px-6 py-6 lg:px-8 lg:py-7 xl:grid-cols-[minmax(0,1.15fr)_360px]">
           <div>
             <div className="mb-4 flex items-center justify-between">
-              <div className="text-[28px] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">18 sections</div>
+              <div className="text-[28px] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">18 sections</div>
               <div className="text-[18px] text-[var(--text-soft-400)]">
                 {completed} completed · {sections.length - completed} remaining
               </div>
@@ -295,7 +295,7 @@ export function KitContinuePage() {
 
           <div>
             <div className="mb-4 flex items-center justify-between">
-              <div className="text-[28px] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+              <div className="text-[28px] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                 Downloads &amp; assets
               </div>
               <LinkButton.Root href="#" className="text-[var(--primary-base)] hover:text-[var(--primary-hover)]">

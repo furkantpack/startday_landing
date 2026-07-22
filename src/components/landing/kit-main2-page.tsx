@@ -116,7 +116,7 @@ function StickyBuyCard() {
           <div className="mx-auto flex size-14 items-center justify-center rounded-[18px] bg-[linear-gradient(145deg,#dbeafe_0%,#eff6ff_100%)]">
             <FinlandFlagIcon />
           </div>
-          <div className="mt-3 text-[1.75rem] font-semibold tracking-[-0.05em] text-white">Vize Danışmanlığı</div>
+          <div className="mt-3 text-[1.75rem] font-semibold tracking-[-0.025em] text-white">Vize Danışmanlığı</div>
           <div className="text-[0.9rem] font-medium uppercase tracking-[0.08em] text-[#93c5fd]">
             Full Support · Finland
           </div>
@@ -132,7 +132,7 @@ function StickyBuyCard() {
           </div>
 
           <div className="relative flex items-end gap-2 before:absolute before:-left-6 before:top-1/2 before:h-full before:w-0.5 before:-translate-y-1/2 before:bg-[var(--primary-base)]">
-            <span className="text-[3rem] font-semibold leading-none tracking-[-0.06em] text-[var(--text-strong-950)]">
+            <span className="text-[3rem] font-semibold leading-none tracking-[-0.025em] text-[var(--text-strong-950)]">
               $499
             </span>
             <span className="pb-1 text-[1rem] text-[var(--text-sub-600)]">one-time</span>
@@ -162,7 +162,7 @@ function OverviewContent() {
     <div className="space-y-4">
       <section className="rounded-[24px] border border-[#d7e7f2] bg-white p-4 shadow-[0_12px_26px_rgba(15,23,42,0.04)] sm:p-5">
         <div className="mb-4 px-1 sm:mb-5">
-          <div className="text-[1.45rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)] sm:text-[1.75rem]">
+          <div className="text-[1.45rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[1.75rem]">
             Kitin içinde neler var
           </div>
           <p className="mt-1 text-[0.98rem] leading-7 text-[var(--text-sub-600)]">
@@ -207,7 +207,7 @@ function OverviewContent() {
 
       <section className="border-y border-[#d7e7f2] py-6 sm:py-8">
         <div className="mb-6 text-center sm:mb-8">
-          <div className="text-[1.45rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)] sm:text-[1.75rem]">
+          <div className="text-[1.45rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[1.75rem]">
             Neden bu kit işine yarar
           </div>
           <p className="mt-1 text-[0.98rem] leading-7 text-[var(--text-sub-600)]">
@@ -220,7 +220,7 @@ function OverviewContent() {
             <div className="mb-5 flex size-11 items-center justify-center rounded-full border border-[#d7e7f2] text-[#2563eb]">
               <RiFileList3Line className="size-5" />
             </div>
-            <div className="text-[2.05rem] font-semibold leading-none tracking-[-0.06em] text-[var(--text-strong-950)]">
+            <div className="text-[2.05rem] font-semibold leading-none tracking-[-0.025em] text-[var(--text-strong-950)]">
               30
             </div>
             <div className="mt-3 text-[1.05rem] font-medium text-[var(--text-strong-950)]">Hazır bölüm</div>
@@ -233,7 +233,7 @@ function OverviewContent() {
             <div className="mb-5 flex size-11 items-center justify-center rounded-full border border-[#d7e7f2] text-[#10b981]">
               <RiShieldCheckLine className="size-5" />
             </div>
-            <div className="text-[2.05rem] font-semibold leading-none tracking-[-0.06em] text-[var(--text-strong-950)]">
+            <div className="text-[2.05rem] font-semibold leading-none tracking-[-0.025em] text-[var(--text-strong-950)]">
               14 gün
             </div>
             <div className="mt-3 text-[1.05rem] font-medium text-[var(--text-strong-950)]">Fast-track odağı</div>
@@ -246,7 +246,7 @@ function OverviewContent() {
             <div className="mb-5 flex size-11 items-center justify-center rounded-full border border-[#d7e7f2] text-[#f59e0b]">
               <RiBookOpenLine className="size-5" />
             </div>
-            <div className="text-[2.05rem] font-semibold leading-none tracking-[-0.06em] text-[var(--text-strong-950)]">
+            <div className="text-[2.05rem] font-semibold leading-none tracking-[-0.025em] text-[var(--text-strong-950)]">
               1 kit
             </div>
             <div className="mt-3 text-[1.05rem] font-medium text-[var(--text-strong-950)]">Daha net hazırlık</div>
@@ -263,7 +263,7 @@ function OverviewContent() {
 function SectionsContent() {
   return (
     <section className="rounded-[24px] border border-[#d7e7f2] bg-white p-5 shadow-[0_12px_26px_rgba(15,23,42,0.04)]">
-      <div className="text-[1.75rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+      <div className="text-[1.75rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
         30 bölümden oluşan rehber yapı
       </div>
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
@@ -290,7 +290,7 @@ function ServicesContent() {
         <div className="mb-4 inline-flex h-7 w-fit items-center rounded-full bg-[#eff6ff] px-3 text-[0.74rem] font-medium uppercase tracking-[0.08em] text-[#2563eb]">
           Business plan servisi
         </div>
-        <h3 className="text-[1.45rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)] lg:text-[1.9rem]">
+        <h3 className="text-[1.45rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)] lg:text-[1.9rem]">
           Business plan dosyanı birlikte netleştirelim
         </h3>
         <p className="mt-3 max-w-[58ch] text-[0.98rem] leading-7 text-[var(--text-sub-600)]">
@@ -319,7 +319,7 @@ function ServicesContent() {
 
         <div className="rounded-[20px] border border-[#e3edf7] bg-white p-5">
           <div className="text-[0.8rem] uppercase tracking-[0.08em] text-[var(--text-soft-400)]">Business plan</div>
-          <div className="mt-2 text-[2.4rem] font-semibold tracking-[-0.06em] text-[var(--text-strong-950)]">$99</div>
+          <div className="mt-2 text-[2.4rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">$99</div>
           <div className="mt-1 text-[0.95rem] text-[var(--text-sub-600)]">one-time</div>
           <Button.Root variant="primary" mode="filled" size="medium" className="mt-5 h-11 w-full gap-2 rounded-[14px]">
             Planı hazırla
@@ -397,7 +397,7 @@ export function KitMain2Page() {
 
                   <div className="relative z-10 ml-auto flex h-full max-w-[560px] items-center">
                     <div>
-                      <div className="text-[1.65rem] font-semibold leading-[0.9] tracking-[-0.07em] text-[#101828] sm:text-[2.2rem] lg:text-[3.1rem]">
+                      <div className="text-[1.65rem] font-semibold leading-[0.9] tracking-[-0.025em] text-[#101828] sm:text-[2.2rem] lg:text-[3.1rem]">
                         Finlandiya startup vizesi için <span className="text-[var(--primary-base)]">daha net</span> bir hazırlık sistemi
                       </div>
                       <p className="mt-3 max-w-[32ch] text-[0.92rem] leading-7 text-[#475467] sm:text-[0.98rem]">
@@ -424,14 +424,14 @@ export function KitMain2Page() {
                         <div className="text-[0.55rem] font-semibold uppercase tracking-[0.14em] text-[#98a2b3]">
                           2026 edition
                         </div>
-                        <div className="mt-1 text-[1rem] font-semibold tracking-[-0.04em] text-[#101828]">
+                        <div className="mt-1 text-[1rem] font-semibold tracking-[-0.025em] text-[#101828]">
                           Finland
                         </div>
                       </div>
                     </div>
 
                     <div className="pb-1">
-                      <div className="text-[2.3rem] font-semibold leading-none tracking-[-0.06em] text-[var(--text-strong-950)] sm:text-[2.7rem]">
+                      <div className="text-[2.3rem] font-semibold leading-none tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[2.7rem]">
                         Finland Startup Visa
                       </div>
                       <div className="mt-3 text-[1.02rem] text-[var(--text-sub-600)]">

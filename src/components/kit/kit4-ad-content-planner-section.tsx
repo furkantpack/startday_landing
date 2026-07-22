@@ -327,7 +327,7 @@ export function Kit4AdContentPlannerSection({
               }`}
             >
               <div className="text-[12px] font-semibold uppercase tracking-[0.18em]">Planner</div>
-              <div className="mt-2 text-[20px] font-semibold tracking-[-0.04em]">Ad Spend Planner</div>
+              <div className="mt-2 text-[20px] font-semibold tracking-[-0.025em]">Ad Spend Planner</div>
               <p className={`mt-2 text-[14px] leading-7 ${activeTab === 'spend' ? 'text-white/75' : 'text-[#667085]'}`}>
                 Model budget allocation, market focus, and growth triggers by MRR stage.
               </p>
@@ -343,7 +343,7 @@ export function Kit4AdContentPlannerSection({
               }`}
             >
               <div className="text-[12px] font-semibold uppercase tracking-[0.18em]">Calendar</div>
-              <div className="mt-2 text-[20px] font-semibold tracking-[-0.04em]">Content Planner</div>
+              <div className="mt-2 text-[20px] font-semibold tracking-[-0.025em]">Content Planner</div>
               <p className={`mt-2 text-[14px] leading-7 ${activeTab === 'content' ? 'text-white/75' : 'text-[#667085]'}`}>
                 Build a monthly posting rhythm with content types, hooks, and channel guidance.
               </p>
@@ -353,7 +353,7 @@ export function Kit4AdContentPlannerSection({
       ) : (
         <div className="rounded-[32px] border border-[#e6eaf2] bg-[linear-gradient(135deg,#0f172a_0%,#16325c_100%)] p-8 text-white shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
           <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-white/70">Calendar</div>
-          <div className="mt-3 text-[30px] font-semibold tracking-[-0.05em]">Content Planner</div>
+          <div className="mt-3 text-[30px] font-semibold tracking-[-0.025em]">Content Planner</div>
           <p className="mt-3 max-w-3xl text-[15px] leading-8 text-white/75">
             Build a monthly posting rhythm with content types, hooks, and channel guidance, using the same operating
             system from the planner UI.
@@ -396,7 +396,7 @@ export function Kit4AdContentPlannerSection({
               ].map((item) => (
                 <label key={item.label} className="block rounded-[24px] bg-[#f8fafc] p-5">
                   <div className="text-[13px] font-medium text-[#667085]">{item.label}</div>
-                  <div className="mt-2 text-[28px] font-semibold tracking-[-0.05em] text-[#101828]">{item.value}</div>
+                  <div className="mt-2 text-[28px] font-semibold tracking-[-0.025em] text-[#101828]">{item.value}</div>
                   <input
                     className="mt-5 h-2 w-full cursor-pointer accent-[#0D9488]"
                     type="range"
@@ -423,7 +423,7 @@ export function Kit4AdContentPlannerSection({
                 className={`rounded-[28px] border border-[#e6eaf2] bg-gradient-to-br ${item.tone} p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]`}
               >
                 <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#667085]">{item.label}</div>
-                <div className="mt-3 text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">{item.value}</div>
+                <div className="mt-3 text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">{item.value}</div>
               </div>
             ))}
           </div>
@@ -591,7 +591,7 @@ export function Kit4AdContentPlannerSection({
                 </span>
               </div>
 
-              <div className="mt-5 text-[28px] font-semibold tracking-[-0.05em] text-[#101828]">{selectedContent.topic}</div>
+              <div className="mt-5 text-[28px] font-semibold tracking-[-0.025em] text-[#101828]">{selectedContent.topic}</div>
               <div className="mt-5 rounded-[24px] border-l-4 border-[#0D9488] bg-white px-5 py-4 text-[15px] leading-8 text-[#344054]">
                 {selectedContent.hook}
               </div>

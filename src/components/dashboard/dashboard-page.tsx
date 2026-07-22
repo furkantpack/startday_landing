@@ -85,7 +85,7 @@ function FeaturedCard({ title, tone }: { title: string; tone: string }) {
   return (
     <div className={cn('relative min-h-[180px] overflow-hidden rounded-[30px] bg-gradient-to-br p-7 shadow-[0_18px_36px_rgba(15,23,42,0.08)]', tone)}>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.22),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.16),transparent_24%)]" />
-      <div className="relative max-w-[14ch] text-[2rem] font-semibold leading-[1.02] tracking-[-0.05em] text-white">
+      <div className="relative max-w-[14ch] text-[2rem] font-semibold leading-[1.02] tracking-[-0.025em] text-white">
         {title}
       </div>
     </div>
@@ -184,7 +184,7 @@ export function DashboardPage() {
 
           <div className="space-y-10 px-5 py-6 lg:px-8 lg:py-7">
             <div>
-              <h1 className="text-[2.1rem] font-semibold tracking-[-0.06em] text-[var(--text-strong-950)]">
+              <h1 className="text-[2.1rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                 Good morning, Emma
               </h1>
               <p className="mt-1 text-[1.15rem] text-[var(--text-soft-400)]">You have 5 things to do today</p>
@@ -223,7 +223,7 @@ export function DashboardPage() {
             </div>
 
             <div>
-              <div className="mb-5 text-[1.9rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+              <div className="mb-5 text-[1.9rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                 Recent <span className="text-[var(--text-soft-400)]">14</span>
               </div>
               <div className="overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
@@ -236,7 +236,7 @@ export function DashboardPage() {
             </div>
 
             <div>
-              <div className="mb-5 text-[1.9rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">Featured</div>
+              <div className="mb-5 text-[1.9rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">Featured</div>
               <div className="grid gap-5 lg:grid-cols-2">
                 {featuredCards.map((card) => (
                   <FeaturedCard key={card.title} title={card.title} tone={card.tone} />

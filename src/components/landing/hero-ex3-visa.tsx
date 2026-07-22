@@ -113,42 +113,42 @@ const visaCards = [
 const visaPosterCards = [
   {
     title: 'Helsinki',
-    src: '/visa-posters/helsinki-finland.png',
+    src: '/visa-posters/helsinki-finland.avif',
     alt: 'Helsinki Finland poster',
   },
   {
     title: 'Istanbul',
-    src: '/visa-posters/istanbul-turkiye.png',
+    src: '/visa-posters/istanbul-turkiye.avif',
     alt: 'Istanbul Turkiye poster',
   },
   {
     title: 'Stockholm',
-    src: '/visa-posters/stockholm-sweden.png',
+    src: '/visa-posters/stockholm-sweden.avif',
     alt: 'Stockholm Sweden poster',
   },
   {
     title: 'Berlin',
-    src: '/visa-posters/berlin-germany.png',
+    src: '/visa-posters/berlin-germany.avif',
     alt: 'Berlin Germany poster',
   },
   {
     title: 'Copenhagen',
-    src: '/visa-posters/copenhagen-denmark.png',
+    src: '/visa-posters/copenhagen-denmark.avif',
     alt: 'Copenhagen Denmark poster',
   },
   {
     title: 'Tallinn',
-    src: '/visa-posters/tallinn-estonia.png',
+    src: '/visa-posters/tallinn-estonia.avif',
     alt: 'Tallinn Estonia poster',
   },
   {
     title: 'Paris',
-    src: '/visa-posters/paris-france.png',
+    src: '/visa-posters/paris-france.avif',
     alt: 'Paris France poster',
   },
   {
     title: 'Vienna',
-    src: '/visa-posters/vienna-austria.png',
+    src: '/visa-posters/vienna-austria.avif',
     alt: 'Vienna Austria poster',
   },
 ] as const;
@@ -435,9 +435,9 @@ export function VisaFooterSection() {
           <div className="max-w-[560px]">
             <div className="flex items-center gap-3">
               <Logo />
-              <span className="text-lg font-semibold tracking-[-0.03em]">HangiVize</span>
+              <span className="text-lg font-semibold tracking-[-0.025em]">HangiVize</span>
             </div>
-            <h3 className="mt-5 text-[2.4rem] font-semibold leading-[1] tracking-[-0.06em] text-[var(--text-strong-950)]">
+            <h3 className="mt-5 text-[2.4rem] font-semibold leading-[1] tracking-[-0.025em] text-[var(--text-strong-950)]">
               Visa planning that feels clearer, calmer, and much more strategic.
             </h3>
             <p className="mt-4 max-w-[46ch] text-[1rem] leading-7 text-[var(--text-sub-600)]">
@@ -615,7 +615,7 @@ function VisaHeroStackCard({
             ))}
           </div>
 
-          <h3 className="max-w-[10ch] text-[2.2rem] font-semibold leading-[0.95] tracking-[-0.06em]">{card.title}</h3>
+          <h3 className="max-w-[10ch] text-[2.2rem] font-semibold leading-[0.95] tracking-[-0.025em]">{card.title}</h3>
           <p className="mt-3 max-w-[18ch] text-[1.02rem] leading-8 text-white/82">{card.description}</p>
         </div>
       </div>
@@ -745,7 +745,7 @@ function ServiceCard({
     <div className="rounded-[2rem] border border-white/50 bg-white/75 p-5 shadow-[0_20px_44px_rgba(67,97,238,0.1)] backdrop-blur">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <div className="text-[1.3rem] font-semibold tracking-[-0.04em] text-[var(--text-strong-950)]">{title}</div>
+          <div className="text-[1.3rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">{title}</div>
           <p className="mt-2 text-[0.98rem] leading-6 text-[var(--text-sub-600)]">{description}</p>
         </div>
         <div className="rounded-full bg-[#eff6ff] px-3 py-1 text-[0.95rem] font-semibold text-[var(--primary-base)]">
@@ -815,7 +815,7 @@ export function HeroEx3Visa({
                   <span className="text-sm text-[var(--text-sub-600)]">{heroCopy.badgeText}</span>
                 </div>
 
-                <h1 className="mb-4 text-[2.5rem] font-semibold leading-[1.02] tracking-[-0.07em] text-[var(--text-strong-950)] sm:text-[3rem] lg:text-[3.7rem] xl:text-[4.15rem]">
+                <h1 className="mb-4 text-[2.5rem] font-semibold leading-[1.02] tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[3rem] lg:text-[3.7rem] xl:text-[4.15rem]">
                   {heroCopy.title}
                 </h1>
                 <p className="max-w-[44ch] text-[1rem] leading-7 text-[var(--text-sub-600)]">
@@ -871,7 +871,7 @@ export function HeroEx3Visa({
             <div className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[var(--text-soft-400)]">
               {routeSectionMode === 'sprints' ? 'SPRINT LOCATIONS' : 'Visa routes'}
             </div>
-            <h2 className="mt-4 text-[2.45rem] font-semibold leading-[0.96] tracking-[-0.07em] text-[var(--text-strong-950)] sm:text-[3rem] lg:text-[4.1rem]">
+            <h2 className="mt-4 text-[2.45rem] font-semibold leading-[0.96] tracking-[-0.025em] text-[var(--text-strong-950)] sm:text-[3rem] lg:text-[4.1rem]">
               {routeSectionMode === 'sprints'
                 ? 'Find your city. Show up. Build something.'
                 : 'Three standout visa cards, ready to compare'}
@@ -917,7 +917,7 @@ export function HeroEx3Visa({
                       </span>
                     </div>
 
-                    <h3 className="mt-4 text-[1.35rem] font-semibold tracking-[-0.04em] text-[var(--text-strong-950)]">
+                    <h3 className="mt-4 text-[1.35rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                       {card.title}
                     </h3>
                     <p className="mt-2 min-h-[72px] text-[0.98rem] leading-6 text-[var(--text-sub-600)]">{card.description}</p>
@@ -995,7 +995,7 @@ export function HeroEx3Visa({
                         ))}
                       </div>
 
-                      <h3 className="mt-4 text-[1.35rem] font-semibold tracking-[-0.04em] text-[var(--text-strong-950)]">
+                      <h3 className="mt-4 text-[1.35rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                         {card.title}
                       </h3>
                       <p className="mt-2 min-h-[72px] text-[0.98rem] leading-6 text-[var(--text-sub-600)]">{card.description}</p>
@@ -1003,7 +1003,7 @@ export function HeroEx3Visa({
                       <div className="mt-5 flex items-center justify-between gap-4">
                         <div>
                           <div className="text-[13px] uppercase tracking-[0.14em] text-[var(--text-soft-400)]">Score</div>
-                          <div className="text-[1.5rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+                          <div className="text-[1.5rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                             {card.score}
                             <span className="ml-1 text-[0.95rem] font-medium text-[var(--text-sub-600)]">/10</span>
                           </div>
@@ -1034,7 +1034,7 @@ export function HeroEx3Visa({
               <Badge.Root className="mb-3 h-7 w-fit gap-1.5 rounded-[9px] bg-[var(--bg-weak-50)] px-2.5 py-1 text-sm normal-case text-[var(--text-sub-600)]">
                 Signature kits
               </Badge.Root>
-              <h3 className="mb-4 text-[2.5rem] font-semibold leading-[1.02] tracking-[-0.06em] text-[var(--text-strong-950)] lg:text-center xl:text-[3.4rem]">
+              <h3 className="mb-4 text-[2.5rem] font-semibold leading-[1.02] tracking-[-0.025em] text-[var(--text-strong-950)] lg:text-center xl:text-[3.4rem]">
                 Build a visa plan that moves with confidence
               </h3>
               <p className="max-w-[760px] text-[1rem] leading-7 text-[var(--text-sub-600)] lg:text-center">
@@ -1055,7 +1055,7 @@ export function HeroEx3Visa({
                       <div className="mb-4 inline-flex rounded-full bg-white/18 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.08em] text-white">
                         {kit.accent}
                       </div>
-                      <h4 className="max-w-[12ch] text-[2rem] font-semibold leading-[0.98] tracking-[-0.05em] text-white lg:text-[2.35rem]">
+                      <h4 className="max-w-[12ch] text-[2rem] font-semibold leading-[0.98] tracking-[-0.025em] text-white lg:text-[2.35rem]">
                         {kit.title}
                       </h4>
                       <p className="mt-4 max-w-[22ch] text-[1.02rem] leading-7 text-white/88">{kit.description}</p>
@@ -1104,7 +1104,7 @@ export function HeroEx3Visa({
           <Badge.Root className="mb-3 h-7 w-fit rounded-[9px] bg-[var(--bg-weak-50)] px-2.5 py-1 text-sm normal-case text-[var(--text-sub-600)] lg:mx-auto">
             Need help?
           </Badge.Root>
-          <h3 className="mb-4 text-[2.3rem] font-semibold leading-[1.02] tracking-[-0.06em] text-[var(--text-strong-950)] lg:text-center xl:text-[3.2rem]">
+          <h3 className="mb-4 text-[2.3rem] font-semibold leading-[1.02] tracking-[-0.025em] text-[var(--text-strong-950)] lg:text-center xl:text-[3.2rem]">
             Frequently asked questions
           </h3>
           <p className="mb-8 text-[1rem] leading-7 text-[var(--text-sub-600)] lg:mb-14 lg:text-center">

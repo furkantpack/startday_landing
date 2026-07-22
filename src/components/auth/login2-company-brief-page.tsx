@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import Script from 'next/script';
 import {
   RiArrowLeftLine,
   RiArrowRightLine,
@@ -18,9 +17,9 @@ import {
 } from '@remixicon/react';
 
 import * as FancyButton from '@/components/ui/fancy-button';
+import { analytics } from '@/lib/analytics';
+import { redirectToCheckout } from '@/lib/checkout';
 import { cn } from '@/lib/utils';
-
-const polarCheckoutUrl = process.env.NEXT_PUBLIC_POLAR_CHECKOUT_URL ?? '';
 
 type Field = {
   id: string;
@@ -76,16 +75,6 @@ function PinCalendarIcon({ className }: { className?: string }) {
     <svg viewBox="0 0 48 48" className={className} fill="none" aria-hidden="true">
       <path d="M14 12v6M34 12v6M11 19h26M13 15h22a4 4 0 0 1 4 4v17a4 4 0 0 1-4 4H13a4 4 0 0 1-4-4V19a4 4 0 0 1 4-4Z" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M17 28h5v5h-5zM27 28h5v5h-5z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function PinBudgetIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 48 48" className={className} fill="none" aria-hidden="true">
-      <path d="M11 18h26v19H11z" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
-      <path d="M15 18l4-7h10l4 7M18 27h12M18 33h7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="34" cy="28" r="2.5" fill="currentColor" />
     </svg>
   );
 }
@@ -253,14 +242,6 @@ const steps: readonly Step[] = [
       },
     ],
   },
-  {
-    id: 'checkout',
-    eyebrow: 'Claim Your Seat',
-    title: 'Your table is ready to form.',
-    helper: 'Secure your seat so we can lock your city, review your profile, and start matching you with the right founder table.',
-    icon: PinBudgetIcon,
-    fields: [],
-  },
 ] as const;
 
 function RoomIllustration() {
@@ -276,59 +257,6 @@ function RoomIllustration() {
       </div>
       <span className="absolute left-[119px] top-[96px] h-5 w-10 rounded-b-full bg-[#111827]" />
       <div className="absolute bottom-3 left-3 right-3 h-10 rounded-[22px] border border-white/20 bg-white/22" />
-    </div>
-  );
-}
-
-function PolarCheckoutEmbed() {
-  const valuePoints = [
-    'Your profile is reviewed for city, skill, and goal fit.',
-    'We place you into a balanced 4-6 person founder table.',
-    'You get the weekend structure, physical space, and next steps.',
-  ];
-
-  return (
-    <div className="overflow-hidden rounded-[24px] border border-[#f1dec8] bg-white shadow-[0_18px_40px_rgba(255,122,47,0.08)]">
-      <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="bg-[#fff7ef] p-5 sm:p-6">
-          <div className="w-fit rounded-full bg-[#ff8a34] px-3 py-1 text-[12px] font-bold uppercase tracking-[0.14em] text-white">
-            $15 / per seat
-          </div>
-          <h2 className="mt-4 max-w-[360px] text-[28px] font-semibold leading-[1.02] tracking-[-0.055em] text-[#111827] sm:text-[36px]">
-            One weekend. One team. Real momentum.
-          </h2>
-          <p className="mt-4 max-w-[42ch] text-[15px] leading-7 text-[#7a4a30]">
-            Purchase your seat now. We will use the answers you just shared to confirm the strongest table fit before the weekend.
-          </p>
-        </div>
-
-        <div className="flex flex-col justify-between gap-6 p-5 sm:p-6">
-          <div className="grid gap-3">
-            {valuePoints.map((item) => (
-              <div key={item} className="flex items-start gap-3 text-[15px] font-medium leading-6 text-[#344054]">
-                <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-[#ffe779] text-[12px] font-black text-[#111827]">
-                  ✓
-                </span>
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid gap-3">
-            <a
-              href={polarCheckoutUrl}
-              data-polar-checkout
-              data-polar-checkout-theme="dark"
-              className="inline-flex h-[56px] w-full items-center justify-center rounded-[16px] border border-[#111827] bg-[#ffe779] px-7 text-[16px] font-bold text-[#111827] shadow-[0_14px_28px_rgba(255,231,121,0.22)] transition-transform hover:-translate-y-0.5"
-            >
-              Purchase your seat
-            </a>
-            <p className="text-center text-[13px] leading-5 text-[#8a634d]">
-              If we cannot match you with the right table, you get a full refund.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
@@ -439,11 +367,12 @@ export default function Login2CompanyBriefPage() {
   const [answers, setAnswers] = React.useState<Record<string, string>>({});
   const [otherAnswers, setOtherAnswers] = React.useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = React.useState(false);
+  const [submitError, setSubmitError] = React.useState('');
 
   const currentStep = steps[step];
   const StepIcon = currentStep.icon;
   const isLastStep = step === steps.length - 1;
-  const isCheckoutStep = currentStep.id === 'checkout';
   const progress = ((step + 1) / steps.length) * 100;
   const hasValidStep = currentStep.fields.every((field) => {
     const value = answers[field.id] ?? '';
@@ -453,6 +382,10 @@ export default function Login2CompanyBriefPage() {
 
     return Boolean(value.trim());
   });
+
+  React.useEffect(() => {
+    analytics.onboardingStarted({ form_type: 'find_your_team' });
+  }, []);
 
   const setAnswer = (id: string, value: string) => {
     setAnswers((current) => ({ ...current, [id]: value }));
@@ -494,6 +427,7 @@ export default function Login2CompanyBriefPage() {
     );
 
     setIsSubmitting(true);
+    setSubmitError('');
 
     try {
       const response = await fetch('/api/submit-form', {
@@ -511,8 +445,27 @@ export default function Login2CompanyBriefPage() {
       if (!response.ok) {
         throw new Error('Form submission failed');
       }
+
+      analytics.onboardingCompleted({
+        form_type: 'find_your_team',
+        city: answers.city,
+        weekend: answers.weekend,
+        core_skill: answers.coreSkill,
+      });
+      analytics.userSignedUp({
+        form_type: 'find_your_team',
+        city: answers.city,
+        core_skill: answers.coreSkill,
+      });
+      analytics.subscriptionStarted({
+        form_type: 'find_your_team',
+        city: answers.city,
+        weekend: answers.weekend,
+      });
+      redirectToCheckout();
     } catch (error) {
       console.error('submit form error', error);
+      setSubmitError('We could not submit your profile right now. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -536,29 +489,23 @@ export default function Login2CompanyBriefPage() {
             <div className="text-[13px] font-bold uppercase tracking-[0.16em] text-[#ff7a2f]">
               {currentStep.eyebrow}
             </div>
-            <h1 className="mt-3 max-w-[16ch] text-[34px] font-semibold leading-[1.02] tracking-[-0.05em] text-[#111827] lg:text-[48px]">
+            <h1 className="mt-3 max-w-[16ch] text-[34px] font-semibold leading-[1.02] tracking-[-0.025em] text-[#111827] lg:text-[48px]">
               {currentStep.title}
             </h1>
             <p className="mt-3 max-w-[52ch] text-[16px] leading-7 text-[#7a4a30]">{currentStep.helper}</p>
 
-            {isCheckoutStep ? (
-              <div className="mt-9">
-                <PolarCheckoutEmbed />
-              </div>
-            ) : (
-              <div className="mt-9 grid gap-6">
-                {currentStep.fields.map((field) => (
-                  <FieldInput
-                    key={field.id}
-                    field={field}
-                    value={answers[field.id] ?? ''}
-                    otherValue={otherAnswers[field.id] ?? ''}
-                    onAnswer={setAnswer}
-                    onOtherAnswer={setOtherAnswer}
-                  />
-                ))}
-              </div>
-            )}
+            <div className="mt-9 grid gap-6">
+              {currentStep.fields.map((field) => (
+                <FieldInput
+                  key={field.id}
+                  field={field}
+                  value={answers[field.id] ?? ''}
+                  otherValue={otherAnswers[field.id] ?? ''}
+                  onAnswer={setAnswer}
+                  onOtherAnswer={setOtherAnswer}
+                />
+              ))}
+            </div>
 
             <div className="mt-10 flex items-center justify-between gap-4">
               <button
@@ -578,17 +525,17 @@ export default function Login2CompanyBriefPage() {
                   if (isLastStep) void submitAnswers();
                 }}
                 disabled={!hasValidStep || isSubmitting}
-                className={cn(
-                  'h-[50px] min-w-[180px] rounded-[14px] shadow-[0_12px_24px_rgba(255,122,33,0.18)] disabled:opacity-50',
-                  isCheckoutStep
-                    ? 'bg-[linear-gradient(180deg,#ff8a34_0%,#ff7a21_100%)] text-white'
-                    : 'bg-[linear-gradient(180deg,#ff8a34_0%,#ff7a21_100%)]',
-                )}
+                className="h-[50px] min-w-[180px] rounded-[14px] bg-[linear-gradient(180deg,#ff8a34_0%,#ff7a21_100%)] shadow-[0_12px_24px_rgba(255,122,33,0.18)] disabled:opacity-50"
               >
-                {isCheckoutStep ? 'Explore my table' : isLastStep ? 'Find my team' : 'Continue'}
+                {isSubmitting ? 'Sending...' : isLastStep ? 'Find my team' : 'Continue'}
                 {!isLastStep ? <RiArrowRightLine className="ml-2 size-4" /> : null}
               </FancyButton.Root>
             </div>
+            {submitError ? (
+              <div className="mt-4 rounded-[14px] border border-[#ffd5c2] bg-[#fff3ea] px-4 py-3 text-[14px] font-medium text-[#9f3418]">
+                {submitError}
+              </div>
+            ) : null}
           </div>
         </section>
 
@@ -596,7 +543,7 @@ export default function Login2CompanyBriefPage() {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01)_46%,rgba(255,255,255,0.14)),radial-gradient(circle_at_100%_100%,rgba(255,255,255,0.38),transparent_34%)]" />
           <div className="relative z-10 mt-[18%] max-w-[380px] pl-4">
             <RoomIllustration />
-            <p className="mt-8 max-w-[13ch] text-[32px] font-semibold leading-[1.1] tracking-[-0.05em] text-white">
+            <p className="mt-8 max-w-[13ch] text-[32px] font-semibold leading-[1.1] tracking-[-0.025em] text-white">
               Your city. Your skills. The right table.
             </p>
             <p className="mt-5 max-w-[27ch] text-[17px] leading-8 text-white/84">
@@ -609,11 +556,37 @@ export default function Login2CompanyBriefPage() {
           </div>
         </aside>
       </div>
-      <Script
-        src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@0.1/dist/embed.global.js"
-        strategy="afterInteractive"
-        data-auto-init
-      />
+
+      {isSuccessModalOpen ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#111827]/45 px-4 py-6 backdrop-blur-sm">
+          <div className="w-full max-w-[440px] rounded-[28px] border border-white/60 bg-white p-6 text-center shadow-[0_28px_80px_rgba(15,23,42,0.22)]">
+            <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-[#ffe779] text-[28px] font-black text-[#111827] shadow-[0_14px_28px_rgba(255,231,121,0.24)]">
+              ✓
+            </div>
+            <h2 className="mt-5 text-[30px] font-semibold leading-[1.02] tracking-[-0.025em] text-[#111827]">
+              Request received.
+            </h2>
+            <p className="mx-auto mt-3 max-w-[32ch] text-[15px] leading-7 text-[#7a4a30]">
+              Thanks for sharing your profile. We will review your answers and send the next details to your email.
+            </p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => setIsSuccessModalOpen(false)}
+                className="flex h-[50px] flex-1 items-center justify-center rounded-[14px] border border-[#e7e3db] bg-white px-5 text-[15px] font-semibold text-[#344054] transition hover:bg-[#fffaf5]"
+              >
+                Close
+              </button>
+              <Link
+                href="/"
+                className="flex h-[50px] flex-1 items-center justify-center rounded-[14px] bg-[linear-gradient(180deg,#ff8a34_0%,#ff7a21_100%)] px-5 text-[15px] font-semibold text-white shadow-[0_12px_24px_rgba(255,122,33,0.18)] transition hover:-translate-y-0.5"
+              >
+                Back to homepage
+              </Link>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </main>
   );
 }

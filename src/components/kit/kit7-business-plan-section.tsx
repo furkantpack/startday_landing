@@ -68,7 +68,7 @@ export function Kit7BusinessPlanSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[1040px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Business Finland&apos;ın Beklediği Tam Yapı
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -87,7 +87,7 @@ export function Kit7BusinessPlanSection() {
         <div className="min-w-0 space-y-6">
           <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
             <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-              <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Çalışma Akışı</div>
+              <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Çalışma Akışı</div>
               <div className="mt-5 space-y-3">
                 {[
                   'Önce metni burada yaz, sonra Enter Finland’a aktar.',
@@ -106,7 +106,7 @@ export function Kit7BusinessPlanSection() {
             </div>
 
             <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-              <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Hızlı Kontrol Listesi</div>
+              <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Hızlı Kontrol Listesi</div>
               <div className="mt-5 grid gap-3 md:grid-cols-2">
                 {[
                   'Uluslararası büyüme hikâyesi var mı?',
@@ -132,7 +132,7 @@ export function Kit7BusinessPlanSection() {
                     {item.number}
                   </div>
                   <div>
-                    <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                    <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
                     <div className="mt-1 text-[14px] text-[#667085]">{item.hint}</div>
                   </div>
                 </div>
@@ -152,7 +152,7 @@ export function Kit7BusinessPlanSection() {
                 04
               </div>
               <div>
-                <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">Rekabet Analizi</div>
+                <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">Rekabet Analizi</div>
                 <div className="mt-1 text-[14px] text-[#667085]">Rakipleri kısa, net ve fark odaklı anlat. Üç rakip yeterli.</div>
               </div>
             </div>
@@ -209,7 +209,7 @@ export function Kit7BusinessPlanSection() {
                     {item.number}
                   </div>
                   <div>
-                    <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                    <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
                     <div className="mt-1 text-[14px] text-[#667085]">{item.hint}</div>
                   </div>
                 </div>
@@ -235,7 +235,7 @@ export function Kit7BusinessPlanSection() {
                   1:1 destek
                 </div>
               </div>
-              <div className="mt-3 text-[18px] font-semibold tracking-[-0.04em] text-[#101828]">
+              <div className="mt-3 text-[18px] font-semibold tracking-[-0.025em] text-[#101828]">
                 Birlikte hazırlayalım
               </div>
               <p className="mt-1.5 text-[13px] leading-6 text-[#475467]">

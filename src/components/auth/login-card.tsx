@@ -38,7 +38,7 @@ export function LoginCard() {
       <div className="flex flex-col items-center gap-5">
         <img src="https://alignui.com/images/logo/aurora.svg" alt="" className="size-14" />
         <div className="text-center">
-          <div className="text-[28px] font-semibold tracking-[-0.04em] text-[var(--text-strong-950)]">
+          <div className="text-[28px] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
             Create an account
           </div>
           <div className="text-[15px] text-[var(--text-sub-600)]">

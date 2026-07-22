@@ -123,7 +123,7 @@ export function Kit7SuccessStoriesSection() {
         <div className="inline-flex rounded-full border border-[#dbe7ff] bg-[#f8fbff] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#4361ee]">
           Başarı Hikayeleri
         </div>
-        <div className="mt-4 text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="mt-4 text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Gerçek Başvuruculardan Dersler
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -135,7 +135,7 @@ export function Kit7SuccessStoriesSection() {
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] lg:p-7">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Kurucu yorumları</div>
+            <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Kurucu yorumları</div>
             <p className="mt-2 text-[15px] leading-7 text-[#475467]">
               Başvurudan sonra en çok tekrar edilen noktalar: net pazar verisi, gerçek ekip katkısı ve Finlandiya’ya
               özel bağlantı.
@@ -171,7 +171,7 @@ export function Kit7SuccessStoriesSection() {
                   </div>
                   <div className="text-[13px] text-[#667085]">{review.source}</div>
                 </div>
-                <div className="text-[24px] leading-9 font-semibold tracking-[-0.04em] text-[#101828]">{review.quote}</div>
+                <div className="text-[24px] leading-9 font-semibold tracking-[-0.025em] text-[#101828]">{review.quote}</div>
               </div>
               <div className="flex flex-col gap-1">
                 <div className="text-[15px] font-medium text-[#101828]">{review.name}</div>
@@ -185,7 +185,7 @@ export function Kit7SuccessStoriesSection() {
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-5 shadow-[0_8px_18px_rgba(15,23,42,0.04)] lg:p-7">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Detaylı profil incelemesi</div>
+            <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Detaylı profil incelemesi</div>
             <p className="mt-2 text-[15px] leading-7 text-[#475467]">
               Üç farklı başvuru tipi üzerinden hangi yapıların işe yaradığını karşılaştır.
             </p>
@@ -224,7 +224,7 @@ export function Kit7SuccessStoriesSection() {
                 <div className="flex items-end justify-between gap-4">
                   <div>
                     <div className="text-[14px] font-medium text-[#667085]">{activeStory.subtitle}</div>
-                    <div className="mt-1 text-[20px] font-semibold tracking-[-0.04em] text-[#101828]">{activeStory.title}</div>
+                    <div className="mt-1 text-[20px] font-semibold tracking-[-0.025em] text-[#101828]">{activeStory.title}</div>
                   </div>
                   <div className="flex size-14 items-center justify-center rounded-[18px] bg-white text-[18px] font-semibold text-[#101828] shadow-[0_8px_18px_rgba(15,23,42,0.06)]">
                     {activeStory.initials}
@@ -249,7 +249,7 @@ export function Kit7SuccessStoriesSection() {
                   <div className="text-[14px] text-[#667085]">{activeStory.subtitle}</div>
                 </div>
 
-                <div className="text-[22px] leading-[1.45] font-semibold tracking-[-0.04em] text-[#475467] lg:text-[26px]">
+                <div className="text-[22px] leading-[1.45] font-semibold tracking-[-0.025em] text-[#475467] lg:text-[26px]">
                   {activeStory.quote}{' '}
                   <span className="text-[#101828]">{activeStory.highlight}</span>
                 </div>
@@ -281,7 +281,7 @@ export function Kit7SuccessStoriesSection() {
                 >
                   <p className={`text-[14px] ${isApproval ? 'text-[#067647]' : 'text-[#667085]'}`}>{stat.label}</p>
                   <h3
-                    className={`text-[22px] font-semibold tracking-[-0.05em] xl:text-[26px] ${
+                    className={`text-[22px] font-semibold tracking-[-0.025em] xl:text-[26px] ${
                       isApproval ? 'text-[#067647]' : 'text-[#101828]'
                     }`}
                   >

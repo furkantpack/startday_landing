@@ -70,7 +70,7 @@ export function FinanceHero() {
                 </span>
               </div>
 
-              <h1 className="mt-5 max-w-[620px] text-[3.15rem] font-semibold leading-[1.05] tracking-[-0.07em] text-[#1d1f24] sm:text-[3.45rem] md:text-[4.15rem] lg:text-[4.7rem]">
+              <h1 className="mt-5 max-w-[620px] text-[3.15rem] font-semibold leading-[1.05] tracking-[-0.025em] text-[#1d1f24] sm:text-[3.45rem] md:text-[4.15rem] lg:text-[4.7rem]">
                 Track your finances with live analytics in one place
               </h1>
 
@@ -175,7 +175,7 @@ export function FinanceHero() {
                         </span>
                       </div>
                       <div className="mt-1 flex items-baseline gap-2">
-                        <span className="text-[1.6rem] font-semibold tracking-[-0.06em] text-[#22262d] sm:text-[2.05rem]">
+                        <span className="text-[1.6rem] font-semibold tracking-[-0.025em] text-[#22262d] sm:text-[2.05rem]">
                           58%
                         </span>
                         <span className="text-[0.84rem] font-semibold text-[var(--primary-base)] sm:text-[1rem]">
@@ -241,7 +241,7 @@ export function FinanceHero() {
                     <span className="rounded-[1px] bg-current opacity-65" />
                     <span className="rounded-[1px] bg-current opacity-85" />
                   </span>
-                  <span className="text-[1.05rem] font-medium tracking-[-0.02em]">
+                  <span className="text-[1.05rem] font-medium tracking-[-0.025em]">
                     {brand}
                     <span className="text-[0.75rem] align-top">TM</span>
                   </span>

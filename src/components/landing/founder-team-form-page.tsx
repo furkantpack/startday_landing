@@ -20,6 +20,7 @@ import {
 
 import * as Button from '@/components/ui/button';
 import * as Badge from '@/components/ui/badge';
+import { redirectToCheckout } from '@/lib/checkout';
 import { cn } from '@/lib/utils';
 
 type StepQuestion = {
@@ -140,7 +141,7 @@ export function FounderTeamFormPage() {
             </div>
 
             <div className="max-w-[680px]">
-              <h1 className="max-w-[12ch] text-[2.5rem] font-semibold leading-[0.96] tracking-[-0.06em] text-[#431604] lg:text-[3.35rem]">
+              <h1 className="max-w-[12ch] text-[2.5rem] font-semibold leading-[0.96] tracking-[-0.025em] text-[#431604] lg:text-[3.35rem]">
                 {question.label}
               </h1>
               <p className="mt-4 max-w-[46ch] text-[1rem] leading-7 text-[#7a4a30] lg:text-[1.08rem]">
@@ -187,7 +188,7 @@ export function FounderTeamFormPage() {
                       ) : null}
 
                       <div className="min-w-0">
-                        <div className="text-[16px] font-semibold tracking-[-0.03em] text-[#431604]">{option}</div>
+                        <div className="text-[16px] font-semibold tracking-[-0.025em] text-[#431604]">{option}</div>
                         <div className="mt-1 text-[13px] text-[#8a634d]">
                           {isSelected ? 'Selected for your match profile' : 'Tap to choose this option'}
                         </div>
@@ -216,11 +217,12 @@ export function FounderTeamFormPage() {
                 onClick={() => {
                   if (!selectedValue) return;
                   if (!isLastStep) setStep((value) => value + 1);
+                  if (isLastStep) redirectToCheckout();
                 }}
-                disabled={!selectedValue || isLastStep}
+                disabled={!selectedValue}
                 className="h-12 min-w-[180px] rounded-[18px] bg-[linear-gradient(180deg,#d9fb2f_0%,#c8ec24_100%)] px-6 text-[#341304] shadow-[0_16px_34px_rgba(212,241,38,0.22)] hover:brightness-[0.99]"
               >
-                Continue
+                {isLastStep ? 'Continue to payment' : 'Continue'}
                 <Button.Icon as={RiArrowRightLine} className="size-4" />
               </Button.Root>
             </div>
@@ -237,7 +239,7 @@ export function FounderTeamFormPage() {
           </div>
 
           <div className="relative z-10 mt-10">
-            <h2 className="max-w-[10ch] text-[2.9rem] font-semibold leading-[0.94] tracking-[-0.06em] text-[#fff8ef]">
+            <h2 className="max-w-[10ch] text-[2.9rem] font-semibold leading-[0.94] tracking-[-0.025em] text-[#fff8ef]">
               We curate the team chemistry for you.
             </h2>
             <p className="mt-5 max-w-[30ch] text-[1.05rem] leading-8 text-white/74">

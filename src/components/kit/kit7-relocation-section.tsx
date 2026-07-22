@@ -89,7 +89,7 @@ export function Kit7RelocationSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[1040px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Helsinki'de Gerçekçi Yaşam Maliyeti: MVP vs Konforlu Bütçe
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -106,8 +106,8 @@ export function Kit7RelocationSection() {
             className={`rounded-[28px] border p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${card.tone}`}
           >
             <div className="flex items-end justify-between gap-4">
-              <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{card.title}</div>
-              <div className="text-[24px] font-semibold tracking-[-0.05em] text-[#101828]">{card.total}</div>
+              <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{card.title}</div>
+              <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{card.total}</div>
             </div>
 
             <div className="mt-5 space-y-3">
@@ -117,7 +117,7 @@ export function Kit7RelocationSection() {
                   className="flex items-center justify-between gap-4 rounded-[18px] border border-white/80 bg-white/85 px-4 py-4"
                 >
                   <div className="text-[14px] leading-7 text-[#475467]">{label}</div>
-                  <div className="text-[18px] font-semibold tracking-[-0.04em] text-[#101828]">{value}</div>
+                  <div className="text-[18px] font-semibold tracking-[-0.025em] text-[#101828]">{value}</div>
                 </div>
               ))}
             </div>
@@ -126,7 +126,7 @@ export function Kit7RelocationSection() {
       </div>
 
       <div className="space-y-5">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Bölge Bazlı Kira Rehberi (Helsinki)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Bölge Bazlı Kira Rehberi (Helsinki)</div>
         <div className="overflow-x-auto rounded-[28px] border border-[#e6eaf2] bg-white shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
           <table className="min-w-[760px] w-full border-collapse">
             <thead>
@@ -152,7 +152,7 @@ export function Kit7RelocationSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Pratik Bilgiler</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Pratik Bilgiler</div>
         <div className="mt-6 grid gap-4 xl:grid-cols-2">
           {practicalNotes.map((item) => (
             <div key={item.title} className="rounded-[20px] border border-[#edf1f7] bg-[#fcfdff] p-5">

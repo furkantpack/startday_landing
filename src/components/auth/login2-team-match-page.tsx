@@ -18,6 +18,7 @@ import {
 } from '@remixicon/react';
 
 import * as FancyButton from '@/components/ui/fancy-button';
+import { redirectToCheckout } from '@/lib/checkout';
 import { cn } from '@/lib/utils';
 
 const questions = [
@@ -235,7 +236,7 @@ export default function Login2TeamMatchPage() {
             </div>
 
             <div className="max-w-[700px]">
-              <h1 className="max-w-[14ch] text-[34px] font-semibold leading-[1.02] tracking-[-0.05em] text-[#111827] lg:text-[48px]">
+              <h1 className="max-w-[14ch] text-[34px] font-semibold leading-[1.02] tracking-[-0.025em] text-[#111827] lg:text-[48px]">
                 {question.label}
               </h1>
               <p className="mt-3 max-w-[42ch] text-[16px] leading-7 text-[#7a4a30]">
@@ -318,11 +319,12 @@ export default function Login2TeamMatchPage() {
                 onClick={() => {
                   if (!selectedValue) return;
                   if (!isLastStep) setStep((value) => value + 1);
+                  if (isLastStep) redirectToCheckout();
                 }}
-                disabled={!selectedValue || isLastStep}
+                disabled={!selectedValue}
                 className="h-[50px] min-w-[180px] rounded-[14px] bg-[linear-gradient(180deg,#ff8a34_0%,#ff7a21_100%)] shadow-[0_12px_24px_rgba(255,122,33,0.18)] disabled:opacity-50"
               >
-                {isLastStep ? 'Profile ready' : 'Continue'}
+                {isLastStep ? 'Continue to payment' : 'Continue'}
                 {!isLastStep ? <RiArrowRightLine className="ml-2 size-4" /> : null}
               </FancyButton.Root>
             </div>
@@ -337,7 +339,7 @@ export default function Login2TeamMatchPage() {
               <FriendFacesIllustration />
             </div>
 
-            <p className="max-w-[12ch] text-[32px] font-semibold leading-[1.1] tracking-[-0.05em] text-white">
+            <p className="max-w-[12ch] text-[32px] font-semibold leading-[1.1] tracking-[-0.025em] text-white">
               Meet strangers. Build something real.
             </p>
 

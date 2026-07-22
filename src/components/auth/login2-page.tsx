@@ -35,7 +35,7 @@ function TestimonialPanel() {
           <div className="flex size-full items-center justify-center rounded-full bg-[url('https://alignui.com/images/avatar/illustration/sophia.png')] bg-cover bg-center" />
         </div>
 
-        <p className="max-w-[14ch] text-[30px] font-semibold leading-[1.12] tracking-[-0.05em] text-white xl:text-[34px]">
+        <p className="max-w-[14ch] text-[30px] font-semibold leading-[1.12] tracking-[-0.025em] text-white xl:text-[34px]">
           We turn complex relocation decisions into a much clearer visa roadmap.
         </p>
 
@@ -91,7 +91,7 @@ export default function Login2Page() {
             </div>
 
             <div className="text-center">
-              <h1 className="text-[34px] font-semibold tracking-[-0.05em] text-[#111827]">Login to your account</h1>
+              <h1 className="text-[34px] font-semibold tracking-[-0.025em] text-[#111827]">Login to your account</h1>
               <p className="mt-2 text-[16px] text-[#667085]">Enter your details to start your onboarding.</p>
             </div>
 

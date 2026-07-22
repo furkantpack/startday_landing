@@ -865,7 +865,7 @@ function Kit6OpportunityBriefSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[30px] font-semibold tracking-[-0.05em] text-[#101828] sm:text-[34px]">Why PreMeet, Why Now?</div>
+        <div className="text-[30px] font-semibold tracking-[-0.025em] text-[#101828] sm:text-[34px]">Why PreMeet, Why Now?</div>
         <p className="mt-4 text-[15px] leading-7 text-[#475467] sm:text-[16px] sm:leading-8">
           Meetings are the single most expensive recurring cost in knowledge work, and almost nobody treats them that
           way. U.S. businesses lose approximately $375 billion annually to unproductive meetings. The average knowledge
@@ -889,7 +889,7 @@ function Kit6OpportunityBriefSection() {
               key={stat.label}
               className={`rounded-[24px] border border-[#e6eaf2] p-5 sm:rounded-[28px] sm:p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${stat.className}`}
             >
-              <div className="text-[34px] font-semibold tracking-[-0.06em] text-[#101828] sm:text-[42px]">{stat.value}</div>
+              <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828] sm:text-[42px]">{stat.value}</div>
               <div className="mt-2 text-[16px] font-medium text-[#101828] sm:mt-3 sm:text-[17px]">{stat.label}</div>
               <div className="mt-2 text-[13px] leading-6 text-[#475467] sm:text-[14px] sm:leading-7">{stat.note}</div>
             </div>
@@ -897,7 +897,7 @@ function Kit6OpportunityBriefSection() {
         </div>
 
         <div className="rounded-[24px] border border-[#e6eaf2] bg-white p-5 sm:rounded-[28px] sm:p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828] sm:text-[24px]">The Gap No One Has Filled</div>
+          <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828] sm:text-[24px]">The Gap No One Has Filled</div>
           <div className="mt-6 space-y-4">
             {preMeetGapRows.map((row, index) => (
               <div
@@ -908,7 +908,7 @@ function Kit6OpportunityBriefSection() {
                     : 'border-[#edf1f7] bg-[#fcfdff]'
                 }`}
               >
-                <div className="text-[17px] font-semibold tracking-[-0.03em] text-[#101828] sm:text-[18px]">{row.product}</div>
+                <div className="text-[17px] font-semibold tracking-[-0.025em] text-[#101828] sm:text-[18px]">{row.product}</div>
                 <p className="mt-3 text-[14px] leading-7 text-[#475467] sm:text-[15px] sm:leading-8">{row.detail}</p>
               </div>
             ))}
@@ -916,7 +916,7 @@ function Kit6OpportunityBriefSection() {
         </div>
 
         <div className="rounded-[24px] border border-[#e6eaf2] bg-white p-5 sm:rounded-[28px] sm:p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828] sm:text-[24px]">Market Signals & Validation</div>
+          <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828] sm:text-[24px]">Market Signals & Validation</div>
           <div className="mt-5 grid gap-3">
             {preMeetMarketSignals.map((item, index) => (
               <div
@@ -939,7 +939,7 @@ function Kit6ProductSpecSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">PreMeet: Product Definition</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">PreMeet: Product Definition</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           One-Sentence Value Prop: &quot;Enter a meeting topic and your attendees — PreMeet&apos;s AI agents scan
           everyone&apos;s sources, compare notes with each other, and deliver a gap report showing only the points that
@@ -957,7 +957,7 @@ function Kit6ProductSpecSection() {
       />
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">End-to-End Agent Workflow</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">End-to-End Agent Workflow</div>
         <div className="mt-6 grid gap-5 xl:grid-cols-3">
           {preMeetWorkflowSteps.map((item) => (
             <div
@@ -967,7 +967,7 @@ function Kit6ProductSpecSection() {
               <div className="inline-flex rounded-[10px] bg-[#eef7ff] px-3 py-1 text-[12px] font-semibold text-[#4361ee]">
                 Step {item.step}
               </div>
-              <div className="mt-4 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+              <div className="mt-4 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
             </div>
           ))}
@@ -981,7 +981,7 @@ function Kit6TargetMarketsSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Who Buys PreMeet and Why</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Who Buys PreMeet and Why</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           PreMeet&apos;s primary buyer is the person who feels the cost of bad meetings most acutely: the VP of
           Operations, Chief of Staff, Head of Product, or founder who sees half the week disappear into preparation
@@ -991,7 +991,7 @@ function Kit6TargetMarketsSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Target Markets & Segments</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Target Markets & Segments</div>
         <NativeTable
           columns={[
             { key: 'segment', label: 'Segment', className: 'w-[34%]' },
@@ -1004,7 +1004,7 @@ function Kit6TargetMarketsSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Buyer Persona Profiles</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Buyer Persona Profiles</div>
         <div className="grid gap-5 xl:grid-cols-3">
           {preMeetPersonas.map((persona) => (
             <div
@@ -1012,7 +1012,7 @@ function Kit6TargetMarketsSection() {
               className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${persona.tone}`}
             >
               <div className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#667085]">{persona.role}</div>
-              <div className="mt-3 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{persona.title}</div>
+              <div className="mt-3 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{persona.title}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{persona.detail}</p>
               <div className="mt-5 rounded-[18px] border border-white/60 bg-white/70 px-4 py-4 text-[15px] leading-7 text-[#101828]">
                 <span className="font-semibold">Key message:</span> {persona.message}
@@ -1023,7 +1023,7 @@ function Kit6TargetMarketsSection() {
       </div>
 
         <div className="space-y-6">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Geographic Priority Matrix</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Geographic Priority Matrix</div>
           <NativeTable
             columns={[
               { key: 'region', label: 'Region', className: 'w-[24%]' },
@@ -1067,7 +1067,7 @@ function Kit6CompetitorMapSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Competitive Landscape</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Competitive Landscape</div>
       </div>
 
       <div className="overflow-x-auto rounded-[28px] border border-[#e6eaf2] bg-white shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
@@ -1121,7 +1121,7 @@ function Kit6RevenueModelSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Outcome-Based Pricing � Pay for Saved Hours</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Outcome-Based Pricing � Pay for Saved Hours</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Pricing Philosophy: PreMeet charges a fraction of the value it creates. For every hour of meeting time saved,
           PreMeet bills $7. The average knowledge worker costs ~$100/hr in total compensation, so PreMeet invoices 7%
@@ -1141,14 +1141,14 @@ function Kit6RevenueModelSection() {
             }`}
           >
             <div className="text-[13px] font-semibold uppercase tracking-[0.08em] text-[#98a2b3]">{plan.name}</div>
-            <div className="mt-4 text-[36px] font-semibold tracking-[-0.06em] text-[#101828]">{plan.price}</div>
+            <div className="mt-4 text-[36px] font-semibold tracking-[-0.025em] text-[#101828]">{plan.price}</div>
             <p className="mt-4 text-[15px] leading-8 text-[#475467]">{plan.detail}</p>
           </div>
         ))}
       </div>
 
         <div className="rounded-[28px] border border-[#d7f0e2] bg-[linear-gradient(135deg,#f4fbf7_0%,#eff6ff_100%)] p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Outcome-Based Billing (Scale+ and Enterprise)</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Outcome-Based Billing (Scale+ and Enterprise)</div>
           <div className="mt-5 grid gap-4">
             {[
               'Hours saved calculated per meeting: (standard meeting length for type) minus (actual meeting length after Gap Report) � attendee count',
@@ -1168,7 +1168,7 @@ function Kit6RevenueModelSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">12-Month MRR Projection</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">12-Month MRR Projection</div>
         <div className="mt-6 space-y-4">
           {preMeetProjection.map((item) => (
             <div key={item.month} className="grid grid-cols-[36px_minmax(0,1fr)_110px] items-center gap-4">
@@ -1192,7 +1192,7 @@ function Kit6First50CustomersSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">ICP Profiles & 30-60-90 Day Acquisition Plan</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">ICP Profiles & 30-60-90 Day Acquisition Plan</div>
       </div>
 
       <div className="grid gap-5">
@@ -1205,7 +1205,7 @@ function Kit6First50CustomersSection() {
               <div className="inline-flex rounded-[10px] bg-[#f6f8fb] px-3 py-1 text-[12px] font-semibold text-[#667085]">
                 {card.period}
               </div>
-              <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{card.title}</div>
+              <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{card.title}</div>
             </div>
 
             <div className="mt-6 grid gap-3">
@@ -1236,12 +1236,12 @@ function Kit6ConversionFunnelsSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Conversion Funnels</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Conversion Funnels</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">Acquisition & Activation — Month 6 Targets</p>
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Funnel 1: PLG / Inbound</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Funnel 1: PLG / Inbound</div>
         <div className="mt-6 space-y-4">
           {preMeetFunnelRows.map((row) => (
             <div key={row.label} className="grid grid-cols-[240px_minmax(0,1fr)_72px] items-center gap-5">
@@ -1261,7 +1261,7 @@ function Kit6ConversionFunnelsSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Meeting Time: Before vs. After PreMeet</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Meeting Time: Before vs. After PreMeet</div>
         <NativeTable
           columns={[
             { key: 'type', label: 'Meeting Type', className: 'w-[22%]' },
@@ -1325,7 +1325,7 @@ function Kit6CodePromptsSection() {
                   {prompt.category}
                 </div>
               </div>
-              <div className="mt-4 text-[26px] font-semibold tracking-[-0.05em] text-[#101828]">{prompt.title}</div>
+              <div className="mt-4 text-[26px] font-semibold tracking-[-0.025em] text-[#101828]">{prompt.title}</div>
             </div>
 
             <div className="p-6">
@@ -1354,7 +1354,7 @@ function Kit6TechStackSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Technical Architecture</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Technical Architecture</div>
       </div>
 
       <NativeTable
@@ -1369,14 +1369,14 @@ function Kit6TechStackSection() {
       />
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Agent Architecture — 3 Layers</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Agent Architecture — 3 Layers</div>
         <div className="grid gap-4 xl:grid-cols-3">
           {stackReaperArchitecture.map((item) => (
             <div
               key={item.title}
               className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${item.tone}`}
             >
-              <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+              <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
             </div>
           ))}
@@ -1384,7 +1384,7 @@ function Kit6TechStackSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Build Timeline</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Build Timeline</div>
         <div className="mt-6 grid gap-5 xl:grid-cols-3">
           {stackReaperTimeline.map((item) => (
             <div
@@ -1395,7 +1395,7 @@ function Kit6TechStackSection() {
                 <div className="inline-flex rounded-[9px] bg-[#f6f8fb] px-2.5 py-1.5 text-[12px] font-medium text-[#667085]">
                   {item.week}
                 </div>
-                <div className="mt-5 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                <div className="mt-5 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
                 <p className="mt-3 text-[15px] leading-7 text-[#667085]">{item.summary}</p>
               </div>
               <div className="border-t border-[#e6eaf2] pt-5 text-[14px] leading-7 text-[#475467]">{item.detail}</div>
@@ -1433,7 +1433,7 @@ function Kit6DesignSystemSection() {
         <div className="inline-flex rounded-[10px] bg-white px-3 py-1 text-[12px] font-semibold text-[#7C3AED] shadow-[0_4px_10px_rgba(124,58,237,0.08)]">
           Deep Focus Violet
         </div>
-        <div className="mt-4 text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="mt-4 text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Intelligent, Calm, Decisive
         </div>
         <p className="mt-4 max-w-[900px] text-[16px] leading-8 text-[#475467]">
@@ -1443,7 +1443,7 @@ function Kit6DesignSystemSection() {
       </div>
 
       <div className="space-y-5">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Color Palette</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Color Palette</div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {colors.map((color) => (
             <div
@@ -1453,7 +1453,7 @@ function Kit6DesignSystemSection() {
               <div className={`h-28 rounded-[18px] border border-[#e6eaf2] ${color.tone}`} />
               <div className="mt-4 flex items-start justify-between gap-4">
                 <div>
-                  <div className="text-[18px] font-semibold tracking-[-0.03em] text-[#101828]">{color.name}</div>
+                  <div className="text-[18px] font-semibold tracking-[-0.025em] text-[#101828]">{color.name}</div>
                   <div className="mt-1 font-mono text-[12px] text-[#667085]">{color.hex}</div>
                 </div>
               </div>
@@ -1464,7 +1464,7 @@ function Kit6DesignSystemSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Typography</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Typography</div>
         <NativeTable
           columns={[
             { key: 'style', label: 'Style', className: 'w-[18%]' },
@@ -1478,7 +1478,7 @@ function Kit6DesignSystemSection() {
 
       <div className="space-y-5">
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Product Surface Preview</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Product Surface Preview</div>
           <div className="mt-6 overflow-hidden rounded-[24px] border border-[#e9ddff] bg-[#F5F3FF] p-5">
             <div className="grid gap-4 xl:grid-cols-[200px_1fr]">
               <div className="rounded-[22px] bg-white p-4 shadow-[0_8px_16px_rgba(124,58,237,0.08)]">
@@ -1507,7 +1507,7 @@ function Kit6DesignSystemSection() {
                   ].map(([label, value, tone]) => (
                     <div key={label} className="rounded-[18px] bg-white p-4 shadow-[0_8px_16px_rgba(15,23,42,0.04)]">
                       <div className="text-[12px] font-medium text-[#98A2B3]">{label}</div>
-                      <div className="mt-3 font-mono text-[24px] font-semibold tracking-[-0.04em]" style={{ color: tone }}>
+                      <div className="mt-3 font-mono text-[24px] font-semibold tracking-[-0.025em]" style={{ color: tone }}>
                         {value}
                       </div>
                     </div>
@@ -1516,7 +1516,7 @@ function Kit6DesignSystemSection() {
 
                 <div className="rounded-[22px] bg-white p-5 shadow-[0_8px_16px_rgba(15,23,42,0.04)]">
                   <div className="flex items-center justify-between gap-3">
-                    <div className="text-[18px] font-semibold tracking-[-0.03em] text-[#101828]">Gap Report</div>
+                    <div className="text-[18px] font-semibold tracking-[-0.025em] text-[#101828]">Gap Report</div>
                     <div className="inline-flex rounded-full bg-[#FEF3C7] px-3 py-1 text-[11px] font-semibold text-[#B54708]">
                       3 Gaps
                     </div>
@@ -1615,7 +1615,7 @@ function Kit6PromptPackSection() {
             Use-case specific
           </div>
         </div>
-        <div className="mt-4 text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="mt-4 text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Gap Detection & Report Generation Prompts by Use Case
         </div>
         <p className="mt-4 max-w-[920px] text-[16px] leading-8 text-[#475467]">
@@ -1636,7 +1636,7 @@ function Kit6PromptPackSection() {
                 <div className={`inline-flex rounded-full px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.08em] ${group.accent}`}>
                   Prompt Pack
                 </div>
-                <div className="mt-3 text-[26px] font-semibold tracking-[-0.04em] text-[#101828]">{group.title}</div>
+                <div className="mt-3 text-[26px] font-semibold tracking-[-0.025em] text-[#101828]">{group.title}</div>
               </div>
               <div
                 className={`inline-flex rounded-[12px] px-3 py-2 text-[13px] font-medium ${
@@ -1721,7 +1721,7 @@ function Kit6UIKitSection() {
             Dashboard components
           </div>
         </div>
-        <div className="mt-4 text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="mt-4 text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Dashboard Components � React + Tailwind
         </div>
         <p className="mt-4 max-w-[940px] text-[16px] leading-8 text-[#475467]">
@@ -1733,7 +1733,7 @@ function Kit6UIKitSection() {
       <div className="rounded-[28px] border border-[#ece7fb] bg-[linear-gradient(135deg,#fbf9ff_0%,#f6f3ff_48%,#ffffff_100%)] p-5 sm:p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Dashboard Shell Preview</div>
+            <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Dashboard Shell Preview</div>
             <p className="mt-2 text-[15px] leading-7 text-[#667085]">
               Focused, intelligent, calm. Built like a Linear � Notion hybrid for meeting-heavy teams.
             </p>
@@ -1771,7 +1771,7 @@ function Kit6UIKitSection() {
                 ].map(([label, value, tone]) => (
                   <div key={label} className="rounded-[18px] bg-white p-4 shadow-[0_8px_16px_rgba(15,23,42,0.04)]">
                     <div className="text-[12px] font-medium text-[#98A2B3]">{label}</div>
-                    <div className="mt-3 text-[26px] font-semibold tracking-[-0.04em]" style={{ color: tone }}>
+                    <div className="mt-3 text-[26px] font-semibold tracking-[-0.025em]" style={{ color: tone }}>
                       {value}
                     </div>
                   </div>
@@ -1781,7 +1781,7 @@ function Kit6UIKitSection() {
                 <div className="grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
                   <div className="rounded-[22px] bg-white p-5 shadow-[0_8px_16px_rgba(15,23,42,0.04)]">
                     <div className="flex flex-wrap items-center justify-between gap-3">
-                      <div className="text-[18px] font-semibold tracking-[-0.03em] text-[#101828]">Gap Report Card</div>
+                      <div className="text-[18px] font-semibold tracking-[-0.025em] text-[#101828]">Gap Report Card</div>
                       <div className="flex flex-wrap gap-2">
                         <div className="inline-flex rounded-full bg-[#FEF3C7] px-3 py-1 text-[11px] font-semibold text-[#B54708]">
                           3 Gaps
@@ -1816,7 +1816,7 @@ function Kit6UIKitSection() {
                 </div>
 
                 <div className="rounded-[22px] bg-white p-5 shadow-[0_8px_16px_rgba(15,23,42,0.04)]">
-                  <div className="text-[18px] font-semibold tracking-[-0.03em] text-[#101828]">Recent Meetings</div>
+                  <div className="text-[18px] font-semibold tracking-[-0.025em] text-[#101828]">Recent Meetings</div>
                   <div className="mt-4 space-y-3">
                       {recentMeetings.map((item) => (
                         <div key={item.title} className="rounded-[16px] border border-[#EEF2F6] bg-[#FCFDFF] p-4">
@@ -1884,14 +1884,14 @@ function Kit6UIKitSection() {
             key={card.title}
             className={`rounded-[28px] border p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${card.tone}`}
           >
-            <div className={`text-[22px] font-semibold tracking-[-0.04em] ${card.accent}`}>{card.title}</div>
+            <div className={`text-[22px] font-semibold tracking-[-0.025em] ${card.accent}`}>{card.title}</div>
             <div className="mt-1 text-[14px] text-[#667085]">{card.subtitle}</div>
 
             {index === 0 ? (
               <div className="mt-5 space-y-3">
                 <div className="rounded-[18px] bg-white p-4 shadow-[0_6px_14px_rgba(15,23,42,0.04)]">
                   <div className="text-[12px] uppercase tracking-[0.08em] text-[#98A2B3]">Hours Saved KPI</div>
-                  <div className="mt-3 text-[30px] font-semibold tracking-[-0.05em] text-[#101828]">340h</div>
+                  <div className="mt-3 text-[30px] font-semibold tracking-[-0.025em] text-[#101828]">340h</div>
                   <div className="mt-1 text-[13px] font-medium text-[#10B981]">? $34,000 salary value recovered</div>
                 </div>
                 <div className="rounded-[18px] bg-white p-4 shadow-[0_6px_14px_rgba(15,23,42,0.04)]">
@@ -2049,7 +2049,7 @@ function Kit6ApiSchemaSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">API Schema</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">API Schema</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Base URL: <span className="font-mono text-[#101828]">https://api.premeet.io/v1</span> {' '}� Auth:{' '}
           <span className="font-mono text-[#101828]">Bearer (Supabase JWT)</span>
@@ -2164,7 +2164,7 @@ function Kit6DatabaseSchemaSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Database Schema</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Database Schema</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           PostgreSQL + Supabase RLS
         </p>
@@ -2181,7 +2181,7 @@ function Kit6DatabaseSchemaSection() {
                 <div className={`inline-flex rounded-full px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.08em] ${table.accent}`}>
                   Table
                 </div>
-                <div className="mt-3 text-[28px] font-semibold tracking-[-0.05em] text-[#101828]">{table.title}</div>
+                <div className="mt-3 text-[28px] font-semibold tracking-[-0.025em] text-[#101828]">{table.title}</div>
               </div>
               <div className="rounded-full bg-[#f6f8fb] px-4 py-2 text-[13px] font-medium text-[#667085]">
                 {table.rows.length} columns
@@ -2318,7 +2318,7 @@ function Kit6LandingCopySection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Landing Page Copy Alternatives</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Landing Page Copy Alternatives</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Strategic copy options for PreMeet�s landing flow. Same structure, different angles: executive, radical,
           results-first, and ROI-led paths you can test without rewriting the whole page.
@@ -2336,7 +2336,7 @@ function Kit6LandingCopySection() {
                 <div className={`inline-flex rounded-full px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.08em] ${section.tone}`}>
                   Landing block
                 </div>
-                <div className="mt-3 text-[28px] font-semibold tracking-[-0.05em] text-[#101828]">{section.title}</div>
+                <div className="mt-3 text-[28px] font-semibold tracking-[-0.025em] text-[#101828]">{section.title}</div>
               </div>
               <div className="rounded-full bg-[#f6f8fb] px-4 py-2 text-[13px] font-medium text-[#667085]">
                 {section.items.length} alternatives
@@ -2361,13 +2361,13 @@ function Kit6LandingCopySection() {
                     <div className="inline-flex rounded-[10px] bg-white/70 px-3 py-1 text-[12px] font-semibold text-[#101828]">
                       Option {String.fromCharCode(65 + optionIndex)}
                     </div>
-                    <div className="mt-4 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.label}</div>
+                    <div className="mt-4 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.label}</div>
                   </div>
 
                   <div className="p-6">
                     <div className="rounded-[20px] bg-[#fcfdff] p-5">
                       <div className="text-[12px] uppercase tracking-[0.08em] text-[#98a2b3]">Landing section preview</div>
-                      <div className="mt-3 text-[30px] font-semibold leading-[1.05] tracking-[-0.06em] text-[#101828]">
+                      <div className="mt-3 text-[30px] font-semibold leading-[1.05] tracking-[-0.025em] text-[#101828]">
                         {section.preview}
                       </div>
                       <p className="mt-4 whitespace-pre-line text-[15px] leading-8 text-[#475467]">{item.copy}</p>
@@ -2393,7 +2393,7 @@ function Kit6LandingCopySection() {
               <div className="inline-flex rounded-full bg-[#ecfbf4] px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.08em] text-[#067647]">
                 Pricing / CTA
               </div>
-              <div className="mt-3 text-[28px] font-semibold tracking-[-0.05em] text-[#101828]">Pricing & CTA Alternatives</div>
+              <div className="mt-3 text-[28px] font-semibold tracking-[-0.025em] text-[#101828]">Pricing & CTA Alternatives</div>
             </div>
             <div className="rounded-full bg-[#f6f8fb] px-4 py-2 text-[13px] font-medium text-[#667085]">
               3 alternatives
@@ -2418,12 +2418,12 @@ function Kit6LandingCopySection() {
                   <div className="inline-flex rounded-[10px] bg-white/70 px-3 py-1 text-[12px] font-semibold text-[#101828]">
                     Option {String.fromCharCode(65 + index)}
                   </div>
-                  <div className="mt-4 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.label}</div>
+                  <div className="mt-4 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.label}</div>
                 </div>
                 <div className="p-6">
                   <div className="rounded-[20px] bg-[#fcfdff] p-5">
                     <div className="text-[12px] uppercase tracking-[0.08em] text-[#98a2b3]">Pricing section preview</div>
-                    <div className="mt-3 text-[26px] font-semibold leading-[1.1] tracking-[-0.05em] text-[#101828]">
+                    <div className="mt-3 text-[26px] font-semibold leading-[1.1] tracking-[-0.025em] text-[#101828]">
                       {item.headline}
                     </div>
                     <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.offer}</p>
@@ -2443,7 +2443,7 @@ function Kit6LandingCopySection() {
         </div>
 
         <div className="rounded-[28px] border border-[#e9ddff] bg-[linear-gradient(135deg,#f7f3ff_0%,#f2ecff_56%,#ffffff_100%)] p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Pro Tip for your Landing Page</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Pro Tip for your Landing Page</div>
           <p className="mt-4 text-[15px] leading-8 text-[#475467]">
             Since the core magic is agents talking to agents, use a small product animation or diagram where Agent Alice
             and Agent Bob exchange data bubbles and output a single Gap Report document. That visual instantly separates
@@ -2706,8 +2706,8 @@ function Kit6BrandingKitSection() {
     <section className="mt-10 space-y-8">
       <div className="grid gap-6 xl:grid-cols-2">
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Brand Name</div>
-          <div className="mt-6 text-[48px] font-semibold tracking-[-0.07em]">
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Brand Name</div>
+          <div className="mt-6 text-[48px] font-semibold tracking-[-0.025em]">
             <span className="text-[#0D1117]">PRE</span>
             <span className="text-[#7C3AED]">MEET</span>
           </div>
@@ -2738,7 +2738,7 @@ function Kit6BrandingKitSection() {
         </div>
 
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Brand Voice</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Brand Voice</div>
           <div className="mt-6 grid gap-4">
             {brandVoice.map((item) => (
               <div key={item.title} className="rounded-[20px] border border-[#edf1f7] bg-[#fcfdff] p-4">
@@ -2746,7 +2746,7 @@ function Kit6BrandingKitSection() {
                   <div className={`flex size-10 items-center justify-center rounded-[12px] text-[14px] font-semibold ${item.tone}`}>
                     {item.icon}
                   </div>
-                  <div className="text-[18px] font-semibold tracking-[-0.03em] text-[#101828]">{item.title}</div>
+                  <div className="text-[18px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
                 </div>
                 <p className="mt-3 text-[15px] leading-7 text-[#667085]">{item.detail}</p>
               </div>
@@ -2756,7 +2756,7 @@ function Kit6BrandingKitSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Logo Specification</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Logo Specification</div>
         <div className="overflow-x-auto rounded-[28px] border border-[#e6eaf2] bg-white shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
           <table className="min-w-[760px] w-full border-collapse">
             <thead>
@@ -2778,7 +2778,7 @@ function Kit6BrandingKitSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Brand Voice: Do & Don't Guide</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Brand Voice: Do & Don't Guide</div>
         <div className="overflow-x-auto rounded-[28px] border border-[#e6eaf2] bg-white shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
           <table className="min-w-[860px] w-full border-collapse">
             <thead>
@@ -2864,7 +2864,7 @@ function Kit6LaunchChecklistSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Launch Checklist</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Launch Checklist</div>
         <p className="mt-3 max-w-[760px] text-[15px] leading-8 text-[#667085]">
           Pre-launch and go-live readiness for PreMeet across integrations, legal trust, launch assets, and activation
           flow.
@@ -2881,7 +2881,7 @@ function Kit6LaunchChecklistSection() {
               <div className={`inline-flex rounded-full px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.08em] ${group.tone}`}>
                 Checklist
               </div>
-              <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{group.title}</div>
+              <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{group.title}</div>
             </div>
 
             <div className="mt-6 grid gap-3">
@@ -2980,7 +2980,7 @@ function Kit6PrivacyDataAgreementSection() {
           <div className="flex flex-wrap items-start justify-between gap-5">
             <div>
               <div className="text-[12px] font-semibold uppercase tracking-[0.12em] text-[#98a2b3]">Legal Agreement</div>
-              <div className="mt-3 max-w-[860px] text-[32px] font-semibold tracking-[-0.05em] text-[#101828]">
+              <div className="mt-3 max-w-[860px] text-[32px] font-semibold tracking-[-0.025em] text-[#101828]">
                 Privacy &amp; Data Agreement
               </div>
               <p className="mt-4 max-w-[900px] text-[15px] leading-8 text-[#667085]">
@@ -3004,7 +3004,7 @@ function Kit6PrivacyDataAgreementSection() {
                 <div className="inline-flex rounded-full bg-[#ede9fe] px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.08em] text-[#6d28d9]">
                   Agreement 1
                 </div>
-                <div className="mt-3 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">
+                <div className="mt-3 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">
                   Customer Data Processing Agreement
                 </div>
                 <p className="mt-3 text-[15px] leading-8 text-[#667085]">
@@ -3021,7 +3021,7 @@ function Kit6PrivacyDataAgreementSection() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="text-[12px] font-semibold uppercase tracking-[0.1em] text-[#98a2b3]">Section {item.number}</div>
-                      <div className="mt-2 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                      <div className="mt-2 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
                       <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.body}</p>
                     </div>
                   </div>
@@ -3030,7 +3030,7 @@ function Kit6PrivacyDataAgreementSection() {
 
               <div className="border-t border-[#eceff4] py-7">
                 <div className="text-[12px] font-semibold uppercase tracking-[0.1em] text-[#98a2b3]">Agreement 2</div>
-                <div className="mt-2 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">
+                <div className="mt-2 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">
                   Employee Agent Consent Form
                 </div>
                 <p className="mt-3 text-[15px] leading-8 text-[#667085]">
@@ -3238,7 +3238,7 @@ function Kit6AbTestingSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">A/B Test Scenarios</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">A/B Test Scenarios</div>
         <p className="mt-3 max-w-[980px] text-[16px] leading-8 text-[#667085]">
           Priority growth test scenarios for PREMEET. Each test includes a hypothesis, Variant A, Variant B, success
           metric, and estimated impact. Tests are implemented via PostHog Feature Flags, already available in the stack
@@ -3247,7 +3247,7 @@ function Kit6AbTestingSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Test execution framework</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Test execution framework</div>
         <NativeTable
           columns={[
             { key: 'rule', label: 'Rule', className: 'w-[28%]' },
@@ -3258,7 +3258,7 @@ function Kit6AbTestingSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Test schedule � first 90 days</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Test schedule � first 90 days</div>
         <div className="grid gap-4 xl:grid-cols-3">
           {preMeetAbSchedule.map((item, index) => (
             <div
@@ -3272,7 +3272,7 @@ function Kit6AbTestingSection() {
               >
                 {item.timeline}
               </div>
-              <div className="mt-4 text-[21px] font-semibold tracking-[-0.04em] text-[#101828]">{item.test}</div>
+              <div className="mt-4 text-[21px] font-semibold tracking-[-0.025em] text-[#101828]">{item.test}</div>
               <p className="mt-3 text-[15px] leading-7 text-[#667085]">{item.reason}</p>
             </div>
           ))}
@@ -3280,7 +3280,7 @@ function Kit6AbTestingSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Test scenarios</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Test scenarios</div>
         <div className="grid gap-5 xl:grid-cols-2">
           {preMeetAbScenarioCards.map((item, index) => (
             <div
@@ -3306,7 +3306,7 @@ function Kit6AbTestingSection() {
                 </div>
               </div>
 
-              <div className="mt-4 text-[24px] font-semibold tracking-[-0.05em] text-[#101828]">{item.title}</div>
+              <div className="mt-4 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-3 text-[15px] leading-7 text-[#667085]">{item.hypothesis}</p>
 
               <div className="mt-5 grid gap-4">
@@ -3334,7 +3334,7 @@ function Kit6AbTestingSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">
           PostHog feature flag � example implementation
         </div>
         <div className="mt-5 overflow-x-auto rounded-[20px] bg-[#0f172a] p-5">
@@ -3398,7 +3398,7 @@ function Kit6TechStackCostSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Tech Stack Cost Model</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Tech Stack Cost Model</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Realistic cost ranges across MVP, growth, and scale for PREMEET. The model shows where infra stays lean and
           where agent-compute and LLM usage become the main variable.
@@ -3406,7 +3406,7 @@ function Kit6TechStackCostSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Stage 1 � MVP (0 � first 10 customers)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Stage 1 � MVP (0 � first 10 customers)</div>
         <NativeTable
           columns={[
             { key: 'service', label: 'Service', className: 'w-[20%]' },
@@ -3427,7 +3427,7 @@ function Kit6TechStackCostSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Stage 2 � Growth (100�500 customers)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Stage 2 � Growth (100�500 customers)</div>
         <NativeTable
           columns={[
             { key: 'service', label: 'Service', className: 'w-[20%]' },
@@ -3449,7 +3449,7 @@ function Kit6TechStackCostSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Stage 3 � Scale (500�2,000 customers)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Stage 3 � Scale (500�2,000 customers)</div>
         <NativeTable
           columns={[
             { key: 'service', label: 'Service', className: 'w-[20%]' },
@@ -3471,7 +3471,7 @@ function Kit6TechStackCostSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Cost / Revenue Ratio Summary</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Cost / Revenue Ratio Summary</div>
         <NativeTable
           columns={[
             { key: 'stage', label: 'Stage', className: 'w-[30%]' },
@@ -3608,7 +3608,7 @@ function Kit6DomainResearchSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">
           Alternative Brand Names &amp; Domain Research
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -3618,7 +3618,7 @@ function Kit6DomainResearchSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Primary Domain Options (PreMeet brand)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Primary Domain Options (PreMeet brand)</div>
         <NativeTable
           columns={[
             { key: 'domain', label: 'Domain', className: 'w-[24%]' },
@@ -3631,7 +3631,7 @@ function Kit6DomainResearchSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Alternative Brand Names</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Alternative Brand Names</div>
         <NativeTable
           columns={[
             { key: 'brand', label: 'Brand Name', className: 'w-[18%]' },
@@ -3644,14 +3644,14 @@ function Kit6DomainResearchSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Naming Framework</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Naming Framework</div>
         <div className="grid gap-5 xl:grid-cols-2">
           {preMeetNamingFramework.map((item) => (
             <div
               key={item.title}
               className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${item.tone}`}
             >
-              <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+              <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
             </div>
           ))}
@@ -3757,7 +3757,7 @@ function Kit6OnboardingActivationSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Onboarding &amp; Activation Flow</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Onboarding &amp; Activation Flow</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           In PLG products, onboarding determines your fate. PreMeet&apos;s activation window is narrow � users decide
           within 48 hours whether this changes how they run meetings.
@@ -3770,7 +3770,7 @@ function Kit6OnboardingActivationSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">The Activation Milestone Framework</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">The Activation Milestone Framework</div>
         <NativeTable
           columns={[
             { key: 'milestone', label: 'Milestone', className: 'w-[10%]' },
@@ -3784,7 +3784,7 @@ function Kit6OnboardingActivationSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Day-by-Day Onboarding Sequence</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Day-by-Day Onboarding Sequence</div>
         <div className="grid gap-5">
           {preMeetOnboardingDays.map((item) => (
             <div
@@ -3795,7 +3795,7 @@ function Kit6OnboardingActivationSection() {
                 <div className="inline-flex rounded-[10px] bg-[#f6f8fb] px-3 py-1 text-[12px] font-semibold text-[#667085]">
                   {item.day}
                 </div>
-                <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               </div>
               <div className="mt-5 grid gap-3">
                 {item.items.map((line, index) => (
@@ -3813,14 +3813,14 @@ function Kit6OnboardingActivationSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Aha Moment Design Principles</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Aha Moment Design Principles</div>
         <div className="grid gap-5 xl:grid-cols-2">
           {preMeetAhaPrinciples.map((item) => (
             <div
               key={item.title}
               className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${item.tone}`}
             >
-              <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+              <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
             </div>
           ))}
@@ -3828,7 +3828,7 @@ function Kit6OnboardingActivationSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#d7f0e2] bg-[#f4fbf7] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">Key metric to track</div>
+        <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">Key metric to track</div>
         <p className="mt-3 text-[15px] leading-8 text-[#475467]">
           Median time from signup to first Gap Report received.
         </p>
@@ -3979,7 +3979,7 @@ function Kit6SeoContentStrategySection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">SEO &amp; Content Strategy</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">SEO &amp; Content Strategy</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Organic search is PreMeet&apos;s highest-ROI long-term acquisition channel. The target keywords are low
           competition, high intent, and tightly aligned with the exact pain the product solves.
@@ -3991,7 +3991,7 @@ function Kit6SeoContentStrategySection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Keyword Strategy</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Keyword Strategy</div>
         <div className="mt-6">
           <NativeTable
             columns={[
@@ -4007,7 +4007,7 @@ function Kit6SeoContentStrategySection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Content Architecture</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Content Architecture</div>
         <div className="grid gap-4 xl:grid-cols-2">
           {preMeetSeoArchitectureCards.map((card) => (
             <div
@@ -4015,7 +4015,7 @@ function Kit6SeoContentStrategySection() {
               className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${card.tone}`}
             >
               <div className="text-[14px] font-medium uppercase tracking-[0.08em] text-[#667085]">{card.title}</div>
-              <div className="mt-3 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{card.subtitle}</div>
+              <div className="mt-3 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{card.subtitle}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{card.description}</p>
             </div>
           ))}
@@ -4023,7 +4023,7 @@ function Kit6SeoContentStrategySection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">12-Month Content Calendar</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">12-Month Content Calendar</div>
         <NativeTable
           columns={[
             { key: 'period', label: 'Period', className: 'w-[18%]' },
@@ -4162,7 +4162,7 @@ function Kit6AgencyPlaybookSection() {
             key={stat.label}
             className={`rounded-[28px] border border-[#e6eaf2] p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${stat.className}`}
           >
-            <div className="text-[42px] font-semibold tracking-[-0.06em] text-[#101828]">{stat.value}</div>
+            <div className="text-[42px] font-semibold tracking-[-0.025em] text-[#101828]">{stat.value}</div>
             <div className="mt-3 text-[17px] font-medium text-[#101828]">{stat.label}</div>
           </div>
         ))}
@@ -4181,7 +4181,7 @@ function Kit6AgencyPlaybookSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Why agencies are the ideal early customer</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Why agencies are the ideal early customer</div>
         <NativeTable
           columns={[
             { key: 'metric', label: 'Metric', className: 'w-[38%]' },
@@ -4192,7 +4192,7 @@ function Kit6AgencyPlaybookSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Ideal Agency Profile (ICP)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Ideal Agency Profile (ICP)</div>
         <NativeTable
           columns={[
             { key: 'attribute', label: 'Attribute', className: 'w-[24%]' },
@@ -4203,7 +4203,7 @@ function Kit6AgencyPlaybookSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Outreach Sequence � 5 Touches</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Outreach Sequence � 5 Touches</div>
         <div className="grid gap-5 xl:grid-cols-2">
           {preMeetAgencyOutreachTouches.map((item) => (
             <div
@@ -4213,7 +4213,7 @@ function Kit6AgencyPlaybookSection() {
               <div className="inline-flex rounded-[10px] bg-[#f6f8fb] px-3 py-1 text-[12px] font-semibold text-[#667085]">
                 {item.day}
               </div>
-              <div className="mt-5 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+              <div className="mt-5 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-4 whitespace-pre-line text-[15px] leading-8 text-[#475467]">{item.copy}</p>
             </div>
           ))}
@@ -4221,7 +4221,7 @@ function Kit6AgencyPlaybookSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Demo Script � 15-Minute Call</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Demo Script � 15-Minute Call</div>
         <NativeTable
           columns={[
             { key: 'time', label: 'Time', className: 'w-[16%]' },
@@ -4380,7 +4380,7 @@ function Kit6ObjectionHandlingSection() {
   return (
     <section className="mt-10 space-y-5">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Objection Handling Guide</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Objection Handling Guide</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Every objection in a PreMeet sales conversation reveals where the buyer is in their understanding. Map the
           objection, address the real concern, and move forward.
@@ -4399,7 +4399,7 @@ function Kit6ObjectionHandlingSection() {
             <div className="text-[12px] font-medium uppercase tracking-[0.08em] text-[#98a2b3]">Sales handling card</div>
           </div>
 
-          <div className="mt-5 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+          <div className="mt-5 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
           <div className="mt-3 rounded-[18px] border border-[#edf1f7] bg-[#fcfdff] px-4 py-4 text-[14px] leading-7 text-[#667085]">
             <span className="font-medium text-[#101828]">Subtext:</span> {item.subtext}
           </div>

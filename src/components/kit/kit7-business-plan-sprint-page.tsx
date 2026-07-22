@@ -35,7 +35,7 @@ export function Kit7BusinessPlanSprintPage() {
             </div>
 
             <div className="mt-5 max-w-[440px]">
-              <h1 className="text-[2.15rem] font-semibold leading-[1.02] tracking-[-0.06em] text-[#0f172a] lg:text-[2.7rem]">
+              <h1 className="text-[2.15rem] font-semibold leading-[1.02] tracking-[-0.025em] text-[#0f172a] lg:text-[2.7rem]">
                 Sadece business plan tarafını birlikte netleştirelim.
               </h1>
               <p className="mt-4 text-[1rem] leading-8 text-[#475467]">
@@ -59,7 +59,7 @@ export function Kit7BusinessPlanSprintPage() {
             </div>
 
             <div className="mt-8 flex items-end gap-3">
-              <div className="text-[3.7rem] font-semibold leading-none tracking-[-0.07em] text-[#0f172a]">$99</div>
+              <div className="text-[3.7rem] font-semibold leading-none tracking-[-0.025em] text-[#0f172a]">$99</div>
               <div className="pb-2 text-[1rem] text-[#667085]">one-time</div>
             </div>
 
@@ -77,7 +77,7 @@ export function Kit7BusinessPlanSprintPage() {
 
           <section className="overflow-hidden rounded-[30px] border border-[#2d2d31] bg-[#050505] p-7 text-white shadow-[0_22px_40px_rgba(15,23,42,0.18)] lg:p-8">
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="text-[20px] font-medium tracking-[-0.04em] text-white/92">Full Visa Consulting</div>
+              <div className="text-[20px] font-medium tracking-[-0.025em] text-white/92">Full Visa Consulting</div>
               <div className="rounded-[12px] border border-[#2f2f34] px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56">
                 End-to-end support
               </div>
@@ -89,7 +89,7 @@ export function Kit7BusinessPlanSprintPage() {
               </div>
 
               <div className="mt-8 flex flex-wrap items-end gap-3">
-                <div className="text-[64px] font-semibold leading-none tracking-[-0.07em]">$499</div>
+                <div className="text-[64px] font-semibold leading-none tracking-[-0.025em]">$499</div>
                 <div className="pb-2 text-[22px] text-white/82">/package</div>
               </div>
 
@@ -140,7 +140,7 @@ export function Kit7BusinessPlanSprintPage() {
               <div className="mt-6 flex items-center justify-between gap-4 text-white/74">
                 <div>
                   <div className="text-[14px] font-medium">Email ile ulaş</div>
-                  <div className="mt-1 text-[20px] font-semibold tracking-[-0.04em]">info@hangivize</div>
+                  <div className="mt-1 text-[20px] font-semibold tracking-[-0.025em]">info@hangivize</div>
                 </div>
                 <div className="flex size-12 items-center justify-center rounded-full bg-white text-[#101828] shadow-[0_10px_20px_rgba(15,23,42,0.12)]">
                   <RiArrowRightUpLine className="size-5" />

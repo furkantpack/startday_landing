@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Plus_Jakarta_Sans } from "next/font/google";
 
+import { PostHogProvider } from "@/app/providers";
+
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -27,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="tr" suppressHydrationWarning>
       <body className={`${jakarta.variable} ${plexMono.variable} font-[family-name:var(--font-sans)] antialiased`}>
-        {children}
+        <PostHogProvider>{children}</PostHogProvider>
       </body>
     </html>
   );

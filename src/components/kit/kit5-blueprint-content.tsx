@@ -2312,7 +2312,7 @@ function Kit5OpportunityBriefSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Why StackReaper, Why Now?</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Why StackReaper, Why Now?</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           The SaaS market hit $145 billion in 2025 and is projected to reach $793 billion by 2029. Meanwhile,
           organizations use only 47% of their SaaS licenses, leading to waste estimated at $21 million annually per
@@ -2330,7 +2330,7 @@ function Kit5OpportunityBriefSection() {
             key={stat.label}
             className={`rounded-[28px] border border-[#e6eaf2] p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${stat.className}`}
           >
-            <div className="text-[42px] font-semibold tracking-[-0.06em] text-[#101828]">{stat.value}</div>
+            <div className="text-[42px] font-semibold tracking-[-0.025em] text-[#101828]">{stat.value}</div>
             <div className="mt-3 text-[17px] font-medium text-[#101828]">{stat.label}</div>
             <div className="mt-2 text-[14px] leading-7 text-[#475467]">{stat.note}</div>
           </div>
@@ -2339,7 +2339,7 @@ function Kit5OpportunityBriefSection() {
 
       <div className="grid gap-4 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">The Zombie SaaS Stack Crisis</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">The Zombie SaaS Stack Crisis</div>
           <p className="mt-4 text-[15px] leading-8 text-[#475467]">
             A zombie SaaS subscription has four characteristics: it does one simple repetitive task, auto-renews every
             month without human review, was set up by someone who has since left or forgotten about it, and can be
@@ -2352,7 +2352,7 @@ function Kit5OpportunityBriefSection() {
         </div>
 
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Market Signals</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Market Signals</div>
           <div className="mt-5 grid gap-3">
             {stackReaperSignals.map((item, index) => (
               <div
@@ -2376,7 +2376,7 @@ function Kit5ProductSpecSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">StackReaper: Product Definition</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">StackReaper: Product Definition</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           One-Sentence Value Prop: &quot;Connect your bank account - StackReaper finds every zombie SaaS subscription,
           tells you exactly which n8n flow can replace it, and imports the flow with one click. Cancel the SaaS. Keep
@@ -2406,7 +2406,7 @@ function Kit5ProductSpecSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Core User Flow</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Core User Flow</div>
         <div className="mt-6 grid gap-4 xl:grid-cols-6">
           {stackReaperFlow.map((item) => (
             <div
@@ -2414,7 +2414,7 @@ function Kit5ProductSpecSection() {
               className={`rounded-[22px] border border-[#e8edf5] p-5 shadow-[0_4px_12px_rgba(15,23,42,0.03)] ${item.tone}`}
             >
               <div className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#667085]">Step {item.step}</div>
-              <div className="mt-3 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+              <div className="mt-3 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <div className="mt-1 text-[14px] font-medium text-[#4361ee]">{item.subtitle}</div>
               <p className="mt-4 text-[14px] leading-7 text-[#475467]">{item.detail}</p>
             </div>
@@ -2429,7 +2429,7 @@ function Kit5TargetMarketsSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Target Markets, Startup Profiles &amp; Buyer Personas
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -2440,7 +2440,7 @@ function Kit5TargetMarketsSection() {
       </div>
 
       <div className="space-y-5">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Company Size &amp; Stage Profiles</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Company Size &amp; Stage Profiles</div>
         <div className="overflow-x-auto rounded-[28px] border border-[#e6eaf2] bg-white shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
           <table className="min-w-[920px] w-full border-collapse">
             <thead>
@@ -2475,7 +2475,7 @@ function Kit5TargetMarketsSection() {
       </div>
 
       <div className="space-y-5">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Geographic Priority</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Geographic Priority</div>
         <div className="overflow-x-auto rounded-[28px] border border-[#e6eaf2] bg-white shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
           <table className="min-w-[960px] w-full border-collapse">
             <thead>
@@ -2508,7 +2508,7 @@ function Kit5TargetMarketsSection() {
       </div>
 
       <div className="space-y-5">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Buyer Persona Profiles</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Buyer Persona Profiles</div>
         <div className="grid gap-4 xl:grid-cols-3">
           {stackReaperPersonas.map((persona, index) => (
             <div
@@ -2524,7 +2524,7 @@ function Kit5TargetMarketsSection() {
               <div className="flex size-12 items-center justify-center rounded-[16px] bg-white/80 text-[22px] shadow-[0_4px_10px_rgba(15,23,42,0.06)]">
                 {persona.icon}
               </div>
-              <div className="mt-5 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{persona.name}</div>
+              <div className="mt-5 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{persona.name}</div>
               <div className="mt-1 text-[14px] font-medium text-[#4361ee]">{persona.role}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{persona.detail}</p>
               <div className="mt-5 rounded-[18px] border border-white/70 bg-white/70 px-4 py-4 text-[14px] leading-7 text-[#667085]">
@@ -2542,7 +2542,7 @@ function Kit5TechStackSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Technical Architecture</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Technical Architecture</div>
       </div>
 
       <div className="overflow-x-auto rounded-[28px] border border-[#e6eaf2] bg-white shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
@@ -2572,7 +2572,7 @@ function Kit5TechStackSection() {
       </div>
 
       <div className="space-y-5">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">AI Classification Architecture</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">AI Classification Architecture</div>
         <div className="grid gap-4 xl:grid-cols-3">
           {stackReaperArchitecture.map((card) => (
             <div
@@ -2580,7 +2580,7 @@ function Kit5TechStackSection() {
               className={`rounded-[28px] border border-[#e6eaf2] p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${card.tone}`}
             >
               <div className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#667085]">{card.layer}</div>
-              <div className="mt-3 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{card.title}</div>
+              <div className="mt-3 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{card.title}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{card.detail}</p>
             </div>
           ))}
@@ -2588,7 +2588,7 @@ function Kit5TechStackSection() {
       </div>
 
       <div className="space-y-5">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Build Timeline</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Build Timeline</div>
         <div className="grid gap-4 xl:grid-cols-2">
           {stackReaperTimeline.map((item) => (
             <div
@@ -2596,7 +2596,7 @@ function Kit5TechStackSection() {
               className={`relative rounded-[28px] border border-[#e6eaf2] bg-white p-7 pl-9 shadow-[0_8px_18px_rgba(15,23,42,0.04)] before:absolute before:left-0 before:top-8 before:h-20 before:w-1 before:rounded-full ${item.accent}`}
             >
               <div className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#667085]">{item.week}</div>
-              <div className="mt-3 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+              <div className="mt-3 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.summary}</p>
               <div className="mt-5 rounded-[18px] border border-[#edf1f7] bg-[#fcfdff] px-4 py-4 text-[14px] leading-7 text-[#667085]">
                 {item.detail}
@@ -2621,7 +2621,7 @@ function Kit5CompetitorMapSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Competitive Landscape</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Competitive Landscape</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           StackReaper sits in the gap between SaaS spend visibility tools and automation platforms. The category is
           crowded on tracking and workflow execution, but almost nobody combines detection, replacement logic, ready
@@ -2684,7 +2684,7 @@ function Kit5RevenueModelSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Revenue Model &amp; Pricing</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Revenue Model &amp; Pricing</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           StackReaper pricing is anchored to ROI: most users save $3,000-8,000 per year from their first audit. The
           $299 kit already feels like a 10x purchase, while the subscription tiers keep compounding value as new zombie
@@ -2726,14 +2726,14 @@ function Kit5RevenueModelSection() {
             className={`rounded-[28px] border border-[#e6eaf2] p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${card.tone}`}
           >
             <div className="text-[14px] font-medium uppercase tracking-[0.08em] text-[#667085]">{card.title}</div>
-            <div className="mt-3 text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">{card.value}</div>
+            <div className="mt-3 text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">{card.value}</div>
             <p className="mt-3 text-[15px] leading-8 text-[#475467]">{card.detail}</p>
           </div>
         ))}
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-center text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">
+        <div className="text-center text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">
           MRR Projection - 12 Months
         </div>
 
@@ -2852,7 +2852,7 @@ function Kit5First50CustomersSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">First 50 Customers Playbook</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">First 50 Customers Playbook</div>
       </div>
 
       <div className="grid gap-5">
@@ -2862,7 +2862,7 @@ function Kit5First50CustomersSection() {
             className={`relative rounded-[32px] border border-[#e6eaf2] p-7 pl-9 shadow-[0_8px_18px_rgba(15,23,42,0.04)] before:absolute before:left-0 before:top-8 before:h-24 before:w-1 before:rounded-full ${card.tone} ${card.accent}`}
           >
             <div className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#667085]">{card.day}</div>
-            <div className="mt-3 text-[28px] font-semibold tracking-[-0.05em] text-[#101828]">{card.title}</div>
+            <div className="mt-3 text-[28px] font-semibold tracking-[-0.025em] text-[#101828]">{card.title}</div>
 
             <div className="mt-6 grid gap-3">
               {card.items.map((item, index) => (
@@ -2897,7 +2897,7 @@ function FunnelShape({
 }) {
   return (
     <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-      <div className="text-center text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{title}</div>
+      <div className="text-center text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{title}</div>
       <div className="mt-6 flex flex-col items-center gap-0">
         {steps.map((step, index) => {
           const width = 92 - index * 11;
@@ -2934,7 +2934,7 @@ function Kit5ConversionFunnelsSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Acquisition Funnels, Savings Waterfall &amp; ROI Charts
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -2950,7 +2950,7 @@ function Kit5ConversionFunnelsSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#16a34a]">Free-to-Paid Activation Journey</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#16a34a]">Free-to-Paid Activation Journey</div>
         <div className="mt-6 space-y-4">
           {stackReaperActivation.map((item, index) => (
             <div key={item.label} className="grid items-center gap-4 md:grid-cols-[260px_42px_minmax(0,1fr)_110px]">
@@ -2976,7 +2976,7 @@ function Kit5ConversionFunnelsSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#16a34a]">
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#16a34a]">
           Where Your $4,800/Month SaaS Budget Actually Goes
         </div>
         <div className="mt-10">
@@ -3006,7 +3006,7 @@ function Kit5ConversionFunnelsSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#16a34a]">
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#16a34a]">
           Annual Savings Per n8n Replacement (Top 8)
         </div>
         <div className="mt-6 space-y-4">
@@ -3034,7 +3034,7 @@ function Kit5CodePromptsSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">AI Build Prompts</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">AI Build Prompts</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           8 copy-paste prompts for Claude or GPT-4o. Each one maps to a real StackReaper surface: detection,
           classification, import, billing, jobs, and schema.
@@ -3052,7 +3052,7 @@ function Kit5CodePromptsSection() {
                 <div className="inline-flex rounded-full bg-[#f5f7fb] px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.08em] text-[#667085]">
                   {prompt.id} · {prompt.category}
                 </div>
-                <div className="mt-3 text-[26px] font-semibold tracking-[-0.04em] text-[#101828]">{prompt.title}</div>
+                <div className="mt-3 text-[26px] font-semibold tracking-[-0.025em] text-[#101828]">{prompt.title}</div>
               </div>
               <div
                 className={`inline-flex rounded-[12px] px-3 py-2 text-[13px] font-medium ${
@@ -3093,11 +3093,11 @@ function Kit5DesignSystemSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Design System - Hacker Amber</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Design System - Hacker Amber</div>
       </div>
 
       <div className="space-y-5">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Color Palette</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Color Palette</div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {stackReaperColorPalette.map((color) => (
             <div
@@ -3105,7 +3105,7 @@ function Kit5DesignSystemSection() {
               className="rounded-[28px] border border-[#e6eaf2] bg-white p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]"
             >
               <div className={`h-24 rounded-[18px] border border-[#e6eaf2] ${color.swatch}`} />
-              <div className="mt-5 text-[20px] font-semibold tracking-[-0.04em] text-[#101828]">{color.name}</div>
+              <div className="mt-5 text-[20px] font-semibold tracking-[-0.025em] text-[#101828]">{color.name}</div>
               <div className="mt-1 font-mono text-[14px] text-[#667085]">{color.hex}</div>
               <p className="mt-3 text-[15px] leading-7 text-[#475467]">{color.usage}</p>
             </div>
@@ -3114,7 +3114,7 @@ function Kit5DesignSystemSection() {
       </div>
 
       <div className="space-y-5">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Typography</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Typography</div>
         <div className="overflow-x-auto rounded-[28px] border border-[#e6eaf2] bg-white shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
           <table className="min-w-[860px] w-full border-collapse">
             <thead>
@@ -3161,11 +3161,11 @@ function Kit5UiKitSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">UI Kit - Dashboard Components</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">UI Kit - Dashboard Components</div>
       </div>
 
       <div className="space-y-5">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">1. Zombie Subscription Card</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">1. Zombie Subscription Card</div>
         <div className="grid gap-4 xl:grid-cols-2">
           <div className="grid gap-4">
             {stackReaperZombieTypes.map((item) => {
@@ -3249,11 +3249,11 @@ function Kit5UiKitSection() {
       </div>
 
       <div className="space-y-5">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">2. Savings Counter (Viral Component)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">2. Savings Counter (Viral Component)</div>
         <div className="grid gap-5 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <div className="rounded-[28px] bg-[linear-gradient(135deg,#15803d_0%,#22c55e_100%)] p-6 text-white shadow-[0_12px_24px_rgba(34,197,94,0.22)]">
             <p className="mb-1 text-[12px] font-medium uppercase tracking-[0.08em] text-white/75">Recovered This Month</p>
-            <p className="mb-1 font-mono text-[52px] font-bold tracking-[-0.06em]">$890</p>
+            <p className="mb-1 font-mono text-[52px] font-bold tracking-[-0.025em]">$890</p>
             <p className="mb-6 text-[14px] text-white/80">$10,680/year at this rate</p>
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-[16px] bg-white/10 p-4">
@@ -3271,7 +3271,7 @@ function Kit5UiKitSection() {
           </div>
 
           <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-            <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Component Notes</div>
+            <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Component Notes</div>
             <div className="mt-5 grid gap-3">
               {[
                 'The savings counter is the key shareable moment in the product.',
@@ -3298,7 +3298,7 @@ function Kit5PromptPackSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Zombie Analysis & Flow Recommendation Prompts</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Zombie Analysis & Flow Recommendation Prompts</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Prompts shown in the UI and reused as product marketing content. Each block is written to be copy-paste
           ready for Claude or GPT-4o while staying tightly aligned with the StackReaper story.
@@ -3316,7 +3316,7 @@ function Kit5PromptPackSection() {
                 <div className={`inline-flex rounded-full px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.08em] ${group.accent}`}>
                   Prompt Pack
                 </div>
-                <div className="mt-3 text-[26px] font-semibold tracking-[-0.04em] text-[#101828]">{group.title}</div>
+                <div className="mt-3 text-[26px] font-semibold tracking-[-0.025em] text-[#101828]">{group.title}</div>
               </div>
               <div
                 className={`inline-flex rounded-[12px] px-3 py-2 text-[13px] font-medium ${
@@ -3367,7 +3367,7 @@ function Kit5ApiSchemaSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">REST API Schema</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">REST API Schema</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Base URL: <span className="font-mono text-[#101828]">https://api.stackreaper.io/v1</span> {' '}• Auth:{' '}
           <span className="font-mono text-[#101828]">Bearer (Supabase JWT)</span>
@@ -3433,7 +3433,7 @@ function Kit5LandingCopySection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Landing Page Copy Alternatives</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Landing Page Copy Alternatives</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Strategic copy options for StackReaper&apos;s landing flow. Each block is structured like a real section system
           so the messaging can be tested visually, not just reviewed in a doc.
@@ -3451,7 +3451,7 @@ function Kit5LandingCopySection() {
                 <div className={`inline-flex rounded-full px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.08em] ${section.tone}`}>
                   Landing block
                 </div>
-                <div className="mt-3 text-[28px] font-semibold tracking-[-0.05em] text-[#101828]">{section.title}</div>
+                <div className="mt-3 text-[28px] font-semibold tracking-[-0.025em] text-[#101828]">{section.title}</div>
               </div>
               <div className="rounded-full bg-[#f6f8fb] px-4 py-2 text-[13px] font-medium text-[#667085]">
                 {section.items.length} alternatives
@@ -3476,13 +3476,13 @@ function Kit5LandingCopySection() {
                     <div className="inline-flex rounded-[10px] bg-white/70 px-3 py-1 text-[12px] font-semibold text-[#101828]">
                       Option {String.fromCharCode(65 + optionIndex)}
                     </div>
-                    <div className="mt-4 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.label}</div>
+                    <div className="mt-4 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.label}</div>
                   </div>
 
                   <div className="p-6">
                     <div className="rounded-[20px] bg-[#fcfdff] p-5">
                       <div className="text-[12px] uppercase tracking-[0.08em] text-[#98a2b3]">Landing section preview</div>
-                      <div className="mt-3 text-[30px] font-semibold leading-[1.05] tracking-[-0.06em] text-[#101828]">
+                      <div className="mt-3 text-[30px] font-semibold leading-[1.05] tracking-[-0.025em] text-[#101828]">
                         {previewHeadlineByIndex[groupIndex]}
                       </div>
                       <p className="mt-4 whitespace-pre-line text-[15px] leading-8 text-[#475467]">{item.copy}</p>
@@ -3508,7 +3508,7 @@ function Kit5LandingCopySection() {
               <div className="inline-flex rounded-full bg-[#ecfbf4] px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.08em] text-[#067647]">
                 Pricing
               </div>
-              <div className="mt-3 text-[28px] font-semibold tracking-[-0.05em] text-[#101828]">Pricing Alternatives</div>
+              <div className="mt-3 text-[28px] font-semibold tracking-[-0.025em] text-[#101828]">Pricing Alternatives</div>
             </div>
             <div className="rounded-full bg-[#f6f8fb] px-4 py-2 text-[13px] font-medium text-[#667085]">
               3 alternatives
@@ -3533,8 +3533,8 @@ function Kit5LandingCopySection() {
                   <div className="inline-flex rounded-[10px] bg-white/70 px-3 py-1 text-[12px] font-semibold text-[#101828]">
                     Option {String.fromCharCode(65 + index)}
                   </div>
-                  <div className="mt-4 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.tier}</div>
-                  <div className="mt-3 text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">{item.price}</div>
+                  <div className="mt-4 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.tier}</div>
+                  <div className="mt-3 text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">{item.price}</div>
                 </div>
                 <div className="p-6">
                   <div className="rounded-[20px] bg-[#fcfdff] p-5">
@@ -3632,8 +3632,8 @@ function Kit5BrandingKitSection() {
     <section className="mt-10 space-y-8">
       <div className="grid gap-6 xl:grid-cols-2">
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Brand Name</div>
-          <div className="mt-6 text-[48px] font-semibold tracking-[-0.07em]">
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Brand Name</div>
+          <div className="mt-6 text-[48px] font-semibold tracking-[-0.025em]">
             <span className="text-[#16A34A]">STACK</span>
             <span className="text-[#101828]">REAPER</span>
           </div>
@@ -3664,7 +3664,7 @@ function Kit5BrandingKitSection() {
         </div>
 
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Brand Voice</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Brand Voice</div>
           <div className="mt-6 grid gap-4">
             {stackReaperBrandVoicePrinciples.map((item) => (
               <div key={item.title} className="rounded-[20px] border border-[#edf1f7] bg-[#fcfdff] p-4">
@@ -3672,7 +3672,7 @@ function Kit5BrandingKitSection() {
                   <div className={`flex size-10 items-center justify-center rounded-[12px] text-[16px] font-semibold ${item.tone}`}>
                     {item.icon}
                   </div>
-                  <div className="text-[18px] font-semibold tracking-[-0.03em] text-[#101828]">{item.title}</div>
+                  <div className="text-[18px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
                 </div>
                 <p className="mt-3 text-[15px] leading-7 text-[#667085]">{item.detail}</p>
               </div>
@@ -3682,7 +3682,7 @@ function Kit5BrandingKitSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Logo Specification</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Logo Specification</div>
         <div className="overflow-x-auto rounded-[28px] border border-[#e6eaf2] bg-white shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
           <table className="min-w-[760px] w-full border-collapse">
             <thead>
@@ -3704,7 +3704,7 @@ function Kit5BrandingKitSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Language Guide - Do / Don&apos;t</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Language Guide - Do / Don&apos;t</div>
         <div className="overflow-x-auto rounded-[28px] border border-[#e6eaf2] bg-white shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
           <table className="min-w-[760px] w-full border-collapse">
             <thead>
@@ -3732,7 +3732,7 @@ function Kit5LaunchChecklistSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="max-w-[980px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">Launch Checklist</div>
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">Launch Checklist</div>
       </div>
 
       <div className="grid gap-5">
@@ -3745,7 +3745,7 @@ function Kit5LaunchChecklistSection() {
               <div className={`inline-flex rounded-full px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.08em] ${group.tone}`}>
                 Checklist
               </div>
-              <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{group.title}</div>
+              <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{group.title}</div>
             </div>
 
             <div className="mt-6 grid gap-3">
@@ -3779,7 +3779,7 @@ function Kit5PrivacyAgreementSection() {
           <div className="flex flex-wrap items-start justify-between gap-5">
             <div>
               <div className="text-[12px] font-semibold uppercase tracking-[0.12em] text-[#98a2b3]">Legal Agreement</div>
-              <div className="mt-3 max-w-[820px] text-[32px] font-semibold tracking-[-0.05em] text-[#101828]">
+              <div className="mt-3 max-w-[820px] text-[32px] font-semibold tracking-[-0.025em] text-[#101828]">
                 Privacy and Data Processing Agreement (DPA)
               </div>
               <p className="mt-4 max-w-[860px] text-[15px] leading-8 text-[#667085]">
@@ -3810,7 +3810,7 @@ function Kit5PrivacyAgreementSection() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="text-[12px] font-semibold uppercase tracking-[0.1em] text-[#98a2b3]">Section {item.number}</div>
-                      <div className="mt-2 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                      <div className="mt-2 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
                       <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.body}</p>
                     </div>
                   </div>
@@ -3819,7 +3819,7 @@ function Kit5PrivacyAgreementSection() {
 
               <div className="border-t border-[#eceff4] py-7">
                 <div className="text-[12px] font-semibold uppercase tracking-[0.1em] text-[#98a2b3]">Appendix A</div>
-                <div className="mt-2 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">Third-Party Sub-Processors</div>
+                <div className="mt-2 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">Third-Party Sub-Processors</div>
                 <div className="mt-5 overflow-x-auto rounded-[24px] border border-[#e6eaf2] bg-white">
                   <table className="min-w-[640px] w-full border-collapse">
                     <thead>
@@ -3882,7 +3882,7 @@ function Kit5AbTestingSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">A/B Test Scenarios</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">A/B Test Scenarios</div>
         <p className="mt-3 max-w-[980px] text-[16px] leading-8 text-[#667085]">
           Priority growth test scenarios for STACKREAPER. Each test includes a hypothesis, Variant A, Variant B,
           success metric, and estimated impact. Tests run through PostHog Feature Flags, already available in the
@@ -3891,7 +3891,7 @@ function Kit5AbTestingSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Test execution framework</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Test execution framework</div>
         <NativeTable
           columns={[
             { key: 'rule', label: 'Rule', className: 'w-[28%]' },
@@ -3902,7 +3902,7 @@ function Kit5AbTestingSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Test schedule — first 90 days</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Test schedule — first 90 days</div>
         <div className="grid gap-4 xl:grid-cols-3">
           {stackReaperAbSchedule.map((item, index) => (
             <div
@@ -3916,7 +3916,7 @@ function Kit5AbTestingSection() {
               >
                 {item.timeline}
               </div>
-              <div className="mt-4 text-[21px] font-semibold tracking-[-0.04em] text-[#101828]">{item.test}</div>
+              <div className="mt-4 text-[21px] font-semibold tracking-[-0.025em] text-[#101828]">{item.test}</div>
               <p className="mt-3 text-[15px] leading-7 text-[#667085]">{item.reason}</p>
             </div>
           ))}
@@ -3924,7 +3924,7 @@ function Kit5AbTestingSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Test scenarios</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Test scenarios</div>
         <div className="grid gap-5 xl:grid-cols-2">
           {stackReaperAbScenarioCards.map((item, index) => (
             <div
@@ -3950,7 +3950,7 @@ function Kit5AbTestingSection() {
                 </div>
               </div>
 
-              <div className="mt-4 text-[24px] font-semibold tracking-[-0.05em] text-[#101828]">{item.title}</div>
+              <div className="mt-4 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-3 text-[15px] leading-7 text-[#667085]">{item.hypothesis}</p>
 
               <div className="mt-5 grid gap-4">
@@ -3978,7 +3978,7 @@ function Kit5AbTestingSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">PostHog feature flag — example implementation</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">PostHog feature flag — example implementation</div>
         <div className="mt-5 overflow-x-auto rounded-[20px] bg-[#0f172a] p-5">
           <pre className="min-w-[680px] whitespace-pre-wrap text-[13px] leading-7 text-[#e2e8f0]">{`// pages/dashboard.tsx
 const { isFeatureEnabled } = useFeatureFlagEnabled('aggressive-zombie-headline')
@@ -4000,7 +4000,7 @@ function Kit5TechStackCostSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Tech Stack Cost Model</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Tech Stack Cost Model</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Realistic cost brackets from MVP to growth stage for STACKREAPER. All figures below are monthly USD estimates
           and are designed to map infrastructure cost against the revenue curve.
@@ -4008,7 +4008,7 @@ function Kit5TechStackCostSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Stage 1 — MVP (0 - First 10 Customers)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Stage 1 — MVP (0 - First 10 Customers)</div>
         <NativeTable
           columns={[
             { key: 'service', label: 'Service', className: 'w-[20%]' },
@@ -4029,7 +4029,7 @@ function Kit5TechStackCostSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Stage 2 — Growth (100 - 500 Customers)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Stage 2 — Growth (100 - 500 Customers)</div>
         <NativeTable
           columns={[
             { key: 'service', label: 'Service', className: 'w-[20%]' },
@@ -4050,7 +4050,7 @@ function Kit5TechStackCostSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Stage 3 — Scale (500 - 2,000 Customers)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Stage 3 — Scale (500 - 2,000 Customers)</div>
         <NativeTable
           columns={[
             { key: 'service', label: 'Service', className: 'w-[20%]' },
@@ -4071,7 +4071,7 @@ function Kit5TechStackCostSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Cost / Revenue Ratio Summary</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Cost / Revenue Ratio Summary</div>
         <NativeTable
           columns={[
             { key: 'stage', label: 'Stage', className: 'w-[30%]' },
@@ -4084,14 +4084,14 @@ function Kit5TechStackCostSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Critical Decision Points</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Critical Decision Points</div>
         <div className="grid gap-5 xl:grid-cols-3">
           {stackReaperDecisionPoints.map((item) => (
             <div
               key={item.title}
               className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${item.tone}`}
             >
-              <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+              <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
             </div>
           ))}
@@ -4105,11 +4105,11 @@ function Kit5DomainResearchSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Domain Research</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Domain Research</div>
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Primary Domains (STACKREAPER brand)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Primary Domains (STACKREAPER brand)</div>
         <NativeTable
           columns={[
             { key: 'domain', label: 'Domain', className: 'w-[24%]' },
@@ -4121,7 +4121,7 @@ function Kit5DomainResearchSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Alternative Brand Names & Domains</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Alternative Brand Names & Domains</div>
         <NativeTable
           columns={[
             { key: 'brand', label: 'Brand Name', className: 'w-[18%]' },
@@ -4134,14 +4134,14 @@ function Kit5DomainResearchSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Domain Strategy Notes</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Domain Strategy Notes</div>
         <div className="grid gap-5 xl:grid-cols-3">
           {stackReaperDomainNotes.map((item) => (
             <div
               key={item.title}
               className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${item.tone}`}
             >
-              <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+              <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
             </div>
           ))}
@@ -4155,7 +4155,7 @@ function Kit5OnboardingActivationSection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Onboarding & Activation Flow</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Onboarding & Activation Flow</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           In PLG products like STACKREAPER, onboarding is a race against the subscription clock. Most users decide to
           continue or drop within the first 24 hours of scanning their bank data. The goal is to compress the time
@@ -4164,7 +4164,7 @@ function Kit5OnboardingActivationSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">The Activation Milestone Framework</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">The Activation Milestone Framework</div>
         <p className="text-[15px] leading-8 text-[#667085]">
           STACKREAPER has one primary North Star metric: the first confirmed saving. Every onboarding touchpoint moves
           the user from curiosity to manual cancellation plus n8n replacement.
@@ -4181,7 +4181,7 @@ function Kit5OnboardingActivationSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Day-by-Day Onboarding Sequence</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Day-by-Day Onboarding Sequence</div>
         <div className="grid gap-5">
           {stackReaperOnboardingDays.map((item) => (
             <div
@@ -4192,7 +4192,7 @@ function Kit5OnboardingActivationSection() {
                 <div className="inline-flex rounded-[10px] bg-[#f6f8fb] px-3 py-1 text-[12px] font-semibold text-[#667085]">
                   {item.day}
                 </div>
-                <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+                <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               </div>
               <div className="mt-5 grid gap-3">
                 {item.items.map((line, index) => (
@@ -4210,14 +4210,14 @@ function Kit5OnboardingActivationSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Aha Moment Design Principles</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Aha Moment Design Principles</div>
         <div className="grid gap-5 xl:grid-cols-2">
           {stackReaperAhaPrinciples.map((item) => (
             <div
               key={item.title}
               className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${item.tone}`}
             >
-              <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+              <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.detail}</p>
             </div>
           ))}
@@ -4225,7 +4225,7 @@ function Kit5OnboardingActivationSection() {
       </div>
 
       <div className="rounded-[28px] border border-[#d7f0e2] bg-[#f4fbf7] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">Key metric to track</div>
+        <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">Key metric to track</div>
         <p className="mt-3 text-[15px] leading-8 text-[#475467]">
           Median time from Signup to First n8n Flow Export.
         </p>
@@ -4244,7 +4244,7 @@ function Kit5SeoContentStrategySection() {
   return (
     <section className="mt-10 space-y-8">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">SEO & Content Strategy</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">SEO & Content Strategy</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Organic search is STACKREAPER&apos;s primary engine for capturing high-intent traffic from founders and CTOs
           trying to extend runway. The strategy targets the exact frustration moment: when someone realizes the SaaS bill
@@ -4253,7 +4253,7 @@ function Kit5SeoContentStrategySection() {
       </div>
 
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Keyword Strategy Overview</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Keyword Strategy Overview</div>
         <p className="mt-3 text-[15px] leading-8 text-[#667085]">
           Three keyword tiers guide the engine: bottom-of-funnel tool replacements, middle-of-funnel cost-cutting
           research, and programmatic n8n blueprint pages.
@@ -4273,7 +4273,7 @@ function Kit5SeoContentStrategySection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Content Architecture</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Content Architecture</div>
         <div className="grid gap-4 xl:grid-cols-2">
           {stackReaperSeoArchitectureCards.map((card) => (
             <div
@@ -4281,7 +4281,7 @@ function Kit5SeoContentStrategySection() {
               className={`rounded-[28px] border border-[#e6eaf2] p-6 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${card.tone}`}
             >
               <div className="text-[14px] font-medium uppercase tracking-[0.08em] text-[#667085]">{card.title}</div>
-              <div className="mt-3 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{card.subtitle}</div>
+              <div className="mt-3 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{card.subtitle}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{card.description}</p>
             </div>
           ))}
@@ -4289,7 +4289,7 @@ function Kit5SeoContentStrategySection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">12-Month Content Calendar</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">12-Month Content Calendar</div>
         <NativeTable
           columns={[
             { key: 'period', label: 'Period', className: 'w-[18%]' },
@@ -4301,14 +4301,14 @@ function Kit5SeoContentStrategySection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Distribution & Link Building</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Distribution & Link Building</div>
         <div className="grid gap-5 xl:grid-cols-2">
           {stackReaperSeoDistributionCards.map((item) => (
             <div
               key={item.channel}
               className={`relative rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)] before:absolute before:left-0 before:top-8 before:h-16 before:w-1 before:rounded-full ${item.accent}`}
             >
-              <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.channel}</div>
+              <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.channel}</div>
               <p className="mt-4 text-[15px] leading-8 text-[#475467]">{item.strategy}</p>
             </div>
           ))}
@@ -4327,7 +4327,7 @@ function Kit5AgencyPlaybookSection() {
             key={stat.label}
             className={`rounded-[28px] border border-[#e6eaf2] p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)] ${stat.className}`}
           >
-            <div className="text-[42px] font-semibold tracking-[-0.06em] text-[#101828]">{stat.value}</div>
+            <div className="text-[42px] font-semibold tracking-[-0.025em] text-[#101828]">{stat.value}</div>
             <div className="mt-3 text-[17px] font-medium text-[#101828]">{stat.label}</div>
           </div>
         ))}
@@ -4347,7 +4347,7 @@ function Kit5AgencyPlaybookSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Why agencies are the ideal early customer</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Why agencies are the ideal early customer</div>
         <NativeTable
           columns={[
             { key: 'metric', label: 'Metric', className: 'w-[38%]' },
@@ -4358,7 +4358,7 @@ function Kit5AgencyPlaybookSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Ideal Agency Profile (ICP)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Ideal Agency Profile (ICP)</div>
         <NativeTable
           columns={[
             { key: 'attribute', label: 'Attribute', className: 'w-[24%]' },
@@ -4369,7 +4369,7 @@ function Kit5AgencyPlaybookSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Outreach Sequence</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Outreach Sequence</div>
         <div className="grid gap-5 xl:grid-cols-2">
           {stackReaperAgencyOutreachTouches.map((item) => (
             <div
@@ -4379,7 +4379,7 @@ function Kit5AgencyPlaybookSection() {
               <div className="inline-flex rounded-[10px] bg-[#f6f8fb] px-3 py-1 text-[12px] font-semibold text-[#667085]">
                 {item.day}
               </div>
-              <div className="mt-5 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+              <div className="mt-5 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
               <p className="mt-4 whitespace-pre-line text-[15px] leading-8 text-[#475467]">{item.copy}</p>
             </div>
           ))}
@@ -4387,7 +4387,7 @@ function Kit5AgencyPlaybookSection() {
       </div>
 
       <div className="space-y-6">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Demo Script (15-minute call)</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Demo Script (15-minute call)</div>
         <NativeTable
           columns={[
             { key: 'time', label: 'Time', className: 'w-[16%]' },
@@ -4401,7 +4401,7 @@ function Kit5AgencyPlaybookSection() {
 
       <section className="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
         <div className="space-y-6">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">White-label Pitch (Agency Plan Features)</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">White-label Pitch (Agency Plan Features)</div>
           <NativeTable
             columns={[
               { key: 'feature', label: 'Feature', className: 'w-[40%]' },
@@ -4412,12 +4412,12 @@ function Kit5AgencyPlaybookSection() {
         </div>
 
         <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-          <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Agency Expansion Revenue</div>
+          <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Agency Expansion Revenue</div>
           <div className="mt-5 space-y-4">
             {stackReaperAgencyTiers.map((item) => (
               <div key={item.tier} className="rounded-[18px] border border-[#edf1f7] bg-[#fcfdff] px-4 py-4">
                 <div className="text-[13px] uppercase tracking-[0.08em] text-[#98a2b3]">{item.tier}</div>
-                <div className="mt-2 text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{item.price}</div>
+                <div className="mt-2 text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{item.price}</div>
                 <div className="mt-2 text-[15px] leading-7 text-[#667085]">{item.note}</div>
               </div>
             ))}
@@ -4437,7 +4437,7 @@ function Kit5ObjectionHandlingSection() {
   return (
     <section className="mt-10 space-y-5">
       <div className="rounded-[28px] border border-[#e6eaf2] bg-white p-7 shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
-        <div className="text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Objection Handling</div>
+        <div className="text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Objection Handling</div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
           Handling objections for STACKREAPER means shifting the conversation from another tool I have to pay for to the
           tool that deletes my other bills. The language stays anchored in zombie detection, n8n superiority, and immediate ROI.
@@ -4456,7 +4456,7 @@ function Kit5ObjectionHandlingSection() {
             <div className="text-[12px] font-medium uppercase tracking-[0.08em] text-[#98a2b3]">Sales handling card</div>
           </div>
 
-          <div className="mt-5 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">{item.title}</div>
+          <div className="mt-5 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">{item.title}</div>
           <div className="mt-3 rounded-[18px] border border-[#edf1f7] bg-[#fcfdff] px-4 py-4 text-[14px] leading-7 text-[#667085]">
             <span className="font-medium text-[#101828]">Subtext:</span> {item.subtext}
           </div>

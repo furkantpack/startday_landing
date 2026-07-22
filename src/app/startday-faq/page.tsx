@@ -93,7 +93,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
         type="button"
         aria-expanded={isOpen}
         onClick={() => setIsOpen((current) => !current)}
-        className="group flex w-full cursor-pointer items-center gap-5 py-5 text-left text-[1rem] font-black tracking-[-0.035em] text-[#1d1d19] sm:text-[1.12rem]"
+        className="group flex w-full cursor-pointer items-center gap-5 py-5 text-left text-[1rem] font-black tracking-[-0.025em] text-[#1d1d19] sm:text-[1.12rem]"
       >
         <span className="flex-1">{question}</span>
         <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-[#1d1d19] transition-colors group-hover:bg-[#ffe779]">
@@ -106,7 +106,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
         }`}
       >
         <div className="overflow-hidden">
-          <p className="max-w-[760px] pb-6 pr-10 text-[0.94rem] font-medium leading-[1.72] tracking-[-0.02em] text-[#6f6251] sm:text-[1rem]">
+          <p className="max-w-[760px] pb-6 pr-10 text-[0.94rem] font-medium leading-[1.72] tracking-[-0.025em] text-[#6f6251] sm:text-[1rem]">
             {answer}
           </p>
         </div>
@@ -122,10 +122,10 @@ function FaqContent() {
         <div className="inline-flex rounded-full border border-[#1d1d19] bg-[#ffe779] px-4 py-2 text-[0.78rem] font-black uppercase tracking-[0.08em]">
           FAQ guide
         </div>
-        <h1 className="mt-6 max-w-[760px] text-[2rem] font-black leading-[0.96] tracking-[-0.065em] sm:text-[3.25rem] lg:text-[4.4rem]">
+        <h1 className="mt-6 max-w-[760px] text-[2rem] font-black leading-[0.96] tracking-[-0.025em] sm:text-[3.25rem] lg:text-[4.4rem]">
           Real answers for future co-founders.
         </h1>
-        <p className="mt-5 max-w-[680px] text-[1rem] font-semibold leading-relaxed tracking-[-0.035em] text-[#6f6251] sm:text-[1.12rem]">
+        <p className="mt-5 max-w-[680px] text-[1rem] font-semibold leading-relaxed tracking-[-0.025em] text-[#6f6251] sm:text-[1.12rem]">
           Everything you need to know before StartDay matches your city, your skills, and your weekend table.
         </p>
       </header>
@@ -141,10 +141,10 @@ function FaqContent() {
                 <div className="text-[0.76rem] font-black uppercase tracking-[0.1em] text-[#f45a2f]">
                   {section.number}
                 </div>
-                <h2 className="mt-2 text-[2rem] font-black leading-none tracking-[-0.06em]">
+                <h2 className="mt-2 text-[2rem] font-black leading-none tracking-[-0.025em]">
                   {section.title}
                 </h2>
-                <p className="mt-3 max-w-[220px] text-[0.96rem] font-semibold leading-snug tracking-[-0.03em] text-[#8b7c62]">
+                <p className="mt-3 max-w-[220px] text-[0.96rem] font-semibold leading-snug tracking-[-0.025em] text-[#8b7c62]">
                   {section.description}
                 </p>
               </div>
@@ -167,7 +167,7 @@ function FaqContent() {
                 <RiCustomerServiceFill className="size-5" />
               </span>
               <div>
-                <div className="font-black tracking-[-0.035em]">Still curious?</div>
+                <div className="font-black tracking-[-0.025em]">Still curious?</div>
                 <div className="text-sm font-medium text-[#d7ceb7]">Tell us what kind of founder table you want to join.</div>
               </div>
             </div>

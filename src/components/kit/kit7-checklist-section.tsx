@@ -74,7 +74,7 @@ export function Kit7ChecklistSection() {
   return (
     <section className="mt-10 space-y-5">
       <div className="max-w-[1040px]">
-        <div className="text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">
+        <div className="text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">
           Her Belge: Zorunlu mu, Nereden Alınır, Format Gereksinimleri
         </div>
         <p className="mt-4 text-[16px] leading-8 text-[#475467]">
@@ -92,7 +92,7 @@ export function Kit7ChecklistSection() {
             <div className={`inline-flex rounded-[10px] px-3 py-1 text-[12px] font-semibold text-[#101828] ${group.tone}`}>
               {String(groupIndex + 1).padStart(2, '0')}
             </div>
-            <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">{group.title}</div>
+            <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">{group.title}</div>
           </div>
 
           <div className="mt-5 space-y-3">
@@ -122,7 +122,7 @@ export function Kit7ChecklistSection() {
             <div className="inline-flex rounded-[10px] bg-[#ffe2c5] px-3 py-1 text-[12px] font-semibold text-[#101828]">
               03
             </div>
-            <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#101828]">
+            <div className="text-[22px] font-semibold tracking-[-0.025em] text-[#101828]">
               Ayrıca ihtiyaç duyabileceğin belgeler
             </div>
           </div>
@@ -147,7 +147,7 @@ export function Kit7ChecklistSection() {
           <div className="inline-flex rounded-full border border-[#f5d7b2] bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#b54708]">
             Çeviri notu
           </div>
-          <div className="mt-4 text-[24px] font-semibold tracking-[-0.04em] text-[#101828]">Tercümeyi son ana bırakma</div>
+          <div className="mt-4 text-[24px] font-semibold tracking-[-0.025em] text-[#101828]">Tercümeyi son ana bırakma</div>
           <p className="mt-4 text-[15px] leading-8 text-[#8a4b21]">
             Türkçe belgeler Türkiye’den yeminli tercüman tarafından İngilizceye veya Finceye çevrilmeli ve noter onaylı
             olmalı. Özellikle banka ekstreleri ve aile belgelerinde bu süreç zaman alabilir.

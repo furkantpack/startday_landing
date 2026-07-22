@@ -162,7 +162,7 @@ function FeaturedCard({ title, tone }: { title: string; tone: string }) {
       )}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.22),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.16),transparent_24%)]" />
-      <div className="relative max-w-[14ch] text-[2rem] font-semibold leading-[1.02] tracking-[-0.05em] text-white">
+      <div className="relative max-w-[14ch] text-[2rem] font-semibold leading-[1.02] tracking-[-0.025em] text-white">
         {title}
       </div>
     </div>
@@ -215,7 +215,7 @@ export function DashboardPageV4() {
                 </div>
               </div>
               <div>
-                <div className="text-[16px] font-medium tracking-[-0.04em] text-[#101828]">Finland Visa</div>
+                <div className="text-[16px] font-medium tracking-[-0.025em] text-[#101828]">Finland Visa</div>
                 <div className="mt-0.5 text-[12px] text-[#667085]">Startup dashboard</div>
               </div>
             </div>
@@ -304,7 +304,7 @@ export function DashboardPageV4() {
 
           <div className="space-y-10 px-5 py-6 lg:px-8 lg:py-7">
             <div>
-              <h1 className="text-[2.1rem] font-semibold tracking-[-0.06em] text-[var(--text-strong-950)]">
+              <h1 className="text-[2.1rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                 Finland Startup Visa dashboard
               </h1>
               <p className="mt-1 text-[1.15rem] text-[var(--text-soft-400)]">You have 5 active preparation steps this week</p>
@@ -343,7 +343,7 @@ export function DashboardPageV4() {
             </div>
 
             <div>
-              <div className="mb-5 text-[1.9rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">
+              <div className="mb-5 text-[1.9rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">
                 Son eklenenler <span className="text-[var(--text-soft-400)]">14</span>
               </div>
               <div className="overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
@@ -356,7 +356,7 @@ export function DashboardPageV4() {
             </div>
 
             <div>
-              <div className="mb-5 text-[1.9rem] font-semibold tracking-[-0.05em] text-[var(--text-strong-950)]">Öne çıkanlar</div>
+              <div className="mb-5 text-[1.9rem] font-semibold tracking-[-0.025em] text-[var(--text-strong-950)]">Öne çıkanlar</div>
               <div className="grid gap-5 lg:grid-cols-2">
                 {featuredCards.map((card) => (
                   <FeaturedCard key={card.title} title={card.title} tone={card.tone} />

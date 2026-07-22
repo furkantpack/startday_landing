@@ -26,7 +26,7 @@ export function Kit6AppExperienceSection() {
             Interactive app flow
           </div>
         </div>
-        <div className="mt-4 text-[34px] font-semibold tracking-[-0.05em] text-[#101828]">PreMeet App Experience</div>
+        <div className="mt-4 text-[34px] font-semibold tracking-[-0.025em] text-[#101828]">PreMeet App Experience</div>
         <p className="mt-4 max-w-[900px] text-[16px] leading-8 text-[#475467]">
           A functional, dark-mode-native product surface inspired by the provided app concept. Switch tabs to preview
           the full PreMeet journey across acquisition, auth, dashboard usage, report review, meeting creation, agent
@@ -38,7 +38,7 @@ export function Kit6AppExperienceSection() {
         <div className="flex flex-wrap items-center gap-3 border-b border-white/10 px-4 py-4 sm:px-6">
           <button
             onClick={() => setActiveTab('landing')}
-            className="font-['Syne'] text-[18px] font-extrabold tracking-[-0.03em] text-white"
+            className="font-['Syne'] text-[18px] font-extrabold tracking-[-0.025em] text-white"
           >
             PRE<span className="text-[#7C5CFC]">MEET</span>
           </button>
@@ -75,7 +75,7 @@ export function Kit6AppExperienceSection() {
                 <span className="size-2 rounded-full bg-[#10D98C]" />
                 Agent-to-Agent Pre-Meeting Intelligence
               </div>
-              <div className="relative mx-auto mt-6 max-w-[720px] font-['Syne'] text-[34px] font-extrabold leading-[1.02] tracking-[-0.06em] text-white sm:text-[54px]">
+              <div className="relative mx-auto mt-6 max-w-[720px] font-['Syne'] text-[34px] font-extrabold leading-[1.02] tracking-[-0.025em] text-white sm:text-[54px]">
                 Your agents meet <br />
                 <span className="text-[#7C5CFC]">before you do.</span>
               </div>
@@ -161,7 +161,7 @@ export function Kit6AppExperienceSection() {
               </aside>
               <div className="space-y-5">
                 <div>
-                  <div className="text-[28px] font-semibold tracking-[-0.04em] text-white">Good morning, Alex</div>
+                  <div className="text-[28px] font-semibold tracking-[-0.025em] text-white">Good morning, Alex</div>
                   <div className="mt-2 text-[14px] text-[#8B95A3]">You have 3 meetings today. 2 Gap Reports ready.</div>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
@@ -173,7 +173,7 @@ export function Kit6AppExperienceSection() {
                   ].map(([label, value, detail, tone]) => (
                     <div key={label} className="rounded-[20px] border border-white/8 bg-[#111418] p-5">
                       <div className="text-[12px] text-[#8B95A3]">{label}</div>
-                      <div className="mt-3 text-[34px] font-semibold tracking-[-0.05em]" style={{ color: tone }}>
+                      <div className="mt-3 text-[34px] font-semibold tracking-[-0.025em]" style={{ color: tone }}>
                         {value}
                       </div>
                       <div className="mt-2 text-[13px] leading-6 text-[#8B95A3]">{detail}</div>
@@ -222,7 +222,7 @@ export function Kit6AppExperienceSection() {
             <div className="mx-auto max-w-[980px] rounded-[24px] border border-white/8 bg-[#111418] p-5 sm:p-6">
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
-                  <div className="text-[28px] font-semibold tracking-[-0.04em] text-white">Q2 Roadmap Review</div>
+                  <div className="text-[28px] font-semibold tracking-[-0.025em] text-white">Q2 Roadmap Review</div>
                   <div className="mt-2 text-[14px] text-[#8B95A3]">
                     Gap Report delivered 30 minutes before meeting � 5 attendees
                   </div>
@@ -280,7 +280,7 @@ export function Kit6AppExperienceSection() {
 
           {activeTab === 'new-meeting' ? (
             <div className="mx-auto max-w-[760px] rounded-[24px] border border-white/8 bg-[#111418] p-5 sm:p-6">
-              <div className="text-[26px] font-semibold tracking-[-0.04em] text-white">Create a new meeting</div>
+              <div className="text-[26px] font-semibold tracking-[-0.025em] text-white">Create a new meeting</div>
               <div className="mt-6 grid gap-4">
                 {[
                   ['Meeting title', 'Q2 roadmap review'],
@@ -315,7 +315,7 @@ export function Kit6AppExperienceSection() {
             <div className="rounded-[24px] border border-white/8 bg-[#111418] p-5 sm:p-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <div className="text-[26px] font-semibold tracking-[-0.04em] text-white">Agent Health</div>
+                  <div className="text-[26px] font-semibold tracking-[-0.025em] text-white">Agent Health</div>
                   <div className="mt-2 text-[14px] text-[#8B95A3]">
                     Each employee owns their own agent and integrations.
                   </div>
@@ -365,7 +365,7 @@ export function Kit6AppExperienceSection() {
                 ].map(([label, value]) => (
                   <div key={label} className="rounded-[20px] border border-white/8 bg-[#111418] p-5">
                     <div className="text-[12px] text-[#8B95A3]">{label}</div>
-                    <div className="mt-3 text-[34px] font-semibold tracking-[-0.05em] text-white">{value}</div>
+                    <div className="mt-3 text-[34px] font-semibold tracking-[-0.025em] text-white">{value}</div>
                   </div>
                 ))}
               </div>
